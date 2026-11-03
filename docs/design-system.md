@@ -117,3 +117,80 @@ body {
   - Layout is centered with generous breathing room.
   - Stage flares scale proportionally in the background.
   - Zero browser scrollbar appears.
+
+---
+
+## 4. Light Theme Portfolio Component Architecture (v2.0)
+
+For public-facing marketing and portfolio displays (`site.css`):
+
+### 4.1 Portfolio & Media Grid Specifications
+- **Program Cards**: Responsive 2-column grid (`@media (max-width: 768px)` collapses to 1-column).
+- **Aspect Ratio Policy**: Master exhibition photos use a stable `16:10` aspect ratio (`object-fit: cover`).
+- **Interactive Lightbox**: All images support high-resolution click-to-zoom overlays via `[data-lightbox-src]`.
+- **Image Optimization Standard**: All photographic assets must be encoded in `.webp` format at `quality=84`, reducing payload size by >60% compared to raw camera JPEGs.
+
+### 4.2 Floating WhatsApp Action Architecture
+- **Positioning**: Fixed at `bottom: 24px; right: 24px; z-index: 999;`.
+- **Dimensions**: `58px × 58px` circle with vibrant WhatsApp green (`#25D366`).
+- **Pulse Beacon Animation**: Ambient radial ring pulse alerting mobile visitors to immediate chat availability.
+
+### 4.3 Card-Level Multi-Image Carousel & Indicators (v2.1.0)
+- **Side Navigation Handles**: Translucent circular arrow controls (`.ft-media-nav-prev` / `.ft-media-nav-next`) positioned at `top: 50%; transform: translateY(-50%)` with smooth hover elevation.
+- **Micro Dot Indicators**: Compact pill at `bottom: 12px; left: 50%; transform: translateX(-50%)` displaying current slide position.
+- **Synchronized Thumbnail Strip**: Clicking miniature gallery thumbnails below the description updates the main media view, indicator dot, and lightbox target in real-time.
+
+### 4.4 Infinite Marquee Animation Specification
+- **Velocity**: 32 seconds per full traversal loop (`animation: ft-marquee 32s linear infinite`).
+- **Masking**: Smooth 12% alpha gradient fade at left and right edges (`mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)`).
+- **Interaction**: Cursor hover triggers `animation-play-state: paused` for easy readability.
+
+### 4.5 Numerical Counter Animation Engine
+- **Trigger**: Single-shot `IntersectionObserver` when `.ft-stats-ribbon` enters 25% of viewport.
+- **Easing**: Exponential ease-out curve (`1 - (1 - progress)^3`) over 1,600ms duration.
+- **Formatting**: Auto-commas for thousands (`2,000+`) and preserved unit suffixes (`+`, `%`).
+
+---
+
+## 7. Mobile Hero Badge Standard
+
+- **Class**: `.ft-badge-hero`
+- **Specification**: Designed to fit strictly on a single line on any mobile device down to 320px screen width.
+- **CSS Enforcement**:
+  ```css
+  .ft-badge-hero {
+    font-size: clamp(0.65rem, 2.2vw, 0.75rem);
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media (max-width: 768px) {
+    .ft-badge-hero {
+      font-size: 0.6875rem;
+      padding: 4px 12px;
+      letter-spacing: 0.04em;
+    }
+  }
+  @media (max-width: 380px) {
+    .ft-badge-hero {
+      font-size: 0.625rem;
+      padding: 3px 10px;
+    }
+  }
+  ```
+
+---
+
+## 8. Frictionless Contact & Executive Agency Footer
+
+- **Zero-Form Policy**: Eliminates input fatigue. Direct tap actions for WhatsApp (`+880 1671-863685`), 24/7 Hotline, Official Email Desk, and Studio Location.
+- **Floating WhatsApp Smart Collision Avoidance**: Uses `IntersectionObserver` to hide the fixed WhatsApp button when `#contact` or `.ft-footer` enters viewport, avoiding any overlay on mobile.
+- **Agency Footer Architecture**:
+  - Top tricolor accent line: Solar Amber (`#F09320`) → Nordic Teal (`#4694B1`) → WhatsApp Green (`#25D366`).
+  - Obsidian surface `#060B13`.
+  - 4-column layout: Brand Essence with operation hubs (`Chattogram Hub` & `Dhaka Operations`), Agency Navigation, Event Specializations, and Direct Production Desk.
+  - Interactive "Back to Main Stage" smooth glide button.
+
+
+

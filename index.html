@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Fine Tuning - Orchestrating Extraordinary Experiences | Maintenance Mode</title>
-  <meta name="description" content="Fine Tuning is Dhaka's premier Event Management & Experiential Advertising Agency. Our stage is currently undergoing fine-tuning. We will be live shortly.">
-  <link rel="icon" type="image/png" href="images/Fine%20Tuning%20icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fine Tuning - Orchestrating Extraordinary Experiences | Event Management & Advertising Agency</title>
+  <meta name="description" content="Fine Tuning is Dhaka and Chattogram's premier event management and experiential advertising agency. Precision calibration for corporate summits, exhibition pavilions, brand activations, and grand retreats.">
+  <link rel="icon" type="image/png" href="images/fine-tuning-icon.png">
 
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://finetuning.com.bd/">
   <meta property="og:title" content="Fine Tuning - Orchestrating Extraordinary Experiences">
-  <meta property="og:description" content="Dhaka's premier Event Management & Experiential Advertising Agency. Our stage is currently undergoing fine-tuning. Back shortly.">
+  <meta property="og:description" content="Dhaka and Chattogram's premier Event Management & Experiential Advertising Agency. Flawless corporate summits, exhibition pavilions, and brand experiences.">
   <meta property="og:image" content="https://finetuning.com.bd/images/og-thumbnail.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://finetuning.com.bd/">
   <meta name="twitter:title" content="Fine Tuning - Orchestrating Extraordinary Experiences">
-  <meta name="twitter:description" content="Dhaka's premier Event Management & Experiential Advertising Agency. Our stage is currently undergoing fine-tuning.">
+  <meta name="twitter:description" content="Dhaka and Chattogram's premier Event Management & Experiential Advertising Agency. Precision calibration from concept to spotlight.">
   <meta name="twitter:image" content="https://finetuning.com.bd/images/og-thumbnail.png">
 
   <!-- Google Fonts: Modern Agency Typeface (Outfit + Syne + JetBrains Mono) -->
@@ -28,297 +28,796 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- Core Brand Tokens & Components -->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="finetuning/css/tokens.css">
   <link rel="stylesheet" href="finetuning/css/components.css">
+  <link rel="stylesheet" href="finetuning/css/site.css">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
-      width: 100%;
-      overflow: hidden;
-      background-color: var(--ft-bg-root);
-      color: var(--ft-text-primary);
-      font-family: var(--ft-font-body);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Ambient Stage Flares */
-    .ft-stage-flares {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .ft-flare-top {
-      position: absolute;
-      top: -15vh;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80vw;
-      height: 50vh;
-      max-width: 900px;
-      background: radial-gradient(circle, rgba(240, 147, 32, 0.16) 0%, rgba(240, 147, 32, 0) 70%);
-      filter: blur(80px);
-    }
-
-    .ft-flare-bottom {
-      position: absolute;
-      bottom: -15vh;
-      right: -10vw;
-      width: 60vw;
-      height: 50vh;
-      max-width: 700px;
-      background: radial-gradient(circle, rgba(70, 148, 177, 0.15) 0%, rgba(70, 148, 177, 0) 70%);
-      filter: blur(80px);
-    }
-
-    .ft-stage-grid {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(to right, rgba(70, 148, 177, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(70, 148, 177, 0.04) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
-    }
-
-    /* Strict Single-Screen Container */
-    .ft-page-container {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
-      max-height: 100dvh;
-      width: 100%;
-      padding: clamp(14px, 2.5vh, 32px) clamp(16px, 4vw, 36px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-    }
-
-    /* 1. Header (Brand Logo) */
-    .ft-header {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .ft-brand-logo {
-      height: clamp(34px, 5.5vh, 50px);
-      width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 14px rgba(240, 147, 32, 0.25));
-    }
-
-    /* 2. Hero Center Section */
-    .ft-hero {
-      width: 100%;
-      max-width: 680px;
-      margin: auto 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(6px, 1.5vh, 16px) 0;
-    }
-
-    .ft-status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(17, 30, 51, 0.85);
-      border: 1px solid rgba(70, 148, 177, 0.35);
-      padding: 5px 14px;
-      border-radius: var(--ft-radius-full);
-      font-size: clamp(0.6875rem, 1.4vh, 0.75rem);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ft-color-teal-400);
-      margin-bottom: clamp(10px, 2vh, 18px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .ft-title {
-      font-family: var(--ft-font-display);
-      font-size: clamp(1.65rem, 4.4vh, 3.0rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: #FFFFFF;
-      margin-bottom: clamp(8px, 1.8vh, 16px);
-    }
-
-    .ft-title-gradient {
-      background: linear-gradient(135deg, #F09320 0%, #FBBF24 50%, #4694B1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-
-    .ft-subtitle {
-      font-size: clamp(0.8125rem, 1.8vh, 1.025rem);
-      color: var(--ft-text-secondary);
-      line-height: 1.5;
-      max-width: 520px;
-      margin: 0 auto clamp(16px, 3vh, 26px) auto;
-    }
-
-    /* VIP Notify Form */
-    .ft-notify-form {
-      width: 100%;
-      max-width: 440px;
-      position: relative;
-    }
-
-    .ft-notify-box {
-      background: var(--ft-bg-glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--ft-border-subtle);
-      border-radius: var(--ft-radius-full);
-      padding: 4px 6px 4px 18px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      width: 100%;
-      box-shadow: var(--ft-shadow-lg);
-      transition: border-color var(--ft-transition-normal);
-    }
-
-    .ft-notify-box:focus-within {
-      border-color: var(--ft-color-amber-500);
-      box-shadow: 0 0 20px rgba(240, 147, 32, 0.25);
-    }
-
-    .ft-notify-input {
-      background: transparent;
-      border: none;
-      outline: none;
-      color: var(--ft-text-primary);
-      font-family: var(--ft-font-body);
-      font-size: clamp(0.8125rem, 1.6vh, 0.9375rem);
-      flex-grow: 1;
-      min-width: 0;
-    }
-
-    .ft-notify-input::placeholder {
-      color: var(--ft-text-muted);
-    }
-
-    .ft-notify-btn {
-      flex-shrink: 0;
-      border-radius: var(--ft-radius-full) !important;
-      padding: 0 18px !important;
-      height: clamp(34px, 4.4vh, 40px) !important;
-      font-size: clamp(0.75rem, 1.5vh, 0.8125rem) !important;
-    }
-
-    .ft-feedback {
-      display: none;
-      font-size: clamp(0.75rem, 1.5vh, 0.8125rem);
-      margin-top: 8px;
-      color: var(--ft-status-success);
-    }
-
-    /* 3. Footer */
-    .ft-footer {
-      width: 100%;
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: clamp(0.6875rem, 1.4vh, 0.78125rem);
-      color: var(--ft-text-muted);
-      border-top: 1px solid rgba(70, 148, 177, 0.15);
-      padding-top: clamp(8px, 1.5vh, 16px);
-    }
-
-    .ft-footer a {
-      color: var(--ft-color-amber-500);
-      text-decoration: none;
-      transition: color var(--ft-transition-fast);
-    }
-
-    .ft-footer a:hover {
-      color: var(--ft-color-amber-400);
-      text-decoration: underline;
-    }
-  </style>
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EventVenue",
+    "name": "Fine Tuning",
+    "alternateName": "Fine Tuning Advertising Agency",
+    "url": "https://finetuning.com.bd",
+    "logo": "https://finetuning.com.bd/images/fine-tuning-logo.png",
+    "image": "https://finetuning.com.bd/images/og-thumbnail.png",
+    "description": "Dhaka and Chattogram's premier Event Management & Experiential Advertising Agency.",
+    "telephone": "+8801671863685",
+    "email": "finetuningbd@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Shop No. 01, CDA Market, Kajir Dewri",
+      "addressLocality": "Chittagong",
+      "postalCode": "4203",
+      "addressCountry": "BD"
+    },
+    "sameAs": [
+      "https://facebook.com/finetuningbd",
+      "https://instagram.com/finetuningbd"
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Background Ambient Stage Flares -->
-  <div class="ft-stage-flares">
-    <div class="ft-flare-top"></div>
-    <div class="ft-flare-bottom"></div>
-    <div class="ft-stage-grid"></div>
+  <!-- Ambient Moving Grid & Lighting Effects -->
+  <div class="ft-site-ambient">
+    <div class="ft-animated-grid"></div>
+    <div class="ft-site-beam"></div>
+    <div class="ft-site-glow-amber"></div>
+    <div class="ft-site-glow-teal"></div>
   </div>
 
-  <!-- Single-Screen Viewport Container -->
-  <div class="ft-page-container">
+  <!-- Sticky Top Navigation Header -->
+  <header class="ft-header">
+    <div class="ft-container ft-header-inner">
+      <a href="#hero" class="ft-brand-link" aria-label="Fine Tuning Home">
+        <img src="images/fine-tuning-icon.png" alt="Fine Tuning Emblem" class="ft-brand-logo">
+        <div class="ft-brand-titles">
+          <span class="ft-brand-heading">Fine Tuning</span>
+          <span class="ft-brand-sub">Advertising Agency</span>
+        </div>
+      </a>
 
-    <!-- Top: Brand Logo -->
-    <header class="ft-header">
-      <img src="images/Fine%20Tuning%20Logo.png" alt="Fine Tuning - Advertising Agency" class="ft-brand-logo">
-    </header>
+      <!-- Desktop Nav Links -->
+      <nav class="ft-nav" aria-label="Primary Navigation">
+        <a href="#about" class="ft-nav-link">About</a>
+        <a href="#services" class="ft-nav-link">Services</a>
+        <a href="#portfolio" class="ft-nav-link">Portfolio</a>
+        <a href="#clients" class="ft-nav-link">Clients</a>
+        <a href="#contact" class="ft-nav-link">Contact</a>
+      </nav>
 
-    <!-- Center: Maintenance Hero Message -->
-    <main class="ft-hero">
-      <div class="ft-status-pill">
-        <span class="ft-beacon-dot"></span>
-        STAGE CALIBRATION IN PROGRESS
+      <!-- Desktop Header Action: Sleek Single Live Indicator Pill (Hidden on Mobile) -->
+      <div class="ft-header-cta">
+        <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning%20team,%20I%20would%20like%20to%20discuss%20planning%20an%20event." target="_blank" rel="noopener noreferrer" class="ft-whatsapp-pill" title="WhatsApp Live Desk">
+          <span class="ft-beacon-dot-live"></span>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>WhatsApp Live</span>
+        </a>
+        <button id="ft-hamburger-btn" class="ft-hamburger-btn" aria-label="Toggle Navigation Drawer" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Right-Slide Mobile Drawer Navigation -->
+  <div id="ft-drawer-backdrop" class="ft-drawer-backdrop"></div>
+  <aside id="ft-mobile-drawer" class="ft-mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div>
+      <div class="ft-drawer-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="images/fine-tuning-icon.png" alt="Emblem" style="height: 32px; width: auto;">
+          <span style="font-family: var(--ft-font-display); font-weight: 800; font-size: 1.1rem; color: var(--ft-text-primary);">Fine Tuning</span>
+        </div>
+        <button id="ft-drawer-close" class="ft-drawer-close" aria-label="Close Navigation Drawer">&times;</button>
       </div>
 
-      <h1 class="ft-title">
-        We Are Fine-Tuning <span class="ft-title-gradient">Something Extraordinary</span>
-      </h1>
+      <nav class="ft-drawer-nav">
+        <a href="#about" class="ft-drawer-nav-link">
+          <span>About Fine Tuning</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="#services" class="ft-drawer-nav-link">
+          <span>Our Services</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="#portfolio" class="ft-drawer-nav-link">
+          <span>Featured Portfolio</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="#clients" class="ft-drawer-nav-link">
+          <span>Our Clients</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="#contact" class="ft-drawer-nav-link">
+          <span>Contact Desk</span>
+          <span>&rarr;</span>
+        </a>
+      </nav>
+    </div>
 
-      <p class="ft-subtitle">
-        Dhaka's premier event management & experiential advertising agency is calibrating our new digital stage. We will be back shortly with our full portfolio.
-      </p>
+    <div class="ft-drawer-footer">
+      <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning%20team,%20I%20would%20like%20to%20discuss%20planning%20an%20event." target="_blank" rel="noopener noreferrer" class="ft-whatsapp-primary-btn" style="margin-bottom: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Message on WhatsApp</span>
+      </a>
+    </div>
+  </aside>
 
-    </main>
+  <main>
+    <!-- Hero Section (Single-Line Mobile Badge) -->
+    <section id="hero" class="ft-hero">
+      <div class="ft-container ft-hero-inner">
+        <!-- Single-Line Compact Hero Badge -->
+        <div class="ft-badge-hero">
+          <span class="ft-badge-star">★</span> Premier Event Management
+        </div>
 
-    <!-- Bottom: Clean Single-Line Footer -->
-    <footer class="ft-footer">
-      <span>&copy; 2026 Fine Tuning &bull; All Rights Reserved.</span>
-      <span>&bull;</span>
-      <span>Dhaka, Bangladesh</span>
-      <span>&bull;</span>
-      <a href="mailto:finetuningbd@gmail.com">finetuningbd@gmail.com</a>
-    </footer>
+        <h1 class="ft-hero-title">
+          Orchestrating <span class="ft-highlight">Extraordinary Experiences</span> & Brand Activations
+        </h1>
 
+        <p class="ft-hero-desc">
+          Dhaka & Chattogram's premier event production agency. From high-level corporate ESG summits and luxury automotive pavilions to scenic destination retreats and national competitions—we calibrate every sonic, visual, and operational detail until it achieves absolute resonance.
+        </p>
+
+        <!-- Refined Hero CTAs -->
+        <div class="ft-hero-ctas">
+          <a href="#portfolio" class="ft-btn-primary-hero">
+            <span>Explore Featured Case Studies</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+          </a>
+
+          <a href="#services" class="ft-btn-secondary-hero">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Our Event Capabilities</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Key Performance Metrics Ribbon (with Counter Animation) -->
+      <div class="ft-container">
+        <div class="ft-stats-ribbon ft-reveal">
+          <div class="ft-stats-grid">
+            <div class="ft-stat-item">
+              <div class="ft-stat-num" data-count="45+">0</div>
+              <div class="ft-stat-label">Major Summits & Events</div>
+            </div>
+            <div class="ft-stat-item">
+              <div class="ft-stat-num" data-count="2000+">0</div>
+              <div class="ft-stat-label">Peak Attendance Managed</div>
+            </div>
+            <div class="ft-stat-item">
+              <div class="ft-stat-num" data-count="100%">0</div>
+              <div class="ft-stat-label">On-Time Execution</div>
+            </div>
+            <div class="ft-stat-item">
+              <div class="ft-stat-num" data-count="6+">0</div>
+              <div class="ft-stat-label">Event Specializations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & The Fine Tuning Standard -->
+    <section id="about" class="ft-section" style="background-color: rgba(248, 250, 252, 0.7); border-top: 1px solid var(--ft-border-subtle); border-bottom: 1px solid var(--ft-border-subtle);">
+      <div class="ft-container">
+        <div class="ft-section-header ft-reveal">
+          <span class="ft-section-kicker">Brand Philosophy</span>
+          <h2 class="ft-section-title">The Fine Tuning Standard</h2>
+          <p class="ft-section-subtitle">
+            Fine Tuning represents the art of harmonic orchestration, acoustic perfection, and precision execution in the modern event landscape.
+          </p>
+        </div>
+
+        <div class="ft-pillars-grid">
+          <div class="ft-pillar-card ft-reveal">
+            <div class="ft-pillar-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3 class="ft-pillar-title">Precision Calibration</h3>
+            <p class="ft-pillar-desc">
+              Nothing is left to chance. Every acoustic frequency, lighting cue, guest journey, and operational millisecond is dialed to absolute perfection.
+            </p>
+          </div>
+
+          <div class="ft-pillar-card ft-reveal">
+            <div class="ft-pillar-icon teal">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 class="ft-pillar-title">Dynamic Vitality</h3>
+            <p class="ft-pillar-desc">
+              Infused with the warmth and celebration of our Solar Amber palette, bringing vibrant energy, excitement, and unforgettable presence to every stage.
+            </p>
+          </div>
+
+          <div class="ft-pillar-card ft-reveal">
+            <div class="ft-pillar-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="ft-pillar-title">Architectural Trust & Safety</h3>
+            <p class="ft-pillar-desc">
+              Backed by robust staging engineering, structural integrity, crowd management protocols, and all-weather operational readiness.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="ft-section">
+      <div class="ft-container">
+        <div class="ft-section-header ft-reveal">
+          <span class="ft-section-kicker">What We Do</span>
+          <h2 class="ft-section-title">End-to-End Event Production</h2>
+          <p class="ft-section-subtitle">
+            From initial creative concept to the final spotlight, our turnkey production capabilities deliver seamless execution across six core domains.
+          </p>
+        </div>
+
+        <div class="ft-services-grid">
+          <!-- Service 1 -->
+          <div class="ft-service-card ft-reveal">
+            <div class="ft-service-top">
+              <span class="ft-service-badge">Corporate Summits</span>
+              <h3 class="ft-service-title">ESG Summits & Executive Conferences</h3>
+              <p class="ft-service-desc">
+                High-stakes corporate gatherings, board meetings, and sustainability summits engineered for corporate prestige.
+              </p>
+              <ul class="ft-service-features">
+                <li>Panoramic Curved LED Stage Backdrops</li>
+                <li>VIP Dais Fabrication & Podiums</li>
+                <li>Professional Wayfinding & Eco Branding</li>
+                <li>Multi-Channel Delegate Acoustics</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20I%20am%20interested%20in%20organizing%20a%20Corporate%20Summit%20or%20Conference." target="_blank" rel="noopener noreferrer" class="ft-service-link">
+              <span>Discuss Corporate Event &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="ft-service-card ft-reveal">
+            <div class="ft-service-top">
+              <span class="ft-service-badge">Brand Activations</span>
+              <h3 class="ft-service-title">Exhibition Pavilions & Stalls</h3>
+              <p class="ft-service-desc">
+                Custom architectural exhibition structures, illuminated 3D typography, and interactive experiential displays.
+              </p>
+              <ul class="ft-service-features">
+                <li>Automotive & High-Tech Showrooms</li>
+                <li>Illuminated 3D Neon Lettering</li>
+                <li>VIP Hospitality & Consultation Lounges</li>
+                <li>Trade Show Fabrication & Lighting</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20I%20am%20interested%20in%20an%20Exhibition%20Stall%20or%20Pavilion." target="_blank" rel="noopener noreferrer" class="ft-service-link">
+              <span>Book Pavilion Design &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="ft-service-card ft-reveal">
+            <div class="ft-service-top">
+              <span class="ft-service-badge">Retreats & Festivals</span>
+              <h3 class="ft-service-title">Destination Retreats & Reunions</h3>
+              <p class="ft-service-desc">
+                Scenic destination corporate get-togethers, traditional Mezbans, and alumni reunions for up to 2,000+ guests.
+              </p>
+              <ul class="ft-service-features">
+                <li>Scenic Destination Stages (Lakes, Hills)</li>
+                <li>Branded Merchandise & Executive Polos</li>
+                <li>Large-Scale Banquet Staging & Logistics</li>
+                <li>Recreational & Team-Building Programs</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20I%20would%20like%20to%20plan%20a%20Corporate%20Retreat%20or%20Reunion." target="_blank" rel="noopener noreferrer" class="ft-service-link">
+              <span>Plan Retreat on WhatsApp &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="ft-service-card ft-reveal">
+            <div class="ft-service-top">
+              <span class="ft-service-badge">Youth & Academic</span>
+              <h3 class="ft-service-title">National Competitions & Summits</h3>
+              <p class="ft-service-desc">
+                High-energy business case competitions, national moot court contests, and university leadership platforms.
+              </p>
+              <ul class="ft-service-features">
+                <li>Dynamic Sponsor Avenues & Standees</li>
+                <li>Grand Finale Stage Lighting & Audio</li>
+                <li>Live Scoreboard & Countdown Graphics</li>
+                <li>Trophy & Award Gala Production</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20we%20want%20to%20host%20a%20National%20Competition%20or%20Campus%20Event." target="_blank" rel="noopener noreferrer" class="ft-service-link">
+              <span>Inquire for Competitions &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="ft-service-card ft-reveal">
+            <div class="ft-service-top">
+              <span class="ft-service-badge">Outdoor Broadcasts</span>
+              <h3 class="ft-service-title">Giant LED Stadium Screenings</h3>
+              <p class="ft-service-desc">
+                Massive outdoor screen setups with zero-latency live feeds and concert-grade line array audio systems.
+              </p>
+              <ul class="ft-service-features">
+                <li>Weatherproof Outdoor LED Screens</li>
+                <li>High-Voltage Stadium Audio Rigs</li>
+                <li>Crowd Tiering & Security Flow</li>
+                <li>Multi-Venue Synchronized Feeds</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20we%20need%20a%20Giant%20Outdoor%20LED%20Screen%20Setup." target="_blank" rel="noopener noreferrer" class="ft-service-link">
+              <span>Book LED Screen Hub &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="ft-service-card ft-reveal">
+            <div class="ft-service-top">
+              <span class="ft-service-badge">Media & Tech</span>
+              <h3 class="ft-service-title">Documentaries & 360 Video Booths</h3>
+              <p class="ft-service-desc">
+                Biographical corporate films, high-definition event videography, and interactive 360 video booth activations.
+              </p>
+              <ul class="ft-service-features">
+                <li>Research, Scriptwriting & Direction</li>
+                <li>Interactive 360 Video Photo Booth</li>
+                <li>Custom Instant Digital Branding Overlays</li>
+                <li>Cinematic Post-Event Highlight Films</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20I%20am%20interested%20in%20Media%20Production%20or%20a%20360%20Photo%20Booth." target="_blank" rel="noopener noreferrer" class="ft-service-link">
+              <span>Rent 360 Booth &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio & Event Programs Showcase -->
+    <section id="portfolio" class="ft-section" style="background-color: rgba(248, 250, 252, 0.7); border-top: 1px solid var(--ft-border-subtle); border-bottom: 1px solid var(--ft-border-subtle);">
+      <div class="ft-container">
+        <div class="ft-section-header ft-reveal">
+          <span class="ft-section-kicker">Curated Portfolio</span>
+          <h2 class="ft-section-title">Real Programs & Verified Case Studies</h2>
+          <p class="ft-section-subtitle">
+            Explore our hallmark executions. Use the side arrows (‹ / ›) or thumbnails on each card to browse photos, or click any photo to enlarge.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="ft-portfolio-filters ft-reveal">
+          <button class="ft-filter-btn is-active" data-filter="all">All Programs</button>
+          <button class="ft-filter-btn" data-filter="exhibitions">Exhibition Pavilions</button>
+          <button class="ft-filter-btn" data-filter="corporate">Corporate & ESG</button>
+          <button class="ft-filter-btn" data-filter="competitions">Competitions</button>
+          <button class="ft-filter-btn" data-filter="retreats">Retreats & Festivals</button>
+        </div>
+
+        <div class="ft-programs-grid">
+          <!-- Program 1: 8th Motor Fest -->
+          <article class="ft-program-card ft-reveal" data-category="exhibitions" data-prog-id="prog-01">
+            <div class="ft-program-media-viewport">
+              <img src="images/webp/program-01/motorfest-byd-royalenfield-master.webp" alt="8th Motor Fest Exhibition Stalls" class="ft-program-img" data-lightbox-src="images/webp/program-01/motorfest-byd-royalenfield-master.webp" data-lightbox-caption="8th Motor Fest Chattogram: BYD Seal 5 & Sealion 6 Pavilion (Top) and Royal Enfield Motorcycle Showcase (Bottom)" loading="lazy">
+            </div>
+            <div class="ft-program-content">
+              <div>
+                <div class="ft-program-meta">
+                  <span class="ft-program-client">BYD & Royal Enfield</span>
+                  <span class="ft-program-date">October 2026</span>
+                </div>
+                <h3 class="ft-program-title">8th Motor Fest, Chattogram: Exhibition Pavilions</h3>
+                <p class="ft-program-desc">
+                  Turnkey design and fabrication of two premier pavilions: the BYD Electric Vehicle Showcase featuring illuminated 3D typography for Seal 5 and Sealion 6, alongside the Royal Enfield vintage heritage motorcycle booth with GP Lubricants.
+                </p>
+              </div>
+              <div class="ft-program-gallery-previews">
+                <div class="ft-gallery-thumb is-active" data-lightbox-src="images/webp/program-01/motorfest-byd-royalenfield-master.webp" data-lightbox-caption="BYD & Royal Enfield Exhibition Stalls Overview">
+                  <img src="images/webp/program-01/motorfest-byd-royalenfield-master.webp" alt="Thumbnail 1">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Program 2: BSRM CORE ESG Event -->
+          <article class="ft-program-card ft-reveal" data-category="corporate" data-prog-id="prog-02">
+            <div class="ft-program-media-viewport">
+              <button class="ft-media-nav-btn ft-media-nav-prev" aria-label="Previous photo">‹</button>
+              <button class="ft-media-nav-btn ft-media-nav-next" aria-label="Next photo">›</button>
+              <div class="ft-media-indicators">
+                <span class="ft-indicator-dot is-active"></span>
+                <span class="ft-indicator-dot"></span>
+                <span class="ft-indicator-dot"></span>
+              </div>
+              <img src="images/webp/program-02/bsrm-esg-stage-led.webp" alt="BSRM CORE ESG Event Stage Production" class="ft-program-img" data-lightbox-src="images/webp/program-02/bsrm-esg-stage-led.webp" data-lightbox-caption="BSRM CORE ESG Event: Main Stage with curved panoramic LED backdrop, dais, and acoustic monitors" loading="lazy">
+            </div>
+            <div class="ft-program-content">
+              <div>
+                <div class="ft-program-meta">
+                  <span class="ft-program-client">BSRM Group</span>
+                  <span class="ft-program-date">September 2026</span>
+                </div>
+                <h3 class="ft-program-title">BSRM CORE ESG Event: National Corporate Summit</h3>
+                <p class="ft-program-desc">
+                  Immersive sustainability summit with a panoramic curved LED backdrop highlighting Carbon Reduction and Ethical Governance, comprehensive delegate banquet hall audio-visuals, and green eco-themed wayfinding totems.
+                </p>
+              </div>
+              <div class="ft-program-gallery-previews">
+                <div class="ft-gallery-thumb is-active" data-lightbox-src="images/webp/program-02/bsrm-esg-stage-led.webp" data-lightbox-caption="BSRM CORE ESG Main Stage LED">
+                  <img src="images/webp/program-02/bsrm-esg-stage-led.webp" alt="Stage Thumb">
+                </div>
+                <div class="ft-gallery-thumb" data-lightbox-src="images/webp/program-02/bsrm-esg-banquet-hall.webp" data-lightbox-caption="BSRM CORE Banquet Hall & Delegate Seating">
+                  <img src="images/webp/program-02/bsrm-esg-banquet-hall.webp" alt="Banquet Thumb">
+                </div>
+                <div class="ft-gallery-thumb" data-lightbox-src="images/webp/program-02/bsrm-esg-wayfinding-standee.webp" data-lightbox-caption="BSRM CORE ESG Entrance Wayfinding Totem">
+                  <img src="images/webp/program-02/bsrm-esg-wayfinding-standee.webp" alt="Wayfinding Thumb">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Program 3: BIZSTAR Season V -->
+          <article class="ft-program-card ft-reveal" data-category="competitions" data-prog-id="prog-03">
+            <div class="ft-program-media-viewport">
+              <button class="ft-media-nav-btn ft-media-nav-prev" aria-label="Previous photo">‹</button>
+              <button class="ft-media-nav-btn ft-media-nav-next" aria-label="Next photo">›</button>
+              <div class="ft-media-indicators">
+                <span class="ft-indicator-dot is-active"></span>
+                <span class="ft-indicator-dot"></span>
+                <span class="ft-indicator-dot"></span>
+                <span class="ft-indicator-dot"></span>
+              </div>
+              <img src="images/webp/program-03/bizstar-sponsor-standees.webp" alt="BIZSTAR Season V Grand Finale" class="ft-program-img" data-lightbox-src="images/webp/program-03/bizstar-sponsor-standees.webp" data-lightbox-caption="BIZSTAR Season V Grand Finale: Outdoor Campus Sponsor Avenue with KDS, DDN, and Seven Rings Cement Standees" loading="lazy">
+            </div>
+            <div class="ft-program-content">
+              <div>
+                <div class="ft-program-meta">
+                  <span class="ft-program-client">Univ of Chittagong & KDS</span>
+                  <span class="ft-program-date">August - Sept 2026</span>
+                </div>
+                <h3 class="ft-program-title">BIZSTAR Season V: National Case Competition Finale</h3>
+                <p class="ft-program-desc">
+                  National business case tournament organized with the Accounting Communication Club. Included campus outdoor branding avenues, multi-partner sponsor pavilions (KDS, Seven Rings Cement, ELB), stage lighting, and award ceremonies.
+                </p>
+              </div>
+              <div class="ft-program-gallery-previews">
+                <div class="ft-gallery-thumb is-active" data-lightbox-src="images/webp/program-03/bizstar-sponsor-standees.webp" data-lightbox-caption="BIZSTAR Sponsor Avenue">
+                  <img src="images/webp/program-03/bizstar-sponsor-standees.webp" alt="Thumb">
+                </div>
+                <div class="ft-gallery-thumb" data-lightbox-src="images/webp/program-03/bizstar-grand-finale-stage.webp" data-lightbox-caption="BIZSTAR Grand Finale Stage Visuals">
+                  <img src="images/webp/program-03/bizstar-grand-finale-stage.webp" alt="Thumb">
+                </div>
+                <div class="ft-gallery-thumb" data-lightbox-src="images/webp/program-03/bizstar-competition-hall.webp" data-lightbox-caption="BIZSTAR Competition Auditorium Hall">
+                  <img src="images/webp/program-03/bizstar-competition-hall.webp" alt="Thumb">
+                </div>
+                <div class="ft-gallery-thumb" data-lightbox-src="images/webp/program-03/bizstar-trophy-moment.webp" data-lightbox-caption="BIZSTAR Trophy & Award Presentation">
+                  <img src="images/webp/program-03/bizstar-trophy-moment.webp" alt="Thumb">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Program 4: UCB Annual Get-Together 2026 -->
+          <article class="ft-program-card ft-reveal" data-category="retreats" data-prog-id="prog-04">
+            <div class="ft-program-media-viewport">
+              <button class="ft-media-nav-btn ft-media-nav-prev" aria-label="Previous photo">‹</button>
+              <button class="ft-media-nav-btn ft-media-nav-next" aria-label="Next photo">›</button>
+              <div class="ft-media-indicators">
+                <span class="ft-indicator-dot is-active"></span>
+                <span class="ft-indicator-dot"></span>
+                <span class="ft-indicator-dot"></span>
+                <span class="ft-indicator-dot"></span>
+              </div>
+              <img src="images/webp/program-04/ucb-lake-stage-backdrop.webp" alt="UCB Annual Get-Together 2026 Rangamati Stage" class="ft-program-img" data-lightbox-src="images/webp/program-04/ucb-lake-stage-backdrop.webp" data-lightbox-caption="UCB Annual Get-Together 2026: Scenic Open-Air Stage at Bargee Lake Valley, Rangamati" loading="lazy">
+            </div>
+            <div class="ft-program-content">
+              <div>
+                <div class="ft-program-meta">
+                  <span class="ft-program-client">United Commercial Bank PLC</span>
+                  <span class="ft-program-date">August 2026</span>
+                </div>
+                <h3 class="ft-program-title">UCB Annual Get-Together: Bargee Lake Valley, Rangamati</h3>
+                <p class="ft-program-desc">
+                  Corporate retreat for Chattogram North Outskirts Region of United Commercial Bank PLC. Custom lakeside stage setup, branded executive jerseys, recreational lakeside coordination, and complete scenic hospitality.
+                </p>
+              </div>
+              <div class="ft-program-gallery-previews">
+                <div class="ft-gallery-thumb is-active" data-lightbox-src="images/webp/program-04/ucb-lake-stage-backdrop.webp" data-lightbox-caption="UCB Lake Stage Backdrop">
+                  <img src="images/webp/program-04/ucb-lake-stage-backdrop.webp" alt="Thumb">
+                </div>
+                <div class="ft-gallery-thumb" data-lightbox-src="images/webp/program-04/ucb-corporate-team-group.webp" data-lightbox-caption="UCB Executive Team in Custom Branded Uniforms">
+                  <img src="images/webp/program-04/ucb-corporate-team-group.webp" alt="Thumb">
+                </div>
+                <div class="ft-gallery-thumb" data-lightbox-src="images/webp/program-04/ucb-rangamati-retreat-view.webp" data-lightbox-caption="Bargee Lake Valley Panoramic Retreat View">
+                  <img src="images/webp/program-04/ucb-rangamati-retreat-view.webp" alt="Thumb">
+                </div>
+                <div class="ft-gallery-thumb" data-lightbox-src="images/webp/program-04/ucb-lakeside-activities.webp" data-lightbox-caption="UCB Outdoor Gathering Atmosphere">
+                  <img src="images/webp/program-04/ucb-lakeside-activities.webp" alt="Thumb">
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted Partnerships: Automatic Continuous Infinite Slider / Marquee -->
+    <section id="clients" class="ft-clients-section">
+      <div class="ft-container">
+        <div class="ft-section-header ft-reveal" style="margin-bottom: var(--ft-space-8);">
+          <span class="ft-section-kicker">Trusted Partnerships</span>
+          <h2 class="ft-section-title" style="font-size: clamp(1.6rem, 3vw, 2.2rem);">Distinguished Brands & Institutions</h2>
+          <p class="ft-section-subtitle">Collaborating with industry pioneers, banks, automotive leaders, and universities.</p>
+        </div>
+      </div>
+
+      <!-- Continuous Infinite Slider Track (Pauses on Hover) -->
+      <div class="ft-marquee-wrapper">
+        <div class="ft-marquee-track">
+          <!-- Track 1 -->
+          <div class="ft-client-pill">★ BSRM Group</div>
+          <div class="ft-client-pill">★ United Commercial Bank (UCB)</div>
+          <div class="ft-client-pill">★ BYD Bangladesh</div>
+          <div class="ft-client-pill">★ Royal Enfield</div>
+          <div class="ft-client-pill">★ CPDL (Building Happiness)</div>
+          <div class="ft-client-pill">★ University of Chittagong</div>
+          <div class="ft-client-pill">★ BUET Graduates Club</div>
+          <div class="ft-client-pill">★ Akij Group</div>
+          <div class="ft-client-pill">★ KDS Group</div>
+          <div class="ft-client-pill">★ Seven Rings Cement</div>
+          <div class="ft-client-pill">★ Tealive</div>
+          <div class="ft-client-pill">★ Southern University Bangladesh</div>
+          <div class="ft-client-pill">★ Society for Critical Legal Studies</div>
+
+          <!-- Track 2 (Duplicate for Seamless Infinite Loop) -->
+          <div class="ft-client-pill">★ BSRM Group</div>
+          <div class="ft-client-pill">★ United Commercial Bank (UCB)</div>
+          <div class="ft-client-pill">★ BYD Bangladesh</div>
+          <div class="ft-client-pill">★ Royal Enfield</div>
+          <div class="ft-client-pill">★ CPDL (Building Happiness)</div>
+          <div class="ft-client-pill">★ University of Chittagong</div>
+          <div class="ft-client-pill">★ BUET Graduates Club</div>
+          <div class="ft-client-pill">★ Akij Group</div>
+          <div class="ft-client-pill">★ KDS Group</div>
+          <div class="ft-client-pill">★ Seven Rings Cement</div>
+          <div class="ft-client-pill">★ Tealive</div>
+          <div class="ft-client-pill">★ Southern University Bangladesh</div>
+          <div class="ft-client-pill">★ Society for Critical Legal Studies</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Refined Frictionless Contact Section (WhatsApp-First, Zero Forms, Elevated Cards) -->
+    <section id="contact" class="ft-section">
+      <div class="ft-container">
+        <div class="ft-contact-card ft-reveal">
+          <!-- Left Column: Direct Interaction Channels -->
+          <div class="ft-contact-info-block">
+            <span class="ft-section-kicker">Instant Communication</span>
+            <h3>Let's Orchestrate Your Next Milestone</h3>
+            <p>
+              Direct, agile communication with zero red tape. We have eliminated contact forms in favor of instant human connection. Connect directly with our executive event directors.
+            </p>
+
+            <div class="ft-contact-channels">
+              <!-- Channel 1: Official WhatsApp Direct -->
+              <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20I%20would%20like%20to%20discuss%20planning%20an%20event." target="_blank" rel="noopener noreferrer" class="ft-channel-card-item ft-channel-wa" title="Chat on WhatsApp">
+                <div class="ft-channel-icon green">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </div>
+                <div class="ft-channel-details">
+                  <div class="ft-channel-header-row">
+                    <span class="ft-channel-label">Official WhatsApp Direct</span>
+                    <span class="ft-channel-pill green">Online</span>
+                  </div>
+                  <span class="ft-channel-val">+880 1671-863685</span>
+                  <span class="ft-channel-sub">Instant chat & turnkey proposal consultations</span>
+                </div>
+                <div class="ft-channel-arrow">&rarr;</div>
+              </a>
+
+              <!-- Channel 2: Hotline Direct Call -->
+              <a href="tel:+8801671863685" class="ft-channel-card-item" title="Call Official Hotline">
+                <div class="ft-channel-icon amber">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="ft-channel-details">
+                  <div class="ft-channel-header-row">
+                    <span class="ft-channel-label">Direct Hotline / Call</span>
+                    <span class="ft-channel-pill amber">24/7 Available</span>
+                  </div>
+                  <span class="ft-channel-val">+880 1671-863685</span>
+                  <span class="ft-channel-sub">Tap to speak directly with production directors</span>
+                </div>
+                <div class="ft-channel-arrow">&rarr;</div>
+              </a>
+
+              <!-- Channel 3: Official Email Desk -->
+              <a href="mailto:finetuningbd@gmail.com" class="ft-channel-card-item" title="Send Official Email">
+                <div class="ft-channel-icon teal">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="ft-channel-details">
+                  <div class="ft-channel-header-row">
+                    <span class="ft-channel-label">Official Email Desk</span>
+                  </div>
+                  <span class="ft-channel-val">finetuningbd@gmail.com</span>
+                  <span class="ft-channel-sub">Formal RFPs, brand briefs & corporate inquiries</span>
+                </div>
+                <div class="ft-channel-arrow">&rarr;</div>
+              </a>
+
+              <!-- Channel 4: Headquarters Address -->
+              <div class="ft-channel-card-item" style="cursor: default;">
+                <div class="ft-channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="ft-channel-details">
+                  <div class="ft-channel-header-row">
+                    <span class="ft-channel-label">Headquarters Studio</span>
+                    <span class="ft-channel-pill">Chattogram & Dhaka</span>
+                  </div>
+                  <span class="ft-channel-val" style="font-size: 0.9375rem; font-weight: 600;">Shop 01, CDA Market, Kajir Dewri</span>
+                  <span class="ft-channel-sub">Chittagong, Bangladesh 4203</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: WhatsApp Direct Fast-Track Panel -->
+          <div class="ft-contact-action-panel">
+            <div class="ft-whatsapp-status-badge">
+              <span class="ft-status-dot-pulse"></span>
+              <span>Event Team Live on WhatsApp</span>
+            </div>
+
+            <h4 class="ft-action-heading">Fast-Track Your Event</h4>
+            <p class="ft-action-desc">
+              Connect directly with our senior event production leads for immediate budget estimates, venue feasibility, and turnkey staging proposals.
+            </p>
+
+            <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20I%20would%20like%20to%20plan%20an%20event.%20Could%20you%20please%20share%20your%20availability%20and%20portfolio%20details?" target="_blank" rel="noopener noreferrer" class="ft-whatsapp-primary-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Message on WhatsApp</span>
+            </a>
+
+            <div class="ft-action-call-row">
+              <span class="ft-action-call-hint">Urgent Production Desk:</span>
+              <a href="tel:+8801671863685" class="ft-direct-call-link">
+                +880 1671-863685 &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Persistent Floating WhatsApp Action Button -->
+  <a href="https://wa.me/8801671863685?text=Hello%20Fine%20Tuning,%20I%20would%20like%20to%20plan%20an%20event." target="_blank" rel="noopener noreferrer" class="ft-floating-whatsapp" aria-label="Chat with Fine Tuning on WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span class="ft-floating-tooltip">Chat with us on WhatsApp</span>
+  </a>
+
+  <!-- High-Res Lightbox Modal (with Next / Prev Arrow Navigation) -->
+  <div id="ft-image-modal" class="ft-modal" role="dialog" aria-modal="true" aria-label="Event Photography Preview">
+    <div class="ft-modal-content">
+      <button id="ft-modal-close" class="ft-modal-close" aria-label="Close Preview">&times;</button>
+      <button id="ft-modal-prev" class="ft-modal-nav-btn ft-modal-prev" aria-label="Previous image">‹</button>
+      <button id="ft-modal-next" class="ft-modal-nav-btn ft-modal-next" aria-label="Next image">›</button>
+      <img id="ft-modal-img" src="" alt="High-Resolution Preview" class="ft-modal-img">
+      <p id="ft-modal-caption" class="ft-modal-caption"></p>
+    </div>
   </div>
 
-  <script>
-    function handleNotifySubmit() {
-      const emailInput = document.getElementById('notify-email');
-      const feedback = document.getElementById('notify-feedback');
-      if (emailInput && emailInput.value) {
-        feedback.style.display = 'block';
-        emailInput.value = '';
-      }
-    }
-  </script>
+  <!-- Upgraded High-End Agency Footer -->
+  <footer class="ft-footer">
+    <div class="ft-container">
+      <div class="ft-footer-grid">
+        <!-- Col 1: Brand Essence & Tagline -->
+        <div class="ft-footer-brand">
+          <div class="ft-footer-brand-header">
+            <img src="images/fine-tuning-icon.png" alt="Fine Tuning Needle Emblem">
+            <div>
+              <h4>Fine Tuning</h4>
+              <span class="ft-footer-tagline-sub">EXPERIENTIAL ADVERTISING AGENCY</span>
+            </div>
+          </div>
+          <p class="ft-footer-motto">
+            "Creating Experiences. Delivering Excellence."
+          </p>
+          <p class="ft-footer-bio">
+            Dhaka & Chattogram's premier event management and experiential advertising agency. Calibrating every acoustic, visual, and operational detail until it achieves absolute resonance.
+          </p>
+          <div class="ft-footer-locations">
+            <span class="ft-location-pill">📍 Chattogram Hub</span>
+            <span class="ft-location-pill">📍 Dhaka Operations</span>
+          </div>
+          <div class="ft-footer-socials">
+            <a href="https://facebook.com/finetuningbd" target="_blank" rel="noopener noreferrer" class="ft-social-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.7 5H18V0h-3.808C10.597 0 9 1.583 9 4.615V8z"/></svg>
+            </a>
+            <a href="https://instagram.com/finetuningbd" target="_blank" rel="noopener noreferrer" class="ft-social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/8801671863685" target="_blank" rel="noopener noreferrer" class="ft-social-btn ft-social-wa" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="ft-footer-col">
+          <h5>Agency Navigation</h5>
+          <ul class="ft-footer-links">
+            <li><a href="#about">About Fine Tuning &rarr;</a></li>
+            <li><a href="#services">Production Capabilities &rarr;</a></li>
+            <li><a href="#portfolio">Featured Case Studies &rarr;</a></li>
+            <li><a href="#clients">Trusted Partnerships &rarr;</a></li>
+            <li><a href="#contact">Direct Contact Desk &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Specialized Solutions -->
+        <div class="ft-footer-col">
+          <h5>Event Specializations</h5>
+          <ul class="ft-footer-links">
+            <li><a href="#services">Corporate Summits & ESG &rarr;</a></li>
+            <li><a href="#services">Exhibition Pavilions & Stalls &rarr;</a></li>
+            <li><a href="#services">Destination Retreats & Mezbans &rarr;</a></li>
+            <li><a href="#services">National Case Competitions &rarr;</a></li>
+            <li><a href="#services">Giant LED Stadium Screenings &rarr;</a></li>
+            <li><a href="#services">360 Video Booth & Documentaries &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Direct Production Desk -->
+        <div class="ft-footer-col">
+          <h5>Production Desk</h5>
+          <div class="ft-footer-contact-item">
+            <span class="ft-contact-mini-lbl">Official Hotline (24/7)</span>
+            <a href="tel:+8801671863685" class="ft-footer-contact-val ft-amber-link">+880 1671-863685</a>
+          </div>
+          <div class="ft-footer-contact-item">
+            <span class="ft-contact-mini-lbl">Official WhatsApp</span>
+            <a href="https://wa.me/8801671863685" target="_blank" rel="noopener noreferrer" class="ft-footer-contact-val ft-green-link">Chat Instantly &rarr;</a>
+          </div>
+          <div class="ft-footer-contact-item">
+            <span class="ft-contact-mini-lbl">Email Desk</span>
+            <a href="mailto:finetuningbd@gmail.com" class="ft-footer-contact-val ft-teal-link">finetuningbd@gmail.com</a>
+          </div>
+          <div class="ft-footer-contact-item">
+            <span class="ft-contact-mini-lbl">Headquarters Studio</span>
+            <p class="ft-footer-addr">Shop No. 01, CDA Market, Kajir Dewri, Chittagong, Bangladesh 4203</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ft-footer-bottom">
+        <div>
+          &copy; 2026 Fine Tuning (finetuning.com.bd). All Rights Reserved.
+        </div>
+        <div>
+          <a href="#hero" class="ft-back-to-top">
+            <span>Back to Main Stage</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="finetuning/js/site.js"></script>
 </body>
 </html>

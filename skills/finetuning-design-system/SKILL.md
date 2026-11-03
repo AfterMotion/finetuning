@@ -92,3 +92,37 @@ All pages must include:
 - ❌ NEVER introduce vertical scrollbars to Maintenance or Error pages.
 - ❌ NEVER use generic purple/violet gradients. Brand colors are strictly Solar Amber (`#F09320`) and Nordic Teal (`#4694B1`).
 - ❌ NEVER put white text on top of the solid Amber button. Always use dark obsidian text (`#070D18`) for WCAG AAA contrast.
+- ❌ NEVER add generic web contact forms on marketing pages. Always use direct WhatsApp click-to-chat triggers (`+880 1671-863685`) with pre-filled message intents.
+- ❌ NEVER use uncompressed raw JPEGs for portfolio galleries. Always encode to WebP with responsive dimension clamping.
+- ❌ NEVER display the WhatsApp header button on mobile devices (`<= 768px`). Always hide it on mobile to keep the header uncluttered; the persistent floating button serves mobile users.
+- ❌ NEVER duplicate WhatsApp buttons in the Hero when both a header action and floating button exist. Use Hero CTAs for portfolio and capabilities exploration.
+
+---
+
+## 6. Single-Page Portfolio & Light Theme Standard (v2.2.0)
+
+When working on the public-facing portfolio website (`index.html`):
+- **Theme**: Light theme (`data-theme="light"` on `<html>`). Base background `#FFFFFF` and surface `#F8FAFC`.
+- **Background**: Continuous infinite stage grid (`.ft-animated-grid`) drifting at 32s with zero CPU overhead, paired with Solar Amber and Nordic Teal radial ambient spotlights.
+- **Header & Mobile Drawer**: Right-slide drawer navigation (`.ft-mobile-drawer`) with blurred backdrop; header WhatsApp pill active only on desktop.
+- **Single-Line Hero Badge**: Compact pill badge (`.ft-badge-hero`) guaranteed to fit on a single line on any mobile viewport down to 320px (`white-space: nowrap; max-width: 100%; text-overflow: ellipsis;`).
+- **Hero & CTAs**: Primary CTA directs to featured case studies (`#portfolio`); secondary CTA directs to capabilities (`#services`).
+- **Portfolio Showcase**: Interactive card-level navigation arrows (`‹` / `›`), active indicator dots, synchronized thumbnails, and full-screen lightbox modal.
+- **Partnerships Marquee**: Automatic infinite scrolling slider (`.ft-marquee-track`) with hover pause and gradient edge masks.
+- **Metrics Counter**: Smooth cubic ease-out number count-up triggered on scroll.
+
+---
+
+## 7. Elevated Contact & Agency Footer Standards
+
+- **Zero-Form Direct Connection**: Never use traditional HTML form inputs. All prospective client inquiries route immediately to:
+  - Official WhatsApp: `+880 1671-863685` (with pre-filled conversational intent)
+  - Direct 24/7 Hotline: `+880 1671-863685` (Tap to call)
+  - Formal Email Desk: `finetuningbd@gmail.com`
+  - Headquarters Studio: `Shop No. 01, CDA Market, Kajir Dewri, Chittagong, Bangladesh 4203`
+- **Floating WhatsApp Collision Avoidance**: Automatically hides the floating WhatsApp pill via `IntersectionObserver` when the user scrolls to the Contact or Footer sections, preventing any visual clutter or UI button overlap on mobile devices.
+- **Executive Agency Footer**:
+  - Tri-tone top accent border (`linear-gradient(90deg, #F09320 0%, #4694B1 50%, #25D366 100%)`).
+  - Obsidian dark backdrop (`#060B13`) with subtle ambient glow.
+  - 4-column balanced architecture: Brand Identity with dual-city operation pills (`Chattogram Hub` & `Dhaka Operations`), Agency Navigation, Event Specializations, and Direct Production Desk.
+  - Interactive "Back to Main Stage" top-glider button.

@@ -168,3 +168,40 @@ All system pages (Maintenance Mode, 404, 500, 503) are governed by the **Strict 
   - Title: _"Live Soundcheck & Tuning"_
   - Message: _"Our production systems are undergoing scheduled capacity calibration. We will be back live momentarily."_
   - CTA: `[ Retry Connection ]` + `[ Contact Desk ]`.
+
+---
+
+## 6. Single-Page Portfolio Website & Light Theme Architecture (v2.0)
+
+For the public agency portfolio website (`index.html`), Fine Tuning utilizes a **Studio Editorial Light Theme**:
+
+### 6.1 Light Theme Design Principles
+- **Base Canvas**: Crisp studio white (`#FFFFFF`) and architectural slate (`#F8FAFC`).
+- **Accent Lighting**: Solar Amber (`#F09320`) for energy, CTAs, and active highlights; Nordic Teal (`#4694B1` / `#2B5E70`) for technical descriptors, subtitles, and high-contrast links.
+- **High-Contrast Text Hierarchy**: Deep Obsidian (`#0B1320`) for headings, dark slate (`#475569`) for body text, ensuring WCAG AAA accessibility across all viewports.
+- **Soft Spatial Elevation**: Subtle multi-layered drop shadows (`0 4px 20px rgba(15, 23, 42, 0.05)`) without harsh dark borders.
+
+### 6.2 Zero-Form Direct WhatsApp Contact Rule
+- **No Contact Forms**: As a client-first experiential agency, clients are not forced through generic web contact forms.
+- **WhatsApp Priority**: All primary calls-to-action link directly to the official WhatsApp channel (`+880 1671-863685` / `https://wa.me/8801671863685`) with contextual pre-filled messages.
+- **Direct Multi-Channel Desk**: Accompanied by direct telephone dialing (`tel:+8801671863685`), direct email (`mailto:finetuningbd@gmail.com`), and physical office verification (Shop No. 01, CDA Market, Kajir Dewri, Chittagong).
+- **Persistent Floating Action**: A floating WhatsApp button remains fixed at the bottom-right corner across mobile and desktop.
+
+### 6.3 Mobile Header & Single-WhatsApp Constraint (v2.1.0)
+- **Zero Congestion on Mobile**: The desktop header WhatsApp pill is strictly hidden (`display: none !important`) on mobile viewports (`<= 768px`) to prevent crowding adjacent brand marks. The persistent floating button provides immediate 1-tap mobile chat.
+- **Desktop Single Action**: The desktop header features a single sleek live indicator with pulsing beacon (`.ft-beacon-dot-live`) and compact label (`WhatsApp Live`), eliminating redundant "Chat with us" text.
+- **Hero Cleanliness**: The hero section replaces redundant WhatsApp buttons with strategic agency discovery CTAs (`Explore Featured Case Studies` and `Our Event Capabilities`).
+
+### 6.4 Right-Slide Mobile Drawer Navigation
+- **Right-to-Left Slide**: Replaced top drop-downs with a modern right-slide drawer (`transform: translateX(100%) -> translateX(0)`) utilizing spring-like cubic bezier timing (`cubic-bezier(0.16, 1, 0.3, 1)`).
+- **Backdrop & Blur**: Paired with an interactive frosted backdrop (`backdrop-filter: blur(6px)`) and distinct close trigger (`✕`).
+
+### 6.5 Dynamic Infinite Stage Grid & Ambient Spotlights
+- **GPU-Accelerated Grid Drift**: A subtle 48px geometric stage grid continuously drifting along both axes using pure CSS `background-position` keyframe animations (`@keyframes ft-grid-drift`) at 32s loop interval with zero CPU lag.
+- **Multi-Source Stage Flares**: Dual Solar Amber (`#F09320`) and Nordic Teal (`#4694B1`) ambient spotlights blended with a central stage beam.
+
+### 6.6 Continuous Infinite Partner Slider (Marquee)
+- **Seamless Marquee**: Displays verified enterprise clients (BSRM, UCB, BYD, Royal Enfield, CPDL, CU) using a dual-track seamless loop (`@keyframes ft-marquee`).
+- **Hover-to-Pause**: Automatically pauses animation on cursor hover (`animation-play-state: paused`) with edge gradient fade masks.
+
+
