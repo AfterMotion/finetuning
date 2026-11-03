@@ -1863,3 +1863,103 @@ body {
     display: none;
   }
 }
+
+/* ==========================================================================
+   17. Subpages & Inner Views Standard (v2.2.0)
+   ========================================================================== */
+.ft-inner-hero {
+  padding: clamp(90px, 12vh, 130px) 0 clamp(30px, 5vh, 50px);
+  position: relative;
+  text-align: center;
+}
+
+.ft-breadcrumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: var(--ft-text-muted);
+  margin-bottom: var(--ft-space-4);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 5px 16px;
+  border-radius: var(--ft-radius-full);
+  border: 1px solid var(--ft-border-subtle);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ft-breadcrumbs a {
+  color: var(--ft-color-amber-600);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--ft-transition-fast);
+}
+
+.ft-breadcrumbs a:hover {
+  color: var(--ft-color-amber-500);
+  text-decoration: underline;
+}
+
+.ft-inner-title {
+  font-family: var(--ft-font-display);
+  font-size: clamp(2.0rem, 4.8vw, 3.2rem);
+  font-weight: 900;
+  color: var(--ft-text-primary);
+  line-height: 1.15;
+  margin-bottom: var(--ft-space-4);
+  letter-spacing: -0.02em;
+}
+
+.ft-inner-subtitle {
+  font-size: 1.05rem;
+  color: var(--ft-text-secondary);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.ft-card-inner {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--ft-border-subtle);
+  border-radius: var(--ft-radius-xl);
+  padding: clamp(22px, 3.5vw, 36px);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  transition: all var(--ft-transition-normal);
+}
+
+.ft-card-inner:hover {
+  border-color: var(--ft-color-amber-500);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(240, 147, 32, 0.08);
+}
+
+.ft-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--ft-space-8);
+}
+
+.ft-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ft-space-6);
+}
+
+@media (max-width: 1024px) {
+  .ft-grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ft-grid-2col,
+  .ft-grid-3col {
+    grid-template-columns: 1fr;
+    gap: var(--ft-space-5);
+  }
+  .ft-inner-hero {
+    padding: 80px 0 24px;
+  }
+}
