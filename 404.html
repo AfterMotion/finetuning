@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>404 — Frequency Not Found | Fine Tuning</title>
+  <meta name="description" content="The requested stage or page could not be found. Return to Fine Tuning homepage.">
+  <link rel="icon" type="image/png" href="images/Fine%20Tuning%20icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://finetuning.com.bd/404.html">
+  <meta property="og:title" content="404 — Stage Not Found | Fine Tuning">
+  <meta property="og:description" content="The requested stage or page could not be found on our production server.">
+  <meta property="og:image" content="https://finetuning.com.bd/images/og-thumbnail.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="404 — Stage Not Found | Fine Tuning">
+  <meta name="twitter:description" content="The requested page could not be found.">
+  <meta name="twitter:image" content="https://finetuning.com.bd/images/og-thumbnail.png">
+
+  <!-- Google Fonts: Modern Agency Typeface (Outfit + Syne + JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Brand Tokens & Components -->
+  <link rel="stylesheet" href="finetuning/css/tokens.css">
+  <link rel="stylesheet" href="finetuning/css/components.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      height: 100vh;
+      height: 100dvh;
+      width: 100%;
+      overflow: hidden;
+      background-color: var(--ft-bg-root);
+      color: var(--ft-text-primary);
+      font-family: var(--ft-font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient Stage Flares */
+    .ft-stage-flares {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ft-flare-amber {
+      position: absolute;
+      top: 15vh;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70vw;
+      height: 50vh;
+      max-width: 800px;
+      background: radial-gradient(circle, rgba(240, 147, 32, 0.18) 0%, rgba(240, 147, 32, 0) 70%);
+      filter: blur(90px);
+    }
+
+    .ft-stage-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(70, 148, 177, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(70, 148, 177, 0.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
+    }
+
+    /* Single-Screen Container */
+    .ft-page-container {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      height: 100vh;
+      height: 100dvh;
+      max-height: 100dvh;
+      width: 100%;
+      padding: clamp(14px, 2.5vh, 32px) clamp(16px, 4vw, 36px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    .ft-header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .ft-brand-logo {
+      height: clamp(34px, 5.5vh, 50px);
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 14px rgba(240, 147, 32, 0.25));
+    }
+
+    .ft-hero {
+      width: 100%;
+      max-width: 600px;
+      margin: auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(6px, 1.5vh, 16px) 0;
+    }
+
+    .ft-error-num {
+      font-family: var(--ft-font-display);
+      font-size: clamp(5.0rem, 15vh, 8.5rem);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #F09320 0%, #FBBF24 50%, #4694B1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+      margin-bottom: clamp(6px, 1.5vh, 14px);
+      filter: drop-shadow(0 0 35px rgba(240, 147, 32, 0.3));
+    }
+
+    .ft-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(17, 30, 51, 0.85);
+      border: 1px solid rgba(240, 147, 32, 0.35);
+      padding: 5px 14px;
+      border-radius: var(--ft-radius-full);
+      font-size: clamp(0.6875rem, 1.4vh, 0.75rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ft-color-amber-400);
+      margin-bottom: clamp(8px, 1.6vh, 14px);
+    }
+
+    .ft-title {
+      font-family: var(--ft-font-display);
+      font-size: clamp(1.4rem, 3.8vh, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: clamp(8px, 1.6vh, 14px);
+    }
+
+    .ft-subtitle {
+      font-size: clamp(0.8125rem, 1.8vh, 1.0rem);
+      color: var(--ft-text-secondary);
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0 auto clamp(16px, 3vh, 24px) auto;
+    }
+
+    .ft-footer {
+      width: 100%;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: clamp(0.6875rem, 1.4vh, 0.78125rem);
+      color: var(--ft-text-muted);
+      border-top: 1px solid rgba(70, 148, 177, 0.15);
+      padding-top: clamp(8px, 1.5vh, 16px);
+    }
+
+    .ft-footer a {
+      color: var(--ft-color-amber-500);
+      text-decoration: none;
+      transition: color var(--ft-transition-fast);
+    }
+
+    .ft-footer a:hover {
+      color: var(--ft-color-amber-400);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ft-stage-flares">
+    <div class="ft-flare-amber"></div>
+    <div class="ft-stage-grid"></div>
+  </div>
+
+  <div class="ft-page-container">
+
+    <header class="ft-header">
+      <a href="/" style="display: inline-block;">
+        <img src="images/Fine%20Tuning%20Logo.png" alt="Fine Tuning - Advertising Agency" class="ft-brand-logo">
+      </a>
+    </header>
+
+    <main class="ft-hero">
+      <div class="ft-error-num">404</div>
+
+      <div class="ft-status-pill">
+        PAGE NOT FOUND
+      </div>
+
+      <h1 class="ft-title">Frequency Out of Range</h1>
+
+      <p class="ft-subtitle">
+        The stage or resource you are looking for has been moved, rescheduled, or does not exist on our production server.
+      </p>
+
+      <a href="/" class="ft-btn ft-btn-primary ft-btn-md" style="border-radius: var(--ft-radius-full); padding: 0 24px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Return to Main Stage</span>
+      </a>
+    </main>
+
+    <footer class="ft-footer">
+      <span>&copy; 2026 Fine Tuning &bull; All Rights Reserved.</span>
+      <span>&bull;</span>
+      <span>Dhaka, Bangladesh</span>
+      <span>&bull;</span>
+      <a href="mailto:finetuningbd@gmail.com">finetuningbd@gmail.com</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
+
