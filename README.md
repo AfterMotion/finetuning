@@ -1,14 +1,14 @@
-# Fine Tuning — Brand Identity, Design System & Web Infrastructure
+# Fine Tuning - Brand Identity, Design System & Web Infrastructure
 
 > **Official Brand Guideline, Design System & System Pages for finetuning.com.bd**  
-> *Industry: Event Management & Experiential Advertising Agency*  
-> *Version: 1.1.0 (2026)*
+> _Industry: Event Management & Experiential Advertising Agency_  
+> _Version: 1.1.0 (2026)_
 
 ---
 
 ## 🌟 Executive Summary
 
-This repository establishes the comprehensive, web-focused **Brand Guideline & Reusable Design System** for **Fine Tuning** (`finetuning.com.bd`). 
+This repository establishes the comprehensive, web-focused **Brand Guideline & Reusable Design System** for **Fine Tuning** (`finetuning.com.bd`).
 
 Based on precise pixel extraction and design analysis of the official brand marks, this system bridges **Warm Event Celebration** (Solar Amber `#F09320`) and **Acoustic Engineering Precision** (Nordic Teal `#4694B1`), set against an authoritative **Midnight Obsidian Stage** (`#070D18` & `#0B1320`), powered by modern agency typography (**`Outfit`** & **`Syne`**).
 

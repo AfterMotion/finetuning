@@ -1,5 +1,5 @@
 /**
- * Fine Tuning Design System — Interactive Preview Portal Script
+ * Fine Tuning Design System - Interactive Preview Portal Script
  * finetuning.com.bd
  */
 

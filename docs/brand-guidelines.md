@@ -1,8 +1,8 @@
-# Fine Tuning — Brand Identity & Style Guidelines
+# Fine Tuning - Brand Identity & Style Guidelines
 
 > **Brand Identity System for finetuning.com.bd**  
-> *Industry: Event Management & Experiential Advertising Agency*  
-> *Version: 1.1.0 | Updated: 2026*
+> _Industry: Event Management & Experiential Advertising Agency_  
+> _Version: 1.1.0 | Updated: 2026_
 
 ---
 
@@ -11,9 +11,11 @@
 **Fine Tuning** represents the art of harmonic orchestration, acoustic perfection, and precision execution in the event management and advertising landscape.
 
 ### 1.1 Brand Mission
-To engineer unforgettable experiential moments, corporate summits, brand activations, and grand celebrations with meticulous precision—calibrating every sonic, visual, and operational detail until it achieves absolute resonance.
+
+To engineer unforgettable experiential moments, corporate summits, brand activations, and grand celebrations with meticulous precision-calibrating every sonic, visual, and operational detail until it achieves absolute resonance.
 
 ### 1.2 Core Brand Values
+
 1. **Precision Calibration ("Fine-Tuning")**: Nothing is left to chance. Every frequency, lighting cue, guest journey, and visual asset is dialed to perfection.
 2. **Dynamic Vitality**: Driven by the warmth, enthusiasm, and celebration of the Solar Amber palette (`#F09320`), infusing energy into every stage and campaign.
 3. **Architectural Trust & Poise**: Anchored by the serene stability and engineering integrity of Nordic Teal (`#4694B1`) and Midnight Obsidian (`#070D18`).
@@ -42,6 +44,7 @@ The Fine Tuning mark consists of three core components: the **Wordmark**, the **
 ```
 
 ### 2.1 Logo Components
+
 - **The Wordmark ("FineTuning")**:
   - Color Strategy: Orange body (`#F09320`) with distinctive Nordic Teal circular dots (tittles) on both instances of the letter `i` (`#4694B1`).
   - Significance: Conveys bespoke craft, musical cadence, and tailored luxury.
@@ -54,6 +57,7 @@ The Fine Tuning mark consists of three core components: the **Wordmark**, the **
   - The Resonant Cradle / Basin: A stabilizing geometric arc in Nordic Teal (`#4694B1`), symbolizing an amphitheater, stage cradle, or harmonic dish holding the creative energy.
 
 ### 2.2 Clear Space & Exclusion Zone
+
 $$\text{Clear Space} = X \quad (\text{where } X = \text{height of the letter 'F' in the primary wordmark})$$
 
 - Minimum Digital Clear Space: $24\text{px}$ on all sides.
@@ -86,15 +90,27 @@ To ensure high-impact visual representation when links are shared across Faceboo
 - **Content**: Perfectly centered Fine Tuning brand lockup with a crisp 1px subtle border.
 - **Required HTML Meta Tags**:
   ```html
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://finetuning.com.bd/">
-  <meta property="og:title" content="Fine Tuning — Orchestrating Extraordinary Experiences">
-  <meta property="og:description" content="Dhaka's premier Event Management & Experiential Advertising Agency.">
-  <meta property="og:image" content="https://finetuning.com.bd/images/og-thumbnail.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://finetuning.com.bd/images/og-thumbnail.png">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://finetuning.com.bd/" />
+  <meta
+    property="og:title"
+    content="Fine Tuning - Orchestrating Extraordinary Experiences"
+  />
+  <meta
+    property="og:description"
+    content="Dhaka's premier Event Management & Experiential Advertising Agency."
+  />
+  <meta
+    property="og:image"
+    content="https://finetuning.com.bd/images/og-thumbnail.png"
+  />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:image"
+    content="https://finetuning.com.bd/images/og-thumbnail.png"
+  />
   ```
 
 ---
@@ -104,15 +120,16 @@ To ensure high-impact visual representation when links are shared across Faceboo
 To mirror the sleek, geometric precision of modern experiential advertising, traditional serifs have been replaced by a razor-sharp modern agency font family:
 
 ### 4.1 Font Families
-1. **Primary Brand & UI Typeface — `Outfit`**:
+
+1. **Primary Brand & UI Typeface - `Outfit`**:
    - Clean, geometric modernist sans echoing the "Advertising Agency" logo descriptor.
    - Weights: `400` (Regular), `500` (Medium), `700` (Bold), `800` (ExtraBold), `900` (Black).
    - Usage: Primary headlines, titles, body copy, form inputs, buttons.
-2. **Creative Agency Display Accents — `Syne`**:
+2. **Creative Agency Display Accents - `Syne`**:
    - Sculpted, architectural sans engineered specifically for creative agencies and art spaces.
    - Weights: `700` (Bold), `800` (ExtraBold).
    - Usage: Category markers, section titles, event posters.
-3. **Monospace & Coordinates — `JetBrains Mono`**:
+3. **Monospace & Coordinates - `JetBrains Mono`**:
    - High-legibility monospaced typeface.
    - Usage: Countdown clocks, ticket IDs, timestamps, status error numerals.
 
@@ -123,6 +140,7 @@ To mirror the sleek, geometric precision of modern experiential advertising, tra
 All system pages (Maintenance Mode, 404, 500, 503) are governed by the **Strict Single-Screen Constraint**:
 
 ### 5.1 Single-Screen Principles
+
 - **Zero Scrollbar Required**: The entire layout, from header logo to footer contact, must fit within a single screen (`height: 100vh; height: 100dvh; overflow: hidden;`) on both Mobile ($375\text{px} - 428\text{px}$) and Desktop ($1024\text{px} - 4\text{K}$).
 - **No Extraneous Navigation**: System pages do not include top navigation bars, nested device previewers, or multi-page tab controls.
 - **Three-Tier Vertical Rhythm**:
@@ -131,21 +149,22 @@ All system pages (Maintenance Mode, 404, 500, 503) are governed by the **Strict 
   3. **Bottom**: Single-line compact footer with copyright and direct contact link (`info@finetuning.com.bd`).
 
 ### 5.2 Error Page Messaging Standards
+
 - **404 Not Found (`404.html`)**:
   - Badge: `"PAGE NOT FOUND"`
   - Code: `404` in Solar Amber / Gold gradient glow.
-  - Title: *"Frequency Out of Range"*
-  - Message: *"The stage or resource you are looking for has been moved, rescheduled, or does not exist on our production server."*
+  - Title: _"Frequency Out of Range"_
+  - Message: _"The stage or resource you are looking for has been moved, rescheduled, or does not exist on our production server."_
   - CTA: `[ Return to Main Stage ]` linking to `/`.
 - **500 Internal Server Error (`500.html`)**:
   - Badge: `"INTERNAL SERVER ERROR"`
   - Code: `500` in Crimson / Amber gradient glow.
-  - Title: *"Signal Interruption Detected"*
-  - Message: *"Our audio-visual and server crew detected an unexpected technical disruption. We are actively recalibrating the signal."*
+  - Title: _"Signal Interruption Detected"_
+  - Message: _"Our audio-visual and server crew detected an unexpected technical disruption. We are actively recalibrating the signal."_
   - CTA: `[ Reload Page ]` + `[ Contact Crew ]`.
 - **503 Service Unavailable (`503.html`)**:
   - Badge: `"STAGE SOUNDCHECK IN PROGRESS"`
   - Code: `503` in Nordic Teal / Amber gradient glow.
-  - Title: *"Live Soundcheck & Tuning"*
-  - Message: *"Our production systems are undergoing scheduled capacity calibration. We will be back live momentarily."*
+  - Title: _"Live Soundcheck & Tuning"_
+  - Message: _"Our production systems are undergoing scheduled capacity calibration. We will be back live momentarily."_
   - CTA: `[ Retry Connection ]` + `[ Contact Desk ]`.
