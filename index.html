@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="finetuning/css/tokens.css">
   <link rel="stylesheet" href="finetuning/css/components.css">
   <link rel="stylesheet" href="finetuning/css/site.css">
+  <link rel="stylesheet" href="finetuning/css/splash.css">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -59,8 +60,76 @@
     ]
   }
   </script>
+  <!-- Reload Detection for Splash Animation (SPA-Friendly: strictly triggers on refresh) -->
+  <script>
+    (function() {
+      var isReload = false;
+      try {
+        var nav = performance.getEntriesByType('navigation');
+        if (nav && nav.length > 0) {
+          isReload = (nav[0].type === 'reload');
+        } else if (performance.navigation) {
+          isReload = (performance.navigation.type === 1);
+        }
+      } catch (e) {}
+
+      var params = new URLSearchParams(window.location.search);
+      var forceReplay = params.has('intro') || params.has('replay');
+
+      if (isReload || forceReplay) {
+        document.documentElement.classList.add('ft-splash-active');
+      }
+    })();
+  </script>
 </head>
 <body>
+
+  <!-- =======================================================================
+       0. Architectural Stage Aperture & Splash Screen (Only on Refresh)
+       ======================================================================= -->
+  <aside id="ft-splash" class="ft-splash" aria-label="Fine Tuning Introduction" role="dialog" aria-modal="true">
+    <!-- Ambient Drifting Stage Grid & Flares -->
+    <div class="ft-splash-grid" aria-hidden="true"></div>
+    <div class="ft-splash-glow-amber" aria-hidden="true"></div>
+    <div class="ft-splash-glow-teal" aria-hidden="true"></div>
+
+    <!-- Center Stage: Vector Emblem & Harmonic Calibration -->
+    <div class="ft-splash-content">
+      <div class="ft-splash-emblem-wrap">
+        <div class="ft-splash-pulse-ring ft-pulse-amber" aria-hidden="true"></div>
+        <div class="ft-splash-pulse-ring ft-pulse-teal" aria-hidden="true"></div>
+        <img src="images/fine-tuning-icon.svg" alt="Fine Tuning Emblem" class="ft-splash-svg">
+      </div>
+
+      <!-- Official Wordmark Lockup -->
+      <div class="ft-splash-wordmark">
+        <div class="ft-splash-brand-title">
+          <span>F</span><span class="ft-tittle-i">i</span><span>neTun</span><span class="ft-tittle-i">i</span><span>ng</span>
+        </div>
+        <span class="ft-splash-descriptor">Advertising Agency &bull; Event Management</span>
+      </div>
+
+      <!-- Acoustic Frequency Calibrator -->
+      <div class="ft-splash-calibrator">
+        <div class="ft-soundwave-bars" aria-hidden="true">
+          <span class="ft-soundwave-bar"></span>
+          <span class="ft-soundwave-bar"></span>
+          <span class="ft-soundwave-bar"></span>
+          <span class="ft-soundwave-bar"></span>
+          <span class="ft-soundwave-bar"></span>
+          <span class="ft-soundwave-bar"></span>
+          <span class="ft-soundwave-bar"></span>
+        </div>
+        <div class="ft-calibrator-label">Sonic Resonance <span id="ft-calibrator-val">0%</span></div>
+      </div>
+    </div>
+
+    <!-- Interactive "Skip Intro" Pill Control -->
+    <button id="ft-splash-skip" class="ft-splash-skip" type="button" aria-label="Skip introduction animation">
+      <span>Skip intro</span>
+      <kbd>esc</kbd>
+    </button>
+  </aside>
 
   <!-- Ambient Moving Grid & Lighting Effects -->
   <div class="ft-site-ambient">
@@ -807,7 +876,11 @@
         <div>
           &copy; 2026 Fine Tuning (finetuning.com.bd). All Rights Reserved.
         </div>
-        <div>
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+          <button type="button" id="ft-replay-splash" class="ft-replay-intro-btn" title="Replay Brand Intro Animation">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Replay Intro</span>
+          </button>
           <a href="#hero" class="ft-back-to-top">
             <span>Back to Main Stage</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
@@ -818,6 +891,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="finetuning/js/splash.js"></script>
   <script src="finetuning/js/site.js"></script>
 </body>
 </html>

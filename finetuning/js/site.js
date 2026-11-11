@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openLightbox(src, caption, progId) {
-    if (!modal || !modalImg) return;
+    if (!modal || !modalImg || !src || src.trim() === '') return;
     if (progId && programGalleries[progId]) {
       activeModalGallery = programGalleries[progId];
       activeModalIndex = activeModalGallery.findIndex(item => item.src === src);
@@ -334,6 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeLightbox() {
     if (!modal) return;
     modal.classList.remove('is-open');
+    if (modalImg) modalImg.src = '';
     document.body.style.overflow = '';
   }
 

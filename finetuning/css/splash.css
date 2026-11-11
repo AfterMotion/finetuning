@@ -1,0 +1,421 @@
+/**
+ * Fine Tuning - Splash Screen & Intro Animation Styles (v2.2 - Grand Stage Curtain Lift)
+ * Studio Editorial Light Theme Architecture
+ * finetuning.com.bd
+ */
+
+/* ==========================================================================
+   1. Initial Display State (Hidden by default for SPA navigation)
+   ========================================================================== */
+#ft-splash {
+  display: none;
+}
+
+html.ft-splash-active #ft-splash {
+  display: flex;
+}
+
+html.ft-splash-active,
+html.ft-splash-active body {
+  overflow: hidden !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+}
+
+/* ==========================================================================
+   2. Fullscreen Stage Container (Lifts Upward on Exit - Zero Stutter)
+   ========================================================================== */
+.ft-splash {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 999999;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: transform 0.65s cubic-bezier(0.8, 0, 0.15, 1),
+              opacity 0.65s ease;
+  will-change: transform;
+  box-shadow: 0 15px 50px rgba(11, 19, 32, 0.15);
+}
+
+/* Exit Transition: Grand Stage Curtain Lifts Upwards to Reveal Live Stage */
+.ft-splash.is-exiting {
+  transform: translateY(-101%);
+}
+
+.ft-splash.is-fast-exit {
+  transform: translateY(-101%);
+  transition-duration: 0.35s;
+}
+
+/* ==========================================================================
+   3. Drifting Stage Grid & Ambient Flares
+   ========================================================================== */
+.ft-splash-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(70, 148, 177, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70, 148, 177, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: ft-splash-grid-drift 32s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes ft-splash-grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 48px 48px; }
+}
+
+.ft-splash-glow-amber {
+  position: absolute;
+  top: -12vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 55vw;
+  max-width: 900px;
+  background: radial-gradient(ellipse at center, rgba(240, 147, 32, 0.18) 0%, rgba(240, 147, 32, 0.04) 50%, transparent 72%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ft-splash-glow-teal {
+  position: absolute;
+  bottom: -15vw;
+  right: -5vw;
+  width: 70vw;
+  height: 70vw;
+  max-width: 850px;
+  background: radial-gradient(circle, rgba(70, 148, 177, 0.15) 0%, rgba(70, 148, 177, 0.03) 50%, transparent 70%);
+  filter: blur(65px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   4. Center Stage & Vector Emblem (Centered Poise - No Drift)
+   ========================================================================== */
+.ft-splash-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+  transition: opacity 0.28s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  will-change: transform, opacity, filter;
+}
+
+/* Center Emblem Wrapper - STRICT SQUARE FOR 100% PERFECT CONCENTRIC CIRCLES */
+.ft-splash-emblem-wrap {
+  position: relative;
+  width: clamp(120px, 16vw, 150px);
+  height: clamp(120px, 16vw, 150px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+  animation: ft-emblem-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes ft-emblem-in {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Pure Vector SVG Emblem (100% crisp, zero pixelation at any zoom) */
+.ft-splash-svg {
+  width: 84%;
+  height: auto;
+  max-height: 84%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(240, 147, 32, 0.16));
+}
+
+/* Acoustic Calibration Pulse Rings - STRICT 1:1 PERFECT CIRCLES */
+.ft-splash-pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 2;
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+}
+
+.ft-splash.has-pulse .ft-pulse-amber {
+  width: 125%;
+  height: 125%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1.5px solid rgba(240, 147, 32, 0.4);
+  box-shadow: 0 0 30px rgba(240, 147, 32, 0.25), inset 0 0 20px rgba(240, 147, 32, 0.12);
+  animation: ft-ripple-amber 2.4s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.ft-splash.has-pulse .ft-pulse-teal {
+  width: 160%;
+  height: 160%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1.5px solid rgba(70, 148, 177, 0.35);
+  box-shadow: 0 0 35px rgba(70, 148, 177, 0.2), inset 0 0 25px rgba(70, 148, 177, 0.1);
+  animation: ft-ripple-teal 2.4s 0.45s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+@keyframes ft-ripple-amber {
+  0% { transform: translate(-50%, -50%) scale(0.65); opacity: 0; }
+  35% { opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+}
+
+@keyframes ft-ripple-teal {
+  0% { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+  35% { opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+}
+
+/* ==========================================================================
+   5. Official Brand Wordmark & Descriptor (Guideline Section 2.1)
+   ========================================================================== */
+.ft-splash-wordmark {
+  margin-top: clamp(16px, 2.5vh, 22px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ft-splash-brand-title {
+  font-family: var(--ft-font-display, 'Outfit', sans-serif);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #F09320;
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+}
+
+/* Special Nordic Teal dots on both 'i's as required by Section 2.1 */
+.ft-splash-brand-title .ft-tittle-i {
+  position: relative;
+  display: inline-block;
+  color: #F09320;
+}
+
+.ft-splash-brand-title .ft-tittle-i::after {
+  content: '';
+  position: absolute;
+  top: 0.12em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.18em;
+  height: 0.18em;
+  background-color: #4694B1;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(70, 148, 177, 0.5);
+}
+
+.ft-splash-descriptor {
+  font-family: var(--ft-font-display, 'Outfit', sans-serif);
+  font-size: clamp(0.7rem, 1.4vw, 0.875rem);
+  font-weight: 600;
+  color: #4694B1;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  margin-top: 6px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .ft-splash-descriptor {
+    white-space: normal;
+    letter-spacing: 0.16em;
+    max-width: 280px;
+  }
+}
+
+/* ==========================================================================
+   6. Sonic Frequency Soundcheck Calibrator
+   ========================================================================== */
+.ft-splash-calibrator {
+  margin-top: clamp(22px, 3.5vh, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.ft-soundwave-bars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+}
+
+.ft-soundwave-bar {
+  width: 3px;
+  height: 8px;
+  background-color: #4694B1;
+  border-radius: 2px;
+  animation: ft-soundwave-dance 1.2s ease-in-out infinite alternate;
+}
+
+.ft-soundwave-bar:nth-child(2n) {
+  background-color: #F09320;
+}
+
+.ft-soundwave-bar:nth-child(1) { animation-delay: 0.0s; height: 10px; }
+.ft-soundwave-bar:nth-child(2) { animation-delay: 0.15s; height: 16px; }
+.ft-soundwave-bar:nth-child(3) { animation-delay: 0.3s; height: 22px; }
+.ft-soundwave-bar:nth-child(4) { animation-delay: 0.45s; height: 14px; }
+.ft-soundwave-bar:nth-child(5) { animation-delay: 0.1s; height: 24px; }
+.ft-soundwave-bar:nth-child(6) { animation-delay: 0.25s; height: 18px; }
+.ft-soundwave-bar:nth-child(7) { animation-delay: 0.4s; height: 12px; }
+
+@keyframes ft-soundwave-dance {
+  0% { transform: scaleY(0.4); opacity: 0.4; }
+  100% { transform: scaleY(1.2); opacity: 1; }
+}
+
+.ft-calibrator-label {
+  font-family: var(--ft-font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ft-calibrator-label span {
+  color: #F09320;
+}
+
+/* ==========================================================================
+   7. Exit Choreography: Smooth Centered Dissolve as Stage Lifts
+   ========================================================================== */
+.ft-splash.is-exiting .ft-splash-content {
+  opacity: 0 !important;
+  transform: translateY(-20px) scale(0.96) !important;
+  filter: blur(4px) !important;
+  transition: opacity 0.25s ease, transform 0.3s ease, filter 0.25s ease;
+  pointer-events: none;
+}
+
+.ft-splash.is-exiting .ft-splash-skip {
+  opacity: 0 !important;
+  transform: translateY(8px) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   8. Interactive "Skip intro" Control
+   ========================================================================== */
+.ft-splash-skip {
+  position: absolute;
+  bottom: clamp(18px, 3.5vh, 28px);
+  right: clamp(18px, 4vw, 32px);
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(70, 148, 177, 0.25);
+  color: #0B1320;
+  font-family: var(--ft-font-display, 'Outfit', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(11, 19, 32, 0.06);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease,
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.ft-splash-skip.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ft-splash-skip:hover {
+  border-color: #F09320;
+  color: #F09320;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(240, 147, 32, 0.18);
+}
+
+.ft-splash-skip kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  font-family: var(--ft-font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #4694B1;
+  background: rgba(70, 148, 177, 0.12);
+  border-radius: 4px;
+  border: 1px solid rgba(70, 148, 177, 0.22);
+  text-transform: uppercase;
+}
+
+.ft-splash-skip:hover kbd {
+  color: #F09320;
+  background: rgba(240, 147, 32, 0.12);
+  border-color: rgba(240, 147, 32, 0.3);
+}
+
+/* ==========================================================================
+   9. Accessibility: Reduced Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .ft-splash {
+    transition: opacity 0.15s ease !important;
+    transform: none !important;
+  }
+  .ft-splash.is-exiting {
+    opacity: 0 !important;
+    transform: none !important;
+  }
+  .ft-splash-emblem-wrap,
+  .ft-soundwave-bar,
+  .ft-splash-pulse-ring {
+    animation: none !important;
+    transform: none !important;
+  }
+}
