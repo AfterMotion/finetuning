@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Production Record: BSRM ESG Summit 2026 — Fine Tuning</title>
+  <meta name="description" content="Technical staging record, acoustic telemetry, run-of-show cues, and CAD blueprints for BSRM Annual Summit.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/fine-tuning-icon.svg">
+
+  <!-- Google Fonts: Outfit, Syne, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Design Tokens & Themes Cascade -->
+  <link rel="stylesheet" href="../tokens/tokens.css">
+  <link rel="stylesheet" href="../tokens/themes.css">
+  <link rel="stylesheet" href="./demo-shell.css">
+
+  <style>
+    .record-hero-card {
+      background: var(--color-bg-surface-card);
+      border: 1px solid var(--color-border-primary);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .record-hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .record-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-border-subtle);
+      flex-wrap: wrap;
+    }
+    .record-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .record-meta-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+    }
+    .record-meta-val {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    /* Tabs Bar */
+    .record-tabs-bar {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--color-border-primary);
+      margin-bottom: 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .record-tabs-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .record-tab-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--color-text-secondary);
+      padding: 12px 18px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .record-tab-btn:hover {
+      color: var(--color-text-primary);
+    }
+    .record-tab-btn.active {
+      color: var(--color-brand-primary);
+      border-bottom-color: var(--color-brand-primary);
+    }
+
+    .record-layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 32px;
+    }
+
+    /* Timeline Stepper */
+    .timeline-list {
+      position: relative;
+      padding-left: 28px;
+      list-style: none;
+    }
+    .timeline-list::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 7px;
+      width: 2px;
+      background: var(--color-border-primary);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .timeline-marker {
+      position: absolute;
+      left: -28px;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-bg-surface-elevated);
+      border: 2px solid var(--color-border-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .timeline-item.done .timeline-marker {
+      background: #10B981;
+      border-color: #10B981;
+    }
+    .timeline-item.active .timeline-marker {
+      background: var(--color-brand-primary);
+      border-color: var(--color-brand-primary);
+      box-shadow: 0 0 10px rgba(240, 147, 32, 0.5);
+    }
+
+    /* Activity Feed stream */
+    .activity-feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .activity-feed-item {
+      padding: 12px;
+      background: var(--color-bg-surface-elevated);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--color-teal-500);
+      font-size: 0.8125rem;
+    }
+    .activity-feed-time {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 960px) {
+      .record-layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="density-comfortable">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="demo-grid-bg" aria-hidden="true"></div>
+
+  <!-- Persistent Demo Nav Bar -->
+  <div class="demo-nav-bar" role="navigation" aria-label="Fine Tuning Demo Suite Switcher">
+    <div class="demo-nav-left">
+      <a href="../brand-guide/index.html" class="demo-hub-badge" title="Brand Guidelines">
+        <svg viewBox="0 0 2400 1758" fill="none"><path fill="#4694B1" d="M 41 358 L 30 600 L 68 836 L 143 1038 L 272 1247 L 418 1404 L 608 1543 L 810 1637 L 1049 1694 L 1278 1701 L 1502 1664 L 1719 1582 L 1910 1463 L 2080 1304 L 2209 1126 L 2306 917 L 2357 713 L 2370 484 L 2347 296 L 2298 128 L 2191 342 L 2207 607 L 2153 866 L 2049 1078 L 1897 1262 L 1679 1421 L 1416 1519 L 1130 1540 L 861 1484 L 695 1407 L 544 1300 L 421 1175 L 318 1025 L 246 866 L 201 686 L 190 494 L 208 342 L 101 128 Z"/><path fill="#F09320" d="M 1347 795 L 1848 794 L 1941 607 L 1375 608 Z M 458 607 L 551 794 L 1052 795 L 1023 607 Z M 1432 241 L 2124 241 L 2217 53 L 1461 53 Z M 978 53 L 1200 1495 L 1421 53 Z M 182 53 L 275 241 L 967 241 L 938 53 Z"/></svg>
+        FineTuning Suite
+      </a>
+      <a href="../design-system/index.html" class="demo-link-pill">Design System</a>
+      <a href="./marketing-homepage.html" class="demo-link-pill">1. Homepage</a>
+      <a href="./listing-search.html" class="demo-link-pill">2. Case Search</a>
+      <a href="./auth-flow.html" class="demo-link-pill">3. Auth Flow</a>
+      <a href="./onboarding-wizard.html" class="demo-link-pill">4. Wizard</a>
+      <a href="./admin-dashboard.html" class="demo-link-pill">5. Admin Ops</a>
+      <a href="./crud-management.html" class="demo-link-pill">6. CRUD Table</a>
+      <a href="./record-detail.html" class="demo-link-pill active">7. Record Detail</a>
+      <a href="./settings-profile.html" class="demo-link-pill">8. Settings</a>
+      <a href="./system-pages.html" class="demo-link-pill">9. System Pages</a>
+    </div>
+    <div class="demo-nav-controls">
+      <button id="demoDensityToggle" class="demo-control-btn" type="button">📐 Density</button>
+      <button id="demoThemeToggle" class="demo-control-btn" type="button">☀️ Light Mode</button>
+    </div>
+  </div>
+
+  <main id="main-content" class="demo-container">
+
+    <!-- BREADCRUMBS -->
+    <nav style="font-size:0.8125rem; color:var(--color-text-secondary); margin-bottom:16px;">
+      <a href="./admin-dashboard.html" style="color:var(--color-text-muted); text-decoration:none;">Operations Console</a> /
+      <a href="./listing-search.html" style="color:var(--color-text-muted); text-decoration:none;">Productions</a> /
+      <span style="color:var(--color-brand-primary);">FT-2026-RIG-9481</span>
+    </nav>
+
+    <!-- RECORD HERO MASTER CARD -->
+    <div class="record-hero-card">
+      <div class="record-hero-top">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+            <span class="ft-badge ft-badge-success">
+              <span class="ft-beacon-dot pulse" style="color:#10B981;"></span>
+              STAGE RIG LIVE ON-AIR
+            </span>
+            <span class="ft-badge ft-badge-amber">Summit & Awards</span>
+            <span style="font-family:var(--font-mono); font-size:0.8125rem; color:var(--color-text-muted);">REF: FT-2026-RIG-9481</span>
+          </div>
+          <h1 style="font-family:var(--font-display); font-size:2rem; font-weight:800; letter-spacing:-0.02em;">
+            BSRM Annual Corporate Summit & ESG Awards 2026
+          </h1>
+          <p style="color:var(--color-text-secondary); font-size:0.9375rem; margin-top:4px;">
+            Client: <strong>BSRM Group of Companies</strong> • Production Hub: Chattogram Technical Base
+          </p>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="ft-btn ft-btn-outline ft-btn-sm" onclick="showToast('Exporting Technical Rider PDF...', 'info')">📄 Export Manifest</button>
+          <button class="ft-btn ft-btn-primary ft-btn-sm" onclick="showToast('Rig calibration verified at 84.6 dBA', 'success')">🎛️ Live Recalibrate</button>
+          <button class="ft-btn ft-btn-danger ft-btn-sm" onclick="showToast('Emergency stage cutoff standby', 'error')">⚠️ Stage Killswitch</button>
+        </div>
+      </div>
+
+      <div class="record-meta-bar">
+        <div class="record-meta-item">
+          <span class="record-meta-label">Venue & City</span>
+          <span class="record-meta-val">Radisson Blu Bay View, Chattogram</span>
+        </div>
+        <div class="record-meta-item">
+          <span class="record-meta-label">Guest Capacity</span>
+          <span class="record-meta-val">1,800 Registered Delegates</span>
+        </div>
+        <div class="record-meta-item">
+          <span class="record-meta-label">Stage Manager Lead</span>
+          <span class="record-meta-val">Kazi Shahriar Rahman (DELTA-1)</span>
+        </div>
+        <div class="record-meta-item">
+          <span class="record-meta-label">Power & Load</span>
+          <span class="record-meta-val" style="font-family:var(--font-mono); color:var(--color-brand-primary);">125 kVA | 3.4 Tons</span>
+        </div>
+        <div class="record-meta-item">
+          <span class="record-meta-label">Video Telemetry</span>
+          <span class="record-meta-val" style="font-family:var(--font-mono); color:var(--color-teal-300);">P2.6 LED @ 60.00 FPS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABBED NAVIGATION -->
+    <div class="record-tabs-bar" role="tablist">
+      <button class="record-tab-btn active" id="tabSpec" onclick="switchRecordTab('spec')">1. Stage Architecture & Specs</button>
+      <button class="record-tab-btn" id="tabAudio" onclick="switchRecordTab('audio')">2. Audio & Visual Diagnostics</button>
+      <button class="record-tab-btn" id="tabRun" onclick="switchRecordTab('run')">3. Run-of-Show Cues (Timeline)</button>
+      <button class="record-tab-btn" id="tabDocs" onclick="switchRecordTab('docs')">4. Blueprints & Documents (4)</button>
+    </div>
+
+    <!-- MAIN GRID WITH DETAILS & SIDEBAR ACTIVITY -->
+    <div class="record-layout-grid">
+      
+      <!-- TAB CONTENTS -->
+      <div>
+        
+        <!-- PANE 1: STAGE ARCHITECTURE -->
+        <div id="paneSpec">
+          <div class="ft-card" style="margin-bottom:24px;">
+            <h3 style="font-size:1.125rem; font-weight:700; margin-bottom:16px;">Spatial Rigging & Stage Dimensions</h3>
+            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:20px;">
+              <div style="background:var(--color-bg-surface-elevated); padding:14px; border-radius:var(--radius-md);">
+                <div style="font-size:0.75rem; color:var(--color-text-muted);">STAGE WIDTH × DEPTH</div>
+                <strong style="font-size:1.125rem; font-family:var(--font-mono);">60 ft × 32 ft</strong>
+              </div>
+              <div style="background:var(--color-bg-surface-elevated); padding:14px; border-radius:var(--radius-md);">
+                <div style="font-size:0.75rem; color:var(--color-text-muted);">ROOF CLEARANCE</div>
+                <strong style="font-size:1.125rem; font-family:var(--font-mono);">22 ft (Truss Trim)</strong>
+              </div>
+              <div style="background:var(--color-bg-surface-elevated); padding:14px; border-radius:var(--radius-md);">
+                <div style="font-size:0.75rem; color:var(--color-text-muted);">LED BACKDROP CURVATURE</div>
+                <strong style="font-size:1.125rem; font-family:var(--font-mono);">8° Concave Arc</strong>
+              </div>
+            </div>
+
+            <p style="font-size:0.875rem; color:var(--color-text-secondary); line-height:1.6;">
+              Engineered with 400×400mm heavy-duty box aluminum truss suspended on 8 motorized CM Lodestar 1-ton hoists. Rigging tested with certified load cells showing 3,420 kg total dead hang against a 10,000 kg ballroom rating.
+            </p>
+          </div>
+
+          <div class="ft-card">
+            <h3 style="font-size:1.125rem; font-weight:700; margin-bottom:14px;">Power & Environmental Distribution</h3>
+            <div style="display:flex; justify-content:space-between; font-size:0.875rem; padding:8px 0; border-bottom:1px solid var(--color-border-subtle);">
+              <span style="color:var(--color-text-secondary);">Primary Generator Node:</span>
+              <strong style="font-family:var(--font-mono);">200 kVA Cummins Silent Unit (BSRM Dedicated)</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.875rem; padding:8px 0; border-bottom:1px solid var(--color-border-subtle);">
+              <span style="color:var(--color-text-secondary);">Secondary Redundant Failsafe:</span>
+              <strong style="font-family:var(--font-mono);">Radisson Ballroom 250 kVA Grid Transfer</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.875rem; padding:8px 0;">
+              <span style="color:var(--color-text-secondary);">Stage HVAC Temperature:</span>
+              <strong style="font-family:var(--font-mono); color:#10B981;">20.5°C Stabilized</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 2: AUDIO & VISUAL DIAGNOSTICS -->
+        <div id="paneAudio" style="display:none;">
+          <div class="ft-card" style="margin-bottom:24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3 style="font-size:1.125rem; font-weight:700;">Line-Array Phase & Acoustic Telemetry</h3>
+              <span class="ft-badge ft-badge-success">FOH Phase: In-Sync</span>
+            </div>
+
+            <div style="background:var(--color-bg-surface-elevated); border:1px solid var(--color-border-primary); border-radius:var(--radius-md); padding:16px; margin-bottom:16px;">
+              <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; font-size:0.8125rem;">
+                <div>LEFT ARRAY: <strong>8× JBL VTX A8 (+4 VTX B18 Subs)</strong></div>
+                <div>RIGHT ARRAY: <strong>8× JBL VTX A8 (+4 VTX B18 Subs)</strong></div>
+                <div>FOH CONSOLE: <strong>Soundcraft Vi3000 (Dante 64 Ch)</strong></div>
+                <div>WIRELESS MICS: <strong>Shure Axient Digital Quad (Freq Lock)</strong></div>
+              </div>
+            </div>
+
+            <div style="font-family:var(--font-mono); font-size:0.8125rem; background:rgba(70, 148, 177, 0.1); border:1px solid rgba(70, 148, 177, 0.3); border-radius:var(--radius-md); padding:12px; color:var(--color-teal-300);">
+              FOH SENSOR READOUT: 84.6 dBA LEQ (15 min avg) • Crest Factor: 14.2 dB • RT60 Decay: 1.1s
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 3: RUN-OF-SHOW CUES -->
+        <div id="paneRun" style="display:none;">
+          <div class="ft-card">
+            <h3 style="font-size:1.125rem; font-weight:700; margin-bottom:20px;">Master Run-of-Show Protocol (Timeline)</h3>
+            <ul class="timeline-list">
+              <li class="timeline-item done">
+                <div class="timeline-marker">✓</div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-muted);">07:30 BST</div>
+                <strong style="color:var(--color-text-primary);">Crew Call & Rigging Safety Inspection</strong>
+                <p style="font-size:0.8125rem; color:var(--color-text-secondary); margin-top:2px;">All hoists pinned, truss cable bridles checked, electrical load tested.</p>
+              </li>
+
+              <li class="timeline-item done">
+                <div class="timeline-marker">✓</div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-muted);">09:00 BST</div>
+                <strong style="color:var(--color-text-primary);">Master Soundcheck & Video Calibration</strong>
+                <p style="font-size:0.8125rem; color:var(--color-text-secondary); margin-top:2px;">FOH pink noise tuning, Novastar 4K video alignment, Axient RF scan complete.</p>
+              </li>
+
+              <li class="timeline-item active">
+                <div class="timeline-marker">●</div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-brand-primary); font-weight:700;">10:00 BST (CURRENT)</div>
+                <strong style="color:var(--color-brand-primary);">VIP Arrival & Staggered Ballroom Seating</strong>
+                <p style="font-size:0.8125rem; color:var(--color-text-secondary); margin-top:2px;">Ambient background jazz playing at 68 dBA. 360 photo booth operational.</p>
+              </li>
+
+              <li class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-muted);">11:15 BST</div>
+                <strong style="color:var(--color-text-primary);">Keynote: BSRM Sustainable Steel Roadmap 2030</strong>
+                <p style="font-size:0.8125rem; color:var(--color-text-secondary); margin-top:2px;">Cue 14: Dim ballroom house lights to 15%, spotlight lectern at 5600K.</p>
+              </li>
+
+              <li class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-muted);">13:00 BST</div>
+                <strong style="color:var(--color-text-primary);">ESG Champion Trophy Conferral</strong>
+                <p style="font-size:0.8125rem; color:var(--color-text-secondary); margin-top:2px;">Cue 22: Fanfare audio sting, cold-spark indoor pyrotechnics, video loop.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PANE 4: TECHNICAL BLUEPRINTS -->
+        <div id="paneDocs" style="display:none;">
+          <div class="ft-card">
+            <h3 style="font-size:1.125rem; font-weight:700; margin-bottom:16px;">Attached Blueprints & Verification Files</h3>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:12px; background:var(--color-bg-surface-elevated); border:1px solid var(--color-border-primary); border-radius:var(--radius-md);">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span style="font-size:1.5rem;">📐</span>
+                  <div>
+                    <strong style="font-size:0.875rem;">BSRM_Summit_2026_CAD_Stage_Rig.dwg</strong>
+                    <div style="font-size:0.75rem; color:var(--color-text-muted);">14.2 MB • AutoDesk CAD Vector Blueprint • Uploaded Nov 2026</div>
+                  </div>
+                </div>
+                <button class="ft-btn ft-btn-outline ft-btn-sm" onclick="showToast('CAD Schematic downloaded', 'success')">Download DWG</button>
+              </div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:12px; background:var(--color-bg-surface-elevated); border:1px solid var(--color-border-primary); border-radius:var(--radius-md);">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span style="font-size:1.5rem;">📊</span>
+                  <div>
+                    <strong style="font-size:0.875rem;">Acoustic_Phase_Simulation_Radisson_BayView.pdf</strong>
+                    <div style="font-size:0.75rem; color:var(--color-text-muted);">6.8 MB • EASE 5 Acoustic Dispersion Model • Uploaded Nov 2026</div>
+                  </div>
+                </div>
+                <button class="ft-btn ft-btn-outline ft-btn-sm" onclick="showToast('Acoustic PDF downloaded', 'success')">Download PDF</button>
+              </div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:12px; background:var(--color-bg-surface-elevated); border:1px solid var(--color-border-primary); border-radius:var(--radius-md);">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span style="font-size:1.5rem;">🛡️</span>
+                  <div>
+                    <strong style="font-size:0.875rem;">Civil_Truss_Load_Certification_Chattogram.pdf</strong>
+                    <div style="font-size:0.75rem; color:var(--color-text-muted);">2.1 MB • Structural Safety Approval • Signed by Lead Rig Master</div>
+                  </div>
+                </div>
+                <button class="ft-btn ft-btn-outline ft-btn-sm" onclick="showToast('Civil Safety Cert downloaded', 'success')">Download PDF</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR: CREW ACTIVITY FEED -->
+      <aside>
+        <div class="ft-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <h3 style="font-size:0.9375rem; font-weight:700;">Live Station Activity Log</h3>
+            <span class="ft-beacon-dot pulse" style="color:#10B981;"></span>
+          </div>
+
+          <div class="activity-feed-list">
+            <div class="activity-feed-item">
+              <div class="activity-feed-time">10:02 BST • Kazi S. (DELTA-1)</div>
+              <div>Adjusted FOH master trim to +1.5 dB for delegate murmurs. Acoustic index remains safe.</div>
+            </div>
+
+            <div class="activity-feed-item">
+              <div class="activity-feed-time">09:55 BST • Asif I. (PIXEL-1)</div>
+              <div>Locked Novastar 4K controller to primary input. Backup HDMI switcher on standby.</div>
+            </div>
+
+            <div class="activity-feed-item">
+              <div class="activity-feed-time">09:40 BST • Tanvir H. (SOLAR-2)</div>
+              <div>Focused Chauvet Maverick moving heads on center stage podium. DMX line 2 green.</div>
+            </div>
+
+            <div class="activity-feed-item">
+              <div class="activity-feed-time">08:15 BST • System Automator</div>
+              <div>Generator voltage stabilized at 415V 3-Phase. Load balancing 38% across phases.</div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <button class="ft-btn ft-btn-ghost ft-btn-sm" style="width:100%; font-size:0.75rem;" onclick="showToast('Exporting 24-hr hardware audit stream', 'info')">
+              Download Audit Stream (.log)
+            </button>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <script src="./demo-shell.js"></script>
+  <script>
+    function switchRecordTab(tab) {
+      document.getElementById('paneSpec').style.display = tab === 'spec' ? 'block' : 'none';
+      document.getElementById('paneAudio').style.display = tab === 'audio' ? 'block' : 'none';
+      document.getElementById('paneRun').style.display = tab === 'run' ? 'block' : 'none';
+      document.getElementById('paneDocs').style.display = tab === 'docs' ? 'block' : 'none';
+
+      document.getElementById('tabSpec').classList.toggle('active', tab === 'spec');
+      document.getElementById('tabAudio').classList.toggle('active', tab === 'audio');
+      document.getElementById('tabRun').classList.toggle('active', tab === 'run');
+      document.getElementById('tabDocs').classList.toggle('active', tab === 'docs');
+    }
+  </script>
+</body>
+</html>

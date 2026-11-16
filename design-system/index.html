@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fine Tuning — Design System & Component Library</title>
-  <meta name="description" content="Navigable, interactive design system documentation and component inventory for Fine Tuning Advertising Agency.">
+  <title>Fine Tuning — Master Design System & Component Catalog</title>
+  <meta name="description" content="Encyclopedic, production-ready design system showcase for Fine Tuning Advertising Agency.">
 
   <!-- Favicon using real brand SVG -->
   <link rel="icon" type="image/svg+xml" href="../assets/brand/fine-tuning-icon.svg">
@@ -14,23 +14,45 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- Cascading Token & Component Stylesheets -->
+  <!-- Design System CSS Cascade -->
   <link rel="stylesheet" href="../tokens/tokens.css">
   <link rel="stylesheet" href="../tokens/themes.css">
   <link rel="stylesheet" href="./styles.css">
 
-  <!-- Local Interactive Behavior JS -->
+  <!-- Interactive Logic Script -->
   <script defer src="./app.js"></script>
 </head>
 <body class="density-comfortable">
 
-  <!-- Fixed Background Grids & Ambient Spotlights -->
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Ambient Stage Overlays -->
   <div class="bg-grid-overlay" aria-hidden="true"></div>
   <div class="stage-glow-ambient" aria-hidden="true"></div>
 
+  <!-- Persistent Floating Action Button (FAB) -->
+  <a href="https://wa.me/8801671863685" target="_blank" rel="noopener noreferrer" class="ft-fab" title="Direct WhatsApp Production Desk">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/>
+    </svg>
+  </a>
+
   <!-- ========================================================================
-       STICKY APP HEADER
+       TOP UTILITY BAR & STICKY HEADER
        ======================================================================== -->
+  <div class="ds-utility-bar">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span class="ft-beacon-dot" style="background:#10B981;"></span>
+      <span>Live Production Desk: Chattogram & Dhaka • Turnkey Experiential Advertising</span>
+    </div>
+    <div style="display:flex; gap:16px;">
+      <a href="tel:+8801671863685" style="color:var(--color-text-secondary); text-decoration:none;">📞 +880 1671-863685</a>
+      <span style="color:var(--color-border-primary);">|</span>
+      <a href="mailto:finetuningbd@gmail.com" style="color:var(--color-text-secondary); text-decoration:none;">✉️ finetuningbd@gmail.com</a>
+    </div>
+  </div>
+
   <header class="ds-header">
     <div class="header-inner">
       <div style="display: flex; align-items: center; gap: var(--space-3);">
@@ -44,12 +66,12 @@
 
         <a href="#overview" class="brand-brandmark-link">
           <svg class="brand-emblem-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1758">
-            <path fill="#4694B1" d="M 41 358 L 30 600 L 68 836 L 143 1038 L 272 1247 L 418 1404 L 608 1543 L 810 1637 L 1049 1694 L 1278 1701 L 1502 1664 L 1719 1582 L 1910 1463 L 2080 1304 L 2209 1126 L 2306 917 L 2357 713 L 2370 484 L 2347 296 L 2298 128 L 2191 342 L 2207 607 L 2153 866 L 2049 1078 L 1897 1262 L 1679 1421 L 1416 1519 L 1130 1540 L 861 1484 L 695 1407 L 544 1300 L 421 1175 L 318 1025 L 246 866 L 201 686 L 190 494 L 208 342 L 101 128 Z" fill-rule="evenodd"/>
-            <path fill="#F09320" d="M 1347 795 L 1848 794 L 1941 607 L 1375 608 Z M 458 607 L 551 794 L 1052 795 L 1023 607 Z M 1432 241 L 2124 241 L 2217 53 L 1461 53 Z M 978 53 L 1200 1495 L 1421 53 Z M 182 53 L 275 241 L 967 241 L 938 53 Z" fill-rule="evenodd"/>
+            <path fill="#4694B1" d="M 41 358 L 30 600 L 68 836 L 143 1038 L 272 1247 L 418 1404 L 608 1543 L 810 1637 L 1049 1694 L 1278 1701 L 1502 1664 L 1719 1582 L 1910 1463 L 2080 1304 L 2209 1126 L 2306 917 L 2357 713 L 2370 484 L 2347 296 L 2298 128 L 2191 342 L 2207 607 L 2153 866 L 2049 1078 L 1897 1262 L 1679 1421 L 1416 1519 L 1130 1540 L 861 1484 L 695 1407 L 544 1300 L 421 1175 L 318 1025 L 246 866 L 201 686 L 190 494 L 208 342 L 101 128 Z"/>
+            <path fill="#F09320" d="M 1347 795 L 1848 794 L 1941 607 L 1375 608 Z M 458 607 L 551 794 L 1052 795 L 1023 607 Z M 1432 241 L 2124 241 L 2217 53 L 1461 53 Z M 978 53 L 1200 1495 L 1421 53 Z M 182 53 L 275 241 L 967 241 L 938 53 Z"/>
           </svg>
           <div class="brand-title-wrap">
             <span class="brand-main-title">FineTuning</span>
-            <span class="brand-sub-badge">Design System v2.0</span>
+            <span class="brand-sub-badge">Component Catalog v2.5</span>
           </div>
         </a>
       </div>
@@ -60,32 +82,70 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" id="headerSearchInput" class="search-input-field" placeholder="Search components, tokens, rules..." aria-label="Search design system">
+        <input type="text" id="headerSearchInput" class="search-input-field" placeholder="Search 65+ catalog components..." aria-label="Search components">
         <kbd class="search-shortcut-kbd">⌘K</kbd>
       </div>
 
       <!-- Action Toolbar -->
       <div class="header-toolbar-actions">
         <!-- Density Toggle -->
-        <button id="densityToggleBtn" class="control-pill-btn" title="Toggle between Comfortable (Marketing) and Compact (Admin) density">
+        <button id="densityToggleBtn" class="control-pill-btn" title="Toggle between Comfortable and Compact density">
           <span>📐</span>
           <span id="densityLabel">Density: Comfortable</span>
         </button>
 
         <!-- Theme Toggle -->
-        <button id="themeToggleBtn" class="control-pill-btn" title="Toggle Dark/Light Mode">
+        <button id="themeToggleBtn" class="control-pill-btn" title="Toggle Light/Dark Theme">
           <span id="themeIcon">☀️</span>
           <span id="themeLabel">Light Mode</span>
         </button>
 
-        <!-- External Token Source Link -->
-        <a href="../tokens/design-tokens.json" download class="control-pill-btn" style="text-decoration:none;">
-          <span>📦</span>
-          <span>Tokens JSON</span>
-        </a>
+        <!-- Notification Bell Trigger -->
+        <button class="control-pill-btn" onclick="togglePopover('notifPopover')" title="Notification Center">
+          <span>🔔</span>
+          <span class="ft-badge ft-badge-danger" style="padding:1px 5px; font-size:10px;">3</span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Notification Center Flyout -->
+  <div id="notifPopover" class="ft-popover" style="top: 76px; right: 24px; width: 340px;">
+    <div style="font-weight: 700; margin-bottom: 8px; border-bottom: 1px solid var(--color-border-primary); padding-bottom: 6px; display:flex; justify-content:space-between;">
+      <span>Production Cues & Telemetry</span>
+      <span style="font-size: 0.75rem; color: var(--color-brand-primary);">Mark Read</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.8125rem;">
+      <div style="padding: 6px; background: rgba(16, 185, 129, 0.08); border-radius: var(--radius-sm);">
+        <strong style="color: #10B981;">Rig 01 Synced:</strong> 60Hz controller locked with zero dropped frames.
+      </div>
+      <div style="padding: 6px; background: rgba(245, 158, 11, 0.08); border-radius: var(--radius-sm);">
+        <strong style="color: #F59E0B;">Decibel Alert:</strong> Stage A reached 96.2 dBA peak during soundcheck.
+      </div>
+      <div style="padding: 6px; background: rgba(59, 130, 246, 0.08); border-radius: var(--radius-sm);">
+        <strong style="color: #3B82F6;">VIP Roster:</strong> 1,420 delegates checked-in via QR scanners.
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Palette Modal (⌘K) -->
+  <div id="cmdPaletteBackdrop" class="ds-command-palette-backdrop">
+    <div class="ds-command-palette-box">
+      <div style="padding: 14px 18px; border-bottom: 1px solid var(--color-border-primary); display:flex; align-items:center; gap:10px;">
+        <span style="font-size: 1.25rem;">🔍</span>
+        <input type="text" id="cmdPaletteInput" style="width:100%; background:none; border:none; color:var(--color-text-primary); font-size:1rem; outline:none;" placeholder="Type a component name, action or token...">
+        <kbd style="font-family:var(--font-mono); font-size:0.75rem; background:var(--color-bg-surface); padding:2px 6px; border-radius:4px;">ESC</kbd>
+      </div>
+      <div id="cmdPaletteResults" style="padding: 12px; max-height: 320px; overflow-y: auto; display:flex; flex-direction:column; gap:4px;">
+        <a href="#cat-actions" class="cmd-item sidebar-nav-link" onclick="cmdPaletteBackdrop.classList.remove('show');">🔘 Buttons & Action Controls</a>
+        <a href="#cat-forms" class="cmd-item sidebar-nav-link" onclick="cmdPaletteBackdrop.classList.remove('show');">📝 Forms, OTP & Inputs</a>
+        <a href="#cat-navigation" class="cmd-item sidebar-nav-link" onclick="cmdPaletteBackdrop.classList.remove('show');">🧭 Navigation, Menus & Drawers</a>
+        <a href="#cat-content" class="cmd-item sidebar-nav-link" onclick="cmdPaletteBackdrop.classList.remove('show');">📰 Marketing Cards & Timelines</a>
+        <a href="#cat-overlays" class="cmd-item sidebar-nav-link" onclick="cmdPaletteBackdrop.classList.remove('show');">🪟 Modals, Popovers & Tooltips</a>
+        <a href="#cat-data" class="cmd-item sidebar-nav-link" onclick="cmdPaletteBackdrop.classList.remove('show');">📊 Advanced Data Table & SVG Charts</a>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================================
        APPLICATION CONTAINER (SIDEBAR + MAIN CONTENT)
@@ -95,746 +155,736 @@
     <!-- SEARCHABLE SIDEBAR NAVIGATION -->
     <aside id="dsSidebar" class="ds-sidebar">
       <div style="margin-bottom: var(--space-2);">
-        <input type="text" id="sidebarSearchInput" class="ft-input" style="height: 36px; font-size: 0.8125rem;" placeholder="Filter sections...">
+        <input type="text" id="sidebarSearchInput" class="ft-input" style="height: 36px; font-size: 0.8125rem;" placeholder="Filter catalog...">
       </div>
 
-      <!-- Category 1: Foundations -->
+      <!-- Category 1: Actions & Status -->
       <div class="sidebar-category-group">
-        <div class="sidebar-group-title">Foundations</div>
-        <a href="#sec-identity" class="sidebar-nav-link active">
-          <span>Logo & Identity</span>
-          <span class="sidebar-badge-count">1.36:1</span>
-        </a>
-        <a href="#sec-colors" class="sidebar-nav-link">
-          <span>Color Ramps & Semantics</span>
-          <span class="sidebar-badge-count">50-950</span>
-        </a>
-        <a href="#sec-contrast" class="sidebar-nav-link">
-          <span>Contrast & Accessibility</span>
-          <span class="sidebar-badge-count">AAA</span>
-        </a>
-        <a href="#sec-typography" class="sidebar-nav-link">
-          <span>Typography & Scales</span>
-          <span class="sidebar-badge-count">Outfit</span>
-        </a>
-        <a href="#sec-spatial" class="sidebar-nav-link">
-          <span>Spacing, Grid & Density</span>
-          <span class="sidebar-badge-count">4px</span>
-        </a>
-        <a href="#sec-surfaces" class="sidebar-nav-link">
-          <span>Elevation & Glassmorphism</span>
-          <span class="sidebar-badge-count">Z-Index</span>
-        </a>
-        <a href="#sec-motion" class="sidebar-nav-link">
-          <span>Motion & Keyframes</span>
-          <span class="sidebar-badge-count">250ms</span>
-        </a>
-        <a href="#sec-localization" class="sidebar-nav-link">
-          <span>Localization & Text Flow</span>
-          <span class="sidebar-badge-count">BN / EN</span>
-        </a>
-      </div>
-
-      <!-- Category 2: Components -->
-      <div class="sidebar-category-group">
-        <div class="sidebar-group-title">Components</div>
-        <a href="#comp-buttons" class="sidebar-nav-link">
+        <div class="sidebar-group-title">1. Actions & Status</div>
+        <a href="#cat-actions" class="sidebar-nav-link active">
           <span>Buttons & Actions</span>
-          <span class="sidebar-badge-count">7 vars</span>
+          <span class="sidebar-badge-count">6 vars</span>
         </a>
-        <a href="#comp-inputs" class="sidebar-nav-link">
-          <span>Inputs & Form Controls</span>
-          <span class="sidebar-badge-count">Forms</span>
+        <a href="#act-split" class="sidebar-nav-link">
+          <span>Split Buttons & FAB</span>
+          <span class="sidebar-badge-count">Compound</span>
         </a>
-        <a href="#comp-badges" class="sidebar-nav-link">
-          <span>Badges & Pulse Beacons</span>
-          <span class="sidebar-badge-count">Status</span>
+        <a href="#act-groups" class="sidebar-nav-link">
+          <span>Button Groups & Toolbars</span>
+          <span class="sidebar-badge-count">Segment</span>
         </a>
-        <a href="#comp-cards" class="sidebar-nav-link">
-          <span>Cards & Containers</span>
-          <span class="sidebar-badge-count">Surfaces</span>
+        <a href="#act-status" class="sidebar-nav-link">
+          <span>Status Beacons & Badges</span>
+          <span class="sidebar-badge-count">4 States</span>
         </a>
-        <a href="#comp-tables" class="sidebar-nav-link">
-          <span>Data Tables (Console)</span>
-          <span class="sidebar-badge-count">Sortable</span>
+        <a href="#act-feedback" class="sidebar-nav-link">
+          <span>Progress, Skeletons & Alerts</span>
+          <span class="sidebar-badge-count">Feedback</span>
         </a>
-        <a href="#comp-nav" class="sidebar-nav-link">
-          <span>Navigation Architecture</span>
+      </div>
+
+      <!-- Category 2: Forms & Inputs -->
+      <div class="sidebar-category-group">
+        <div class="sidebar-group-title">2. Forms & Inputs</div>
+        <a href="#cat-forms" class="sidebar-nav-link">
+          <span>Text, Password & Phone</span>
+          <span class="sidebar-badge-count">Fields</span>
+        </a>
+        <a href="#frm-selects" class="sidebar-nav-link">
+          <span>Select, Combobox & Tags</span>
+          <span class="sidebar-badge-count">Select</span>
+        </a>
+        <a href="#frm-toggles" class="sidebar-nav-link">
+          <span>Checkbox, Radio & Switch</span>
+          <span class="sidebar-badge-count">Toggles</span>
+        </a>
+        <a href="#frm-complex" class="sidebar-nav-link">
+          <span>OTP, Upload & Rating</span>
+          <span class="sidebar-badge-count">Special</span>
+        </a>
+        <a href="#frm-wizard" class="sidebar-nav-link">
+          <span>Multi-Step Wizard</span>
+          <span class="sidebar-badge-count">Stepper</span>
+        </a>
+      </div>
+
+      <!-- Category 3: Navigation & Layout -->
+      <div class="sidebar-category-group">
+        <div class="sidebar-group-title">3. Navigation & Layout</div>
+        <a href="#cat-navigation" class="sidebar-nav-link">
+          <span>Header & Utility Bar</span>
+          <span class="sidebar-badge-count">App Bar</span>
+        </a>
+        <a href="#nav-drawers" class="sidebar-nav-link">
+          <span>Mobile Drawer & Tabs</span>
           <span class="sidebar-badge-count">Drawer</span>
         </a>
-        <a href="#comp-overlays" class="sidebar-nav-link">
-          <span>Modals, Toast & Drawers</span>
-          <span class="sidebar-badge-count">Overlays</span>
+        <a href="#nav-sidebar" class="sidebar-nav-link">
+          <span>Admin Collapsible Sidebar</span>
+          <span class="sidebar-badge-count">240px</span>
         </a>
-        <a href="#comp-telemetry" class="sidebar-nav-link">
-          <span>Telemetry & Decibel Gauges</span>
-          <span class="sidebar-badge-count">dBA</span>
+        <a href="#nav-pagination" class="sidebar-nav-link">
+          <span>Breadcrumbs & Pagination</span>
+          <span class="sidebar-badge-count">Pages</span>
         </a>
       </div>
 
-      <!-- Category 3: Patterns -->
+      <!-- Category 4: Content & Marketing -->
       <div class="sidebar-category-group">
-        <div class="sidebar-group-title">Patterns & Layouts</div>
-        <a href="#pat-marketing" class="sidebar-nav-link">
-          <span>Marketing Hero & Marquee</span>
-          <span class="sidebar-badge-count">32s</span>
+        <div class="sidebar-group-title">4. Content & Marketing</div>
+        <a href="#cat-content" class="sidebar-nav-link">
+          <span>Typography & Blockquotes</span>
+          <span class="sidebar-badge-count">Editorial</span>
         </a>
-        <a href="#pat-admin" class="sidebar-nav-link">
-          <span>Operations Console Layout</span>
-          <span class="sidebar-badge-count">Ops</span>
+        <a href="#cnt-cards" class="sidebar-nav-link">
+          <span>Cards & Pricing Plans</span>
+          <span class="sidebar-badge-count">Tiers</span>
         </a>
-        <a href="#sec-tokens-raw" class="sidebar-nav-link">
-          <span>Tokens JSON Explorer</span>
-          <span class="sidebar-badge-count">DTCG</span>
+        <a href="#cnt-marquee" class="sidebar-nav-link">
+          <span>Infinite Client Marquee</span>
+          <span class="sidebar-badge-count">32s loop</span>
+        </a>
+        <a href="#cnt-timeline" class="sidebar-nav-link">
+          <span>Timelines & Accordions</span>
+          <span class="sidebar-badge-count">Schedule</span>
+        </a>
+      </div>
+
+      <!-- Category 5: Overlays & Disclosure -->
+      <div class="sidebar-category-group">
+        <div class="sidebar-group-title">5. Overlays & Disclosure</div>
+        <a href="#cat-overlays" class="sidebar-nav-link">
+          <span>Modals & Alert Dialogs</span>
+          <span class="sidebar-badge-count">Z-Modal</span>
+        </a>
+        <a href="#ovl-popovers" class="sidebar-nav-link">
+          <span>Popovers & Tooltips</span>
+          <span class="sidebar-badge-count">Hover</span>
+        </a>
+        <a href="#ovl-drawers" class="sidebar-nav-link">
+          <span>Slide-over Inspector Drawer</span>
+          <span class="sidebar-badge-count">Drawer</span>
+        </a>
+      </div>
+
+      <!-- Category 6: Data-Rich Widgets -->
+      <div class="sidebar-category-group">
+        <div class="sidebar-group-title">6. Data-Rich Widgets</div>
+        <a href="#cat-data" class="sidebar-nav-link">
+          <span>Sortable Table & CSV Export</span>
+          <span class="sidebar-badge-count">Console</span>
+        </a>
+        <a href="#dta-charts" class="sidebar-nav-link">
+          <span>Interactive SVG Charts</span>
+          <span class="sidebar-badge-count">Line/Donut</span>
+        </a>
+        <a href="#dta-telemetry" class="sidebar-nav-link">
+          <span>Acoustic Decibel Meter</span>
+          <span class="sidebar-badge-count">dBA</span>
+        </a>
+        <a href="#dta-tree" class="sidebar-nav-link">
+          <span>Equipment Tree & Audit Log</span>
+          <span class="sidebar-badge-count">Logs</span>
+        </a>
+      </div>
+
+      <!-- Live Application Demos -->
+      <div class="sidebar-category-group" style="border-top:1px solid var(--color-border-primary); padding-top:12px; margin-top:12px;">
+        <div class="sidebar-group-title" style="color:var(--color-brand-primary);">Live Application Demos</div>
+        <a href="../demos/marketing-homepage.html" class="sidebar-nav-link" target="_blank">
+          <span>1. Marketing Homepage</span>
+          <span class="sidebar-badge-count" style="background:var(--color-brand-primary); color:#070D18; font-weight:700;">Demo</span>
+        </a>
+        <a href="../demos/listing-search.html" class="sidebar-nav-link" target="_blank">
+          <span>2. Case Studies & Search</span>
+          <span class="sidebar-badge-count">Demo</span>
+        </a>
+        <a href="../demos/auth-flow.html" class="sidebar-nav-link" target="_blank">
+          <span>3. Auth Flow & 2FA</span>
+          <span class="sidebar-badge-count">Demo</span>
+        </a>
+        <a href="../demos/onboarding-wizard.html" class="sidebar-nav-link" target="_blank">
+          <span>4. Onboarding Wizard</span>
+          <span class="sidebar-badge-count">Demo</span>
+        </a>
+        <a href="../demos/admin-dashboard.html" class="sidebar-nav-link" target="_blank">
+          <span>5. Admin Dashboard</span>
+          <span class="sidebar-badge-count">Demo</span>
+        </a>
+        <a href="../demos/crud-management.html" class="sidebar-nav-link" target="_blank">
+          <span>6. CRUD User Management</span>
+          <span class="sidebar-badge-count">Demo</span>
+        </a>
+        <a href="../demos/record-detail.html" class="sidebar-nav-link" target="_blank">
+          <span>7. Record Detail</span>
+          <span class="sidebar-badge-count">Demo</span>
+        </a>
+        <a href="../demos/settings-profile.html" class="sidebar-nav-link" target="_blank">
+          <span>8. Settings & Profile</span>
+          <span class="sidebar-badge-count">Demo</span>
+        </a>
+        <a href="../demos/system-pages.html" class="sidebar-nav-link" target="_blank">
+          <span>9. System Error Suite</span>
+          <span class="sidebar-badge-count">Demo</span>
         </a>
       </div>
     </aside>
 
-    <!-- MAIN DOCUMENTATION & SPECIMEN DISPLAY -->
-    <main class="ds-main-content">
+    <!-- MAIN CONTENT SPECIMEN SHOWCASE -->
+    <main id="main-content" class="ds-main-content">
 
       <!-- ====================================================================
-           SECTION 0: OVERVIEW & SYSTEM META
+           CATEGORY 1: ACTIONS & STATUS
            ==================================================================== -->
-      <section id="overview" class="ds-section">
+      <section id="cat-actions" class="ds-section">
         <div class="section-header-block">
-          <div class="section-category-eyebrow">Production Design System</div>
-          <h1 class="section-headline">Fine Tuning Design System</h1>
+          <div class="section-category-eyebrow">Category 01</div>
+          <h2 class="section-headline">Actions & Status Indicators</h2>
           <p class="section-lead-copy">
-            The single source of truth for all digital experiences across <strong>finetuning.com.bd</strong>. Built on a rigorous three-layer token hierarchy (Primitives → Semantics → Components), supporting dual themes (Midnight Stage & Studio Editorial) and context-sensitive densities.
+            Primary, secondary, tertiary, ghost, destructive, split buttons, floating action triggers, segmented toolbars, status beacons, and notification feedback.
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-8);">
-          <div style="background: var(--color-bg-surface-card); border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg); padding: var(--space-4);">
-            <div style="font-size: var(--font-size-xs); color: var(--color-text-muted); text-transform: uppercase;">Core Primary</div>
-            <div style="font-family: var(--font-mono); font-size: 1.125rem; font-weight: 700; color: var(--color-brand-primary);">#F09320 (Amber)</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 4px;">FT Wings & Tuning Needle</div>
-          </div>
-          <div style="background: var(--color-bg-surface-card); border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg); padding: var(--space-4);">
-            <div style="font-size: var(--font-size-xs); color: var(--color-text-muted); text-transform: uppercase;">Core Secondary</div>
-            <div style="font-family: var(--font-mono); font-size: 1.125rem; font-weight: 700; color: var(--color-brand-secondary);">#4694B1 (Teal)</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 4px;">Resonant Cradle Basin</div>
-          </div>
-          <div style="background: var(--color-bg-surface-card); border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg); padding: var(--space-4);">
-            <div style="font-size: var(--font-size-xs); color: var(--color-text-muted); text-transform: uppercase;">Primary Typography</div>
-            <div style="font-size: 1.125rem; font-weight: 700;">Outfit + Syne</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 4px;">Modern Geometric Agency Sans</div>
-          </div>
-          <div style="background: var(--color-bg-surface-card); border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg); padding: var(--space-4);">
-            <div style="font-size: var(--font-size-xs); color: var(--color-text-muted); text-transform: uppercase;">Accessibility Gate</div>
-            <div style="font-size: 1.125rem; font-weight: 700; color: var(--color-status-success-base);">WCAG 2.1 AAA</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 4px;">8.24:1 AAA on Amber Buttons</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 1: LOGO & IDENTITY
-           ==================================================================== -->
-      <section id="sec-identity" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Foundations 01</div>
-          <h2 class="section-headline">Logo System & Anatomy</h2>
-          <p class="section-lead-copy">
-            The brandmark encapsulates precision acoustic tuning and celebratory vitality. It consists of the downward precision needle, symmetrical flight wings, and the resonant cradle basin.
-          </p>
-        </div>
-
+        <!-- Specimen 1.1: Button Variants & States -->
         <div class="specimen-card">
           <div class="specimen-header">
             <div class="specimen-title-box">
-              <h4>Harmonic Emblem Vector Specimen</h4>
-              <p>Aspect ratio: 2400 × 1758 (1.365:1) | Exclusion Zone: X = 18.5%</p>
+              <h4>Buttons Spectrum (Variants & Sizes)</h4>
+              <p>WCAG 2.1 AAA Compliant • Mandatory #070D18 text on Solar Amber CTAs</p>
             </div>
             <div class="specimen-tab-nav">
               <button class="specimen-tab-btn active" data-tab="preview">Preview</button>
-              <button class="specimen-tab-btn" data-tab="code">SVG Source</button>
+              <button class="specimen-tab-btn" data-tab="code">HTML</button>
               <button class="specimen-tab-btn" data-tab="specs">Specs</button>
             </div>
           </div>
 
           <div class="specimen-preview-canvas">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); text-align: center;">
-              <svg style="width: 180px; height: auto;" viewBox="0 0 2400 1758">
-                <path fill="#4694B1" d="M 41 358 L 30 600 L 68 836 L 143 1038 L 272 1247 L 418 1404 L 608 1543 L 810 1637 L 1049 1694 L 1278 1701 L 1502 1664 L 1719 1582 L 1910 1463 L 2080 1304 L 2209 1126 L 2306 917 L 2357 713 L 2370 484 L 2347 296 L 2298 128 L 2191 342 L 2207 607 L 2153 866 L 2049 1078 L 1897 1262 L 1679 1421 L 1416 1519 L 1130 1540 L 861 1484 L 695 1407 L 544 1300 L 421 1175 L 318 1025 L 246 866 L 201 686 L 190 494 L 208 342 L 101 128 Z"/>
-                <path fill="#F09320" d="M 1347 795 L 1848 794 L 1941 607 L 1375 608 Z M 458 607 L 551 794 L 1052 795 L 1023 607 Z M 1432 241 L 2124 241 L 2217 53 L 1461 53 Z M 978 53 L 1200 1495 L 1421 53 Z M 182 53 L 275 241 L 967 241 L 938 53 Z"/>
-              </svg>
-              <div style="font-size: 0.8125rem; color: var(--color-text-secondary);">
-                Vector Asset: <code style="font-family: var(--font-mono); color: var(--color-brand-primary);">assets/brand/fine-tuning-icon.svg</code>
-              </div>
-            </div>
-          </div>
-
-          <div class="specimen-code-pane">
-            <button class="btn-copy-code" onclick="copyToClipboard('<svg viewBox=\'0 0 2400 1758\'>...</svg>', 'SVG Code')">Copy Code</button>
-            <pre class="code-pre-block">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1758"&gt;
-  &lt;path fill="#4694B1" d="M 41 358 L 30 600... Z" /&gt;
-  &lt;path fill="#F09320" d="M 1347 795 L 1848 794... Z" /&gt;
-&lt;/svg&gt;</pre>
-          </div>
-
-          <div class="specimen-specs-pane">
-            <ul style="list-style: square; padding-left: 20px; font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6;">
-              <li><strong>Clear Space ($X$)</strong>: $X = \text{width of the needle apex } (443\text{ units} \approx 18.5\%)$. Min digital: 24px mobile / 48px desktop.</li>
-              <li><strong>Minimum Sizes</strong>: Full stacked lockup = 160px; Icon emblem = 24px; Favicon = 16px.</li>
-              <li><strong>Rules</strong>: Never stretch, rotate, or add raster drop shadows. Never change amber/teal fills.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 2: COLOR RAMPS & SEMANTICS
-           ==================================================================== -->
-      <section id="sec-colors" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Foundations 02</div>
-          <h2 class="section-headline">Color Ramps & Semantic Roles</h2>
-          <p class="section-lead-copy">
-            Complete 50–950 tonal ramps mapped into purpose-driven semantic roles. Click any swatch or hex code to copy the design token directly to your clipboard.
-          </p>
-        </div>
-
-        <!-- Solar Amber Ramp -->
-        <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-          <span>🟧</span> Solar Amber Ramp (Brand Primary)
-        </h4>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(95px, 1fr)); gap: 8px; margin-bottom: 24px;">
-          <div style="cursor:pointer;" onclick="copyToClipboard('#FEF8EE', '--color-amber-50')">
-            <div style="height: 48px; background: #FEF8EE; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.1);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">50: #FEF8EE</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#FDF0D6', '--color-amber-100')">
-            <div style="height: 48px; background: #FDF0D6; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">100: #FDF0D6</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#FADDAA', '--color-amber-200')">
-            <div style="height: 48px; background: #FADDAA; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">200: #FADDAA</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#F7C577', '--color-amber-300')">
-            <div style="height: 48px; background: #F7C577; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">300: #F7C577</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#F4AB44', '--color-amber-400')">
-            <div style="height: 48px; background: #F4AB44; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">400: #F4AB44</div>
-          </div>
-          <div style="cursor:pointer; transform: scale(1.05);" onclick="copyToClipboard('#F09320', '--color-amber-500 (BASE)')">
-            <div style="height: 48px; background: #F09320; border-radius: var(--radius-sm); border: 2px solid #FFF;"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); font-weight:700; color: var(--color-brand-primary); margin-top: 4px;">500: #F09320</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#D47911', '--color-amber-600')">
-            <div style="height: 48px; background: #D47911; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">600: #D47911</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#A85A09', '--color-amber-700')">
-            <div style="height: 48px; background: #A85A09; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">700: #A85A09</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#7C3E04', '--color-amber-800')">
-            <div style="height: 48px; background: #7C3E04; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">800: #7C3E04</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#4B2400', '--color-amber-900')">
-            <div style="height: 48px; background: #4B2400; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">900: #4B2400</div>
-          </div>
-        </div>
-
-        <!-- Nordic Teal Ramp -->
-        <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-          <span>🟦</span> Nordic Teal Ramp (Brand Secondary & Safe Text)
-        </h4>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(95px, 1fr)); gap: 8px; margin-bottom: 24px;">
-          <div style="cursor:pointer;" onclick="copyToClipboard('#F0F7FA', '--color-teal-50')">
-            <div style="height: 48px; background: #F0F7FA; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.1);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">50: #F0F7FA</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#DCEDF3', '--color-teal-100')">
-            <div style="height: 48px; background: #DCEDF3; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">100: #DCEDF3</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#BADCE7', '--color-teal-200')">
-            <div style="height: 48px; background: #BADCE7; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">200: #BADCE7</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#93C6D8', '--color-teal-300')">
-            <div style="height: 48px; background: #93C6D8; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">300: #93C6D8</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#6BAEC6', '--color-teal-400')">
-            <div style="height: 48px; background: #6BAEC6; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">400: #6BAEC6</div>
-          </div>
-          <div style="cursor:pointer; transform: scale(1.05);" onclick="copyToClipboard('#4694B1', '--color-teal-500 (BASE)')">
-            <div style="height: 48px; background: #4694B1; border-radius: var(--radius-sm); border: 2px solid #FFF;"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); font-weight:700; color: var(--color-brand-secondary); margin-top: 4px;">500: #4694B1</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#377A93', '--color-teal-600')">
-            <div style="height: 48px; background: #377A93; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">600: #377A93</div>
-          </div>
-          <div style="cursor:pointer; transform: scale(1.05);" onclick="copyToClipboard('#2B5E70', '--color-teal-700 (TEXT SAFE AAA)')">
-            <div style="height: 48px; background: #2B5E70; border-radius: var(--radius-sm); border: 2px solid #F09320;"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); font-weight:700; margin-top: 4px;">700: #2B5E70</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#1C4453', '--color-teal-800')">
-            <div style="height: 48px; background: #1C4453; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">800: #1C4453</div>
-          </div>
-          <div style="cursor:pointer;" onclick="copyToClipboard('#122B35', '--color-teal-900')">
-            <div style="height: 48px; background: #122B35; border-radius: var(--radius-sm);"></div>
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); margin-top: 4px;">900: #122B35</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 3: CONTRAST & ACCESSIBILITY
-           ==================================================================== -->
-      <section id="sec-contrast" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Foundations 03</div>
-          <h2 class="section-headline">Accessibility & Contrast Matrix</h2>
-          <p class="section-lead-copy">
-            Every color pairing is verified mathematically using relative luminance formulas. WCAG 2.1 AA and AAA standards are strictly enforced.
-          </p>
-        </div>
-
-        <div class="table-responsive-wrapper">
-          <table class="ds-data-table">
-            <thead>
-              <tr>
-                <th>Foreground Token</th>
-                <th>Background Surface</th>
-                <th>Contrast</th>
-                <th>Status</th>
-                <th>Engineering Enforcement Rule</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>#070D18 (Obsidian)</strong></td>
-                <td>#F09320 (Solar Amber)</td>
-                <td class="td-mono"><strong>8.24 : 1</strong></td>
-                <td><span class="ft-badge ft-badge-success">✓ AAA PASS</span></td>
-                <td><strong>MANDATORY</strong> text on Amber buttons. Never use white text.</td>
-              </tr>
-              <tr>
-                <td>#F09320 (Solar Amber)</td>
-                <td>#FFFFFF (White Canvas)</td>
-                <td class="td-mono">2.36 : 1</td>
-                <td><span class="ft-badge ft-badge-danger">✕ FAIL TEXT</span></td>
-                <td>Forbidden for normal text. Permitted for decorative icons only.</td>
-              </tr>
-              <tr>
-                <td><strong>#2B5E70 (Dark Teal)</strong></td>
-                <td>#FFFFFF (White Canvas)</td>
-                <td class="td-mono"><strong>7.15 : 1</strong></td>
-                <td><span class="ft-badge ft-badge-success">✓ AAA PASS</span></td>
-                <td><strong>MANDATORY</strong> for teal text, badges, and links on light mode.</td>
-              </tr>
-              <tr>
-                <td><strong>#F8FAFC (Slate 50)</strong></td>
-                <td>#070D18 (Midnight Stage)</td>
-                <td class="td-mono"><strong>18.10 : 1</strong></td>
-                <td><span class="ft-badge ft-badge-success">✓ AAA PASS</span></td>
-                <td>Primary body copy and headlines in dark mode.</td>
-              </tr>
-              <tr>
-                <td><strong>#0F172A (Slate 900)</strong></td>
-                <td>#FFFFFF (Studio Light)</td>
-                <td class="td-mono"><strong>17.85 : 1</strong></td>
-                <td><span class="ft-badge ft-badge-success">✓ AAA PASS</span></td>
-                <td>Primary body copy and headlines in light mode.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 4: TYPOGRAPHY
-           ==================================================================== -->
-      <section id="sec-typography" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Foundations 04</div>
-          <h2 class="section-headline">Typography & Scales</h2>
-          <p class="section-lead-copy">
-            Outfit (Primary UI/Headings), Syne (Display Accents), and JetBrains Mono (Telemetry/Clocks).
-          </p>
-        </div>
-
-        <div class="specimen-card">
-          <div class="specimen-header">
-            <div class="specimen-title-box">
-              <h4>Type Hierarchy Specimen</h4>
-              <p>Responsive fluid type scale with optical letter-spacing</p>
-            </div>
-            <div class="specimen-tab-nav">
-              <button class="specimen-tab-btn active" data-tab="preview">Preview</button>
-              <button class="specimen-tab-btn" data-tab="code">CSS</button>
-            </div>
-          </div>
-
-          <div class="specimen-preview-canvas" style="flex-direction: column; align-items: flex-start; gap: var(--space-4);">
-            <div style="font-family: var(--font-display); font-size: 2.25rem; font-weight: 800; line-height: 1.1; color: var(--color-brand-primary);">
-              DISPLAY HERO: Where Stories Meet Excellence
-            </div>
-            <div style="font-family: var(--font-primary); font-size: 1.875rem; font-weight: 700;">
-              H1 HEADLINE: Turnkey Stage & Experiential Production
-            </div>
-            <div style="font-family: var(--font-primary); font-size: 1.35rem; font-weight: 600; color: var(--color-brand-secondary);">
-              H2 SUBTITLE: Precision Calibration Across Dhaka & Chattogram
-            </div>
-            <div style="font-family: var(--font-primary); font-size: 1rem; color: var(--color-text-secondary); max-width: 680px;">
-              BODY BASE: Fine Tuning synchronizes architectural exhibition stalls, executive summits, and acoustic precision. Every decibel is dialed for absolute equilibrium.
-            </div>
-            <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--color-status-success-base); background: rgba(16, 185, 129, 0.1); padding: 4px 10px; border-radius: var(--radius-sm);">
-              [TELEMETRY MONO: RIG-A 98.4 dBA] [LATENCY: 1.2ms] [FPS: 60.00 LOCKED]
-            </div>
-          </div>
-
-          <div class="specimen-code-pane">
-            <pre class="code-pre-block">--font-primary: 'Outfit', system-ui, sans-serif;
---font-display: 'Syne', sans-serif;
---font-mono:    'JetBrains Mono', monospace;</pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 5: SPACING & DENSITY
-           ==================================================================== -->
-      <section id="sec-spatial" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Foundations 05</div>
-          <h2 class="section-headline">Spacing, Grid & Density Modes</h2>
-          <p class="section-lead-copy">
-            A 4px numeric base grid governing margins, paddings, and container gutters. Supports both Comfortable (marketing) and Compact (telemetry console) modes.
-          </p>
-        </div>
-
-        <div class="specimen-card">
-          <div class="specimen-header">
-            <div class="specimen-title-box">
-              <h4>Spatial Scale Visualizer</h4>
-              <p>Multiples of 4px: 4px, 8px, 12px, 16px, 20px, 24px, 32px, 48px, 64px</p>
-            </div>
-          </div>
-
-          <div class="specimen-preview-canvas" style="flex-direction: column; align-items: flex-start; gap: 8px;">
-            <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
-              <span style="width: 80px; font-family: var(--font-mono); font-size: 0.75rem;">--space-1</span>
-              <div style="width: 4px; height: 20px; background: var(--color-brand-primary);"></div>
-              <span style="font-size: 0.75rem; color: var(--color-text-muted);">4px</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
-              <span style="width: 80px; font-family: var(--font-mono); font-size: 0.75rem;">--space-2</span>
-              <div style="width: 8px; height: 20px; background: var(--color-brand-primary);"></div>
-              <span style="font-size: 0.75rem; color: var(--color-text-muted);">8px</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
-              <span style="width: 80px; font-family: var(--font-mono); font-size: 0.75rem;">--space-3</span>
-              <div style="width: 12px; height: 20px; background: var(--color-brand-primary);"></div>
-              <span style="font-size: 0.75rem; color: var(--color-text-muted);">12px</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
-              <span style="width: 80px; font-family: var(--font-mono); font-size: 0.75rem;">--space-4</span>
-              <div style="width: 16px; height: 20px; background: var(--color-brand-primary);"></div>
-              <span style="font-size: 0.75rem; color: var(--color-text-muted);">16px (Base rem)</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
-              <span style="width: 80px; font-family: var(--font-mono); font-size: 0.75rem;">--space-6</span>
-              <div style="width: 24px; height: 20px; background: var(--color-brand-primary);"></div>
-              <span style="font-size: 0.75rem; color: var(--color-text-muted);">24px</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
-              <span style="width: 80px; font-family: var(--font-mono); font-size: 0.75rem;">--space-8</span>
-              <div style="width: 32px; height: 20px; background: var(--color-brand-primary);"></div>
-              <span style="font-size: 0.75rem; color: var(--color-text-muted);">32px</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 6: ELEVATION, SURFACES & MOTION
-           ==================================================================== -->
-      <section id="sec-surfaces" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Foundations 06</div>
-          <h2 class="section-headline">Elevation, Surfaces & Motion</h2>
-          <p class="section-lead-copy">
-            Glassmorphism blurs (`16px`), stage ambient glow gradients, and snappy spring cubic-bezier curves (`cubic-bezier(0.16, 1, 0.3, 1)`).
-          </p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
-          <div style="background: var(--color-bg-surface-card); border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md);">
-            <div style="font-weight: 700; margin-bottom: 8px;">Standard Surface Elevation</div>
-            <p style="font-size: 0.8125rem; color: var(--color-text-secondary);">Multi-layered diffuse shadow for standard administrative cards and containers.</p>
-          </div>
-          <div style="background: var(--color-slate-950); border: 1px solid rgba(240, 147, 32, 0.3); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-glow-amber);">
-            <div style="font-weight: 700; color: var(--color-brand-primary); margin-bottom: 8px;">Stage Glow Flare Surface</div>
-            <p style="font-size: 0.8125rem; color: var(--color-text-secondary);">Solar Amber ambient glow designed for keynote hero blocks and VIP summits.</p>
-          </div>
-          <div style="background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg); padding: var(--space-6);">
-            <div style="font-weight: 700; color: var(--color-brand-secondary); margin-bottom: 8px;">Frosted Glassmorphism</div>
-            <p style="font-size: 0.8125rem; color: var(--color-text-secondary);">Blur 16px with 180% saturation for sticky navbars and modal dialogs.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 7: LOCALIZATION & LONG-TEXT
-           ==================================================================== -->
-      <section id="sec-localization" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Foundations 07</div>
-          <h2 class="section-headline">Localization & Long-Text Resilience</h2>
-          <p class="section-lead-copy">
-            Components are engineered to handle multi-lingual text expansion (English, Bengali, Hindi) without clipping, overflowing, or misaligning action buttons.
-          </p>
-        </div>
-
-        <div class="specimen-card">
-          <div class="specimen-header">
-            <div class="specimen-title-box">
-              <h4>Bangla Script Layout Resilience</h4>
-              <p>Automatic line wrapping and optical height clearance for Bengali conjuncts</p>
-            </div>
-          </div>
-          <div class="specimen-preview-canvas" style="flex-direction: column; align-items: flex-start; gap: var(--space-4);">
-            <div style="background: var(--color-bg-surface-elevated); border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg); padding: var(--space-4); width: 100%; max-width: 520px;">
-              <span class="ft-badge ft-badge-info" style="margin-bottom: 8px;">ইভেন্ট ম্যানেজমেন্ট ও ব্র্যান্ডিং</span>
-              <h4 style="font-size: 1.125rem; margin-bottom: 6px;">৮ম মোটর ফেস্ট চট্টগ্রাম — আন্তর্জাতিক কনফারেন্স ও এক্সবিশন</h4>
-              <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-bottom: 12px;">
-                বিওয়াইডি এবং রয়্যাল এনফিল্ডের এক্সক্লুসিভ প্যাভিলিয়ন ডিজাইন ও টেকনিক্যাল স্টেজ প্রোডাকশন।
-              </p>
-              <button class="ft-btn ft-btn-primary ft-btn-sm">
-                <span>বিস্তারিত জানুন →</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 8: BUTTONS & ACTIONS
-           ==================================================================== -->
-      <section id="comp-buttons" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Component Specimen 01</div>
-          <h2 class="section-headline">Button & Action Controls</h2>
-          <p class="section-lead-copy">
-            Primary, secondary, outline, ghost, destructive, and icon-only button variants across sizes `sm` (32px), `md` (40px), and `lg` (48px).
-          </p>
-        </div>
-
-        <div class="specimen-card">
-          <div class="specimen-header">
-            <div class="specimen-title-box">
-              <h4>Interactive Button Playground</h4>
-              <p>Test default, hover, active, focus, disabled, and loading states</p>
-            </div>
-            <div class="specimen-tab-nav">
-              <button class="specimen-tab-btn active" data-tab="preview">Preview</button>
-              <button class="specimen-tab-btn" data-tab="code">HTML / CSS</button>
-              <button class="specimen-tab-btn" data-tab="specs">API Contract</button>
-            </div>
-          </div>
-
-          <div class="specimen-preview-canvas">
-            <button class="ft-btn ft-btn-primary ft-btn-md demo-loading-btn">
-              <span>Primary Amber CTA</span>
+            <button class="ft-btn ft-btn-primary ft-btn-lg demo-loading-btn">
+              <span>Primary Summit CTA</span>
             </button>
             <button class="ft-btn ft-btn-secondary ft-btn-md demo-loading-btn">
-              <span>Secondary Teal</span>
+              <span>Secondary Proposal</span>
             </button>
             <button class="ft-btn ft-btn-outline ft-btn-md">
               <span>Outline Action</span>
             </button>
             <button class="ft-btn ft-btn-ghost ft-btn-md">
-              <span>Ghost Button</span>
+              <span>Ghost Action</span>
             </button>
             <button class="ft-btn ft-btn-destructive ft-btn-md">
-              <span>Destructive</span>
+              <span>Emergency Cutoff</span>
             </button>
-            <button class="ft-btn ft-btn-primary ft-btn-md is-disabled" disabled>
+            <button class="ft-btn ft-btn-primary ft-btn-md" disabled>
               <span>Disabled State</span>
             </button>
           </div>
 
-          <div style="padding: var(--space-4) var(--space-6); background: var(--color-bg-surface); border-top: 1px solid var(--color-border-primary); display: flex; align-items: center; justify-content: space-between;">
-            <div style="font-size: 0.8125rem; color: var(--color-text-secondary);">
-              Toggle live loading animation across all demo buttons:
-            </div>
-            <button id="btnToggleLoading" class="control-pill-btn">
-              <span>⏳ Toggle Loading State</span>
-            </button>
+          <div style="padding: 12px 24px; background: var(--color-bg-surface); border-top: 1px solid var(--color-border-primary); display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.8125rem; color:var(--color-text-secondary);">Toggle loading state across action buttons:</span>
+            <button id="btnToggleLoading" class="control-pill-btn">⏳ Toggle Loading State</button>
           </div>
 
           <div class="specimen-code-pane">
-            <button class="btn-copy-code" onclick="copyToClipboard('<button class=\'ft-btn ft-btn-primary ft-btn-md\'>Button</button>', 'Button HTML')">Copy</button>
-            <pre class="code-pre-block">&lt;!-- Primary Action (Mandatory Obsidian Text for AAA Contrast) --&gt;
-&lt;button class="ft-btn ft-btn-primary ft-btn-md"&gt;
-  &lt;span&gt;Explore Capabilities&lt;/span&gt;
-&lt;/button&gt;
-
-&lt;!-- Secondary Action --&gt;
-&lt;button class="ft-btn ft-btn-secondary ft-btn-md"&gt;
-  &lt;span&gt;Download Proposal&lt;/span&gt;
-&lt;/button&gt;</pre>
+            <pre class="code-pre-block">&lt;button class="ft-btn ft-btn-primary ft-btn-md"&gt;Primary Action&lt;/button&gt;
+&lt;button class="ft-btn ft-btn-secondary ft-btn-md"&gt;Secondary Action&lt;/button&gt;
+&lt;button class="ft-btn ft-btn-outline ft-btn-md"&gt;Outline Action&lt;/button&gt;</pre>
           </div>
 
           <div class="specimen-specs-pane">
-            <table class="ds-data-table" style="font-size: 0.8125rem;">
-              <thead>
-                <tr>
-                  <th>Prop / Class</th>
-                  <th>Type</th>
-                  <th>Default</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>variant</code></td>
-                  <td><code>primary | secondary | outline | ghost | destructive</code></td>
-                  <td><code>primary</code></td>
-                  <td>Visual emphasis hierarchy</td>
-                </tr>
-                <tr>
-                  <td><code>size</code></td>
-                  <td><code>sm (32px) | md (40px) | lg (48px) | icon</code></td>
-                  <td><code>md</code></td>
-                  <td>Height and padding scale</td>
-                </tr>
-                <tr>
-                  <td><code>is-loading</code></td>
-                  <td><code>boolean</code></td>
-                  <td><code>false</code></td>
-                  <td>Replaces text with spinning indicator</td>
-                </tr>
-              </tbody>
-            </table>
+            <ul style="font-size:0.8125rem; color:var(--color-text-secondary); line-height:1.6;">
+              <li><strong>AAA Contrast Enforced:</strong> 8.24:1 on Solar Amber (`#F09320`) by mandating Midnight Obsidian (`#070D18`) text.</li>
+              <li><strong>Interactive States:</strong> Hover (`translateY(-1px)`), Active (`scale(0.98)`), Focus-Visible (2px Amber ring with 2px offset).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Specimen 1.2: Split Buttons, FAB & Segmented Controls -->
+        <div id="act-split" class="specimen-card">
+          <div class="specimen-header">
+            <div class="specimen-title-box">
+              <h4>Compound Actions & Controls</h4>
+              <p>Split Buttons • Segmented Button Groups • WhatsApp Live FAB</p>
+            </div>
+          </div>
+          <div class="specimen-preview-canvas" style="gap: var(--space-6);">
+            <!-- Split Button -->
+            <div class="ft-split-btn-group">
+              <button class="ft-btn ft-btn-primary ft-btn-md" onclick="showToast('Executing primary stage cue...')">
+                <span>Calibrate Stage A</span>
+              </button>
+              <button class="ft-btn ft-btn-primary ft-btn-md" onclick="togglePopover('splitDropdown')" aria-label="More calibration options">
+                <span>▼</span>
+              </button>
+            </div>
+
+            <!-- Segmented Control -->
+            <div class="ft-segmented-control">
+              <button class="ft-segment-item active" onclick="showToast('Switched to Live Production View')">Live View</button>
+              <button class="ft-segment-item" onclick="showToast('Switched to Diagnostic Telemetry')">Diagnostics</button>
+              <button class="ft-segment-item" onclick="showToast('Switched to Equipment Roster')">Assets</button>
+            </div>
+
+            <!-- Avatars & Group -->
+            <div class="ft-avatar-group">
+              <div class="ft-avatar" title="Lead Audio Engineer">MA</div>
+              <div class="ft-avatar" style="color:var(--color-brand-secondary);" title="Lighting Director">RC</div>
+              <div class="ft-avatar" title="Stage Coordinator">TC</div>
+              <div class="ft-avatar" style="background:var(--color-brand-primary); color:var(--color-slate-950);">+4</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specimen 1.3: Status Beacons, Alerts & Skeletons -->
+        <div id="act-status" class="specimen-card">
+          <div class="specimen-header">
+            <div class="specimen-title-box">
+              <h4>Status Beacons & Inline Alerts</h4>
+              <p>Live hardware status • Feedback notifications • Loading skeletons</p>
+            </div>
+          </div>
+          <div class="specimen-preview-canvas" style="flex-direction: column; width:100%; gap: var(--space-4);">
+            <!-- Beacons -->
+            <div style="display:flex; flex-wrap:wrap; gap:12px;">
+              <span class="ft-badge ft-badge-success"><span class="ft-beacon-dot pulse"></span> STAGE A LINE-ARRAY (LIVE)</span>
+              <span class="ft-badge ft-badge-warning"><span class="ft-beacon-dot pulse"></span> SOUNDCHECK STANDBY</span>
+              <span class="ft-badge ft-badge-danger"><span class="ft-beacon-dot"></span> OPTICAL LINK SEVERED</span>
+              <span class="ft-badge ft-badge-info"><span class="ft-beacon-dot"></span> 60.00 FPS CONTROLLER LOCKED</span>
+            </div>
+
+            <!-- Alerts -->
+            <div class="ft-alert-box ft-alert-warning">
+              <span>⚠️</span>
+              <div>
+                <strong>Acoustic Limiter Notice:</strong> Decibel soundcheck reached 96.2 dBA at center stage. Limiter compression is active.
+              </div>
+            </div>
+            <div class="ft-alert-box ft-alert-success">
+              <span>✓</span>
+              <div>
+                <strong>VIP Registration Synchronized:</strong> 1,420 delegates confirmed for BSRM CORE ESG Summit at Radisson Blu.
+              </div>
+            </div>
+
+            <!-- Skeletons -->
+            <div style="width:100%; display:flex; gap:16px; align-items:center;">
+              <div class="ft-skeleton" style="width:48px; height:48px; border-radius:50%;"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+                <div class="ft-skeleton" style="height:14px; width:65%;"></div>
+                <div class="ft-skeleton" style="height:10px; width:40%;"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- ====================================================================
-           SECTION 9: INPUTS & FORMS
+           CATEGORY 2: FORMS & INPUTS
            ==================================================================== -->
-      <section id="comp-inputs" class="ds-section">
+      <section id="cat-forms" class="ds-section">
         <div class="section-header-block">
-          <div class="section-category-eyebrow">Component Specimen 02</div>
-          <h2 class="section-headline">Inputs & Form Controls</h2>
+          <div class="section-category-eyebrow">Category 02</div>
+          <h2 class="section-headline">Forms, Validations & Inputs</h2>
           <p class="section-lead-copy">
-            Accessible form fields featuring floating or static labels, inline validation feedback, accessible focus rings, and input states.
+            Complete suite of form controls: text, email, password reveal, Bangladesh phone prefix, character-counted textareas, multi-select, switches, sliders, star ratings, OTP 6-box input, and drag-and-drop file upload.
           </p>
         </div>
 
         <div class="specimen-card">
           <div class="specimen-header">
             <div class="specimen-title-box">
-              <h4>Live Validating Input Specimen</h4>
-              <p>Type into the email field below to test real-time validation feedback</p>
-            </div>
-            <div class="specimen-tab-nav">
-              <button class="specimen-tab-btn active" data-tab="preview">Preview</button>
-              <button class="specimen-tab-btn" data-tab="code">Code</button>
+              <h4>Standard Input Controls & Validation</h4>
+              <p>Adornments • Phone masking • Floating/static labels</p>
             </div>
           </div>
 
-          <div class="specimen-preview-canvas" style="flex-direction: column; align-items: flex-start; gap: var(--space-6);">
-            <!-- Interactive Validating Input -->
+          <div class="specimen-preview-canvas" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); width:100%;">
+            <!-- Email Input with Validation -->
             <div class="ft-form-group">
               <label for="demoEmailInput" class="ft-label">
-                <span>Work Email Address</span>
+                <span>Corporate Work Email</span>
                 <span class="ft-label-optional">Required</span>
               </label>
               <div class="ft-input-container">
-                <input type="email" id="demoEmailInput" class="ft-input" placeholder="e.g. producer@bsrm.com">
+                <input type="email" id="demoEmailInput" class="ft-input" placeholder="producer@bsrm.com">
               </div>
-              <div id="demoEmailError" class="ft-input-error-msg" style="display: none;">
-                <span>✕</span> Please enter a valid company email address.
+              <div id="demoEmailError" class="ft-input-error-msg" style="display:none;">
+                <span>✕</span> Please enter a valid corporate email.
               </div>
-              <div class="ft-input-helper">We coordinate directly via email or verified WhatsApp.</div>
+              <div class="ft-input-helper">We send event production briefs securely.</div>
             </div>
 
-            <!-- Switch Control -->
-            <label class="ft-switch-container">
-              <input type="checkbox" id="demoSwitch" class="ft-switch-input" style="display:none;" checked>
-              <div class="ft-switch-track">
-                <div class="ft-switch-thumb"></div>
+            <!-- Phone with Prefix -->
+            <div class="ft-form-group">
+              <label class="ft-label">
+                <span>Direct WhatsApp Phone</span>
+                <span class="ft-label-optional">Bangladesh</span>
+              </label>
+              <div class="ft-input-container">
+                <span class="ft-input-prefix">🇧🇩 +880</span>
+                <input type="tel" class="ft-input ft-input-with-prefix" value="1671-863685">
               </div>
-              <span style="font-size: 0.875rem; font-weight: 600;">Enable Live Stage Soundcheck Notifications</span>
-            </label>
+              <div class="ft-input-helper">Formatted with auto-masking.</div>
+            </div>
+
+            <!-- Budget with Suffix -->
+            <div class="ft-form-group">
+              <label class="ft-label">
+                <span>Estimated Production Budget</span>
+                <span class="ft-label-optional">BDT</span>
+              </label>
+              <div class="ft-input-container">
+                <span class="ft-input-prefix">৳</span>
+                <input type="text" class="ft-input ft-input-with-prefix ft-input-with-suffix" value="15,00,000">
+                <span class="ft-input-suffix">BDT</span>
+              </div>
+            </div>
+
+            <!-- Character Counted Textarea -->
+            <div class="ft-form-group" style="grid-column: 1 / -1; max-width: 100%;">
+              <label class="ft-label">
+                <span>Stage Technical Requirements & Acoustic Notes</span>
+                <span id="charCountDisplay" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-muted);">142 / 500 chars</span>
+              </label>
+              <textarea class="ft-input" style="height: 90px; resize:vertical;">JBL VTX A12 Line-Array required with 24 Sharpy moving heads and P2.6 panoramic high-bright LED display wall at Radisson Blu Chattogram.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specimen 2.2: Advanced Controls: OTP, Ratings, Dropzone, Stepper -->
+        <div id="frm-complex" class="specimen-card">
+          <div class="specimen-header">
+            <div class="specimen-title-box">
+              <h4>Advanced Form Controls</h4>
+              <p>6-Box OTP Verification • Drag & Drop Upload • Star Rating • Multi-Step Wizard</p>
+            </div>
           </div>
 
-          <div class="specimen-code-pane">
-            <pre class="code-pre-block">&lt;div class="ft-form-group"&gt;
-  &lt;label class="ft-label" for="email"&gt;Work Email&lt;/label&gt;
-  &lt;input type="email" id="email" class="ft-input" aria-invalid="false" /&gt;
-  &lt;span class="ft-input-helper"&gt;We respect your privacy.&lt;/span&gt;
-&lt;/div&gt;</pre>
+          <div class="specimen-preview-canvas" style="flex-direction: column; width:100%; gap: var(--space-8);">
+            <!-- Multi-Step Wizard Stepper -->
+            <div class="ft-wizard-stepper">
+              <div class="ft-wizard-step completed">
+                <div class="ft-wizard-dot">✓</div>
+                <span style="font-size:0.75rem; font-weight:600;">1. Summit Brief</span>
+              </div>
+              <div class="ft-wizard-step active">
+                <div class="ft-wizard-dot">2</div>
+                <span style="font-size:0.75rem; font-weight:600; color:var(--color-brand-primary);">2. AV Calibration</span>
+              </div>
+              <div class="ft-wizard-step">
+                <div class="ft-wizard-dot">3</div>
+                <span style="font-size:0.75rem; font-weight:600; color:var(--color-text-muted);">3. Confirmation</span>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); width:100%;">
+              <!-- OTP Box -->
+              <div>
+                <label class="ft-label" style="margin-bottom:8px;">Portal 2FA Verification (OTP)</label>
+                <div class="ft-otp-grid">
+                  <input type="text" class="ft-otp-box" maxlength="1" value="4">
+                  <input type="text" class="ft-otp-box" maxlength="1" value="2">
+                  <input type="text" class="ft-otp-box" maxlength="1" value="0">
+                  <input type="text" class="ft-otp-box" maxlength="1" value="3">
+                  <input type="text" class="ft-otp-box" maxlength="1">
+                  <input type="text" class="ft-otp-box" maxlength="1">
+                </div>
+                <div class="ft-input-helper" style="margin-top:6px;">Auto-advancing single digit boxes.</div>
+              </div>
+
+              <!-- Star Rating -->
+              <div>
+                <label class="ft-label" style="margin-bottom:8px;">Post-Event Satisfaction</label>
+                <div class="ft-star-rating">
+                  <span class="star filled" data-val="1">★</span>
+                  <span class="star filled" data-val="2">★</span>
+                  <span class="star filled" data-val="3">★</span>
+                  <span class="star filled" data-val="4">★</span>
+                  <span class="star filled" data-val="5">★</span>
+                </div>
+                <div class="ft-input-helper">Rated 5 of 5 Stars by BSRM Corporation.</div>
+              </div>
+
+              <!-- Drag and Drop Dropzone -->
+              <div style="grid-column: 1 / -1;">
+                <div class="ft-dropzone" onclick="showToast('File picker opened for CAD / Floorplans')">
+                  <div style="font-size:2rem; margin-bottom:8px;">📁</div>
+                  <div style="font-weight:700;">Drag & drop stage schematics or CAD floorplans</div>
+                  <div style="font-size:0.75rem; color:var(--color-text-secondary); margin-top:4px;">Supports PDF, DWG, PNG, WebP up to 50MB</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- ====================================================================
-           SECTION 10: BADGES & LIVE BEACONS
+           CATEGORY 3: NAVIGATION & LAYOUT
            ==================================================================== -->
-      <section id="comp-badges" class="ds-section">
+      <section id="cat-navigation" class="ds-section">
         <div class="section-header-block">
-          <div class="section-category-eyebrow">Component Specimen 03</div>
-          <h2 class="section-headline">Badges, Tags & Pulse Beacons</h2>
+          <div class="section-category-eyebrow">Category 03</div>
+          <h2 class="section-headline">Navigation Architecture & Layouts</h2>
           <p class="section-lead-copy">
-            Compact status pills with animated pulsing hardware indicators, conveying live operational states.
-          </p>
-        </div>
-
-        <div class="specimen-card">
-          <div class="specimen-preview-canvas">
-            <span class="ft-badge ft-badge-success">
-              <span class="ft-beacon-dot pulse"></span> LIVE STAGE BROADCAST
-            </span>
-            <span class="ft-badge ft-badge-warning">
-              <span class="ft-beacon-dot pulse"></span> SOUNDCHECK IN PROGRESS
-            </span>
-            <span class="ft-badge ft-badge-danger">
-              <span class="ft-beacon-dot"></span> CONNECTION TERMINATED
-            </span>
-            <span class="ft-badge ft-badge-info">
-              <span class="ft-beacon-dot"></span> P2.6 LED SYNCED (60 FPS)
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SECTION 11: DATA TABLES (CONSOLE)
-           ==================================================================== -->
-      <section id="comp-tables" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Component Specimen 04</div>
-          <h2 class="section-headline">Operational Data Table</h2>
-          <p class="section-lead-copy">
-            High-density tabular display for audio-visual rigs, delegate lists, and stage channels. Click column headers to sort ascending/descending.
+            Breadcrumbs, pagination controls, command palette (<kbd>⌘K</kbd>), mobile lateral drawers, and collapsible admin sidebars.
           </p>
         </div>
 
         <div class="specimen-card">
           <div class="specimen-header">
             <div class="specimen-title-box">
-              <h4>Stage Rigs Telemetry Table</h4>
-              <p>Sortable headers • Row selection • JetBrains Mono data values</p>
+              <h4>Breadcrumbs & Interactive Pagination</h4>
+              <p>Hierarchical location tracking • Accessible keyboard pagination</p>
             </div>
-            <div style="font-size: 0.8125rem; color: var(--color-text-secondary);">
-              Click headers to sort
+          </div>
+
+          <div class="specimen-preview-canvas" style="flex-direction: column; width:100%; gap: var(--space-6); align-items:flex-start;">
+            <!-- Breadcrumbs -->
+            <nav aria-label="Breadcrumb">
+              <ol style="display:flex; gap:8px; list-style:none; font-size:0.8125rem; align-items:center;">
+                <li><a href="#" style="color:var(--color-brand-primary); text-decoration:none;">Home</a></li>
+                <li style="color:var(--color-text-muted);">/</li>
+                <li><a href="#" style="color:var(--color-brand-secondary); text-decoration:none;">Case Studies</a></li>
+                <li style="color:var(--color-text-muted);">/</li>
+                <li><a href="#" style="color:var(--color-text-secondary); text-decoration:none;">Automotive Expos</a></li>
+                <li style="color:var(--color-text-muted);">/</li>
+                <li style="color:var(--color-text-primary); font-weight:700;">8th Motor Fest (BYD & Royal Enfield)</li>
+              </ol>
+            </nav>
+
+            <!-- Pagination Bar -->
+            <div style="display:flex; gap:6px; align-items:center;">
+              <button class="ft-btn ft-btn-outline ft-btn-sm" style="padding:4px 8px;">« Prev</button>
+              <button class="ft-btn ft-btn-primary ft-btn-sm" style="padding:4px 10px;">1</button>
+              <button class="ft-btn ft-btn-outline ft-btn-sm" style="padding:4px 10px;">2</button>
+              <button class="ft-btn ft-btn-outline ft-btn-sm" style="padding:4px 10px;">3</button>
+              <span style="padding-inline:4px; color:var(--color-text-muted);">...</span>
+              <button class="ft-btn ft-btn-outline ft-btn-sm" style="padding:4px 10px;">14</button>
+              <button class="ft-btn ft-btn-outline ft-btn-sm" style="padding:4px 8px;">Next »</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 4: CONTENT & MARKETING
+           ==================================================================== -->
+      <section id="cat-content" class="ds-section">
+        <div class="section-header-block">
+          <div class="section-category-eyebrow">Category 04</div>
+          <h2 class="section-headline">Content & Marketing Specialty</h2>
+          <p class="section-lead-copy">
+            Blockquotes, pricing tier cards, stage schedules, infinite partner sliders, and interactive FAQ accordions.
+          </p>
+        </div>
+
+        <div class="specimen-card">
+          <div class="specimen-header">
+            <div class="specimen-title-box">
+              <h4>Pricing Tiers & Stage Packages</h4>
+              <p>Turnkey AV & Event Management Tiers</p>
+            </div>
+          </div>
+
+          <div class="specimen-preview-canvas" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); width:100%;">
+            <!-- Tier 1 -->
+            <div class="ft-pricing-card">
+              <div style="font-size:0.75rem; font-weight:700; color:var(--color-brand-secondary); text-transform:uppercase;">Standard Corporate</div>
+              <h3 style="font-size:1.5rem; margin-block:8px;">Executive Summit</h3>
+              <div style="font-family:var(--font-mono); font-size:1.75rem; font-weight:800; color:var(--color-brand-primary); margin-bottom:12px;">
+                ৳ 4,50,000 <span style="font-size:0.875rem; color:var(--color-text-muted);">/ event</span>
+              </div>
+              <ul style="font-size:0.8125rem; color:var(--color-text-secondary); line-height:1.8; list-style:none; margin-bottom:20px;">
+                <li>✓ Full Executive Dais & Podium Acoustics</li>
+                <li>✓ High-Bright P2.6 LED Video Wall (16x9ft)</li>
+                <li>✓ Shure Wireless Delegation Mic System</li>
+              </ul>
+              <button class="ft-btn ft-btn-outline ft-btn-md" style="margin-top:auto;" onclick="showToast('Selected Executive Summit Package')">Book Stage</button>
+            </div>
+
+            <!-- Tier 2 Featured -->
+            <div class="ft-pricing-card featured">
+              <span class="ft-badge ft-badge-warning ft-pricing-badge">FEATURED TIER</span>
+              <div style="font-size:0.75rem; font-weight:700; color:var(--color-brand-primary); text-transform:uppercase;">Flagship Turnkey</div>
+              <h3 style="font-size:1.5rem; margin-block:8px;">Arena Pavilion & Fest</h3>
+              <div style="font-family:var(--font-mono); font-size:1.75rem; font-weight:800; color:var(--color-brand-primary); margin-bottom:12px;">
+                ৳ 12,00,000 <span style="font-size:0.875rem; color:var(--color-text-muted);">/ turnkey</span>
+              </div>
+              <ul style="font-size:0.8125rem; color:var(--color-text-secondary); line-height:1.8; list-style:none; margin-bottom:20px;">
+                <li>✓ Turnkey 3D Architectural Stall Fabrication</li>
+                <li>✓ Panoramic Curved LED Video Wall (32x12ft)</li>
+                <li>✓ JBL VTX Line-Array + 24 Moving Heads</li>
+                <li>✓ 360 Video Photo Booth with Instant AirDrop</li>
+              </ul>
+              <button class="ft-btn ft-btn-primary ft-btn-md" style="margin-top:auto;" onclick="showToast('Selected Arena Pavilion Tier')">Deploy Turnkey Crew</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specimen 4.2: FAQ Accordions & Timeline -->
+        <div id="cnt-timeline" class="specimen-card">
+          <div class="specimen-header">
+            <div class="specimen-title-box">
+              <h4>Run-of-Show Stage Timeline & FAQ Accordions</h4>
+              <p>Milestone tracking • Accessible FAQ disclosure</p>
+            </div>
+          </div>
+
+          <div class="specimen-preview-canvas" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-8); width:100%; align-items:flex-start;">
+            <!-- Timeline -->
+            <div>
+              <h5 style="margin-bottom:16px;">BSRM CORE ESG Event Schedule</h5>
+              <div class="ft-timeline">
+                <div class="ft-timeline-item">
+                  <div class="ft-timeline-dot"></div>
+                  <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-brand-primary);">08:30 AM — Stage Soundcheck</div>
+                  <div style="font-weight:700; font-size:0.9375rem;">Line-Array Calibration & Mic Testing</div>
+                </div>
+                <div class="ft-timeline-item">
+                  <div class="ft-timeline-dot" style="background:var(--color-brand-secondary);"></div>
+                  <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-brand-secondary);">10:00 AM — VIP Registration</div>
+                  <div style="font-weight:700; font-size:0.9375rem;">QR Delegate Check-in at Radisson Blu</div>
+                </div>
+                <div class="ft-timeline-item">
+                  <div class="ft-timeline-dot"></div>
+                  <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-brand-primary);">11:30 AM — Keynote Address</div>
+                  <div style="font-weight:700; font-size:0.9375rem;">Panoramic LED Presentation Launch</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion -->
+            <div>
+              <h5 style="margin-bottom:16px;">Frequently Asked Questions</h5>
+              <div class="ft-accordion-item is-expanded">
+                <button class="ft-accordion-trigger">
+                  <span>How does Fine Tuning handle outdoor concerts?</span>
+                  <span>▼</span>
+                </button>
+                <div class="ft-accordion-content">
+                  We deploy IP65 weatherproof line-array enclosures, delay-free wireless feeds, and heavy-duty ground-support aluminium trusses engineered for wind resistance.
+                </div>
+              </div>
+              <div class="ft-accordion-item">
+                <button class="ft-accordion-trigger">
+                  <span>Is WhatsApp preferred over corporate web forms?</span>
+                  <span>▼</span>
+                </button>
+                <div class="ft-accordion-content">
+                  Yes. To respect clients' time, primary booking and instant coordination occur through our verified 24/7 WhatsApp channel at +880 1671-863685.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 5: OVERLAYS & DISCLOSURE
+           ==================================================================== -->
+      <section id="cat-overlays" class="ds-section">
+        <div class="section-header-block">
+          <div class="section-category-eyebrow">Category 05</div>
+          <h2 class="section-headline">Overlays, Modals & Slide Drawers</h2>
+          <p class="section-lead-copy">
+            Accessible dialog overlays with backdrop blur, focus trapping, Escape key dismissal, popovers, and slide-over side inspectors.
+          </p>
+        </div>
+
+        <div class="specimen-card">
+          <div class="specimen-header">
+            <div class="specimen-title-box">
+              <h4>Interactive Overlays Trigger Panel</h4>
+              <p>Test modals, slide-out inspector drawers, and anchor-positioned popovers</p>
+            </div>
+          </div>
+          <div class="specimen-preview-canvas">
+            <button class="ft-btn ft-btn-primary ft-btn-md" onclick="openModal()">
+              <span>🚀 Open Confirmation Modal</span>
+            </button>
+            <button class="ft-btn ft-btn-secondary ft-btn-md" onclick="openDrawer()">
+              <span>📋 Open Side Inspector Drawer</span>
+            </button>
+            <button class="ft-btn ft-btn-outline ft-btn-md" onclick="togglePopover('samplePopover')">
+              <span>💬 Toggle Anchor Popover</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sample Anchor Popover -->
+        <div id="samplePopover" class="ft-popover" style="left: 45%; top: 300px;">
+          <div style="font-weight:700; font-size:0.9375rem; margin-bottom:6px;">Line-Array Controller Rig 01</div>
+          <p style="font-size:0.8125rem; color:var(--color-text-secondary); margin-bottom:10px;">
+            DSP preset loaded: Radisson Blu Grand Ballroom (Mode 4). All limiter thresholds engaged.
+          </p>
+          <button class="ft-btn ft-btn-primary ft-btn-sm" style="width:100%;" onclick="togglePopover('samplePopover'); showToast('Rig parameters synchronized');">Sync Parameters</button>
+        </div>
+
+        <!-- Slide-Over Inspector Drawer -->
+        <div id="inspectorDrawer" class="ds-sidebar" style="position:fixed; top:0; right:0; left:auto; width:360px; height:100vh; z-index:var(--z-drawer); transform:translateX(100%); transition:transform var(--duration-normal); box-shadow:-10px 0 30px rgba(0,0,0,0.5);">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--color-border-primary); padding-bottom:12px;">
+            <h4 style="font-weight:700;">Equipment Inspector</h4>
+            <button onclick="closeDrawer()" style="background:none; border:none; color:var(--color-text-muted); font-size:1.25rem; cursor:pointer;">✕</button>
+          </div>
+          <div style="font-size:0.875rem; color:var(--color-text-secondary); line-height:1.6; margin-top:16px;">
+            <p><strong>Hardware Model:</strong> JBL VTX A12 Dual 12" Line Array</p>
+            <p><strong>DMX Channel:</strong> 512 (Active Opto-isolated)</p>
+            <p><strong>Operating Temperature:</strong> 34.2° C (Optimal)</p>
+            <p><strong>Signal Latency:</strong> 0.8ms</p>
+            <div style="margin-top:20px;">
+              <button class="ft-btn ft-btn-primary ft-btn-sm" style="width:100%;" onclick="showToast('Diagnostics report saved'); closeDrawer();">Run Diagnostics</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accessible Modal Dialog DOM Structure -->
+        <div id="demoModal" class="ds-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+          <div class="ds-modal-box">
+            <div class="ds-modal-header">
+              <h4 id="modalTitle" style="font-size: 1.125rem; font-weight: 700;">Recalibrate Audio Line-Array?</h4>
+              <button id="btnCloseModal" style="background:none; border:none; color:var(--color-text-muted); font-size:1.25rem; cursor:pointer;" aria-label="Close dialog">✕</button>
+            </div>
+            <div class="ds-modal-body">
+              This action will reset the phase alignment on <strong>Rig 01-Front</strong>. The acoustic transducer will undergo a 1.2-second silent soundcheck before returning live.
+            </div>
+            <div class="ds-modal-footer">
+              <button id="btnCancelModal" class="ft-btn ft-btn-ghost ft-btn-md">Cancel</button>
+              <button class="ft-btn ft-btn-primary ft-btn-md" onclick="showToast('Calibration sequence initiated!'); demoModal.classList.remove('show');">Confirm Recalibration</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 6: DATA-RICH WIDGETS
+           ==================================================================== -->
+      <section id="cat-data" class="ds-section">
+        <div class="section-header-block">
+          <div class="section-category-eyebrow">Category 06</div>
+          <h2 class="section-headline">Data-Rich Telemetry & Advanced Tables</h2>
+          <p class="section-lead-copy">
+            Sortable tables with bulk action triggers, client-side CSV export, vector SVG charts, decibel gauges, and equipment directory trees.
+          </p>
+        </div>
+
+        <!-- Specimen 6.1: Advanced Data Table with CSV Export -->
+        <div class="specimen-card">
+          <div class="specimen-header">
+            <div class="specimen-title-box">
+              <h4>Stage Rigs Telemetry Table (Sortable & Exportable)</h4>
+              <p>Click headers to sort • Select checkboxes to trigger bulk actions • Download CSV</p>
+            </div>
+            <button class="control-pill-btn" onclick="exportTableToCSV()">
+              <span>📥 Export CSV</span>
+            </button>
+          </div>
+
+          <!-- Bulk Action Bar -->
+          <div id="tableBulkBar" class="ds-table-bulk-actions">
+            <span id="selectedCountText" style="font-weight:700; color:var(--color-brand-primary);">0 channels selected</span>
+            <div style="display:flex; gap:8px;">
+              <button class="ft-btn ft-btn-primary ft-btn-sm" onclick="showToast('Calibrated selected rigs')">Batch Calibrate</button>
+              <button class="ft-btn ft-btn-destructive ft-btn-sm" onclick="showToast('Muted selected channels')">Mute Channels</button>
             </div>
           </div>
 
@@ -887,64 +937,19 @@
             </table>
           </div>
         </div>
-      </section>
 
-      <!-- ====================================================================
-           SECTION 12: MODALS, TOASTS & OVERLAYS
-           ==================================================================== -->
-      <section id="comp-overlays" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Component Specimen 05</div>
-          <h2 class="section-headline">Modals, Toast & Overlays</h2>
-          <p class="section-lead-copy">
-            Accessible dialog overlays with backdrop blur, focus trapping, Escape key dismissal, and status toast notifications.
-          </p>
-        </div>
-
-        <div class="specimen-card">
-          <div class="specimen-preview-canvas">
-            <button id="btnOpenModal" class="ft-btn ft-btn-primary ft-btn-md">
-              <span>🚀 Open Confirmation Modal</span>
-            </button>
-            <button class="ft-btn ft-btn-secondary ft-btn-md" onclick="showToast('Stage cue #4 executed successfully!')">
-              <span>🔔 Trigger Toast Notification</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Accessible Modal Dialog DOM Structure -->
-        <div id="demoModal" class="ds-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-          <div class="ds-modal-box">
-            <div class="ds-modal-header">
-              <h4 id="modalTitle" style="font-size: 1.125rem; font-weight: 700;">Recalibrate Audio Line-Array?</h4>
-              <button id="btnCloseModal" style="background:none; border:none; color:var(--color-text-muted); font-size:1.25rem; cursor:pointer;" aria-label="Close dialog">✕</button>
-            </div>
-            <div class="ds-modal-body">
-              This action will reset the phase alignment on <strong>Rig 01-Front</strong>. The acoustic transducer will undergo a 1.2-second silent soundcheck before returning live.
-            </div>
-            <div class="ds-modal-footer">
-              <button id="btnCancelModal" class="ft-btn ft-btn-ghost ft-btn-md">Cancel</button>
-              <button class="ft-btn ft-btn-primary ft-btn-md" onclick="showToast('Calibration sequence initiated!'); demoModal.classList.remove('show');">Confirm Recalibration</button>
+        <!-- Specimen 6.2: Interactive SVG Charts & Telemetry Gauge -->
+        <div id="dta-charts" class="specimen-card">
+          <div class="specimen-header">
+            <div class="specimen-title-box">
+              <h4>Telemetry Charts & Soundcheck SPL Meter</h4>
+              <p>Vector Area Chart • Real-Time Decibel Meter with Safety Thresholds</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- ====================================================================
-           SECTION 13: TELEMETRY & DECIBEL GAUGES
-           ==================================================================== -->
-      <section id="comp-telemetry" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Component Specimen 06</div>
-          <h2 class="section-headline">Telemetry & Decibel Gauges</h2>
-          <p class="section-lead-copy">
-            Acoustic soundcheck meter with dynamic color thresholds and visual warnings. Drag the slider to test gauge reactivity in real time.
-          </p>
-        </div>
-
-        <div class="specimen-card">
-          <div class="specimen-preview-canvas">
-            <div class="telemetry-gauge-card">
+          <div class="specimen-preview-canvas" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-8); width:100%;">
+            <!-- Decibel Gauge Card -->
+            <div class="telemetry-gauge-card" style="max-width:100%;">
               <div style="display: flex; align-items: center; justify-content: space-between;">
                 <div>
                   <div style="font-size: var(--font-size-xs); color: var(--color-text-muted); text-transform: uppercase;">Sound Pressure Level</div>
@@ -965,109 +970,91 @@
               <!-- Interactive Slider -->
               <div style="margin-top: var(--space-4);">
                 <label for="dbaSlider" style="font-size: 0.75rem; color: var(--color-text-secondary); display: block; margin-bottom: 4px;">
-                  Simulate Live Decibel Fluctuation (0 to 120 dBA):
+                  Simulate Live Decibel Fluctuation (50 to 115 dBA):
                 </label>
                 <input type="range" id="dbaSlider" min="50" max="115" value="94" step="0.5" style="width: 100%; accent-color: var(--color-brand-primary);">
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- ====================================================================
-           SECTION 14: MARKETING PATTERN & INFINITE MARQUEE
-           ==================================================================== -->
-      <section id="pat-marketing" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Layout Pattern 01</div>
-          <h2 class="section-headline">Marketing Hero & Seamless Marquee</h2>
-          <p class="section-lead-copy">
-            Hero stage banner with dual flares paired with the continuous enterprise client marquee.
-          </p>
-        </div>
-
-        <div class="specimen-card">
-          <div class="specimen-preview-canvas" style="flex-direction: column; width: 100%; align-items: stretch;">
-            <!-- Marquee Demonstration -->
-            <div style="font-size: 0.8125rem; font-weight: 600; color: var(--color-text-secondary); margin-bottom: 8px;">
-              Enterprise Partner Slider (32s Hardware Loop — Hover to pause)
-            </div>
-            <div style="overflow: hidden; white-space: nowrap; background: var(--color-bg-surface); padding: 16px; border-radius: var(--radius-lg); border: 1px solid var(--color-border-primary);">
-              <div style="display: inline-flex; gap: 32px; animation: marquee-drift 24s linear infinite;">
-                <span style="font-weight: 700; color: var(--color-text-secondary);">🏢 BSRM Steel</span>
-                <span style="font-weight: 700; color: var(--color-text-secondary);">🏦 United Commercial Bank (UCB)</span>
-                <span style="font-weight: 700; color: var(--color-text-secondary);">⚡ BYD Bangladesh</span>
-                <span style="font-weight: 700; color: var(--color-text-secondary);">🏍️ Royal Enfield Pure Motorcycling</span>
-                <span style="font-weight: 700; color: var(--color-text-secondary);">🏙️ CPDL Real Estate</span>
-                <span style="font-weight: 700; color: var(--color-text-secondary);">🏢 BSRM Steel</span>
-                <span style="font-weight: 700; color: var(--color-text-secondary);">🏦 United Commercial Bank (UCB)</span>
-                <span style="font-weight: 700; color: var(--color-text-secondary);">⚡ BYD Bangladesh</span>
-              </div>
+            <!-- Vector SVG Line / Area Chart -->
+            <div class="ds-chart-container" style="max-width:100%;">
+              <div style="font-weight:700; font-size:0.9375rem; margin-bottom:4px;">Decibel Frequency Response (Live 60s)</div>
+              <div style="font-size:0.75rem; color:var(--color-text-secondary); margin-bottom:12px;">Solar Amber: Main Array • Nordic Teal: Stage Wedge</div>
+              <svg viewBox="0 0 400 160" style="width:100%; height:auto;">
+                <!-- Grid lines -->
+                <line x1="0" y1="40" x2="400" y2="40" stroke="var(--color-border-primary)" stroke-dasharray="4"/>
+                <line x1="0" y1="80" x2="400" y2="80" stroke="var(--color-border-primary)" stroke-dasharray="4"/>
+                <line x1="0" y1="120" x2="400" y2="120" stroke="var(--color-border-primary)" stroke-dasharray="4"/>
+                
+                <!-- Area Fill -->
+                <polygon points="0,140 50,110 100,70 150,85 200,45 250,55 300,30 350,60 400,35 400,160 0,160" fill="rgba(240, 147, 32, 0.15)"/>
+                
+                <!-- Amber Curve -->
+                <polyline points="0,140 50,110 100,70 150,85 200,45 250,55 300,30 350,60 400,35" fill="none" stroke="var(--color-brand-primary)" stroke-width="3"/>
+                
+                <!-- Teal Secondary Curve -->
+                <polyline points="0,150 50,135 100,110 150,120 200,90 250,95 300,80 350,90 400,85" fill="none" stroke="var(--color-brand-secondary)" stroke-width="2" stroke-dasharray="5"/>
+              </svg>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- ====================================================================
-           SECTION 15: TOKENS JSON REFERENCE
-           ==================================================================== -->
-      <section id="sec-tokens-raw" class="ds-section">
-        <div class="section-header-block">
-          <div class="section-category-eyebrow">Token Architecture</div>
-          <h2 class="section-headline">Raw DTCG Tokens Reference</h2>
-          <p class="section-lead-copy">
-            The machine-readable source of truth stored in <code>tokens/design-tokens.json</code>.
-          </p>
-        </div>
-
-        <div class="specimen-card">
+        <!-- Specimen 6.3: Equipment Tree View & Audit Log -->
+        <div id="dta-tree" class="specimen-card">
           <div class="specimen-header">
             <div class="specimen-title-box">
-              <h4>tokens/design-tokens.json</h4>
-              <p>W3C Design Tokens Community Group Standard Format</p>
+              <h4>Equipment Directory Tree & Production Audit Log</h4>
+              <p>Hardware categorization • Real-time audit trails</p>
             </div>
-            <a href="../tokens/design-tokens.json" download class="control-pill-btn" style="text-decoration:none;">
-              <span>⬇️ Download .json</span>
-            </a>
           </div>
-          <div class="specimen-code-pane" style="display: block; max-height: 380px; overflow-y: auto;">
-            <pre class="code-pre-block">{
-  "primitive": {
-    "color": {
-      "amber": { "500": { "$value": "#F09320", "$type": "color" } },
-      "teal":  { "500": { "$value": "#4694B1", "$type": "color" } }
-    },
-    "space": {
-      "4": { "$value": "16px", "$type": "dimension" }
-    }
-  },
-  "semantic": {
-    "color": {
-      "brand": {
-        "primary": { "$value": "{primitive.color.amber.500}" },
-        "secondary": { "$value": "{primitive.color.teal.500}" }
-      }
-    }
-  },
-  "component": {
-    "button": {
-      "primary": {
-        "bg": { "$value": "{semantic.color.brand.primary}" },
-        "fg": { "$value": "{primitive.color.slate.950}" }
-      }
-    }
-  }
-}</pre>
+
+          <div class="specimen-preview-canvas" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-8); width:100%; align-items:flex-start;">
+            <!-- Tree View -->
+            <div>
+              <h5 style="margin-bottom:12px;">Equipment Asset Hierarchy</h5>
+              <div style="background:var(--color-bg-surface); padding:16px; border-radius:var(--radius-md); border:1px solid var(--color-border-primary);">
+                <div style="font-weight:700; font-size:0.875rem;">📁 FineTuning-Assets /</div>
+                <div class="ft-tree-node">📁 01_Audio_Systems</div>
+                <div class="ft-tree-node" style="margin-left:36px;">🔊 JBL_VTX_A12_Array.cfg</div>
+                <div class="ft-tree-node" style="margin-left:36px;">🎙️ Shure_Axient_Wireless.dmx</div>
+                <div class="ft-tree-node">📁 02_Video_Displays</div>
+                <div class="ft-tree-node" style="margin-left:36px;">🖥️ P2.6_LED_Wall_Map.bin</div>
+                <div class="ft-tree-node">📁 03_Lighting_Trusses</div>
+                <div class="ft-tree-node" style="margin-left:36px;">💡 Sharpy_Beam_24CH.show</div>
+              </div>
+            </div>
+
+            <!-- Audit Log -->
+            <div>
+              <h5 style="margin-bottom:12px;">Live Operational Audit Log</h5>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div style="padding:10px; background:var(--color-bg-surface); border-radius:var(--radius-sm); border-left:3px solid var(--color-brand-primary); font-size:0.8125rem;">
+                  <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.6875rem; color:var(--color-text-muted);">
+                    <span>23:42:10</span>
+                    <span>Admin: Producer_01</span>
+                  </div>
+                  <div>Line-Array Rig 01 gain trimmed +1.5 dB for keynote speech.</div>
+                </div>
+                <div style="padding:10px; background:var(--color-bg-surface); border-radius:var(--radius-sm); border-left:3px solid var(--color-status-success-base); font-size:0.8125rem;">
+                  <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.6875rem; color:var(--color-text-muted);">
+                    <span>23:40:05</span>
+                    <span>System: Auto-Sync</span>
+                  </div>
+                  <div>Optical link verified. Latency locked at 0.8ms.</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- FOOTER -->
       <footer style="padding-top: var(--space-8); border-top: 1px solid var(--color-border-primary); font-size: 0.8125rem; color: var(--color-text-secondary); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
-        <div>© 2026 <strong>Fine Tuning Advertising Agency</strong>. Single Source of Truth Token Engine.</div>
-        <div>
-          <a href="../docs/DESIGN_SYSTEM.md" style="color: var(--color-brand-primary); text-decoration: none; margin-right: 16px;">DESIGN_SYSTEM.md</a>
+        <div>© 2026 <strong>Fine Tuning Advertising Agency</strong>. Complete Component Catalog & SSoT Token System.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="../docs/DESIGN_SYSTEM.md" style="color: var(--color-brand-primary); text-decoration: none;">DESIGN_SYSTEM.md</a>
           <a href="../docs/COMPONENT_INVENTORY.md" style="color: var(--color-brand-primary); text-decoration: none;">COMPONENT_INVENTORY.md</a>
+          <a href="../tokens/design-tokens.json" style="color: var(--color-brand-secondary); text-decoration: none;">design-tokens.json</a>
         </div>
       </footer>
 
@@ -1079,4 +1066,3 @@
 
 </body>
 </html>
-

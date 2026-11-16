@@ -1,6 +1,6 @@
 /**
- * Fine Tuning Design System — Interactive Showcase JavaScript
- * Version: 2.0.0
+ * Fine Tuning Design System — Master Interactive Showcase Logic
+ * Version: 2.5.0
  * Zero external dependencies — pure vanilla JS.
  */
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bodyRoot.classList.remove('density-comfortable');
         bodyRoot.classList.add('density-compact');
         densityLabel.textContent = 'Density: Compact';
-        showToast('Activated Compact Density (Admin Console Mode)');
+        showToast('Activated Compact Density (Admin Operations Mode)');
       } else {
         bodyRoot.classList.remove('density-compact');
         bodyRoot.classList.add('density-comfortable');
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link.style.display = matches ? 'flex' : 'none';
       });
 
-      // Hide category headers if all children are hidden
       categoryGroups.forEach(group => {
         const visibleLinks = group.querySelectorAll('.sidebar-nav-link[style="display: flex;"]');
         const allLinks = group.querySelectorAll('.sidebar-nav-link');
@@ -80,19 +79,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Keyboard shortcut Ctrl+K / Cmd+K to focus search
+  // 4. COMMAND PALETTE OVERLAY (⌘K / Ctrl+K)
+  const cmdPaletteBackdrop = document.getElementById('cmdPaletteBackdrop');
+  const cmdPaletteInput = document.getElementById('cmdPaletteInput');
+  const cmdPaletteResults = document.getElementById('cmdPaletteResults');
+
+  function openCommandPalette() {
+    if (cmdPaletteBackdrop) {
+      cmdPaletteBackdrop.classList.add('show');
+      cmdPaletteInput?.focus();
+    }
+  }
+
+  function closeCommandPalette() {
+    if (cmdPaletteBackdrop) {
+      cmdPaletteBackdrop.classList.remove('show');
+    }
+  }
+
   document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
-      const target = document.getElementById('headerSearchInput') || document.getElementById('sidebarSearchInput');
-      if (target) {
-        target.focus();
-        target.select();
-      }
+      openCommandPalette();
+    }
+    if (e.key === 'Escape') {
+      closeCommandPalette();
+      closeModal();
+      closeDrawer();
+      const popovers = document.querySelectorAll('.ft-popover.show');
+      popovers.forEach(p => p.classList.remove('show'));
     }
   });
 
-  // 4. SPECIMEN TABS SWITCHING (Preview / Code / Specs)
+  if (cmdPaletteBackdrop) {
+    cmdPaletteBackdrop.addEventListener('click', (e) => {
+      if (e.target === cmdPaletteBackdrop) closeCommandPalette();
+    });
+  }
+
+  if (cmdPaletteInput && cmdPaletteResults) {
+    cmdPaletteInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const items = cmdPaletteResults.querySelectorAll('.cmd-item');
+      items.forEach(it => {
+        it.style.display = it.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+      });
+    });
+  }
+
+  // 5. SPECIMEN TABS SWITCHING
   document.querySelectorAll('.specimen-card').forEach(card => {
     const tabBtns = card.querySelectorAll('.specimen-tab-btn');
     const previewPane = card.querySelector('.specimen-preview-canvas');
@@ -112,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. TOAST NOTIFICATION UTILITY
+  // 6. TOAST NOTIFICATION ENGINE
   const toastStack = document.getElementById('toastStack') || createToastStack();
 
   function createToastStack() {
@@ -149,48 +184,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // 6. INTERACTIVE SPECIMEN: TOGGLE LOADING STATE
+  // 7. BUTTON LOADING TOGGLE
   const btnToggleLoading = document.getElementById('btnToggleLoading');
   if (btnToggleLoading) {
     btnToggleLoading.addEventListener('click', () => {
       const demoBtns = document.querySelectorAll('.demo-loading-btn');
-      demoBtns.forEach(btn => {
-        btn.classList.toggle('is-loading');
-      });
+      demoBtns.forEach(btn => btn.classList.toggle('is-loading'));
       const isLoading = demoBtns[0]?.classList.contains('is-loading');
       btnToggleLoading.textContent = isLoading ? '⏹️ Stop Loading State' : '⏳ Toggle Loading State';
       showToast(isLoading ? 'Buttons switched to Loading state' : 'Buttons restored to Idle state');
     });
   }
 
-  // 7. INTERACTIVE SPECIMEN: LIVE FORM VALIDATION
-  const demoEmailInput = document.getElementById('demoEmailInput');
-  const demoEmailError = document.getElementById('demoEmailError');
-
-  if (demoEmailInput && demoEmailError) {
-    demoEmailInput.addEventListener('input', (e) => {
-      const val = e.target.value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      
-      if (val === '') {
-        demoEmailInput.classList.remove('is-error', 'is-success');
-        demoEmailError.style.display = 'none';
-      } else if (emailRegex.test(val)) {
-        demoEmailInput.classList.remove('is-error');
-        demoEmailInput.classList.add('is-success');
-        demoEmailError.style.display = 'none';
-      } else {
-        demoEmailInput.classList.remove('is-success');
-        demoEmailInput.classList.add('is-error');
-        demoEmailError.style.display = 'flex';
+  // 8. OTP AUTO-ADVANCE & BACKSPACE
+  const otpBoxes = document.querySelectorAll('.ft-otp-box');
+  otpBoxes.forEach((box, index) => {
+    box.addEventListener('input', (e) => {
+      if (e.target.value.length === 1 && index < otpBoxes.length - 1) {
+        otpBoxes[index + 1].focus();
       }
     });
-  }
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !e.target.value && index > 0) {
+        otpBoxes[index - 1].focus();
+      }
+    });
+  });
 
-  // 8. INTERACTIVE SPECIMEN: DATA TABLE SORTING & CHECKBOX SELECTION
+  // 9. STAR RATING INTERACTION
+  const stars = document.querySelectorAll('.ft-star-rating .star');
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      const rating = parseInt(star.dataset.val, 10);
+      stars.forEach(s => {
+        const val = parseInt(s.dataset.val, 10);
+        s.classList.toggle('filled', val <= rating);
+      });
+      showToast(`Event Satisfaction Rating: ${rating} of 5 Stars`);
+    });
+  });
+
+  // 10. ACCORDION DISCLOSURE
+  document.querySelectorAll('.ft-accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.ft-accordion-item');
+      item?.classList.toggle('is-expanded');
+    });
+  });
+
+  // 11. POPOVER TOGGLE
+  window.togglePopover = function(id) {
+    const pop = document.getElementById(id);
+    if (pop) pop.classList.toggle('show');
+  };
+
+  // 12. ADVANCED DATA TABLE (Sort, Bulk Select, CSV Export, Search)
   const tableSelectAll = document.getElementById('tableSelectAll');
   const tableCheckboxes = document.querySelectorAll('.table-row-checkbox');
   const dataTable = document.getElementById('demoDataTable');
+  const bulkActionBar = document.getElementById('tableBulkBar');
+  const selectedCountText = document.getElementById('selectedCountText');
+
+  function updateBulkBar() {
+    const checkedBoxes = Array.from(tableCheckboxes).filter(cb => cb.checked);
+    const count = checkedBoxes.length;
+    if (bulkActionBar) {
+      bulkActionBar.classList.toggle('show', count > 0);
+      if (selectedCountText) selectedCountText.textContent = `${count} channels selected`;
+    }
+  }
 
   if (tableSelectAll) {
     tableSelectAll.addEventListener('change', (e) => {
@@ -199,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cb.checked = checked;
         cb.closest('tr')?.classList.toggle('is-selected', checked);
       });
-      showToast(checked ? 'Selected all 4 operational rigs' : 'Deselected all rigs');
+      updateBulkBar();
     });
 
     tableCheckboxes.forEach(cb => {
@@ -207,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cb.closest('tr')?.classList.toggle('is-selected', cb.checked);
         const allChecked = Array.from(tableCheckboxes).every(c => c.checked);
         tableSelectAll.checked = allChecked;
+        updateBulkBar();
       });
     });
   }
@@ -235,7 +298,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. INTERACTIVE SPECIMEN: TELEMETRY DECIBEL SLIDER
+  // CSV Export Engine
+  window.exportTableToCSV = function() {
+    const rows = Array.from(dataTable.querySelectorAll('tr'));
+    const csvContent = rows.map(r => {
+      const cells = Array.from(r.querySelectorAll('th, td')).slice(1, -1);
+      return cells.map(c => `"${c.textContent.trim().replace(/"/g, '""')}"`).join(',');
+    }).join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `finetuning_stage_telemetry_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Telemetry CSV report downloaded successfully');
+  };
+
+  // 13. DECIBEL SPL SLIDER
   const dbaSlider = document.getElementById('dbaSlider');
   const dbaValueDisplay = document.getElementById('dbaValueDisplay');
   const dbaGaugeFill = document.getElementById('dbaGaugeFill');
@@ -245,8 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
     dbaSlider.addEventListener('input', (e) => {
       const val = parseFloat(e.target.value);
       dbaValueDisplay.textContent = val.toFixed(1);
-      
-      // Calculate fill percent (0 to 120 dBA mapped to 0-100%)
       const pct = Math.min(100, Math.max(0, (val / 120) * 100));
       dbaGaugeFill.style.width = `${pct}%`;
 
@@ -266,60 +345,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 10. MODAL DIALOG INTERACTION
-  const btnOpenModal = document.getElementById('btnOpenModal');
+  // 14. MODAL & DRAWER SYSTEM
   const demoModal = document.getElementById('demoModal');
   const btnCloseModal = document.getElementById('btnCloseModal');
   const btnCancelModal = document.getElementById('btnCancelModal');
+  const inspectorDrawer = document.getElementById('inspectorDrawer');
 
-  function openModal() {
+  window.openModal = function() {
     if (demoModal) {
       demoModal.classList.add('show');
       document.body.style.overflow = 'hidden';
       btnCloseModal?.focus();
     }
-  }
+  };
 
-  function closeModal() {
+  window.closeModal = function() {
     if (demoModal) {
       demoModal.classList.remove('show');
       document.body.style.overflow = '';
     }
-  }
+  };
 
-  if (btnOpenModal) btnOpenModal.addEventListener('click', openModal);
+  window.openDrawer = function() {
+    if (inspectorDrawer) inspectorDrawer.classList.add('show');
+  };
+
+  window.closeDrawer = function() {
+    if (inspectorDrawer) inspectorDrawer.classList.remove('show');
+  };
+
   if (btnCloseModal) btnCloseModal.addEventListener('click', closeModal);
   if (btnCancelModal) btnCancelModal.addEventListener('click', closeModal);
 
-  // Close modal when clicking backdrop
   if (demoModal) {
     demoModal.addEventListener('click', (e) => {
       if (e.target === demoModal) closeModal();
     });
   }
 
-  // Escape key closes modal & drawer
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-      const sidebar = document.getElementById('dsSidebar');
-      if (sidebar && sidebar.classList.contains('is-open')) {
-        sidebar.classList.remove('is-open');
-      }
-    }
-  });
-
-  // 11. MOBILE SIDEBAR TOGGLE
+  // 15. MOBILE MENU TOGGLE
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const dsSidebar = document.getElementById('dsSidebar');
-
   if (mobileMenuToggle && dsSidebar) {
     mobileMenuToggle.addEventListener('click', () => {
       dsSidebar.classList.toggle('is-open');
     });
   }
 
-  // Active scroll spy for sidebar links
+  // 16. STEPPER ADVANCE
+  window.nextWizardStep = function(stepNum) {
+    document.querySelectorAll('.ft-wizard-step').forEach((s, idx) => {
+      s.classList.toggle('completed', idx < stepNum - 1);
+      s.classList.toggle('active', idx === stepNum - 1);
+    });
+    showToast(`Advanced to Step ${stepNum}: Production Calibration`);
+  };
+
+  // Scroll spy
   const sections = document.querySelectorAll('.ds-section');
   window.addEventListener('scroll', () => {
     let currentId = '';
@@ -336,4 +418,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 });
-
