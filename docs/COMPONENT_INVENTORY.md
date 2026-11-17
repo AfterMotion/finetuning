@@ -7,24 +7,6 @@
 
 ---
 
-## Standalone Interactive HTML Application Demos
-
-Nine production-fidelity, fully responsive standalone HTML application prototypes have been constructed using the central token cascade (`tokens/tokens.css`, `tokens/themes.css`, and `demos/demo-shell.css`). Each demo exhibits authentic client-side interactive state machines, live theme switching (Midnight Stage Dark / Studio Editorial Light), density modes (Comfortable / Compact), keyboard focus management, and mock telemetry.
-
-| Demo # | Application Prototype | Direct HTML Preview Link | Core Components & Patterns Exhibited |
-| :---: | :--- | :--- | :--- |
-| **01** | **Marketing Homepage** | [Open Homepage Preview](../demos/marketing-homepage.html) | Sticky header, hero stage flare, live SPL telemetry widget, metrics cards, infinite partner marquee, capabilities grid, WhatsApp FAB, consultation booking modal, full corporate footer. |
-| **02** | **Case Studies & Search** | [Open Case Search Preview](../demos/listing-search.html) | Multi-attribute filter sidebar (category, city, year, capacity slider), live instant client-side text search, active chip tags, grid/list view toggle, case study cards, empty state, pagination. |
-| **03** | **Authentication Flow** | [Open Auth Flow Preview](../demos/auth-flow.html) | 3-tab segmented workflow (Crew Login, Password Reset, 2FA OTP), password reveal toggle, 3-tier password strength meter, simulated server-rejection alert banner, 6-box auto-advancing OTP inputs with backspace traversal. |
-| **04** | **Onboarding Wizard** | [Open Wizard Preview](../demos/onboarding-wizard.html) | 3-step visual progress stepper (Event Profile → Technical Rig → Review & Deploy), multi-item hardware gear select cards, live calculated generator power & truss load, form validation, confirmation modal with dispatch tracking ref (`FT-2026-RIG-9481`). |
-| **05** | **Admin Operations Dashboard** | [Open Dashboard Preview](../demos/admin-dashboard.html) | Collapsible ops sidebar, live BST timestamp clock, 4 KPI metric tiles with trend deltas, interactive Audio Decibel (SPL dBA) slider with dynamic multi-tier color states (Green <85, Amber 86-95, Red >95 alarm), vector SVG line/area chart, live stages status table with actions. |
-| **06** | **CRUD Specialist Management** | [Open CRUD Table Preview](../demos/crud-management.html) | Advanced data table with column sorting (Name, Role), real-time search & filter dropdowns, checkbox row selection, floating bottom Bulk Actions Bar, Edit Specialist modal, Add New Specialist modal, Destructive cutoff confirmation dialog, Side-Over Inspector Drawer, client-side Blob CSV export engine. |
-| **07** | **Production Record Detail** | [Open Record Detail Preview](../demos/record-detail.html) | Production master record for BSRM Annual ESG Summit at Radisson Blu Chattogram, 4 interactive tabbed views (Stage Specs, Audio Diagnostics, Run-of-Show Timeline with status beacons, Blueprints & Documents download list), live station activity log stream. |
-| **08** | **Settings & Profile** | [Open Settings Preview](../demos/settings-profile.html) | 5-category vertical navigation (Profile, Display, Audio, Perms, Security), avatar preview, theme & density toggles, decibel sound alert switch, hardware limiter slider, role permission matrix table, copyable bearer API token. |
-| **09** | **System & Error Suite** | [Open System Suite Preview](../demos/system-pages.html) | Single-screen zero-scroll switcher demonstrating: 404 Frequency Out of Range, 403 Console Clearance Required, 500 Signal Disruption with error trace box and retry animation, 503 Soundcheck Recalibration with live countdown clock and animated progress bar, and Empty Rig state. |
-
----
-
 ## Component Catalog Matrix & Implementation Index
 
 Every component across the system is cataloged under one of three implementation tiers:
@@ -279,64 +261,6 @@ Every component across the system is cataloged under one of three implementation
 | **Tabs** | Horizontal tab list with indicator | Scrollable horizontal strip with fade masks | Flex-shrink: 0 with swipe gestures |
 | **Modal Dialogs** | Centered box (max-width: 540px) | Full-width bottom sheet or bottom modal | Body scrolls with sticky header and footer |
 | **KPI Tiles** | 3 or 4-column horizontal grid | 1-column stacked cards | Values maintain tabular font (`JetBrains Mono`) |
-
----
-
-## 8. GATE 3 — System Audit & Verification Report
-
-> **GATE 3 Audit Status: PASSED (100% Compliance)**  
-> **Audited By: Fine Tuning Technical Architecture Team**  
-> **Scope: All 65+ Components, 9 HTML Application Demos, Central Tokens, Accessibility, Responsive Adaptations**
-
-### 8.1 Category-by-Category Verification Matrix
-
-| Category | Components Audited | Desktop Fidelity | Mobile (<768px) Fidelity | Keyboard / A11y Status | Token Binding Status | Gate 3 Result |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1. Actions & Status** | ACT-01 to ACT-20 | Verified | Verified (w-100 in modals, FAB pinned) | Focus rings active, ARIA live toasts | 100% bound to `--color-action-*` & `--color-status-*` | **PASS** |
-| **2. Forms & Inputs** | FRM-01 to FRM-20 | Verified | Verified (stacked inputs, touch targets >= 44px) | Tab order logical, OTP auto-advance & backspace | 100% bound to `--input-*` & `--density-*` | **PASS** |
-| **3. Navigation & Layout** | NAV-01 to NAV-12 | Verified | Verified (collapses to mobile toggle & drawer) | Skip link present, Esc key closes navigation | 100% bound to `--z-sticky`, `--glass-*` | **PASS** |
-| **4. Content & Marketing** | CNT-01 to CNT-10 | Verified | Verified (single-column cards, flex-wrap) | Contrast compliant, Syne/Outfit typographic stack | 100% bound to `--font-*` & `--space-*` | **PASS** |
-| **5. Overlays & Disclosure** | OVL-01 to OVL-07 | Verified | Verified (auto max-width, bottom modal fallback) | Focus trapped in modals, Esc dismisses overlays | 100% bound to `--z-modal`, `--z-drawer`, `--z-toast` | **PASS** |
-| **6. Data-Rich Widgets** | DTA-01 to DTA-11 | Verified | Verified (overflow scroll, compact ops mode) | Sortable th keyboard click, slider accessible | 100% bound to `--table-*` & `--font-mono` | **PASS** |
-
-### 8.2 In-Depth Audit Criteria & Findings
-
-1. **Mobile / Desktop Responsiveness**:
-   - **Header & Navigation**: Verified on screens from 320px to 1920px. On viewports below 768px, horizontal link strips gracefully collapse, and mobile hamburger controls trigger lateral sliding drawers (`demos/demo-shell.css`).
-   - **Data Tables**: `demos/crud-management.html` and `demos/admin-dashboard.html` utilize responsive overflow wrappers (`.ft-table-wrapper`) with sticky headers and column-hiding classes for narrow viewports.
-   - **KPI Metric Grids**: Fluid CSS grid scales from 4 columns on desktop down to 2 columns on tablet and 1 column on mobile without clipping tabular numbers.
-
-2. **Dual Theme Token Compliance (Dark & Light)**:
-   - **Midnight Stage Dark (`data-theme="dark"`)**: Deep obsidian canvas (`#070D18`), elevated surface (`#0F172A`), high-contrast text (`#F8FAFC`, 18.10:1 AAA), Solar Amber accents (`#F09320`), and text-safe teal.
-   - **Studio Editorial Light (`data-theme="light"`)**: Editorial cream/white canvas (`#FFFFFF`), subtle borders (`#E2E8F0`), obsidian dark text (`#0F172A`, 16.20:1 AAA), and high-contrast dark teal (`#2B5E70`, 7.15:1 AAA).
-   - **Zero Hardcoded Component Colors**: Audited all 9 demo files (`demos/*.html`). Component backgrounds, text, borders, and shadows strictly reference CSS variables (`var(--color-bg-*)`, `var(--color-text-*)`, `var(--color-border-*)`).
-
-3. **Color Contrast & Strict Brand Rules**:
-   - **Solar Amber Button Rule**: Verified that primary Solar Amber buttons (`.ft-btn-primary`) **MANDATE Midnight Obsidian (`#070D18`) text**, achieving **8.24:1 AAA contrast**. White text on amber is strictly blocked.
-   - **Secondary & Accent Buttons**: Nordic Teal buttons (`.ft-btn-secondary`) maintain white text at **5.68:1 AA contrast**.
-   - **Status Beacons**: All status beacons include textual badges so information is never conveyed by color alone.
-
-4. **Keyboard Accessibility & Focus Visibility**:
-   - **Skip Link**: Every demo page begins with a high-contrast `<a href="#main-content" class="skip-link">` that becomes visible upon first `Tab`.
-   - **Focus Rings**: All interactive controls (`.ft-btn`, `.ft-input`, `.ft-select`, `.otp-field`, `.row-checkbox`) display an explicit `2px solid var(--color-brand-primary)` focus ring with `outline-offset: 2px` when navigated via keyboard.
-   - **Escape Key Handling**: Pressing `Escape` universally dismisses open modal dialogs, drawers, and floating menus via `demos/demo-shell.js`.
-   - **Focus Trapping & Return**: Opening a modal moves focus to the first interactive field; closing restores focus to the invoking trigger button.
-
-5. **Form Validation & Interactive Error Demonstrations**:
-   - **Inline Validation**: Inputs with invalid data receive `.ft-input-error` red borders with dedicated helper messages (`demos/auth-flow.html`, `demos/onboarding-wizard.html`).
-   - **Server-Style Alert Banner**: Interactive "Simulate Error" button in `demos/auth-flow.html` dynamically injects a server rejection notification with alert icon.
-   - **Password Strength Evaluation**: Real-time 3-segment color meter updates as user types (Weak / Medium / Strong).
-   - **6-Box OTP Auto-Advance**: Digits automatically jump to the next input box on entry and retreat to the previous box on `Backspace`.
-
-6. **Overlay Stacking & Background Scroll Locking**:
-   - Stacking order strictly follows design tokens: Sticky Header (`--z-sticky`: 1100) < Drawer (`--z-drawer`: 1200) < Modal Backdrop (`--z-modal`: 1300) < Toasts (`--z-toast`: 1400).
-   - Background scrolling is locked (`document.body.style.overflow = 'hidden'`) whenever a modal or drawer is active and smoothly restored on close.
-
-7. **Realistic Mock Behaviors (Zero Fake Buttons)**:
-   - **CSV Export Engine**: Implemented via client-side `Blob` and auto-download anchor (`demos/crud-management.html`).
-   - **Decibel Telemetry Simulator**: Range slider dynamically updates numeric readouts, badge status, and gauge colors across green, amber, and red danger thresholds (`demos/admin-dashboard.html`).
-   - **Live Data Filtering & Search**: Instant real-time filtering updates DOM cards without page reloads (`demos/listing-search.html`, `demos/crud-management.html`).
-   - **DOM Row Editing & Creation**: Modals in `demos/crud-management.html` actually mutate and append DOM rows in real-time.
 
 ---
 
