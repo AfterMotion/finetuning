@@ -1,0 +1,49 @@
+{
+  "name": "@finetuning/design-system",
+  "version": "2.5.0",
+  "description": "Authoritative, portable design system, tokens, brand guidelines, and UI components for Fine Tuning (finetuning.com.bd).",
+  "main": "tokens/index.css",
+  "style": "tokens/index.css",
+  "types": "examples/react-next/index.ts",
+  "files": [
+    "tokens",
+    "docs",
+    "assets",
+    "components",
+    "patterns",
+    "examples",
+    "README.md",
+    "AGENTS.md",
+    "SKILL.md"
+  ],
+  "exports": {
+    ".": "./tokens/index.css",
+    "./tokens": "./tokens/tokens.css",
+    "./themes": "./tokens/themes.css",
+    "./components": "./tokens/components.css",
+    "./json": "./tokens/design-tokens.json",
+    "./tailwind": "./tokens/tailwind.config.cjs",
+    "./react": "./examples/react-next/index.ts",
+    "./vue": "./examples/vue/index.ts"
+  },
+  "scripts": {
+    "test:tokens": "node ../../scratch/validate_tokens.js",
+    "test:qa": "node ../../scratch/run_full_visual_qa.js"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "finetuning",
+    "experiential-advertising",
+    "event-staging",
+    "wcag-aaa",
+    "tailwind",
+    "dtcg"
+  ],
+  "author": "Fine Tuning Advertising Agency (Chattogram & Dhaka, Bangladesh)",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finetuning/finetuning.com.bd"
+  }
+}

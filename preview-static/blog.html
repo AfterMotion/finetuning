@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Dispatch &amp; Production Engineering Insights | Fine Tuning</title>
+  <meta name="description" content="Engineering articles and staging whitepapers on acoustic ray-tracing, curved P2.6 LED pixel pitches, Dante networks, and civil truss safety in Bangladesh.">
+  <link rel="canonical" href="https://finetuning.com.bd/blog-grid/">
+  <link rel="icon" type="image/svg+xml" href="./assets/brand/fine-tuning-icon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/theme.css">
+  <link rel="stylesheet" href="./css/site.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Utility Strip -->
+  <aside class="utility-strip" aria-label="Operational Live Desk Status">
+    <div class="container utility-inner">
+      <div class="utility-status">
+        <span class="status-dot-pulse" aria-hidden="true"></span>
+        <span><strong>Live Production Desk:</strong> Chattogram &amp; Dhaka Hubs Active</span>
+      </div>
+      <div class="utility-links">
+        <a href="tel:+8801671863685" class="utility-link">☎ +880 1671-863685</a>
+        <a href="mailto:finetuningbd@gmail.com" class="utility-link">finetuningbd@gmail.com</a>
+        <a href="./contact.html" class="utility-link">VIP Technical Consultation</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="main-header" role="banner">
+    <div class="container nav-inner">
+      <a href="./index.html" class="brand-lockup" aria-label="Fine Tuning Home">
+        <svg class="brand-emblem-svg" viewBox="0 0 2400 1758" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M153 131.7L426 131.7L677.3 238.4L183.3 238.4L153 131.7Z" fill="#F09320"/>
+          <path d="M1974 131.7L2247 131.7L2216.7 238.4L1722.7 238.4L1974 131.7Z" fill="#F09320"/>
+          <path d="M968.4 51.6L1431.6 51.6L1200 1493.5L968.4 51.6Z" fill="#F09320"/>
+          <path d="M430.7 598.6L1040.6 598.6L1022.3 705.3L537.4 705.3L430.7 598.6Z" fill="#F09320"/>
+          <path d="M1969.3 598.6L1359.4 598.6L1377.7 705.3L1862.6 705.3L1969.3 598.6Z" fill="#F09320"/>
+          <path d="M78 266C78 266 182 580 182 894C182 1456 638 1706 1200 1706C1762 1706 2218 1456 2218 894C2218 580 2322 266 2322 266C2322 266 2040 500 2040 894C2040 1358 1664 1526 1200 1526C736 1526 360 1358 360 894C360 500 78 266 78 266Z" fill="#4694B1"/>
+        </svg>
+        <div class="brand-names">
+          <span class="brand-title">FineTuning</span>
+          <span class="brand-sub">Experiential Advertising</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="./portfolio-2.html" class="nav-link">Case Studies</a>
+        <a href="./service.html" class="nav-link">Capabilities</a>
+        <a href="./about.html" class="nav-link">About Agency</a>
+        <a href="./blog-grid.html" class="nav-link active">Dispatch</a>
+        <a href="./career.html" class="nav-link">Careers</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="control-btn" title="Toggle Theme" aria-label="Toggle Theme">
+          <span id="theme-icon" aria-hidden="true">☀️</span>
+        </button>
+        <button id="density-toggle-btn" class="control-btn" title="Toggle Density" aria-label="Toggle Density">
+          <span aria-hidden="true">⊞</span>
+        </button>
+        <a href="./contact.html" class="btn-amber-primary trigger-modal-btn">
+          <span>Book Technical Briefing</span>
+        </a>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="drawer-overlay" class="mobile-drawer-overlay" aria-hidden="true">
+    <div id="mobile-drawer-panel" class="mobile-drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <div class="drawer-header">
+        <span class="brand-title">FineTuning</span>
+        <button id="drawer-close-btn" class="control-btn" aria-label="Close Navigation Menu">✕</button>
+      </div>
+      <ul class="drawer-nav">
+        <li><a href="./index.html" class="drawer-link">Home Portal</a></li>
+        <li><a href="./portfolio-2.html" class="drawer-link">Case Studies Archive</a></li>
+        <li><a href="./service.html" class="drawer-link">Staging Capabilities</a></li>
+        <li><a href="./about.html" class="drawer-link">About Agency</a></li>
+        <li><a href="./blog-grid.html" class="drawer-link active">Technical Dispatch</a></li>
+        <li><a href="./career.html" class="drawer-link">Engineering Careers</a></li>
+        <li><a href="./contact.html" class="drawer-link">Executive Hubs</a></li>
+      </ul>
+      <div class="drawer-footer">
+        <a href="tel:+8801671863685" class="utility-link">☎ +880 1671-863685</a>
+        <a href="./contact.html" class="btn-amber-primary trigger-modal-btn">Book Technical Briefing</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- Subpage Hero Banner with Breadcrumbs -->
+    <section class="subpage-hero">
+      <div class="container">
+        <nav class="breadcrumbs-nav" aria-label="Breadcrumb">
+          <span class="breadcrumb-item"><a href="./index.html">Home</a></span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-item active" aria-current="page">Technical Dispatch</span>
+        </nav>
+        <h1 class="subpage-title">Technical Dispatch &amp;<br>Production Engineering Notes.</h1>
+        <p class="subpage-subtitle">
+          In-depth whitepapers and operational playbooks on acoustic ray-tracing, LED pixel pitch calculations, Dante loop stability, and civil box-truss rigging in Bangladesh.
+        </p>
+      </div>
+    </section>
+
+    <!-- Articles Grid Section -->
+    <section style="padding: 60px 0; border-bottom: 1px solid var(--color-border-subtle);">
+      <div class="container">
+        
+        <!-- Featured Engineering Whitepaper -->
+        <article class="featured-whitepaper-card">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-action-primary); font-weight: 700; margin-bottom: 8px;">
+            ★ FEATURED ENGINEERING WHITEPAPER • Q1 2026
+          </div>
+          <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; color: var(--color-text-primary); margin-bottom: 14px;">
+            Eliminating Cavernous Echo: Computerized Acoustic Ray-Tracing in Bangladesh Ballrooms
+          </h2>
+          <p style="font-size: 1rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px; max-width: 820px;">
+            How Fine Tuning maps concrete and glass venue reverberation times ($RT_{60}$) to align narrow-dispersion line arrays directly into audience absorption planes, guaranteeing Speech Transmission Index ($STI$) scores above 0.80 for VIP summits.
+          </p>
+          <div class="whitepaper-meta-strip">
+            <span>By Tanvir Ahmed, Audio Engineering Lead</span>
+            <span>•</span>
+            <span>12 Min Read</span>
+            <span>•</span>
+            <span>Technical Whitepaper</span>
+          </div>
+        </article>
+
+        <!-- Standard Articles Grid -->
+        <div class="article-grid">
+          <!-- Article 1 -->
+          <article class="article-card">
+            <div>
+              <div class="article-cat-tag">LED Technology</div>
+              <h3 class="article-title">Curved P2.6 vs Flat P3.9: Selecting the Right Pitch for Broadcast Summits</h3>
+              <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6;">
+                Why camera scan lines and moiré patterns ruin executive live streams, and how 3,840 Hz refresh rates solve broadcast flicker.
+              </p>
+            </div>
+            <div class="article-meta">
+              <span>Novastar 4K Fleet</span>
+              <span>8 Min Read</span>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="article-card">
+            <div>
+              <div class="article-cat-tag">Structural Rigging</div>
+              <h3 class="article-title">Civil Load Distribution: Hanging 3.4 Tons on Box-Trusses Safely</h3>
+              <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6;">
+                A comprehensive look at deflection calculations, bridle angles, and CM Lodestar dual-brake motor safety protocols in convention centers.
+              </p>
+            </div>
+            <div class="article-meta">
+              <span>Civil Rigging</span>
+              <span>10 Min Read</span>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="article-card">
+            <div>
+              <div class="article-cat-tag">Audio Networking</div>
+              <h3 class="article-title">Dante Digital Loops: Eliminating Ground Hum on High-Stakes Plenums</h3>
+              <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6;">
+                How uncompressed digital audio over Cat6/Fiber eliminates electrical transformer hum in massive industrial exhibition venues.
+              </p>
+            </div>
+            <div class="article-meta">
+              <span>Audinate Dante</span>
+              <span>7 Min Read</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Corporate Footer -->
+  <footer class="corporate-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="brand-title" style="font-size: 1.25rem;">FineTuning</span>
+          <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6; margin-top: 10px;">
+            Experiential advertising agency and turnkey event production firm in Chattogram and Dhaka, Bangladesh.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="./portfolio-2.html" class="footer-link">Case Studies Archive</a></li>
+            <li><a href="./service.html" class="footer-link">Capabilities &amp; Fleet</a></li>
+            <li><a href="./about.html" class="footer-link">About Agency</a></li>
+            <li><a href="./blog-grid.html" class="footer-link">Technical Dispatch</a></li>
+            <li><a href="./career.html" class="footer-link">Careers &amp; Crew</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Operations Bases</div>
+          <ul class="footer-links-list">
+            <li>Chattogram: Nasirabad &amp; Kajir Dewri</li>
+            <li>Dhaka Hub: Gulshan-2, Dhaka 1212</li>
+            <li><a href="tel:+8801671863685" class="footer-link">+880 1671-863685</a></li>
+            <li><a href="mailto:finetuningbd@gmail.com" class="footer-link">finetuningbd@gmail.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Corporate Governance</div>
+          <p style="font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6;">
+            Trade License / BIN: [PENDING STAKEHOLDER SUBMISSION]<br>
+            All stagings protected under Corporate Non-Disclosure Agreements (NDAs).
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>© 2026 Fine Tuning Advertising Agency. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="../brand-guide/index.html" class="utility-link">Brand Guidelines</a>
+          <a href="../design-system/index.html" class="utility-link">Design System v2.5</a>
+          <a href="./index.html" class="utility-link">Home Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+  <script src="./js/main.js"></script>
+</body>
+</html>

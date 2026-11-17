@@ -1,0 +1,233 @@
+/**
+ * Fine Tuning Design System — Core Tokens (Primitives & System Architecture)
+ * Version: 2.0.0
+ * Architecture: Primitive Layer -> Semantic Layer -> Component Layer
+ */
+
+:root {
+  /* ==========================================================================
+     1. PRIMITIVE COLOR RAMPS
+     ========================================================================== */
+  
+  /* Solar Amber (Brand Primary Ramp) */
+  --color-amber-50:  #FEF8EE;
+  --color-amber-100: #FDF0D6;
+  --color-amber-200: #FADDAA;
+  --color-amber-300: #F7C577;
+  --color-amber-400: #F4AB44;
+  --color-amber-500: #F09320; /* BRAND BASE */
+  --color-amber-600: #D47911;
+  --color-amber-700: #A85A09;
+  --color-amber-800: #7C3E04;
+  --color-amber-900: #4B2400;
+
+  /* Nordic Teal (Brand Secondary Ramp) */
+  --color-teal-50:  #F0F7FA;
+  --color-teal-100: #DCEDF3;
+  --color-teal-200: #BADCE7;
+  --color-teal-300: #93C6D8;
+  --color-teal-400: #6BAEC6;
+  --color-teal-500: #4694B1; /* BRAND BASE */
+  --color-teal-600: #377A93;
+  --color-teal-700: #2B5E70; /* WCAG AAA SAFE ON WHITE (7.15:1) */
+  --color-teal-800: #1C4453; /* ULTRA-HIGH CONTRAST (10.49:1) */
+  --color-teal-900: #122B35;
+
+  /* Slate Neutral Ramp */
+  --color-slate-50:  #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+  --color-slate-950: #070D18; /* MIDNIGHT OBSIDIAN */
+
+  /* Emerald (Status: Success) */
+  --color-emerald-50:  #ECFDF5;
+  --color-emerald-100: #D1FAE5;
+  --color-emerald-200: #A7F3D0;
+  --color-emerald-300: #6EE7B7;
+  --color-emerald-400: #34D399;
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065F46;
+  --color-emerald-900: #064E3B;
+
+  /* Amber Status (Status: Warning) */
+  --color-warning-50:  #FFFBEB;
+  --color-warning-100: #FEF3C7;
+  --color-warning-200: #FDE68A;
+  --color-warning-300: #FCD34D;
+  --color-warning-400: #FBBF24;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+  --color-warning-700: #B45309;
+  --color-warning-800: #92400E;
+  --color-warning-900: #78350F;
+
+  /* Crimson (Status: Danger / Error) */
+  --color-crimson-50:  #FEF2F2;
+  --color-crimson-100: #FEE2E2;
+  --color-crimson-200: #FECACA;
+  --color-crimson-300: #FCA5A5;
+  --color-crimson-400: #F87171;
+  --color-crimson-500: #EF4444;
+  --color-crimson-600: #DC2626;
+  --color-crimson-700: #B91C1C;
+  --color-crimson-800: #991B1B;
+  --color-crimson-900: #7F1D1D;
+
+  /* Electric Blue (Status: Info) */
+  --color-blue-50:  #EFF6FF;
+  --color-blue-100: #DBEAFE;
+  --color-blue-200: #BFDBFE;
+  --color-blue-300: #93C5FD;
+  --color-blue-400: #60A5FA;
+  --color-blue-500: #3B82F6;
+  --color-blue-600: #2563EB;
+  --color-blue-700: #1D4ED8;
+  --color-blue-800: #1E40AF;
+  --color-blue-900: #1E3A8A;
+
+  /* Pure */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* ==========================================================================
+     2. SPATIAL & SIZING SYSTEM (4px Base Grid)
+     ========================================================================== */
+  --space-0:   0px;
+  --space-1:   0.25rem;  /* 4px */
+  --space-1-5: 0.375rem; /* 6px */
+  --space-2:   0.5rem;   /* 8px */
+  --space-2-5: 0.625rem; /* 10px */
+  --space-3:   0.75rem;  /* 12px */
+  --space-4:   1rem;     /* 16px */
+  --space-5:   1.25rem;  /* 20px */
+  --space-6:   1.5rem;   /* 24px */
+  --space-8:   2rem;     /* 32px */
+  --space-10:  2.5rem;   /* 40px */
+  --space-12:  3rem;     /* 48px */
+  --space-16:  4rem;     /* 64px */
+  --space-20:  5rem;     /* 80px */
+  --space-24:  6rem;     /* 96px */
+  --space-32:  8rem;     /* 128px */
+
+  /* Touch & Interaction Targets */
+  --size-touch-min: 44px; /* WCAG 2.5.5 touch target standard */
+  --size-icon-sm:   16px;
+  --size-icon-md:   20px;
+  --size-icon-lg:   24px;
+  --size-icon-xl:   32px;
+
+  /* Breakpoints */
+  --breakpoint-xs:  375px;
+  --breakpoint-sm:  640px;
+  --breakpoint-md:  768px;
+  --breakpoint-lg:  1024px;
+  --breakpoint-xl:  1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Container Max Widths */
+  --container-sm:   600px;
+  --container-md:   768px;
+  --container-lg:   1024px;
+  --container-xl:   1240px;
+  --container-fluid: 100%;
+
+  /* ==========================================================================
+     3. TYPOGRAPHY SYSTEM
+     ========================================================================== */
+  --font-primary: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Type Scale */
+  --font-size-xs:   0.75rem;   /* 12px */
+  --font-size-sm:   0.875rem;  /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg:   1.125rem;  /* 18px */
+  --font-size-xl:   1.25rem;   /* 20px */
+  --font-size-2xl:  1.5rem;    /* 24px */
+  --font-size-3xl:  1.875rem;  /* 30px */
+  --font-size-4xl:  2.25rem;   /* 36px */
+  --font-size-5xl:  3rem;      /* 48px */
+  --font-size-6xl:  4rem;      /* 64px */
+
+  /* Line Heights */
+  --line-height-none:    1;
+  --line-height-tight:   1.15;
+  --line-height-snug:    1.25;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.65;
+
+  /* Letter Spacing */
+  --letter-spacing-tight:   -0.02em;
+  --letter-spacing-snug:    -0.01em;
+  --letter-spacing-normal:  0em;
+  --letter-spacing-wide:    0.05em;
+  --letter-spacing-agency:  0.28em;
+
+  /* Font Weights */
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+  --font-weight-extrabold: 800;
+
+  /* ==========================================================================
+     4. SHAPE & ELEVATION
+     ========================================================================== */
+  --radius-none: 0px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* Border Widths */
+  --border-width-none: 0px;
+  --border-width-hairline: 1px;
+  --border-width-thick: 2px;
+  --border-width-heavy: 4px;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-glow-amber: 0 0 28px rgba(240, 147, 32, 0.28);
+  --shadow-glow-teal:  0 0 28px rgba(70, 148, 177, 0.28);
+
+  /* ==========================================================================
+     5. MOTION TOKENS
+     ========================================================================== */
+  --duration-instant: 100ms;
+  --duration-fast:    150ms;
+  --duration-normal:  250ms;
+  --duration-slow:    400ms;
+  --duration-marquee: 32s;
+
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-entrance: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit:     cubic-bezier(0.4, 0, 1, 1);
+
+  /* ==========================================================================
+     6. Z-INDEX OVERLAY HIERARCHY
+     ========================================================================== */
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 1000;
+  --z-sticky:   1100;
+  --z-drawer:   1200;
+  --z-modal:    1300;
+  --z-popover:  1400;
+  --z-toast:    1500;
+}
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Scheduled Maintenance &amp; Calibration | Fine Tuning</title>
+  <meta name="description" content="Fine Tuning production portal is undergoing scheduled maintenance. Direct WhatsApp desk is active 24/7.">
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/fine-tuning-icon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <main id="main-content" class="system-screen-container">
+    <div style="margin-bottom: 24px;">
+      <a href="./index.html" class="brand-lockup" aria-label="Fine Tuning Home">
+        <svg class="brand-emblem-svg" viewBox="0 0 2400 1758" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width: 52px; height: 38px;">
+          <path d="M153 131.7L426 131.7L677.3 238.4L183.3 238.4L153 131.7Z" fill="#F09320"/>
+          <path d="M1974 131.7L2247 131.7L2216.7 238.4L1722.7 238.4L1974 131.7Z" fill="#F09320"/>
+          <path d="M968.4 51.6L1431.6 51.6L1200 1493.5L968.4 51.6Z" fill="#F09320"/>
+          <path d="M430.7 598.6L1040.6 598.6L1022.3 705.3L537.4 705.3L430.7 598.6Z" fill="#F09320"/>
+          <path d="M1969.3 598.6L1359.4 598.6L1377.7 705.3L1862.6 705.3L1969.3 598.6Z" fill="#F09320"/>
+          <path d="M78 266C78 266 182 580 182 894C182 1456 638 1706 1200 1706C1762 1706 2218 1456 2218 894C2218 580 2322 266 2322 266C2322 266 2040 500 2040 894C2040 1358 1664 1526 1200 1526C736 1526 360 1358 360 894C360 500 78 266 78 266Z" fill="#4694B1"/>
+        </svg>
+        <div class="brand-names">
+          <span class="brand-title">FineTuning</span>
+          <span class="brand-sub">Experiential Advertising</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="system-code-huge" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: 2px;">CALIBRATING</div>
+
+    <h1 class="system-title">Scheduled Staging Calibration</h1>
+    <p class="system-desc">
+      Our stage infrastructure and telemetry servers are undergoing scheduled frequency realignment. Live on-site production desks remain staffed 24/7.
+    </p>
+
+    <!-- Real-time countdown boxes -->
+    <div class="system-countdown-grid">
+      <div class="system-countdown-box">
+        <div class="system-countdown-num" id="cd-hours">01</div>
+        <div class="system-countdown-lbl">Hours</div>
+      </div>
+      <div class="system-countdown-box">
+        <div class="system-countdown-num" id="cd-mins">45</div>
+        <div class="system-countdown-lbl">Mins</div>
+      </div>
+      <div class="system-countdown-box">
+        <div class="system-countdown-num" id="cd-secs">20</div>
+        <div class="system-countdown-lbl">Secs</div>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="https://wa.me/8801671863685" class="btn-amber-primary" target="_blank" rel="noopener noreferrer">
+        <span>Connect to WhatsApp Live Desk</span>
+      </a>
+      <a href="tel:+8801671863685" class="btn-ghost-secondary">
+        <span>Call Production Hotline</span>
+      </a>
+    </div>
+
+    <div style="margin-top: 36px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-muted);">
+      FINE TUNING MAINTENANCE WINDOW &bull; CHATTOGRAM &amp; DHAKA DESKS
+    </div>
+  </main>
+
+  <script>
+    let seconds = 20;
+    let mins = 45;
+    let hours = 1;
+    setInterval(() => {
+      seconds--;
+      if (seconds < 0) {
+        seconds = 59;
+        mins--;
+        if (mins < 0) {
+          mins = 59;
+          hours = Math.max(0, hours - 1);
+        }
+      }
+      document.getElementById('cd-secs').textContent = String(seconds).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -3,322 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Fine Tuning - Orchestrating Extraordinary Experiences | Maintenance Mode</title>
-  <meta name="description" content="Fine Tuning is Dhaka's premier Event Management & Experiential Advertising Agency. Our stage is currently undergoing fine-tuning. We will be live shortly.">
-  <link rel="icon" type="image/png" href="images/Fine%20Tuning%20icon.png">
+  <title>Scheduled Maintenance &amp; Calibration | Fine Tuning</title>
+  <meta name="description" content="Fine Tuning production portal is undergoing scheduled maintenance. Direct WhatsApp desk is active 24/7.">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/fine-tuning-icon.svg">
 
-  <!-- Open Graph / Facebook / WhatsApp -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://finetuning.com.bd/">
-  <meta property="og:title" content="Fine Tuning - Orchestrating Extraordinary Experiences">
-  <meta property="og:description" content="Dhaka's premier Event Management & Experiential Advertising Agency. Our stage is currently undergoing fine-tuning. Back shortly.">
-  <meta property="og:image" content="https://finetuning.com.bd/images/og-thumbnail.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://finetuning.com.bd/">
-  <meta name="twitter:title" content="Fine Tuning - Orchestrating Extraordinary Experiences">
-  <meta name="twitter:description" content="Dhaka's premier Event Management & Experiential Advertising Agency. Our stage is currently undergoing fine-tuning.">
-  <meta name="twitter:image" content="https://finetuning.com.bd/images/og-thumbnail.png">
-
-  <!-- Google Fonts: Modern Agency Typeface (Outfit + Syne + JetBrains Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-
-  <!-- Core Brand Tokens & Components -->
-  <link rel="stylesheet" href="finetuning/css/tokens.css">
-  <link rel="stylesheet" href="finetuning/css/components.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./preview/styles.css">
   <style>
-    * {
-      box-sizing: border-box;
+    html, body {
+      height: 100vh;
+      overflow: hidden;
       margin: 0;
       padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
-      width: 100%;
-      overflow: hidden;
-      background-color: var(--ft-bg-root);
-      color: var(--ft-text-primary);
-      font-family: var(--ft-font-body);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Ambient Stage Flares */
-    .ft-stage-flares {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .ft-flare-top {
-      position: absolute;
-      top: -15vh;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80vw;
-      height: 50vh;
-      max-width: 900px;
-      background: radial-gradient(circle, rgba(240, 147, 32, 0.16) 0%, rgba(240, 147, 32, 0) 70%);
-      filter: blur(80px);
-    }
-
-    .ft-flare-bottom {
-      position: absolute;
-      bottom: -15vh;
-      right: -10vw;
-      width: 60vw;
-      height: 50vh;
-      max-width: 700px;
-      background: radial-gradient(circle, rgba(70, 148, 177, 0.15) 0%, rgba(70, 148, 177, 0) 70%);
-      filter: blur(80px);
-    }
-
-    .ft-stage-grid {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(to right, rgba(70, 148, 177, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(70, 148, 177, 0.04) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
-    }
-
-    /* Strict Single-Screen Container */
-    .ft-page-container {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
-      max-height: 100dvh;
-      width: 100%;
-      padding: clamp(14px, 2.5vh, 32px) clamp(16px, 4vw, 36px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-    }
-
-    /* 1. Header (Brand Logo) */
-    .ft-header {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .ft-brand-logo {
-      height: clamp(34px, 5.5vh, 50px);
-      width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 14px rgba(240, 147, 32, 0.25));
-    }
-
-    /* 2. Hero Center Section */
-    .ft-hero {
-      width: 100%;
-      max-width: 680px;
-      margin: auto 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(6px, 1.5vh, 16px) 0;
-    }
-
-    .ft-status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(17, 30, 51, 0.85);
-      border: 1px solid rgba(70, 148, 177, 0.35);
-      padding: 5px 14px;
-      border-radius: var(--ft-radius-full);
-      font-size: clamp(0.6875rem, 1.4vh, 0.75rem);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ft-color-teal-400);
-      margin-bottom: clamp(10px, 2vh, 18px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .ft-title {
-      font-family: var(--ft-font-display);
-      font-size: clamp(1.65rem, 4.4vh, 3.0rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: #FFFFFF;
-      margin-bottom: clamp(8px, 1.8vh, 16px);
-    }
-
-    .ft-title-gradient {
-      background: linear-gradient(135deg, #F09320 0%, #FBBF24 50%, #4694B1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-
-    .ft-subtitle {
-      font-size: clamp(0.8125rem, 1.8vh, 1.025rem);
-      color: var(--ft-text-secondary);
-      line-height: 1.5;
-      max-width: 520px;
-      margin: 0 auto clamp(16px, 3vh, 26px) auto;
-    }
-
-    /* VIP Notify Form */
-    .ft-notify-form {
-      width: 100%;
-      max-width: 440px;
-      position: relative;
-    }
-
-    .ft-notify-box {
-      background: var(--ft-bg-glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--ft-border-subtle);
-      border-radius: var(--ft-radius-full);
-      padding: 4px 6px 4px 18px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      width: 100%;
-      box-shadow: var(--ft-shadow-lg);
-      transition: border-color var(--ft-transition-normal);
-    }
-
-    .ft-notify-box:focus-within {
-      border-color: var(--ft-color-amber-500);
-      box-shadow: 0 0 20px rgba(240, 147, 32, 0.25);
-    }
-
-    .ft-notify-input {
-      background: transparent;
-      border: none;
-      outline: none;
-      color: var(--ft-text-primary);
-      font-family: var(--ft-font-body);
-      font-size: clamp(0.8125rem, 1.6vh, 0.9375rem);
-      flex-grow: 1;
-      min-width: 0;
-    }
-
-    .ft-notify-input::placeholder {
-      color: var(--ft-text-muted);
-    }
-
-    .ft-notify-btn {
-      flex-shrink: 0;
-      border-radius: var(--ft-radius-full) !important;
-      padding: 0 18px !important;
-      height: clamp(34px, 4.4vh, 40px) !important;
-      font-size: clamp(0.75rem, 1.5vh, 0.8125rem) !important;
-    }
-
-    .ft-feedback {
-      display: none;
-      font-size: clamp(0.75rem, 1.5vh, 0.8125rem);
-      margin-top: 8px;
-      color: var(--ft-status-success);
-    }
-
-    /* 3. Footer */
-    .ft-footer {
-      width: 100%;
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: clamp(0.6875rem, 1.4vh, 0.78125rem);
-      color: var(--ft-text-muted);
-      border-top: 1px solid rgba(70, 148, 177, 0.15);
-      padding-top: clamp(8px, 1.5vh, 16px);
-    }
-
-    .ft-footer a {
-      color: var(--ft-color-amber-500);
-      text-decoration: none;
-      transition: color var(--ft-transition-fast);
-    }
-
-    .ft-footer a:hover {
-      color: var(--ft-color-amber-400);
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <main id="main-content" class="system-screen-container">
+    <div style="margin-bottom: 24px;">
+      <a href="./index.html" class="brand-lockup" aria-label="Fine Tuning Home">
+        <svg class="brand-emblem-svg" viewBox="0 0 2400 1758" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width: 52px; height: 38px;">
+          <path d="M153 131.7L426 131.7L677.3 238.4L183.3 238.4L153 131.7Z" fill="#F09320"/>
+          <path d="M1974 131.7L2247 131.7L2216.7 238.4L1722.7 238.4L1974 131.7Z" fill="#F09320"/>
+          <path d="M968.4 51.6L1431.6 51.6L1200 1493.5L968.4 51.6Z" fill="#F09320"/>
+          <path d="M430.7 598.6L1040.6 598.6L1022.3 705.3L537.4 705.3L430.7 598.6Z" fill="#F09320"/>
+          <path d="M1969.3 598.6L1359.4 598.6L1377.7 705.3L1862.6 705.3L1969.3 598.6Z" fill="#F09320"/>
+          <path d="M78 266C78 266 182 580 182 894C182 1456 638 1706 1200 1706C1762 1706 2218 1456 2218 894C2218 580 2322 266 2322 266C2322 266 2040 500 2040 894C2040 1358 1664 1526 1200 1526C736 1526 360 1358 360 894C360 500 78 266 78 266Z" fill="#4694B1"/>
+        </svg>
+        <div class="brand-names">
+          <span class="brand-title">FineTuning</span>
+          <span class="brand-sub">Experiential Advertising</span>
+        </div>
+      </a>
+    </div>
 
-  <!-- Background Ambient Stage Flares -->
-  <div class="ft-stage-flares">
-    <div class="ft-flare-top"></div>
-    <div class="ft-flare-bottom"></div>
-    <div class="ft-stage-grid"></div>
-  </div>
+    <div class="system-code-huge" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: 2px;">CALIBRATING</div>
 
-  <!-- Single-Screen Viewport Container -->
-  <div class="ft-page-container">
+    <h1 class="system-title">Scheduled Staging Calibration</h1>
+    <p class="system-desc">
+      Our stage infrastructure and telemetry servers are undergoing scheduled frequency realignment. Live on-site production desks remain staffed 24/7.
+    </p>
 
-    <!-- Top: Brand Logo -->
-    <header class="ft-header">
-      <img src="images/fine-tuning-logo.png" alt="Fine Tuning - Advertising Agency" class="ft-brand-logo">
-    </header>
-
-    <!-- Center: Maintenance Hero Message -->
-    <main class="ft-hero">
-      <div class="ft-status-pill">
-        <span class="ft-beacon-dot"></span>
-        STAGE CALIBRATION IN PROGRESS
+    <!-- Real-time countdown boxes -->
+    <div class="system-countdown-grid">
+      <div class="system-countdown-box">
+        <div class="system-countdown-num" id="cd-hours">01</div>
+        <div class="system-countdown-lbl">Hours</div>
       </div>
+      <div class="system-countdown-box">
+        <div class="system-countdown-num" id="cd-mins">45</div>
+        <div class="system-countdown-lbl">Mins</div>
+      </div>
+      <div class="system-countdown-box">
+        <div class="system-countdown-num" id="cd-secs">20</div>
+        <div class="system-countdown-lbl">Secs</div>
+      </div>
+    </div>
 
-      <h1 class="ft-title">
-        We Are Fine-Tuning <span class="ft-title-gradient">Something Extraordinary</span>
-      </h1>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="https://wa.me/8801671863685" class="btn-amber-primary" target="_blank" rel="noopener noreferrer">
+        <span>Connect to WhatsApp Live Desk</span>
+      </a>
+      <a href="tel:+8801671863685" class="btn-ghost-secondary">
+        <span>Call Production Hotline</span>
+      </a>
+    </div>
 
-      <p class="ft-subtitle">
-        Dhaka's premier event management & experiential advertising agency is calibrating our new digital stage. We will be back shortly with our full portfolio.
-      </p>
-
-    </main>
-
-    <!-- Bottom: Clean Single-Line Footer -->
-    <footer class="ft-footer">
-      <span>&copy; 2026 Fine Tuning &bull; All Rights Reserved.</span>
-      <span>&bull;</span>
-      <span>Dhaka, Bangladesh</span>
-      <span>&bull;</span>
-      <a href="mailto:finetuningbd@gmail.com">finetuningbd@gmail.com</a>
-    </footer>
-
-  </div>
+    <div style="margin-top: 36px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-muted);">
+      FINE TUNING MAINTENANCE WINDOW &bull; CHATTOGRAM &amp; DHAKA DESKS
+    </div>
+  </main>
 
   <script>
-    function handleNotifySubmit() {
-      const emailInput = document.getElementById('notify-email');
-      const feedback = document.getElementById('notify-feedback');
-      if (emailInput && emailInput.value) {
-        feedback.style.display = 'block';
-        emailInput.value = '';
+    let seconds = 20;
+    let mins = 45;
+    let hours = 1;
+    setInterval(() => {
+      seconds--;
+      if (seconds < 0) {
+        seconds = 59;
+        mins--;
+        if (mins < 0) {
+          mins = 59;
+          hours = Math.max(0, hours - 1);
+        }
       }
-    }
+      document.getElementById('cd-secs').textContent = String(seconds).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+    }, 1000);
   </script>
 </body>
 </html>
