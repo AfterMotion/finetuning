@@ -8,91 +8,264 @@ description: >-
 
 # Fine Tuning Design System Skill (v2.5.0)
 
-This skill acts as the single source of truth for **Fine Tuning** (`finetuning.com.bd`), an elite **Experiential Advertising Agency & Turnkey Event Staging Production Firm** headquartered in Chattogram and Dhaka, Bangladesh.
+> **Autonomous Coding Agent Operational Standard for finetuning.com.bd**  
+> *Target Repository: `finetuning.com.bd` | Package: `@finetuning/design-system`*  
+> *Status: Authoritative Standard | Date: November 2026*
 
-Whenever you are asked to design, build, or update any UI element, page, feature, or component for Fine Tuning, follow the rules, tokens, and code patterns specified here.
-
----
-
-## 1. Authoritative Document Hierarchy & File Paths
-
-Always consult these canonical references before authoring or modifying code:
-1. **Brand Guidelines**: `docs/BRAND_GUIDELINES.md` — Immutable logo facts, clear space, brand voice.
-2. **Design Tokens Source**: `tokens/tokens.css` (primitives) & `tokens/themes.css` (semantic layers).
-3. **DTCG Token Schema**: `tokens/design-tokens.json` (W3C standard format).
-4. **Tailwind Config**: `tokens/tailwind.config.cjs` (Tailwind v3/v4 token mapping).
-5. **Component Inventory**: `docs/COMPONENT_INVENTORY.md` (65+ catalog items, APIs & Gate 3 audit).
-6. **Web Patterns Guide**: `docs/WEB_PATTERNS.md` (Layouts, heroes, modals, drawers, tables, toasts).
-7. **Website Build Context**: `docs/WEBSITE_BUILD_CONTEXT.md` (Paths, fonts, imagery rules, conflict resolutions).
-8. **Page Brief**: `docs/PAGE_BRIEF.md` (Conversion funnels, visitor journey: understand, trust, do).
-9. **Interactive Demos Suite**: `demos/` (9 standalone application prototypes: homepage, search, auth, wizard, dashboard, CRUD, record detail, settings, system pages).
+This skill directs all future autonomous coding agents and engineers working on **Fine Tuning** (`finetuning.com.bd`), an elite experiential advertising agency and turnkey event staging production firm operating in Chattogram and Dhaka, Bangladesh.
 
 ---
 
-## 2. Core Identity, Colors & Contrast Invariants
+## 1. Prime Directive for Future Agents
 
-| Token Name | Hex Code | Strict Contrast Standard | Purpose & Approved Usage |
-| :--- | :--- | :---: | :--- |
-| `--color-amber-500` | `#F09320` | Core Primary | Mark wings & needle, hero spotlights, primary CTA background. |
-| `--color-slate-950` | `#070D18` | **8.24:1 AAA on Amber** | **MANDATORY text color on Solar Amber buttons.** Never use white text on amber. |
-| `--color-teal-500` | `#4694B1` | 5.68:1 AA on Dark | Core Secondary: Mark cradle arc, secondary button background, badges. |
-| `--color-teal-700` | `#2B5E70` | **7.15:1 AAA on White** | **MANDATORY text teal on white backgrounds.** (Replaces unreadable `#4694B1`). |
-| `--color-teal-800` | `#1C4453` | **10.49:1 AAA on White** | High-contrast editorial links and dark teal headings. |
-| `--color-slate-900` | `#0F172A` | **17.85:1 AAA on White** | Primary headlines and body copy in Light Mode (`data-theme="light"`). |
-| `--color-slate-50` | `#F8FAFC` | **18.10:1 AAA on Dark** | Primary headlines and body copy in Dark Mode (`data-theme="dark"`). |
-| `--color-emerald-500`| `#10B981` | Status: Success | WhatsApp FAB background, stage sync beacons, acoustic safe zone (<85 dBA). |
-| `--color-crimson-500`| `#EF4444` | Status: Danger | Emergency cutoff button, destructive alerts, overlimit sound warning (>95 dBA). |
-
----
-
-## 3. Typographic System & Font Pairings
-
-Always load fonts in the `<head>` of any Fine Tuning HTML page:
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 ```
-
-### Font Usage Rules:
-1. **Primary Digital UI Sans (`--font-primary`)**: `'Outfit', system-ui, sans-serif` (weights `300`–`900`). Used for all body copy, navigation links, form labels, inputs, and table content.
-2. **Editorial Display Sans (`--font-display`)**: `'Syne', sans-serif` (weights `700`, `800`). Used for hero display headlines, section titles, and case study titles.
-3. **Data & Telemetry Mono (`--font-mono`)**: `'JetBrains Mono', monospace` (weights `400`–`600`). Used for decibels (dBA), timestamps, radio call-signs, CSV data, and code tokens.
-
----
-
-## 4. Non-Negotiable Anti-Patterns
-
-- ❌ **NEVER** put white text on top of Solar Amber (`#F09320`) buttons. Contrast is 2.36:1 (fails WCAG AA). Always use Midnight Obsidian (`#070D18`).
-- ❌ **NEVER** use raw `#4694B1` for body copy on light backgrounds. Always use `--color-teal-700` (`#2B5E70`, 7.15:1 AAA).
-- ❌ **NEVER** hardcode component hex colors. Always reference CSS variables (`var(--color-*)`).
-- ❌ **NEVER** fabricate statistics, client testimonials, or partner logos. Use labeled placeholders (`[PENDING STAKEHOLDER SUBMISSION]`) where data is absent.
-- ❌ **NEVER** use generic stock photography. All event photography must come from verified Fine Tuning productions (`images/webp/`).
-- ❌ **NEVER** introduce page scrollbars to single-screen system pages (403, 404, 500, 503). They must fit within `100vh`.
-
----
-
-## 5. Standard Component Class References
-
-```html
-<!-- Primary Button (Solar Amber with Mandatory Dark Text) -->
-<button class="ft-btn ft-btn-primary ft-btn-md">Book Technical Briefing</button>
-
-<!-- Secondary Button (Nordic Teal with White Text) -->
-<button class="ft-btn ft-btn-secondary ft-btn-md">Explore Capabilities</button>
-
-<!-- Outline Button (Text-Safe Teal) -->
-<button class="ft-btn ft-btn-outline ft-btn-md">Inspect Rider</button>
-
-<!-- Status Beacon with Pulse -->
-<span class="ft-beacon-dot pulse" style="color: var(--color-emerald-500);"></span>
-
-<!-- Floating Action Button (WhatsApp) -->
-<a href="https://wa.me/8801671863685" target="_blank" rel="noopener noreferrer" class="ft-fab" title="Chat on WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">...</svg>
-</a>
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       PRIME DIRECTIVE FOR CODING AGENTS                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. READ FIRST: Always read packages/fine-tuning-design-system/ before       │
+│    authoring, modifying, or refactoring any UI component or page.           │
+│ 2. REUSE EXISTING: Never create duplicate components or tokens. Reuse from │
+│    docs/COMPONENT_INVENTORY.md (65+ catalog items) and tokens/.             │
+│ 3. ENFORCE INVARIANTS: Strictly enforce Invariants 1 through 6.             │
+│ 4. DOCUMENT FIRST: If a new component variant or token is required,         │
+│    document it as a justified proposal in docs/COMPONENT_INVENTORY.md §6    │
+│    BEFORE writing implementation code. Never silently fork tokens.          │
+│ 5. WCAG AAA & TOUCH: Enforce 8.24:1 AAA contrast on Solar Amber buttons,    │
+│    >= 44px touch targets, 2px :focus-visible rings, and Escape dismissal.   │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-*Skill aligned with Fine Tuning Design System v2.5.0 standards.*
+## 2. Document Hierarchy & Single Source of Truth
+
+When designing or authoring code, respect this authoritative hierarchy:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. docs/BRAND_GUIDELINES.md   -> Immutable logo facts & core brand rules    │
+│ 2. tokens/tokens.css &        -> Primitive scales & semantic dual-theme     │
+│    tokens/themes.css             color, spatial, and density definitions    │
+│ 3. docs/DESIGN_SYSTEM.md      -> Architectural three-layer token contracts  │
+│ 4. docs/COMPONENT_INVENTORY.md-> 65+ catalog specs, APIs & Gate 3 audit    │
+│ 5. docs/WEB_PATTERNS.md       -> Production web patterns & layout contracts │
+│ 6. docs/WEBSITE_BUILD_CONTEXT -> Authoritative file paths & conflict log    │
+│ 7. docs/PAGE_BRIEF.md         -> Strategic conversion goals & proof rules   │
+│ 8. tokens/tailwind.config.cjs -> Tailwind CSS v3/v4 token mapping           │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 3. The Six Non-Negotiable Invariants
+
+1. **Invariant 1: Solar Amber Button Text Contrast (8.24:1 WCAG AAA)**  
+   Primary buttons with Solar Amber background (`#F09320` / `--color-action-primary`) **MUST ALWAYS HAVE Midnight Obsidian (`#070D18` / `--color-slate-950`) text**. White text on Solar Amber is **strictly forbidden** (2.36:1 fails WCAG AA).
+2. **Invariant 2: Nordic Teal on Light Canvas (7.15:1 WCAG AAA)**  
+   Light mode body text, links, and text labels must use `--color-teal-700` (`#2B5E70`) or `--color-teal-800` (`#1C4453`). Logo teal (`#4694B1`) is restricted to non-text graphic marks, icons, and dark mode.
+3. **Invariant 3: Zero Fabricated Proof, Statistics, or Logos**  
+   Never invent fake client reviews, fictitious CMO praise, or synthetic partner logos. Only real verified clients (BSRM Group, UCB Bank, BYD Auto, Royal Enfield Bangladesh, CPDL, Akij Group, KDS Group, BUET Graduates Club). Where unverified, use explicit placeholders: `[PENDING STAKEHOLDER SUBMISSION: Official Trade License / BIN Number]`.
+4. **Invariant 4: Token Single Source of Truth**  
+   Never hardcode component hex colors directly inside style tags or stylesheets. Always reference CSS custom properties (`var(--color-bg-surface)`). Build tools must read from `tokens/tokens.css` and `tokens/themes.css`.
+5. **Invariant 5: No Silent Token Forking**  
+   Never introduce rogue CSS variables without documenting them in `docs/COMPONENT_INVENTORY.md` §6.
+6. **Invariant 6: Single-Screen Constraint for System Pages**  
+   System error screens (404, 500, 503, maintenance) must fit within a single viewport on both desktop and mobile with **zero page scroll** (`height: 100vh; overflow: hidden;`).
+
+---
+
+## 4. Multi-Stack Implementation Code Examples
+
+Different environments require different framework bindings. The following patterns demonstrate standard component implementation across the four supported stacks:
+
+### 4.1 HTML / CSS Token Cascade Example
+```html
+<!-- Primary CTA Button (Invariant 1: 8.24:1 AAA) -->
+<button type="button" class="ft-btn ft-btn-primary ft-btn-lg">
+  <span>Launch Production Brief</span>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
+</button>
+
+<style>
+.ft-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--btn-transition);
+}
+.ft-btn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+.ft-btn-primary {
+  background-color: var(--color-action-primary);
+  color: var(--color-slate-950) !important; /* Invariant 1 */
+}
+.ft-btn-primary:hover {
+  background-color: var(--color-action-primary-hover);
+  transform: translateY(-1px);
+}
+.ft-btn-lg {
+  height: var(--btn-h-lg);
+  padding: 0 var(--btn-px-lg);
+  font-size: var(--font-size-base);
+}
+</style>
+```
+
+### 4.2 Tailwind CSS Example
+```html
+<!-- Primary Button via Tailwind Mapping -->
+<button class="bg-[#F09320] hover:bg-[#D47911] text-[#070D18] font-bold h-12 px-6 rounded-lg transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#F09320] focus:ring-offset-2 focus:ring-offset-[#070D18] inline-flex items-center gap-2.5">
+  <span>Book Technical Briefing</span>
+  <span>→</span>
+</button>
+
+<!-- Telemetry Card via Tailwind -->
+<div class="bg-[#131D31] border border-slate-800 rounded-2xl p-6 shadow-xl space-y-2">
+  <div class="flex justify-between items-center text-xs font-mono text-slate-400 uppercase">
+    <span>Truss Structural Load</span>
+    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10B981]"></span>
+  </div>
+  <div class="font-display text-3xl font-extrabold text-white">
+    4.8 <span class="font-mono text-sm text-slate-400 font-normal">/ 7.5 T</span>
+  </div>
+  <p class="font-mono text-xs text-emerald-400">✓ Safety Factor: 5.2:1 (Compliant)</p>
+</div>
+```
+
+### 4.3 React / Next.js TypeScript Example
+```tsx
+import React, { useEffect, useRef } from 'react';
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive';
+  size?: 'sm' | 'md' | 'lg';
+  children: React.ReactNode;
+}
+
+export const Button: React.FC<ButtonProps> = ({
+  variant = 'primary',
+  size = 'md',
+  children,
+  className = '',
+  ...rest
+}) => {
+  const sizeClasses = {
+    sm: 'h-8 px-3 text-xs gap-1.5',
+    md: 'h-10 px-4 text-sm gap-2',
+    lg: 'h-12 px-6 text-base gap-2.5',
+  }[size];
+
+  // Invariant 1: Solar Amber MUST have Midnight Obsidian (#070D18) text
+  const variantClasses = {
+    primary: 'bg-[#F09320] hover:bg-[#D47911] text-[#070D18] focus:ring-[#F09320]',
+    secondary: 'bg-[#4694B1] hover:bg-[#377A93] text-white focus:ring-[#4694B1]',
+    outline: 'bg-transparent border border-slate-700 text-slate-200 hover:border-amber-500',
+    ghost: 'bg-transparent text-slate-300 hover:bg-slate-800',
+    destructive: 'bg-[#EF4444] hover:bg-[#DC2626] text-white focus:ring-[#EF4444]',
+  }[variant];
+
+  return (
+    <button
+      className={`inline-flex items-center justify-center font-bold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClasses} ${variantClasses} ${className}`}
+      {...rest}
+    >
+      {children}
+    </button>
+  );
+};
+```
+
+### 4.4 Vue 3 (Single File Component) Example
+```vue
+<script setup lang="ts">
+import { computed } from 'vue';
+
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'primary',
+  size: 'md',
+  type: 'button',
+  disabled: false,
+});
+
+const emit = defineEmits<{ (e: 'click', event: MouseEvent): void }>();
+
+const classes = computed(() => ['ft-btn', `ft-btn-${props.variant}`, `ft-btn-${props.size}`]);
+</script>
+
+<template>
+  <button :type="type" :disabled="disabled" :class="classes" @click="(e) => emit('click', e)">
+    <slot></slot>
+  </button>
+</template>
+
+<style scoped>
+.ft-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary, 'Outfit', sans-serif);
+  font-weight: 700;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast, 150ms) ease;
+}
+.ft-btn:focus-visible {
+  outline: 2px solid var(--color-focus-ring, #F09320);
+  outline-offset: 2px;
+}
+/* Invariant 1: Solar Amber MUST HAVE Midnight Obsidian text */
+.ft-btn-primary {
+  background-color: var(--color-action-primary, #F09320);
+  color: var(--color-slate-950, #070D18) !important;
+}
+.ft-btn-primary:hover {
+  background-color: var(--color-action-primary-hover, #D47911);
+  transform: translateY(-1px);
+}
+.ft-btn-secondary {
+  background-color: var(--color-action-secondary, #4694B1);
+  color: #FFFFFF;
+}
+.ft-btn-sm { height: 32px; padding: 0 12px; font-size: 0.75rem; }
+.ft-btn-md { height: 40px; padding: 0 16px; font-size: 0.875rem; }
+.ft-btn-lg { height: 48px; padding: 0 24px; font-size: 1rem; }
+</style>
+```
+
+---
+
+## 5. Maintenance Checklist for Future Pages
+
+Before marking any new page or component complete, execute this checklist:
+- [ ] Read `packages/fine-tuning-design-system/` to confirm token and component reuse.
+- [ ] Verify primary buttons use Solar Amber with Midnight Obsidian text (**8.24:1 AAA**).
+- [ ] Verify light-mode body text uses `--color-teal-700` (`#2B5E70`, **7.15:1 AAA**).
+- [ ] Verify authentic proofs only (BSRM, UCB, BYD, Royal Enfield); zero fake statistics or logos.
+- [ ] Use authentic brand logo asset `assets/brand/fine-tuning-logo.png` (never generic text lockups).
+- [ ] Never place dark mode or density toggles in public customer-facing navigation headers.
+- [ ] Frame all agency capabilities as Experiential Event Staging (never acoustic audio engineer faders or telemetry sensors).
+- [ ] Ensure Staging Wizard stepper only activates the current step; summary metrics must stack on mobile with zero text overlap.
+- [ ] Use standard SVG icons for all buttons and interactive controls (zero raw emojis).
+- [ ] Keep public footer clean (3 columns, high-contrast light text, zero newsletter forms or internal developer links).
+- [ ] Verify skip link and 2px amber `:focus-visible` ring active on keyboard Tab traversal.
+- [ ] Test mobile viewport at 360px (`document.documentElement.scrollWidth === window.innerWidth`).
+- [ ] Verify single-screen error pages fit within 100vh with zero scroll.
+- [ ] Verify zero JavaScript console errors during state machine transitions.

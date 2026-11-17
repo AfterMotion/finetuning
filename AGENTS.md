@@ -1,7 +1,7 @@
 # Fine Tuning — Autonomous Agent Guidelines & Operational Charter (`AGENTS.md`)
 
 > **Authoritative Operational Charter, Token Invariants, Quality Gates & Multi-Agent Workflows**  
-> *Target Repository: `finetuning.com.bd`*  
+> *Target Repository: `finetuning.com.bd` | Package: `@finetuning/design-system`*  
 > *Organization: Fine Tuning Advertising Agency (Chattogram & Dhaka, Bangladesh)*  
 > *Version: 2.5.0 | Date: November 2026 | Status: Authoritative Standard*
 
@@ -15,7 +15,28 @@ All autonomous AI agents, coding assistants, and automated pipelines operating w
 
 ---
 
-## 2. Hierarchy of Authoritative Sources
+## 2. Prime Directive: Package-First Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       PRIME DIRECTIVE FOR CODING AGENTS                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. READ FIRST: Always read packages/fine-tuning-design-system/ before       │
+│    authoring, modifying, or refactoring any UI component or page.           │
+│ 2. REUSE EXISTING: Never create duplicate components or tokens. Reuse from │
+│    docs/COMPONENT_INVENTORY.md (65+ catalog items) and tokens/.             │
+│ 3. ENFORCE INVARIANTS: Strictly enforce Invariants 1 through 6.             │
+│ 4. DOCUMENT FIRST: If a new component variant or token is required,         │
+│    document it as a justified proposal in docs/COMPONENT_INVENTORY.md §6    │
+│    BEFORE writing implementation code. Never silently fork tokens.          │
+│ 5. WCAG AAA & TOUCH: Enforce 8.24:1 AAA contrast on Solar Amber buttons,    │
+│    >= 44px touch targets, 2px :focus-visible rings, and Escape dismissal.   │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 3. Hierarchy of Authoritative Sources
 
 When designing, refactoring, or authoring code, agents must consult and respect the following documented hierarchy. Higher documents supersede lower drafts:
 
@@ -37,7 +58,7 @@ When designing, refactoring, or authoring code, agents must consult and respect 
 
 ---
 
-## 3. Core Invariant Rules (Non-Negotiable)
+## 4. Core Invariant Rules (Non-Negotiable)
 
 Every agent must enforce these six invariants without exception:
 
@@ -66,32 +87,119 @@ Every agent must enforce these six invariants without exception:
 ### Invariant 6: Single-Screen Constraint for System Pages
 - **Rule**: System error screens (403, 404, 500, 503) must fit entirely within a single viewport on both desktop and mobile with **zero page scroll** (`height: 100vh; overflow: hidden;`).
 
----
+### Invariant 7: Authentic Agency Scope & Authentic Logo
+- **Rule**: Fine Tuning is an Experiential Advertising & Turnkey Event Staging Agency (corporate summits, exhibition pavilions, brand launches, stage production). Never author acoustic audio fader/limiter decibel gauges or engineering sensor telemetry cards on commercial marketing pages.
+- **Logo Standard**: Always render the official brand logo asset `assets/brand/fine-tuning-logo.png` (or `images/fine-tuning-logo.png`). Never author generic sans-serif text lockups.
 
-## 4. Quality & Testing Gateways
-
-Before completing any task, agents must verify the appropriate quality gate:
-
-### GATE 1 — Brand Identity Sign-Off
-- [x] Vector emblem preserves exact geometry (`viewBox="0 0 2400 1758"`).
-- [x] Clear space perimeter $X = 443\text{ SVG units}$ respected (min 24px mobile, 48px desktop).
-- [x] Brand typography follows `Outfit` (Primary UI), `Syne` (Display), `JetBrains Mono` (Data).
-
-### GATE 2 — Token Architecture Sign-Off
-- [x] Primitive layer -> Semantic layer -> Component token inheritance intact.
-- [x] Dual-theme engine (`data-theme="dark"` / `data-theme="light"`) verified.
-- [x] Density modes (`.density-comfortable` / `.density-compact`) functional.
-
-### GATE 3 — Component & Interaction Sign-Off
-- [x] All 65+ catalog components verified across desktop and mobile (<768px).
-- [x] Focus rings active on keyboard navigation (`:focus-visible` with 2px amber outline).
-- [x] Accessible skip-to-content link present at the top of every page.
-- [x] Pressing `Escape` universally dismisses modals, drawers, and popovers.
-- [x] Zero console errors during client-side state machine execution.
+### Invariant 8: Clean Public Navigation, Footer & Zero Emojis
+- **Navigation Rule**: Never expose theme or density toggle buttons in public customer-facing navigation headers.
+- **Footer Rule**: Public footers must use a clean 3-column layout (Brand Profile, Capabilities, Operations Bases) with high-contrast text (`#F8FAFC` headings, `#94A3B8` links). Never place newsletter forms, internal dev links (`Brand Guidelines`, `Console`), or stakeholder placeholders on public pages.
+- **Emoji Prohibition**: Never use raw emojis in buttons, pills, or interactive controls. Always use professional inline SVGs.
 
 ---
 
-## 5. Multi-Agent Delegation Protocols
+## 5. Multi-Stack Code Implementation Examples
+
+Future coding agents should refer to these stack-specific implementations:
+
+### 5.1 HTML / CSS Cascade Implementation
+```html
+<button type="button" class="ft-btn ft-btn-primary ft-btn-md">
+  <span>Launch Production Brief</span>
+</button>
+
+<style>
+.ft-btn-primary {
+  background-color: var(--color-action-primary);
+  color: var(--color-slate-950) !important; /* Invariant 1: 8.24:1 AAA */
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  height: var(--btn-h-md);
+  padding: 0 var(--btn-px-md);
+  border-radius: var(--radius-md);
+}
+.ft-btn-primary:hover {
+  background-color: var(--color-action-primary-hover);
+  transform: translateY(-1px);
+}
+.ft-btn-primary:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+</style>
+```
+
+### 5.2 Tailwind CSS Implementation
+```html
+<button class="bg-[#F09320] hover:bg-[#D47911] text-[#070D18] font-bold h-10 px-4 rounded-lg transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#F09320] focus:ring-offset-2 focus:ring-offset-[#070D18] flex items-center gap-2">
+  <span>Book Technical Briefing</span>
+  <span>→</span>
+</button>
+```
+
+### 5.3 React / Next.js (TypeScript) Implementation
+```tsx
+import React from 'react';
+
+export const PrimaryButton: React.FC<{ children: React.ReactNode; onClick?: () => void }> = ({
+  children,
+  onClick,
+}) => (
+  <button
+    onClick={onClick}
+    className="inline-flex items-center justify-center font-bold h-10 px-4 rounded-lg bg-[#F09320] hover:bg-[#D47911] text-[#070D18] focus:outline-none focus:ring-2 focus:ring-[#F09320] focus:ring-offset-2 transition-all hover:-translate-y-0.5"
+    style={{ fontFamily: 'var(--font-primary, Outfit, sans-serif)' }}
+  >
+    {children}
+  </button>
+);
+```
+
+### 5.4 Vue 3 (Single File Component) Implementation
+```vue
+<script setup lang="ts">
+defineProps<{ disabled?: boolean }>();
+const emit = defineEmits<{ (e: 'click', ev: MouseEvent): void }>();
+</script>
+
+<template>
+  <button
+    type="button"
+    :disabled="disabled"
+    class="ft-btn-primary"
+    @click="(e) => emit('click', e)"
+  >
+    <slot></slot>
+  </button>
+</template>
+
+<style scoped>
+.ft-btn-primary {
+  background-color: var(--color-action-primary, #F09320);
+  color: var(--color-slate-950, #070D18) !important;
+  font-family: var(--font-primary, 'Outfit', sans-serif);
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: var(--radius-md, 8px);
+  border: none;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.ft-btn-primary:hover {
+  background-color: var(--color-action-primary-hover, #D47911);
+  transform: translateY(-1px);
+}
+.ft-btn-primary:focus-visible {
+  outline: 2px solid var(--color-focus-ring, #F09320);
+  outline-offset: 2px;
+}
+</style>
+```
+
+---
+
+## 6. Multi-Agent Delegation Protocols
 
 When multiple autonomous agents collaborate on this repository, work must be partitioned by specialty:
 
@@ -112,7 +220,7 @@ When multiple autonomous agents collaborate on this repository, work must be par
 
 ---
 
-## 6. Future-Page Authoring Prompt Template
+## 7. Future-Page Authoring Prompt Template
 
 When directing an agent to build a new page, use this standardized prompt:
 
@@ -122,17 +230,18 @@ Target route: "[PAGE ROUTE]".
 Adhere strictly to AGENTS.md, docs/BRAND_GUIDELINES.md, tokens/tokens.css, tokens/themes.css, and docs/WEB_PATTERNS.md.
 
 Requirements:
-1. CSS Cascade: Link tokens/tokens.css, tokens/themes.css, and demos/demo-shell.css. Use CSS variables for all component colors.
-2. Contrast Invariant: Primary buttons must use Solar Amber (--color-action-primary) with Midnight Obsidian (--color-slate-950) text. Light-mode text teal must use --color-teal-700 (#2B5E70).
-3. Header & Navigation: Include sticky navigation with brand logo, links, theme switcher, and density toggle.
-4. Mobile Responsiveness: Support viewports down to 320px with lateral sliding drawer navigation.
-5. Proof Integrity: Use real verified client names (BSRM, UCB, BYD, Royal Enfield) and real event photos from images/webp/. Never fabricate stats or quotes.
-6. A11y Standards: Include skip link, 2px :focus-visible rings, and Escape key dismissal for modals.
+1. Package First: Consult packages/fine-tuning-design-system/ and reuse existing components from docs/COMPONENT_INVENTORY.md.
+2. CSS Cascade: Link tokens/tokens.css, tokens/themes.css, and preview/styles.css. Use CSS variables for all component colors.
+3. Contrast Invariant: Primary buttons must use Solar Amber (--color-action-primary) with Midnight Obsidian (--color-slate-950) text. Light-mode text teal must use --color-teal-700 (#2B5E70).
+4. Header & Navigation: Include sticky navigation with brand logo, links, theme switcher, and density toggle.
+5. Mobile Responsiveness: Support viewports down to 320px with lateral sliding drawer navigation.
+6. Proof Integrity: Use real verified client names (BSRM, UCB, BYD, Royal Enfield) and real event photos from images/webp/. Never fabricate stats or quotes.
+7. A11y Standards: Include skip link, 2px :focus-visible rings, and Escape key dismissal for modals.
 ```
 
 ---
 
-## 7. Maintenance Runbook
+## 8. Maintenance Runbook
 
 - **Token Auditing**: Run regex checks across all HTML/CSS files to verify zero naked hex codes in component classes:  
   `Select-String -Path "demos/*.html" -Pattern "#[0-9a-fA-F]{3,6}"` (should only match token definitions).
@@ -143,4 +252,3 @@ Requirements:
 ---
 
 *Charter established and binding for all autonomous agents in the Fine Tuning repository.*
-

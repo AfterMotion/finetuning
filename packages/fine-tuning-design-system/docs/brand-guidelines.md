@@ -91,3 +91,4 @@ Fine Tuning strictly enforces an **authentic engineering voice**:
 - **Zero Fabricated Proof**: Never invent fake testimonials, fictional CMO quotes, or mock corporate logos.
 - **Approved Clients**: BSRM Group, UCB Bank, BYD Auto, Royal Enfield Bangladesh, CPDL, Akij Group, KDS Group, BUET Graduates Club.
 - **Pending Stakeholder Facts**: Explicitly marked as `[PENDING STAKEHOLDER SUBMISSION: Official Trade License / BIN Number]`.
+

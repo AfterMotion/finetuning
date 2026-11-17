@@ -109,3 +109,4 @@ The Fine Tuning web platform avoids generic web templates (such as repeated equa
   - `503.html`: Soundcheck recalibration with live countdown clock and progress bar.
   - `maintenance.html`: Scheduled warehouse gear maintenance notice.
 - **Controls**: Primary button returning to Master Portal + secondary links to Case Studies Archive and FOH Desk.
+

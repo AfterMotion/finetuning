@@ -1,39 +1,21 @@
 /**
- * Fine Tuning — Multipage Static Showcase Controller (`preview-static/js/main.js`)
- * Version: 2.5.0 | Pure Vanilla JavaScript — ZERO external frameworks or runtimes.
- * Supports direct file opening (file:///) and static web servers.
+ * Fine Tuning Production Preview Controller (`preview/app.js`)
+ * Version: 2.5.0
+ * Zero external dependencies — Pure Vanilla JavaScript.
  */
 
 (function () {
   'use strict';
 
-  // Safe localStorage wrapper for file:/// browser contexts
-  const storage = {
-    get: function (key, fallback) {
-      try {
-        return localStorage.getItem(key) || fallback;
-      } catch (e) {
-        return fallback;
-      }
-    },
-    set: function (key, value) {
-      try {
-        localStorage.setItem(key, value);
-      } catch (e) {
-        // Storage restricted in sandboxed file:// mode
-      }
-    }
-  };
-
   // --------------------------------------------------------------------------
-  // 1. DUAL THEME ENGINE (Midnight Stage Dark / Studio Editorial Light)
+  // 1. DUAL THEME ENGINE (DARK / LIGHT)
   // --------------------------------------------------------------------------
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
   const themeIcon = document.getElementById('theme-icon');
   const htmlEl = document.documentElement;
 
   function initTheme() {
-    const saved = storage.get('ft_theme', 'dark');
+    const saved = localStorage.getItem('ft_theme') || 'dark';
     htmlEl.setAttribute('data-theme', saved);
     updateThemeIcon(saved);
   }
@@ -41,11 +23,11 @@
   function updateThemeIcon(theme) {
     if (!themeIcon) return;
     if (theme === 'light') {
-      themeIcon.innerHTML = '🌙';
-      if (themeToggleBtn) themeToggleBtn.setAttribute('aria-label', 'Switch to Midnight Stage Dark Theme');
+      themeIcon.innerHTML = '🌙'; // moon to switch to dark
+      themeToggleBtn.setAttribute('aria-label', 'Switch to Dark Theme');
     } else {
-      themeIcon.innerHTML = '☀️';
-      if (themeToggleBtn) themeToggleBtn.setAttribute('aria-label', 'Switch to Studio Editorial Light Theme');
+      themeIcon.innerHTML = '☀️'; // sun to switch to light
+      themeToggleBtn.setAttribute('aria-label', 'Switch to Light Theme');
     }
   }
 
@@ -54,9 +36,9 @@
       const current = htmlEl.getAttribute('data-theme') || 'dark';
       const next = current === 'dark' ? 'light' : 'dark';
       htmlEl.setAttribute('data-theme', next);
-      storage.set('ft_theme', next);
+      localStorage.setItem('ft_theme', next);
       updateThemeIcon(next);
-      showToast('Theme switched to ' + (next === 'dark' ? 'Midnight Stage (Dark)' : 'Studio Editorial (Light)'), 'info');
+      showToast('Theme switched to ' + (next === 'dark' ? 'Midnight Stage' : 'Studio Editorial'), 'info');
     });
   }
 
@@ -66,7 +48,7 @@
   const densityToggleBtn = document.getElementById('density-toggle-btn');
 
   function initDensity() {
-    const saved = storage.get('ft_density', 'comfortable');
+    const saved = localStorage.getItem('ft_density') || 'comfortable';
     if (saved === 'compact') {
       document.body.classList.add('density-compact');
     }
@@ -76,32 +58,28 @@
     densityToggleBtn.addEventListener('click', function () {
       const isCompact = document.body.classList.toggle('density-compact');
       const mode = isCompact ? 'compact' : 'comfortable';
-      storage.set('ft_density', mode);
+      localStorage.setItem('ft_density', mode);
       showToast('Interface density: ' + mode.toUpperCase(), 'info');
     });
   }
 
   // --------------------------------------------------------------------------
-  // 3. ACCESSIBLE MOBILE LATERAL DRAWER & NAVIGATION
+  // 3. MOBILE LATERAL DRAWER & NAVIGATION
   // --------------------------------------------------------------------------
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const drawerOverlay = document.getElementById('drawer-overlay');
   const drawerCloseBtn = document.getElementById('drawer-close-btn');
 
   function openDrawer() {
-    if (!drawerOverlay) return;
     drawerOverlay.classList.add('active');
-    drawerOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    if (drawerCloseBtn) drawerCloseBtn.focus();
+    drawerCloseBtn.focus();
   }
 
   function closeDrawer() {
-    if (!drawerOverlay) return;
     drawerOverlay.classList.remove('active');
-    drawerOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    if (hamburgerBtn) hamburgerBtn.focus();
+    hamburgerBtn.focus();
   }
 
   if (hamburgerBtn) hamburgerBtn.addEventListener('click', openDrawer);
@@ -112,47 +90,187 @@
     });
   }
 
-  // Universal Escape key dismissal for drawers and modals
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' || e.key === 'Esc') {
-      if (drawerOverlay && drawerOverlay.classList.contains('active')) {
-        closeDrawer();
-      }
-      closeModal();
-    }
+  // Close drawer on link click
+  document.querySelectorAll('.drawer-link').forEach(function (link) {
+    link.addEventListener('click', closeDrawer);
   });
 
   // --------------------------------------------------------------------------
-  // 4. ACCESSIBLE MODAL DIALOGS
+  // 4. HERO FOH SOUNDCHECK EQUALIZER SIMULATION
   // --------------------------------------------------------------------------
-  const modalOverlay = document.getElementById('brief-modal-overlay');
+  const eqBars = document.querySelectorAll('.soundcheck-bar-cluster .sc-bar');
+
+  function pulseEqualizer() {
+    if (document.hidden) return;
+    eqBars.forEach(function (bar) {
+      const h = Math.floor(Math.random() * 42) + 8;
+      bar.style.height = h + 'px';
+    });
+  }
+  if (eqBars.length > 0) {
+    setInterval(pulseEqualizer, 280);
+  }
+
+  // --------------------------------------------------------------------------
+  // 5. INTERACTIVE SOUNDCHECK DECIBEL LIMITER FADER
+  // --------------------------------------------------------------------------
+  const faderSlider = document.getElementById('soundcheck-fader');
+  const gaugeNeedle = document.getElementById('gauge-needle');
+  const gaugeVal = document.getElementById('gauge-live-val');
+  const gaugeStatus = document.getElementById('gauge-status-text');
+  const limiterAlert = document.getElementById('limiter-clamp-alert');
+
+  if (faderSlider && gaugeNeedle) {
+    faderSlider.addEventListener('input', function () {
+      const val = parseFloat(faderSlider.value);
+      if (gaugeVal) gaugeVal.textContent = val.toFixed(1) + ' dBA';
+
+      // Needle angle: 60 dBA = -45deg, 85 dBA = 0deg, 110 dBA = 45deg
+      const angle = ((val - 85) / 25) * 45;
+      gaugeNeedle.setAttribute('transform', 'rotate(' + angle + ' 130 130)');
+
+      // Threshold zones
+      if (val <= 85.0) {
+        gaugeStatus.textContent = '● SPEECH INTELLIGIBLE & ACOUSTIC SAFE';
+        gaugeStatus.style.color = 'var(--color-emerald-400)';
+        gaugeVal.style.color = 'var(--color-emerald-400)';
+        limiterAlert.classList.remove('active');
+      } else if (val <= 95.0) {
+        gaugeStatus.textContent = '▲ ELEVATED CONCERT PEAK LEVEL';
+        gaugeStatus.style.color = 'var(--color-action-primary)';
+        gaugeVal.style.color = 'var(--color-action-primary)';
+        limiterAlert.classList.remove('active');
+      } else {
+        gaugeStatus.textContent = '■ MUNICIPAL OVERLIMIT (LIMITER CLAMP)';
+        gaugeStatus.style.color = 'var(--color-rose-400)';
+        gaugeVal.style.color = 'var(--color-rose-400)';
+        limiterAlert.classList.add('active');
+      }
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 6. CASE STUDIES CATEGORY FILTERING
+  // --------------------------------------------------------------------------
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const caseCards = document.querySelectorAll('.case-card');
+
+  filterPills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      filterPills.forEach(function (p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+      const cat = pill.getAttribute('data-filter');
+
+      caseCards.forEach(function (card) {
+        const cardCat = card.getAttribute('data-category');
+        if (cat === 'all' || cardCat === cat) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 7. IN-LINE STAGING WIZARD DYNAMIC ESTIMATOR
+  // --------------------------------------------------------------------------
+  const wizardVenue = document.getElementById('wizard-venue');
+  const wizardPax = document.getElementById('wizard-pax');
+  const wizardBoxes = document.querySelectorAll('.wizard-box');
+  const calcPower = document.getElementById('calc-power');
+  const calcTruss = document.getElementById('calc-truss');
+  const calcAudio = document.getElementById('calc-audio');
+
+  function updateWizardCalculations() {
+    if (!wizardVenue || !wizardPax) return;
+    let power = 25; // base kVA
+    let truss = '24ft × 14ft';
+    let channels = 8;
+
+    const paxVal = parseInt(wizardPax.value, 10);
+    if (paxVal >= 1000) {
+      power += 25;
+      truss = '48ft × 24ft Box Truss';
+      channels += 16;
+    } else if (paxVal >= 500) {
+      power += 15;
+      truss = '36ft × 18ft Box Truss';
+      channels += 8;
+    }
+
+    wizardBoxes.forEach(function (box) {
+      if (box.checked) {
+        if (box.value === 'led') power += 15;
+        if (box.value === 'audio') { power += 10; channels += 8; }
+        if (box.value === 'broadcast') power += 5;
+        if (box.value === 'booth') power += 3;
+      }
+    });
+
+    if (calcPower) calcPower.textContent = '~' + power + ' kVA';
+    if (calcTruss) calcTruss.textContent = truss;
+    if (calcAudio) calcAudio.textContent = channels + ' Channels';
+  }
+
+  if (wizardVenue) wizardVenue.addEventListener('change', updateWizardCalculations);
+  if (wizardPax) wizardPax.addEventListener('change', updateWizardCalculations);
+  wizardBoxes.forEach(function (box) {
+    box.addEventListener('change', updateWizardCalculations);
+  });
+
+  // --------------------------------------------------------------------------
+  // 8. MEANINGFUL FAQ ACCORDION
+  // --------------------------------------------------------------------------
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(function (item) {
+    const trigger = item.querySelector('.faq-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', function () {
+      const isActive = item.classList.contains('active');
+      // Collapse others
+      faqItems.forEach(function (other) {
+        other.classList.remove('active');
+        const otherTrigger = other.querySelector('.faq-trigger');
+        if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 9. CONSULTATION BOOKING MODAL & SUBMISSION
+  // --------------------------------------------------------------------------
+  const modalOverlay = document.getElementById('consultation-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
-  let lastFocusedElement = null;
+  const openModalTriggers = document.querySelectorAll('.trigger-modal-btn');
+  const consultationForm = document.getElementById('consultation-form');
 
   function openModal() {
     if (!modalOverlay) return;
-    lastFocusedElement = document.activeElement;
     modalOverlay.classList.add('active');
-    modalOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    const firstInput = modalOverlay.querySelector('input, select, textarea, button');
+    const firstInput = document.getElementById('modal-client-name');
     if (firstInput) firstInput.focus();
   }
 
   function closeModal() {
-    if (!modalOverlay || !modalOverlay.classList.contains('active')) return;
+    if (!modalOverlay) return;
     modalOverlay.classList.remove('active');
-    modalOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    if (lastFocusedElement) lastFocusedElement.focus();
   }
 
-  document.querySelectorAll('.trigger-modal-btn').forEach(function (btn) {
+  openModalTriggers.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
-      if (modalOverlay) {
-        e.preventDefault();
-        openModal();
-      }
+      e.preventDefault();
+      openModal();
     });
   });
 
@@ -163,332 +281,126 @@
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 5. ACCESSIBLE TABS & KEYBOARD NAVIGATION
-  // --------------------------------------------------------------------------
-  const tabLists = document.querySelectorAll('[role="tablist"]');
-  tabLists.forEach(function (tabList) {
-    const tabs = tabList.querySelectorAll('[role="tab"]');
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        selectTab(tabList, tab);
-      });
-
-      tab.addEventListener('keydown', function (e) {
-        let index = Array.from(tabs).indexOf(tab);
-        if (e.key === 'ArrowRight') {
-          index = (index + 1) % tabs.length;
-          tabs[index].focus();
-          selectTab(tabList, tabs[index]);
-        } else if (e.key === 'ArrowLeft') {
-          index = (index - 1 + tabs.length) % tabs.length;
-          tabs[index].focus();
-          selectTab(tabList, tabs[index]);
-        }
-      });
-    });
+  // Universal Escape key dismissal
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (lightboxOverlay && lightboxOverlay.classList.contains('active')) closeLightbox();
+      if (modalOverlay && modalOverlay.classList.contains('active')) closeModal();
+      if (drawerOverlay && drawerOverlay.classList.contains('active')) closeDrawer();
+    }
   });
 
-  function selectTab(tabList, activeTab) {
-    const tabs = tabList.querySelectorAll('[role="tab"]');
-    const targetId = activeTab.getAttribute('aria-controls');
+  // --------------------------------------------------------------------------
+  // 9B. FULLSCREEN IMAGE LIGHTBOX VIEWER
+  // --------------------------------------------------------------------------
+  const lightboxOverlay = document.getElementById('image-lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-full-img');
+  const lightboxTitle = document.getElementById('lightbox-caption-title');
+  const lightboxSub = document.getElementById('lightbox-caption-sub');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
 
-    tabs.forEach(function (t) {
-      t.setAttribute('aria-selected', 'false');
-      t.classList.remove('active');
-      t.setAttribute('tabindex', '-1');
-    });
-
-    activeTab.setAttribute('aria-selected', 'true');
-    activeTab.classList.add('active');
-    activeTab.setAttribute('tabindex', '0');
-
-    const parentSection = tabList.closest('section') || document;
-    parentSection.querySelectorAll('[role="tabpanel"]').forEach(function (panel) {
-      if (panel.id === targetId) {
-        panel.hidden = false;
-        panel.classList.add('active');
-      } else {
-        panel.hidden = true;
-        panel.classList.remove('active');
-      }
-    });
+  function openLightbox(src, title, sub) {
+    if (!lightboxOverlay || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = title || 'Staging Execution Photo';
+    if (lightboxTitle) lightboxTitle.textContent = title || '';
+    if (lightboxSub) lightboxSub.textContent = sub || '';
+    lightboxOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (lightboxCloseBtn) lightboxCloseBtn.focus();
   }
 
-  // --------------------------------------------------------------------------
-  // 6. HERO FOH SOUNDCHECK EQUALIZER & SPL DECIBEL FADER
-  // --------------------------------------------------------------------------
-  const eqBars = document.querySelectorAll('.soundcheck-eq-bar');
-  if (eqBars.length > 0) {
-    setInterval(function () {
-      eqBars.forEach(function (bar) {
-        const rand = Math.floor(Math.random() * 65) + 20;
-        bar.style.height = rand + '%';
-      });
-    }, 280);
+  function closeLightbox() {
+    if (!lightboxOverlay) return;
+    lightboxOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (lightboxImg) lightboxImg.src = '';
   }
 
-  const decibelSlider = document.getElementById('decibel-slider');
-  const dbDisplay = document.getElementById('db-numeric-display');
-  const dbStatusPill = document.getElementById('db-status-pill');
-
-  if (decibelSlider && dbDisplay) {
-    decibelSlider.addEventListener('input', function () {
-      const val = parseInt(decibelSlider.value, 10);
-      dbDisplay.textContent = val + ' dBA';
-
-      if (val <= 85) {
-        dbStatusPill.textContent = 'Speech Intelligibility Safe';
-        dbStatusPill.className = 'soundcheck-status-pill safe';
-      } else if (val <= 95) {
-        dbStatusPill.textContent = 'High SPL Level (Caution)';
-        dbStatusPill.className = 'soundcheck-status-pill warn';
-      } else {
-        dbStatusPill.textContent = 'Dante Limiter Active (OSHA Clamp)';
-        dbStatusPill.className = 'soundcheck-status-pill alert';
-      }
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+  if (lightboxOverlay) {
+    lightboxOverlay.addEventListener('click', function (e) {
+      if (e.target === lightboxOverlay) closeLightbox();
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 7. INTERACTIVE STAGING CALCULATOR WIZARD
-  // --------------------------------------------------------------------------
-  const wizardAttendees = document.getElementById('wizard-attendees');
-  const wizardAttendeesVal = document.getElementById('wizard-attendees-val');
-  const wizardVenueType = document.getElementById('wizard-venue-type');
-  const calcPowerVal = document.getElementById('calc-power-val');
-  const calcTrussVal = document.getElementById('calc-truss-val');
-  const calcLedVal = document.getElementById('calc-led-val');
+  // Bind clicks on case media boxes and case links
+  document.querySelectorAll('.case-card').forEach(function (card) {
+    const imgEl = card.querySelector('.case-img');
+    const titleEl = card.querySelector('.case-title');
+    const venueEl = card.querySelector('.case-venue-line');
+    const mediaBox = card.querySelector('.case-media-box');
+    const briefLink = card.querySelector('a.utility-link');
 
-  function updateWizardCalculations() {
-    if (!wizardAttendees || !calcPowerVal) return;
-    const count = parseInt(wizardAttendees.value, 10);
-    if (wizardAttendeesVal) wizardAttendeesVal.textContent = count.toLocaleString() + ' Guests';
-
-    const venue = wizardVenueType ? wizardVenueType.value : 'ballroom';
-    let power = 65;
-    let truss = 24;
-    let led = '18 × 4 m';
-
-    if (count > 800) {
-      power = 125;
-      truss = 38;
-      led = '28 × 5 m';
-    }
-    if (count > 2000 || venue === 'outdoor') {
-      power = 250;
-      truss = 52;
-      led = '38 × 6 m (Curved P2.6)';
+    function triggerCardLightbox(e) {
+      if (e) e.preventDefault();
+      if (!imgEl) return;
+      openLightbox(
+        imgEl.src,
+        titleEl ? titleEl.textContent : 'Case Study Execution',
+        venueEl ? venueEl.textContent : 'Fine Tuning Live Staging'
+      );
     }
 
-    calcPowerVal.textContent = power + ' kVA Redundant';
-    if (calcTrussVal) calcTrussVal.textContent = truss + ' m H30V Box Truss';
-    if (calcLedVal) calcLedVal.textContent = led;
-  }
-
-  if (wizardAttendees) wizardAttendees.addEventListener('input', updateWizardCalculations);
-  if (wizardVenueType) wizardVenueType.addEventListener('change', updateWizardCalculations);
-
-  // Wizard step navigation
-  const nextStepBtn = document.getElementById('wizard-next-step');
-  const prevStepBtn = document.getElementById('wizard-prev-step');
-  let currentStep = 1;
-
-  if (nextStepBtn && prevStepBtn) {
-    nextStepBtn.addEventListener('click', function () {
-      if (currentStep < 3) {
-        currentStep++;
-        updateWizardSteps(currentStep);
-      } else {
-        showToast('[DEMO ONLY] Production brief simulated! Ticket #FT-2026-RIG.', 'success');
-      }
-    });
-
-    prevStepBtn.addEventListener('click', function () {
-      if (currentStep > 1) {
-        currentStep--;
-        updateWizardSteps(currentStep);
-      }
-    });
-  }
-
-  function updateWizardSteps(step) {
-    document.querySelectorAll('.wizard-step-pane').forEach(function (pane, idx) {
-      pane.style.display = (idx + 1 === step) ? 'block' : 'none';
-    });
-    document.querySelectorAll('.wizard-progress-dot').forEach(function (dot, idx) {
-      dot.classList.toggle('active', idx + 1 <= step);
-    });
-    if (prevStepBtn) prevStepBtn.disabled = (step === 1);
-    if (nextStepBtn) nextStepBtn.textContent = (step === 3) ? 'Confirm & Generate Spec' : 'Next Step →';
-  }
-
-  // --------------------------------------------------------------------------
-  // 8. CASE STUDIES LIVE SEARCH & CATEGORY FILTER
-  // --------------------------------------------------------------------------
-  const caseSearchInput = document.getElementById('case-search-input');
-  const filterPills = document.querySelectorAll('.filter-pill');
-  const caseCards = document.querySelectorAll('.case-card-archive');
-  const caseEmptyState = document.getElementById('case-empty-state');
-
-  function filterCases() {
-    if (!caseCards.length) return;
-    const query = caseSearchInput ? caseSearchInput.value.toLowerCase().trim() : '';
-    const activePill = document.querySelector('.filter-pill.active');
-    const selectedCategory = activePill ? activePill.getAttribute('data-filter') : 'all';
-
-    let visibleCount = 0;
-
-    caseCards.forEach(function (card) {
-      const cardCategory = card.getAttribute('data-category') || '';
-      const cardText = card.textContent.toLowerCase();
-
-      const matchesCategory = (selectedCategory === 'all' || cardCategory === selectedCategory);
-      const matchesQuery = (!query || cardText.includes(query));
-
-      if (matchesCategory && matchesQuery) {
-        card.style.display = '';
-        visibleCount++;
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    if (caseEmptyState) {
-      caseEmptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+    if (mediaBox) mediaBox.addEventListener('click', triggerCardLightbox);
+    if (briefLink && briefLink.textContent.includes('Rigging Brief')) {
+      briefLink.addEventListener('click', triggerCardLightbox);
     }
-  }
-
-  if (caseSearchInput) caseSearchInput.addEventListener('input', filterCases);
-
-  filterPills.forEach(function (pill) {
-    pill.addEventListener('click', function () {
-      filterPills.forEach(function (p) { p.classList.remove('active'); });
-      pill.classList.add('active');
-      filterCases();
-    });
   });
 
-  // --------------------------------------------------------------------------
-  // 9. FAQ ACCORDION & SEARCH FILTER
-  // --------------------------------------------------------------------------
-  document.querySelectorAll('.faq-trigger').forEach(function (trigger) {
-    trigger.addEventListener('click', function () {
-      const item = trigger.closest('.faq-item');
-      const isOpen = item.classList.contains('active');
-
-      document.querySelectorAll('.faq-item').forEach(function (other) {
-        other.classList.remove('active');
-        const trig = other.querySelector('.faq-trigger');
-        if (trig) trig.setAttribute('aria-expanded', 'false');
-      });
-
-      if (!isOpen) {
-        item.classList.add('active');
-        trigger.setAttribute('aria-expanded', 'true');
+  // Also bind hero showcase media
+  const heroShowcaseMedia = document.querySelector('.hero-showcase-media');
+  if (heroShowcaseMedia) {
+    heroShowcaseMedia.style.cursor = 'pointer';
+    heroShowcaseMedia.title = 'Click to inspect full staging photograph';
+    heroShowcaseMedia.addEventListener('click', function () {
+      const img = heroShowcaseMedia.querySelector('img');
+      if (img) {
+        openLightbox(
+          img.src,
+          'Radisson Blu Grand Ballroom • Turnkey Summit Staging',
+          'BSRM CORE ESG Annual Corporate Summit • 24m Ultra-Wide Curved P2.6 LED Volume'
+        );
       }
     });
-  });
-
-  const faqSearchInput = document.getElementById('faq-search-input');
-  if (faqSearchInput) {
-    faqSearchInput.addEventListener('input', function () {
-      const query = faqSearchInput.value.toLowerCase().trim();
-      document.querySelectorAll('.faq-item').forEach(function (item) {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(query) ? '' : 'none';
-      });
-    });
   }
 
-  // --------------------------------------------------------------------------
-  // 10. CLIENT VIP EVENT PORTAL ACTIONS
-  // --------------------------------------------------------------------------
-  const signOffBtn = document.getElementById('sign-off-trigger-btn');
-  if (signOffBtn) {
-    signOffBtn.addEventListener('click', function () {
-      showToast('[DEMO OK] Stage clearance approved! Notified FOH Director.', 'success');
-      signOffBtn.innerHTML = '<span>✓ Clearance Approved</span>';
-      signOffBtn.style.opacity = '0.8';
-      signOffBtn.disabled = true;
-    });
-  }
-
-  const refreshTelemetryBtn = document.getElementById('refresh-telemetry-btn');
-  if (refreshTelemetryBtn) {
-    refreshTelemetryBtn.addEventListener('click', function () {
-      showToast('[TELEMETRY SYNC] Grid load 4.8T, Dante latency 0.25ms (Nominal)', 'info');
-    });
-  }
-
-  document.querySelectorAll('.download-file-trigger').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const fname = btn.getAttribute('data-filename') || 'schematic.dwg';
-      showToast('[DEMO DOWNLOAD] Packaging CAD schematic: ' + fname, 'info');
-    });
-  });
-
-  // --------------------------------------------------------------------------
-  // 11. FORM VALIDATION PRESENTATION & DEMO SUBMISSIONS
-  // --------------------------------------------------------------------------
-  const consultationForm = document.getElementById('modal-form');
   if (consultationForm) {
     consultationForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const name = document.getElementById('m-client-name').value.trim();
-      const phone = document.getElementById('m-client-phone').value.trim();
+      const name = document.getElementById('modal-client-name').value.trim();
+      const phone = document.getElementById('modal-client-phone').value.trim();
 
       if (!name || !phone) {
-        showToast('Please fill out all required briefing fields.', 'error');
+        showToast('Please enter your name and contact phone number.', 'error');
         return;
       }
 
       closeModal();
-      showToast('[DEMO ONLY] Technical brief simulated! Dispatch ref: #FT-2026-BSRM.', 'success');
+      showToast('Technical briefing brief registered! Ticket #FT-2026-BSRM.', 'success');
       consultationForm.reset();
     });
   }
 
-  const contactRfpForm = document.getElementById('contact-rfp-form');
-  if (contactRfpForm) {
-    contactRfpForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = contactRfpForm.querySelector('input[name="name"]') || contactRfpForm.querySelector('#c-name');
-      const email = contactRfpForm.querySelector('input[name="email"]') || contactRfpForm.querySelector('#c-email');
-
-      if (name && !name.value.trim()) {
-        showToast('Please enter your full corporate name.', 'error');
-        name.focus();
-        return;
-      }
-      if (email && (!email.value.trim() || !email.value.includes('@'))) {
-        showToast('Please enter a valid corporate email address.', 'error');
-        email.focus();
-        return;
-      }
-
-      showToast('[DEMO ONLY] RFP Brief registered locally. Direct dispatch: +880 1671-863685', 'success');
-      contactRfpForm.reset();
-    });
-  }
-
+  // --------------------------------------------------------------------------
+  // 10. NEWSLETTER DISPATCH FORM
+  // --------------------------------------------------------------------------
   const newsletterForm = document.getElementById('newsletter-form');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const emailInput = document.getElementById('newsletter-email');
-      const email = emailInput ? emailInput.value.trim() : '';
+      const email = document.getElementById('newsletter-email').value.trim();
       if (email && email.includes('@')) {
-        showToast('[DEMO ONLY] Subscribed to Technical Production Notes dispatch!', 'success');
+        showToast('Subscribed to Technical Production Notes dispatch!', 'success');
         newsletterForm.reset();
       } else {
-        showToast('Please provide a valid corporate email address.', 'error');
+        showToast('Please enter a valid corporate email address.', 'error');
       }
     });
   }
 
   // --------------------------------------------------------------------------
-  // 12. TOAST NOTIFICATION ENGINE (Pure Vanilla, accessible aria-live)
+  // 11. TOAST NOTIFICATION ENGINE
   // --------------------------------------------------------------------------
   const toastContainer = document.getElementById('toast-container');
 
@@ -500,7 +412,7 @@
     if (type === 'success') icon = '✅';
     if (type === 'error') icon = '⚠️';
 
-    toast.innerHTML = '<span aria-hidden="true">' + icon + '</span><span>' + msg + '</span>';
+    toast.innerHTML = '<span>' + icon + '</span><span>' + msg + '</span>';
     toastContainer.appendChild(toast);
 
     setTimeout(function () {
@@ -512,11 +424,55 @@
   };
 
   // --------------------------------------------------------------------------
-  // 13. INITIALIZATION
+  // 12. FAQ SEARCH FILTER
   // --------------------------------------------------------------------------
+  const faqSearchInput = document.getElementById('faq-search-input');
+  if (faqSearchInput) {
+    faqSearchInput.addEventListener('input', function () {
+      const query = faqSearchInput.value.toLowerCase().trim();
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 13. CLIENT VIP PORTAL ACTIONS
+  // --------------------------------------------------------------------------
+  const signOffBtn = document.getElementById('sign-off-trigger-btn');
+  if (signOffBtn) {
+    signOffBtn.addEventListener('click', function () {
+      showToast('Stage clearance approved! Notification dispatched to FOH Director.', 'success');
+      signOffBtn.innerHTML = '<span>✓ Clearance Approved</span>';
+      signOffBtn.style.opacity = '0.8';
+      signOffBtn.disabled = true;
+    });
+  }
+
+  const refreshTelemetryBtn = document.getElementById('refresh-telemetry-btn');
+  if (refreshTelemetryBtn) {
+    refreshTelemetryBtn.addEventListener('click', function () {
+      showToast('Telemetry refreshed: Grid load 4.8T, Dante latency 0.25ms (Nominal)', 'info');
+    });
+  }
+
+  document.querySelectorAll('.download-file-trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const fname = btn.getAttribute('data-filename') || 'document';
+      showToast('Packaging CAD schematic: ' + fname, 'info');
+    });
+  });
+
+  // Initialize
   initTheme();
   initDensity();
   updateWizardCalculations();
 
 })();
+
 

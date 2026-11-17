@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fine Tuning — HTML/CSS Component Examples</title>
+  <!-- Google Fonts Triad -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <!-- Design System Token Cascade -->
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../../tokens/themes.css">
+  <link rel="stylesheet" href="../../tokens/components.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="specimen-container">
+    <header class="specimen-header">
+      <div>
+        <h1 class="specimen-title">Fine Tuning Design System</h1>
+        <p class="specimen-subtitle">HTML/CSS Reference Examples (v2.5.0)</p>
+      </div>
+      <button id="theme-toggle" class="btn btn-outline btn-sm" aria-label="Toggle visual theme">
+        Toggle Theme
+      </button>
+    </header>
+
+    <!-- 1. Buttons & Actions -->
+    <section class="specimen-section">
+      <h2 class="section-title">1. Buttons &amp; Actions (ACT-01 to ACT-04)</h2>
+      <p class="section-note">Invariant 1: Primary buttons with Solar Amber background MUST ALWAYS have Midnight Obsidian text (8.24:1 AAA).</p>
+      <div class="component-row">
+        <!-- Primary Amber -->
+        <button type="button" class="btn btn-primary btn-md">
+          <span>Launch Brief</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+        <!-- Secondary Teal -->
+        <button type="button" class="btn btn-secondary btn-md">
+          <span>Explore Fleet</span>
+        </button>
+        <!-- Outline -->
+        <button type="button" class="btn btn-outline btn-md">
+          <span>CAD Schematics</span>
+        </button>
+        <!-- Ghost -->
+        <button type="button" class="btn btn-ghost btn-md">
+          <span>Documentation</span>
+        </button>
+        <!-- Destructive -->
+        <button type="button" class="btn btn-destructive btn-md">
+          <span>Emergency Cutoff</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. Form Controls -->
+    <section class="specimen-section">
+      <h2 class="section-title">2. Form Controls (FRM-01 to FRM-04)</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="client-name">Full Name &amp; Title <span class="req">*</span></label>
+          <input type="text" id="client-name" class="form-input" placeholder="e.g. Tanvir Ahmed, Brand Director">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="event-city">City / Venue <span class="req">*</span></label>
+          <select id="event-city" class="form-select">
+            <option value="ctg-radisson">Chattogram (Radisson Blu Grand Ballroom)</option>
+            <option value="dhk-sheraton">Dhaka (Sheraton Banani Ballroom)</option>
+            <option value="ctg-gec">Chattogram (GEC Convention Centre)</option>
+          </select>
+        </div>
+        <div class="form-group full-width">
+          <label class="form-label" for="staging-notes">Staging Scope / Technical Notes</label>
+          <textarea id="staging-notes" class="form-textarea" rows="3" placeholder="Curved LED dimensions, line-array rider requirements..."></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Telemetry KPI Cards -->
+    <section class="specimen-section">
+      <h2 class="section-title">3. Telemetry KPI Cards (DTA-05, CNT-01)</h2>
+      <div class="telemetry-grid">
+        <div class="card telemetry-card">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Truss Structural Load</span>
+            <span class="status-beacon beacon-emerald"></span>
+          </div>
+          <div class="telemetry-value">4.8 <span class="unit">/ 7.5 T</span></div>
+          <div class="telemetry-status status-emerald">✓ Safety Factor: 5.2:1 (Compliant)</div>
+        </div>
+
+        <div class="card telemetry-card">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Dante Audio Network</span>
+            <span class="status-beacon beacon-emerald"></span>
+          </div>
+          <div class="telemetry-value">0.25 <span class="unit">ms</span></div>
+          <div class="telemetry-status status-emerald">✓ Zero Packet Drops across 64 ch</div>
+        </div>
+
+        <div class="card telemetry-card">
+          <div class="telemetry-header">
+            <span class="telemetry-label">FOH Sound Pressure (SPL)</span>
+            <span class="status-beacon beacon-amber"></span>
+          </div>
+          <div class="telemetry-value">84.6 <span class="unit">dBA</span></div>
+          <div class="telemetry-status status-amber">⚠ Speech Intelligible Zone</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Data Specification Table -->
+    <section class="specimen-section">
+      <h2 class="section-title">4. Hardware Specification Table (DTA-01)</h2>
+      <div class="spec-table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Equipment Category</th>
+              <th>Fleet Specification</th>
+              <th>Protocol / Standard</th>
+              <th>Operational Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Curved P2.6 LED Video Wall</td>
+              <td class="mono">9,216 × 2,160 Pixels (3,840 Hz)</td>
+              <td>Novastar 4K HDR10</td>
+              <td><span class="badge badge-success">Calibrated</span></td>
+            </tr>
+            <tr>
+              <td>Line Array Sound System</td>
+              <td class="mono">d&b audiotechnik KSL Fleet</td>
+              <td>Audinate Dante Digital</td>
+              <td><span class="badge badge-success">Live Sync</span></td>
+            </tr>
+            <tr>
+              <td>Structural Box-Truss</td>
+              <td class="mono">Prolyte H30V Heavy Truss</td>
+              <td>ETCP Rigging Certified</td>
+              <td><span class="badge badge-success">Inspected</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', () => {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+    });
+  </script>
+</body>
+</html>
+

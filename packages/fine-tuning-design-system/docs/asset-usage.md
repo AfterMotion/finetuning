@@ -78,3 +78,4 @@ Fine Tuning strictly prohibits synthetic stock photography. All case study asset
 - **NO Distorted Emblems**: Never stretch, skew, or flip the brand vector mark.
 - **NO Drop Shadows on Emblems**: Avoid heavy black drop-shadows on the logo mark; use native ambient obsidian glass (`--glass-bg`) instead.
 - **NO White Text on Amber CTAs**: Under Invariant 1, buttons with amber background must always have dark text (`#070D18`).
+

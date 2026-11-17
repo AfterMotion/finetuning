@@ -107,7 +107,9 @@
       bar.style.height = h + 'px';
     });
   }
-  setInterval(pulseEqualizer, 280);
+  if (eqBars.length > 0) {
+    setInterval(pulseEqualizer, 280);
+  }
 
   // --------------------------------------------------------------------------
   // 5. INTERACTIVE SOUNDCHECK DECIBEL LIMITER FADER
@@ -282,10 +284,86 @@
   // Universal Escape key dismissal
   window.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
+      if (lightboxOverlay && lightboxOverlay.classList.contains('active')) closeLightbox();
       if (modalOverlay && modalOverlay.classList.contains('active')) closeModal();
       if (drawerOverlay && drawerOverlay.classList.contains('active')) closeDrawer();
     }
   });
+
+  // --------------------------------------------------------------------------
+  // 9B. FULLSCREEN IMAGE LIGHTBOX VIEWER
+  // --------------------------------------------------------------------------
+  const lightboxOverlay = document.getElementById('image-lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-full-img');
+  const lightboxTitle = document.getElementById('lightbox-caption-title');
+  const lightboxSub = document.getElementById('lightbox-caption-sub');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+
+  function openLightbox(src, title, sub) {
+    if (!lightboxOverlay || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = title || 'Staging Execution Photo';
+    if (lightboxTitle) lightboxTitle.textContent = title || '';
+    if (lightboxSub) lightboxSub.textContent = sub || '';
+    lightboxOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (lightboxCloseBtn) lightboxCloseBtn.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightboxOverlay) return;
+    lightboxOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (lightboxImg) lightboxImg.src = '';
+  }
+
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+  if (lightboxOverlay) {
+    lightboxOverlay.addEventListener('click', function (e) {
+      if (e.target === lightboxOverlay) closeLightbox();
+    });
+  }
+
+  // Bind clicks on case media boxes and case links
+  document.querySelectorAll('.case-card').forEach(function (card) {
+    const imgEl = card.querySelector('.case-img');
+    const titleEl = card.querySelector('.case-title');
+    const venueEl = card.querySelector('.case-venue-line');
+    const mediaBox = card.querySelector('.case-media-box');
+    const briefLink = card.querySelector('a.utility-link');
+
+    function triggerCardLightbox(e) {
+      if (e) e.preventDefault();
+      if (!imgEl) return;
+      openLightbox(
+        imgEl.src,
+        titleEl ? titleEl.textContent : 'Case Study Execution',
+        venueEl ? venueEl.textContent : 'Fine Tuning Live Staging'
+      );
+    }
+
+    if (mediaBox) mediaBox.addEventListener('click', triggerCardLightbox);
+    if (briefLink && briefLink.textContent.includes('Rigging Brief')) {
+      briefLink.addEventListener('click', triggerCardLightbox);
+    }
+  });
+
+  // Also bind hero showcase media
+  const heroShowcaseMedia = document.querySelector('.hero-showcase-media');
+  if (heroShowcaseMedia) {
+    heroShowcaseMedia.style.cursor = 'pointer';
+    heroShowcaseMedia.title = 'Click to inspect full staging photograph';
+    heroShowcaseMedia.addEventListener('click', function () {
+      const img = heroShowcaseMedia.querySelector('img');
+      if (img) {
+        openLightbox(
+          img.src,
+          'Radisson Blu Grand Ballroom • Turnkey Summit Staging',
+          'BSRM CORE ESG Annual Corporate Summit • 24m Ultra-Wide Curved P2.6 LED Volume'
+        );
+      }
+    });
+  }
 
   if (consultationForm) {
     consultationForm.addEventListener('submit', function (e) {

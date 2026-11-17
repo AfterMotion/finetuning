@@ -85,3 +85,4 @@
 
 - **Decision**: Deliver standalone vanilla CSS/JS alongside framework wrappers (React, Vue, Tailwind).
 - **Rationale**: Guarantees zero runtime lock-in. Static preview sites can be served via any basic web server (`python -m http.server`, NGINX, Cloudflare Pages, S3) with zero compilation overhead.
+

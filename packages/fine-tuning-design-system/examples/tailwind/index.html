@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fine Tuning — Tailwind CSS Examples</title>
+  <!-- Google Fonts Triad -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <!-- Token Cascades -->
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../../tokens/themes.css">
+  <!-- Tailwind CDN (with Tailwind config mapping demonstration) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              amber: '#F09320',
+              amberHover: '#D47911',
+              teal: '#4694B1',
+              tealSafe: '#2B5E70',
+            },
+            obsidian: {
+              DEFAULT: '#070D18',
+              surface: '#0F172A',
+              elevated: '#131D31',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#070D18] text-slate-100 font-sans p-6 md:p-12 min-h-screen">
+  <div class="max-w-5xl mx-auto space-y-10">
+    <header class="border-b border-slate-800 pb-6 flex justify-between items-center">
+      <div>
+        <h1 class="font-display text-3xl font-extrabold text-white">Tailwind CSS Component Mapping</h1>
+        <p class="font-mono text-sm text-brand-amber mt-1">@finetuning/design-system (v2.5.0)</p>
+      </div>
+      <span class="font-mono text-xs px-3 py-1 bg-emerald-950/60 text-emerald-400 border border-emerald-800 rounded-full">
+        ● Live FOH Staging
+      </span>
+    </header>
+
+    <!-- Buttons -->
+    <section class="space-y-4">
+      <h2 class="font-display text-xl font-bold text-white">1. Action Buttons</h2>
+      <p class="text-sm text-slate-400">Notice: Solar Amber button strictly uses <code class="text-brand-amber font-mono">text-[#070D18]</code> (Midnight Obsidian) for 8.24:1 AAA contrast.</p>
+      <div class="flex flex-wrap gap-4 items-center">
+        <!-- Invariant 1 Compliant Primary Button -->
+        <button class="bg-brand-amber hover:bg-brand-amberHover text-[#070D18] font-bold px-6 py-3 rounded-lg transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-amber focus:ring-offset-2 focus:ring-offset-[#070D18] flex items-center gap-2">
+          <span>Book Technical Briefing</span>
+          <span>→</span>
+        </button>
+        <!-- Secondary Teal -->
+        <button class="bg-brand-teal hover:bg-[#377A93] text-white font-bold px-6 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-teal">
+          Acoustic Ray-Tracing
+        </button>
+        <!-- Outline -->
+        <button class="border border-slate-700 hover:border-slate-500 text-slate-300 font-medium px-5 py-3 rounded-lg transition-colors">
+          Download DWG Schematic
+        </button>
+      </div>
+    </section>
+
+    <!-- Telemetry Cards Grid -->
+    <section class="space-y-4">
+      <h2 class="font-display text-xl font-bold text-white">2. Telemetry Card Grid</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-obsidian-elevated border border-slate-800 rounded-2xl p-6 shadow-xl space-y-2">
+          <div class="flex justify-between items-center text-xs font-mono text-slate-400">
+            <span>TRUSS LOAD FACTOR</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10B981]"></span>
+          </div>
+          <div class="font-display text-3xl font-extrabold text-white">
+            4.8 <span class="font-mono text-sm text-slate-400 font-normal">/ 7.5 T</span>
+          </div>
+          <p class="font-mono text-xs text-emerald-400">✓ Safety Factor 5.2:1 Compliant</p>
+        </div>
+
+        <div class="bg-obsidian-elevated border border-slate-800 rounded-2xl p-6 shadow-xl space-y-2">
+          <div class="flex justify-between items-center text-xs font-mono text-slate-400">
+            <span>DANTE AUDIO LATENCY</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10B981]"></span>
+          </div>
+          <div class="font-display text-3xl font-extrabold text-white">
+            0.25 <span class="font-mono text-sm text-slate-400 font-normal">ms</span>
+          </div>
+          <p class="font-mono text-xs text-emerald-400">✓ Zero Packet Drops (64 ch)</p>
+        </div>
+
+        <div class="bg-obsidian-elevated border border-slate-800 rounded-2xl p-6 shadow-xl space-y-2">
+          <div class="flex justify-between items-center text-xs font-mono text-slate-400">
+            <span>CURVED LED CANVAS</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10B981]"></span>
+          </div>
+          <div class="font-display text-3xl font-extrabold text-white">
+            9,216 <span class="font-mono text-sm text-slate-400 font-normal">× 2,160</span>
+          </div>
+          <p class="font-mono text-xs text-emerald-400">✓ 3,840 Hz Refresh Locked</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+

@@ -296,4 +296,23 @@ preview-static/
 
 ---
 
+## 9. Batch 2 Stakeholder Remediation & Verification Record (November 2026)
+
+Following direct visual review on mobile devices and desktop displays, 9 targeted UX, responsiveness, and contrast refinements were executed and verified:
+
+| # | Feedback Area | Root Defect Identified | Remediation Implemented | Verification Evidence |
+|---|---|---|---|---|
+| **1** | **Top Utility Ribbon on Mobile** | Ribbon consumed ~40px vertical space above sticky nav on mobile | Added `@media (max-width: 768px) { .utility-strip { display: none !important; } }`. Header now sits flush at top of viewport. | `qa/batch2_qa/mobile-header-no-ribbon.png` |
+| **2** | **Mobile Drawer Scrolling & Header** | Drawer lacked `overflow-y: auto`, body scroll wasn't trapped, logo unreadable on dark background | Set `height: 100dvh; overflow-y: auto; overscroll-behavior: contain;`. Replaced dark logo with crisp vector SVG lockup (pure white text on dark canvas). | `qa/batch2_qa/mobile-drawer-open.png` |
+| **3** | **Modal Form Select & Inputs** | Native OS `<select>` chevron was unstyled and misaligned; calendar icon had low contrast | Added `appearance: none;` with custom Solar Amber inline SVG chevron; added theme filter to calendar picker icon; adjusted touch targets to $\ge 44\text{px}$. | `qa/batch2_qa/mobile-modal-clean-select.png` |
+| **4** | **Case Study Specs Contrast** | Dark teal labels (`#2B5E70`) on dark card background failed AA contrast | Replaced with bright light cyan (`#7DD3FC`, 12:1+ AAA contrast) and pure white values (`#F8FAFC`). | `qa/batch2_qa/mobile-case-specs.png` |
+| **5** | **Clickable Image Lightbox** | Clicking case photos or rigging links did nothing | Built pure vanilla JS `#image-lightbox-modal` dialog with smooth backdrop blur, full photograph view, and Escape/backdrop dismissal. | `qa/batch2_qa/mobile-lightbox-open.png` |
+| **6** | **Remove Stepper from Estimator** | Non-clickable step bubbles 1, 2, 3 confused users on single-card estimator | Completely removed `.wizard-steps-header`. Estimator is now a streamlined, real-time single-card tool. | `qa/batch2_qa/mobile-wizard-no-stepper.png`, `desktop-wizard-clean.png` |
+| **7** | **Estimator Mobile Grid Overlap** | Power, truss, and channel values were squeezed across 3 columns on mobile | Set `.wizard-summary-box` to single-column stack on $\le 768\text{px}$ viewports. | `qa/batch2_qa/mobile-wizard-no-stepper.png` |
+| **8** | **WhatsApp Button Two-Line Wrap** | Long text caused phone number `(+880 1671-863685)` to split across two lines on 360px screens | Added `.btn-whatsapp-strip` with `white-space: nowrap;` and non-breaking phone spacing. Fits cleanly on a single line. | `qa/batch2_qa/mobile-contact-section.png` |
+| **9** | **Desktop Pre-Footer CTA Centering** | Contact consultation and WhatsApp buttons were left-aligned on desktop | Wrapped in `.contact-actions-center` with `justify-content: center; text-align: center;`. | `qa/batch2_qa/desktop-contact-centered.png` |
+| **10** | **Marquee Emojis Removal** | Raw emojis (`⚡`, `🏦`, `🚗`, `🏍️`, `🏢`, `👟`, `🎓`) appeared crude and unbranded | Removed all emojis. Replaced with minimalist geometric amber square bullets `■` and high-contrast uppercase corporate typography. | `qa/batch2_qa/mobile-marquee-no-emojis.png` |
+
+---
+
 *Authoritative Visual QA audit report compiled and committed for `finetuning.com.bd`.*
