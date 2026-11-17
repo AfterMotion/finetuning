@@ -101,7 +101,7 @@ a {
   font-family: var(--font-primary);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .utility-strip {
     display: none !important;
   }
@@ -244,22 +244,24 @@ a {
     letter-spacing: 0.12em;
   }
 }
-}
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
   list-style: none;
 }
 
 .nav-link {
+  font-family: var(--font-primary, 'Outfit', sans-serif);
   font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  transition: color var(--duration-fast);
-  padding: 6px 0;
+  font-weight: 600;
+  color: var(--color-text-secondary, #94A3B8);
+  transition: all var(--duration-fast);
+  padding: 8px 6px;
   position: relative;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -270,15 +272,17 @@ a {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 6px;
+  right: 6px;
   width: 0%;
   height: 2px;
   background: var(--color-action-primary, #F09320);
   transition: width var(--duration-fast);
+  border-radius: 2px;
 }
 
 .nav-link:hover::after, .nav-link.active::after {
-  width: 100%;
+  width: calc(100% - 12px);
 }
 
 .nav-actions {
@@ -313,15 +317,20 @@ a {
   justify-content: center;
   gap: 8px;
   padding: 10px 22px;
+  height: 42px;
+  box-sizing: border-box;
   border-radius: var(--radius-md, 8px);
   background-color: var(--color-action-primary, #F09320);
   color: var(--color-slate-950, #070D18) !important;
+  font-family: var(--font-primary, 'Outfit', sans-serif);
   font-weight: 700;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
   border: none;
   cursor: pointer;
   transition: transform var(--duration-fast), box-shadow var(--duration-fast), background-color var(--duration-fast);
   text-decoration: none;
+  white-space: nowrap;
 }
 .btn-amber-primary:hover {
   background-color: var(--color-amber-400, #F3A847);
@@ -1830,20 +1839,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
    -------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
   .nav-links {
-    gap: 16px;
+    gap: 18px;
   }
   .nav-link {
     font-size: 0.875rem;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 960px) {
   .nav-links, .nav-actions .btn-amber-primary {
     display: none !important;
   }
   .hamburger-btn {
     display: flex !important;
   }
+}
+
+@media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
