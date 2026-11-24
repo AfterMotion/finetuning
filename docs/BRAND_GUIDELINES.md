@@ -456,6 +456,12 @@ On desktop screens ($\ge 1024\text{px}$):
 - Nav links sit in an illuminated chip track with Solar Amber active pills (`rgba(240, 147, 32, 0.14)`).
 - CTA button is a luxury amber capsule with live beacon dot and embedded circular dark arrow pod (Invariant 1: 8.24:1 AAA).
 
+### 5.10 Flanking Lateral Slider Architecture & Glassmorphic Standard (Invariant 14)
+- **Flanking Slider Navigation**: Navigation chevrons are anchored laterally on the left and right slider boundaries at `top: 50%; transform: translateY(-50%);` with 48px circular frosted glass buttons.
+- **Glassmorphic Button Standards**: Secondary controls deploy `backdrop-filter: blur(16px); background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 9999px;` reflecting atmospheric stage glows.
+- **Enterprise Partner Monograms**: Logo containers maintain a rigid 44px $\times$ 44px square format with balanced `Outfit` typography, ensuring zero text clipping or overlapping.
+- **Unified Vector CTA**: Elimination of raw character arrows (`>`); all submit buttons deploy the embedded circular obsidian Lucide arrow pod.
+
 ---
 
 ## 6. Public Website vs. Admin Panel Design Rules

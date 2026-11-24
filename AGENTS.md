@@ -145,6 +145,21 @@ Every agent must enforce these six invariants without exception:
   - Incorporates a live pulsating dark indicator beacon dot (`• BOOK TECHNICAL BRIEFING`) and an embedded circular obsidian Lucide arrow pod.
   - Strictly preserves **Invariant 1** (Solar Amber `#F09320` background with Midnight Obsidian `#070D18` text, 8.24:1 AAA contrast).
 
+### Invariant 14: Flanking Lateral Slider Architecture, Glassmorphic Control System & Unified Vector CTA Standards
+- **Flanking Lateral Slider Navigation**:
+  - Carousel navigation controls must never be relegated to an asymmetric corner cluster.
+  - Previous (`#hero-slider-prev`) and Next (`#hero-slider-next`) handles must be placed laterally on the viewport edges (`position: absolute; top: 50%; transform: translateY(-50%);`), vertically centered over slides (`left: 24px;` and `right: 24px;` on desktop, `12px` on mobile).
+  - Handles must use frosted glassmorphic circular buttons (48px diameter on desktop, 40px on mobile; `backdrop-filter: blur(16px); background: rgba(7, 13, 24, 0.65); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50%;`) illuminating to Solar Amber with an ambient amber halo on hover.
+  - Continuous 6-second rotation (`6000ms`) with pause-on-hover and touch swipe support is mandatory.
+- **Glassmorphic Button & Surface Architecture**:
+  - Secondary action buttons and controls must specify translucent frosted glass (`background: rgba(255, 255, 255, 0.06); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 9999px;`) to achieve authentic optical depth above stage canvas.
+- **Enterprise Partner Grid Alignment & Anti-Collision**:
+  - Partner logo/monogram slots must enforce fixed 44px $\times$ 44px square geometry (`flex-shrink: 0; border-radius: 8px;`) with clean `Outfit` typography.
+  - Partner text containers must declare `flex: 1; min-width: 0;` with responsive card padding (`padding: 14px 18px;`) to guarantee zero text collision and zero horizontal clipping across all breakpoints.
+- **Strict Prohibition of Raw ASCII Button Arrows**:
+  - Literal characters such as `>`, `->`, or `&gt;` are **STRICTLY FORBIDDEN** inside action buttons (including contact form submissions).
+  - All primary action buttons must embed the authoritative circular obsidian Lucide arrow pod (`width: 32px; height: 32px; border-radius: 50%; background: #070D18; color: #F09320;`) housing vector arrow SVG `→`.
+
 ---
 
 ## 5. Multi-Stack Code Implementation Examples

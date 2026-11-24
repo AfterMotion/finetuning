@@ -181,3 +181,11 @@ All digital products, marketing pages, and client portals must strictly adhere t
 - **Infinity Canvas**: Desktop and mobile viewports feature a 4-corner multi-spectral ambient glow (Teal top-left/bottom-right, Solar Amber top-right/bottom-left) with a 22s gentle breathing drift (`ft-infinity-drift`).
 - **Floating Glass Dock**: Desktop navigation floats 12px below top with `border-radius: 9999px;`, 24px glass blur, and chip link track.
 - **Elevated CTA**: "Book Technical Briefing" is elevated into a luxury amber dispatch capsule with a live pulsating beacon dot and embedded circular obsidian arrow pod (8.24:1 AAA).
+
+---
+
+## Flanking Slider, Glassmorphism & Unified Vector CTA Standards (Invariant 14)
+- **Lateral Slider Handlers**: Slider controls flank left and right at vertical center (`top: 50%; transform: translateY(-50%);`) in circular frosted glass buttons with 6s autoplay.
+- **Glassmorphic System**: Buttons and surfaces utilize 16px blur with subtle white borders, catching background radial light.
+- **Partner Card Monograms**: 44px square monogram boxes in `Outfit` sans, preventing text collision.
+- **Vector Arrow Standard**: Raw text `>` is replaced by the embedded circular dark obsidian Lucide arrow pod.

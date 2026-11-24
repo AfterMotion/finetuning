@@ -274,6 +274,15 @@ To prevent z-fighting between fixed headers, slide drawers, dropdowns, and modal
 - Form Factor: 9999px pill capsule, 24px blur, illuminated chip link track.
 - Button: Luxury Solar Amber capsule with pulsating beacon and embedded circular obsidian arrow pod.
 
+### 5.8 Flanking Lateral Slider & Glassmorphic Control System (Invariant 14)
+- **Slider Flanking Handles**: Left (`left: 24px; top: 50%;`) and Right (`right: 24px; top: 50%;`) 48px frosted circular buttons.
+- **Glassmorphic Tokens**:
+  - `--glass-btn-bg`: `rgba(255, 255, 255, 0.06)`
+  - `--glass-btn-border`: `rgba(255, 255, 255, 0.14)`
+  - `--glass-btn-blur`: `16px`
+- **Typography Standard**: `--font-display: 'Outfit', -apple-system, sans-serif;` with -0.025em tracking for executive polish.
+- **Partner Monogram Box**: `44px` square, `flex-shrink: 0`, `font-family: var(--font-primary)`.
+
 ---
 
 ## 6. Data Visualization & Telemetry Color Conventions
