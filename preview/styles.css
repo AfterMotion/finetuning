@@ -22,6 +22,49 @@ html {
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
   max-width: 100%;
+  /* Invariant 12: Standard W3C Scrollbar (Firefox) */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb, #1E293B) var(--color-scrollbar-track, #040810);
+}
+
+/* Invariant 12: WebKit Custom Scrollbar (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track, #040810);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb, #1E293B);
+  border-radius: 9999px;
+  border: 2px solid var(--color-scrollbar-track, #040810);
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: var(--color-action-primary, #F09320);
+  box-shadow: 0 0 10px rgba(240, 147, 32, 0.4);
+}
+
+/* Also apply sleek scrollbars to any nested scrollable panels */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track, #040810);
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb, #1E293B);
+  border-radius: 9999px;
+  border: 2px solid var(--color-scrollbar-track, #040810);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-action-primary, #F09320);
 }
 
 body {
@@ -4795,5 +4838,83 @@ textarea.form-input-dark {
   to {
     transform: translate(-50%, -50%) scale(2.4);
     opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. CIRCULAR INTERACTIVE MOUSE FOLLOWER (Invariant 12)
+   -------------------------------------------------------------------------- */
+.ft-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-action-primary, #F09320);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate3d(-50%, -50%, 0);
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 0 10px rgba(240, 147, 32, 0.9);
+  will-change: transform;
+}
+
+.ft-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(240, 147, 32, 0.65);
+  background: rgba(240, 147, 32, 0.04);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999998;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              box-shadow 0.25s ease,
+              transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease;
+  box-shadow: 0 0 0 rgba(240, 147, 32, 0);
+  will-change: transform;
+}
+
+/* Hover state on interactive elements */
+.ft-cursor-follower.is-hovering {
+  transform: translate3d(-50%, -50%, 0) scale(1.6);
+  border-color: var(--color-action-primary, #F09320);
+  background-color: rgba(240, 147, 32, 0.12);
+  box-shadow: 0 0 24px rgba(240, 147, 32, 0.35);
+}
+
+.ft-cursor-dot.is-hovering {
+  transform: translate3d(-50%, -50%, 0) scale(0.6);
+  opacity: 0.6;
+}
+
+/* Click contraction state */
+.ft-cursor-follower.is-clicking {
+  transform: translate3d(-50%, -50%, 0) scale(0.85);
+  background-color: rgba(240, 147, 32, 0.25);
+  border-color: #F09320;
+}
+
+/* Hidden state when cursor leaves viewport */
+.ft-cursor-dot.is-hidden,
+.ft-cursor-follower.is-hidden {
+  opacity: 0 !important;
+}
+
+/* Invariant 12: Mobile & Touch Suppression */
+@media (hover: none) or (pointer: coarse) {
+  .ft-cursor-dot,
+  .ft-cursor-follower {
+    display: none !important;
   }
 }

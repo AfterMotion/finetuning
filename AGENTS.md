@@ -119,6 +119,18 @@ Every agent must enforce these six invariants without exception:
   - Partner pills and badges must scale down to compact proportions (`padding: 6px 12px; font-size: 0.8125rem;`).
   - Mobile drawer navigation must visually indicate the active page via `.drawer-link.active` with a Solar Amber left accent bar and amber glow.
 
+### Invariant 12: Interactive Pointer System & Brand-Aligned Custom Scrollbar Standard
+- **Custom Scrollbar Standard**: Default operating system scrollbars (such as Windows default grey scrollbars) are **STRICTLY PROHIBITED** on all desktop routes.
+  - **Track**: Deep Midnight Obsidian (`#040810` / `--color-slate-950`).
+  - **Thumb**: Dark slate-indigo floating pill (`#1E293B`) with `border-radius: 9999px;` and an inset border `2px solid #040810`.
+  - **Thumb Hover & Active**: Solar Amber (`#F09320`) with a luminous amber halo (`box-shadow: 0 0 10px rgba(240, 147, 32, 0.4)`).
+  - **Cross-Browser Requirement**: Declare both WebKit (`::-webkit-scrollbar`) and W3C standard (`scrollbar-width: thin; scrollbar-color: #1E293B #040810;`).
+- **Circular Interactive Mouse Follower System**:
+  - **Precision Anchor Dot (`.ft-cursor-dot`)**: 6px Solar Amber (`#F09320`) circle tracking cursor coordinates at 0ms latency.
+  - **Magnetic Follower Ring (`.ft-cursor-follower`)**: 36px circular frosted ring (`border: 1.5px solid rgba(240, 147, 32, 0.65); background: rgba(240, 147, 32, 0.05);`) smoothly trailing via 60–120fps LERP easing (`factor: 0.18`).
+  - **Interactive States**: Follower ring expands smoothly to 58px (`scale(1.6)`) with Solar Amber halo (`box-shadow: 0 0 20px rgba(240, 147, 32, 0.35)`) when hovering interactive elements (`a`, `button`, `.ft-btn`, `.partner-card`, `.work-card-interactive`, `.expertise-card`, `.slider-nav-btn`, `input`, `select`, `textarea`), and contracts to `0.8x` on click.
+  - **Mobile Touch Safety**: All custom cursor styles and engines **MUST BE STRICTLY SUPPRESSED** on touch devices via `@media (hover: none) or (pointer: coarse)` to prevent interference with native gesture interactions.
+
 ---
 
 ## 5. Multi-Stack Code Implementation Examples

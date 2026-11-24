@@ -426,6 +426,22 @@ While the original print logo features flared serifs, modern web viewports and c
 - **Infinite Marquee Drift**: Smooth linear translation with hover-to-pause (`animation-play-state: paused`).
 - **Reduced Motion**: Mandated `@media (prefers-reduced-motion: reduce)` disabling non-essential stage drifts.
 
+### 5.6 Custom Scrollbar Architecture (Invariant 12)
+Default Windows OS grey scrollbars disrupt the Midnight Stage aesthetic. All desktop experiences must declare brand-aligned custom scrollbars:
+- **Track**: `#040810` (Midnight Obsidian canvas matching background)
+- **Thumb**: `#1E293B` (Dark slate pill with `border-radius: 9999px;` and `2px solid #040810` inset border)
+- **Thumb Hover**: `#F09320` (Solar Amber with luminous glow)
+- **W3C Syntax**: `scrollbar-width: thin; scrollbar-color: #1E293B #040810;`
+- **WebKit Syntax**: `::-webkit-scrollbar { width: 10px; } ::-webkit-scrollbar-track { background: #040810; } ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 9999px; border: 2px solid #040810; } ::-webkit-scrollbar-thumb:hover { background: #F09320; }`
+
+### 5.7 Magnetic Dual-Layer Cursor Follower System (Invariant 12)
+An interactive circular pointer system representing precision stagecraft:
+- **Precision Dot (`.ft-cursor-dot`)**: 6px `#F09320` circle tracking cursor at 0ms latency.
+- **Follower Ring (`.ft-cursor-follower`)**: 36px ring (`border: 1.5px solid rgba(240, 147, 32, 0.65); background: rgba(240, 147, 32, 0.05);`) following cursor with 60–120fps LERP easing (`0.18`).
+- **Magnetic Hover Transformation**: Scales to 58px (`scale(1.6)`) with Solar Amber glow halo on interactive targets (`a`, `button`, `.partner-card`, `.work-card-interactive`, `.expertise-card`, inputs).
+- **Click Compression**: Contracts to `0.8x` on mousedown with release ripple.
+- **Mobile Touch Safety**: Completely suppressed via `@media (hover: none) or (pointer: coarse)` to ensure native touch performance.
+
 ---
 
 ## 6. Public Website vs. Admin Panel Design Rules

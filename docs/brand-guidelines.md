@@ -167,3 +167,10 @@ All digital products, marketing pages, and client portals must strictly adhere t
 - Horizontal overflow is strictly prohibited (`max-width: 100vw; overflow-x: hidden;`).
 - Multi-column grids collapse to a single column on mobile.
 - Mobile drawer navigation must highlight the current active route via `.drawer-link.active` with a Solar Amber indicator.
+
+---
+
+## Brand Scrollbar & Interactive Pointer System (Invariant 12)
+- **Brand Scrollbar**: Desktop viewports replace standard OS grey scrollbars with a custom Midnight Obsidian (`#040810`) track and a dark slate (`#1E293B`) pill thumb that illuminates to Solar Amber (`#F09320`) on hover.
+- **Dual-Layer Circular Cursor**: Desktop mice feature a 6px Solar Amber precision anchor dot and a 36px frosted follower ring that dynamically tracks via 60–120fps LERP easing, expanding smoothly to 58px over interactive elements.
+- **Mobile Touch Preservation**: Cursor engines are strictly suppressed on touch devices (`@media (hover: none)`).

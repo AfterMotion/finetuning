@@ -143,6 +143,28 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
+      /* Invariant 12: Brand Scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: #1E293B #040810;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #040810;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 9999px;
+      border: 2px solid #040810;
+      transition: background 0.2s ease;
+    }
+    ::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar-thumb:active {
+      background: #F09320;
+      box-shadow: 0 0 10px rgba(240, 147, 32, 0.4);
     }
 
     body {
@@ -2377,6 +2399,56 @@
             </div>
           </div>
           <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 14px;">Live calibration status, telemetry checks, verified engineering SLAs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 10: INTERACTIVE SYSTEMS & SCROLLBAR (Invariant 12)
+       ======================================================================== -->
+  <section id="interactive-systems" class="guide-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Invariant 12</span>
+        <h2 class="section-title">Brand Scrollbar & Pointer Dynamics</h2>
+        <p class="section-desc">Fine Tuning enforces bespoke Midnight Stage desktop scrollbars and a physics-based circular mouse follower that transforms across interactive targets.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <!-- Feature Card 1: Custom Scrollbar -->
+        <div class="feature-card">
+          <h4 style="margin-bottom: 12px; color: #F8FAFC;">Brand-Aligned Custom Scrollbar</h4>
+          <p style="font-size: 0.875rem; color: #CBD5E1; margin-bottom: 16px;">Replaces default Windows OS grey scrollbars with a canvas-integrated Midnight Obsidian track and a floating slate pill thumb that illuminates Solar Amber on hover.</p>
+          <div style="background: #040810; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 16px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.8125rem; color: #94A3B8;">Track: <code style="color: #F8FAFC;">#040810</code></div>
+              <div style="font-size: 0.8125rem; color: #94A3B8; margin-top: 4px;">Thumb: <code style="color: #93C6D8;">#1E293B</code> → Hover: <code style="color: #F09320;">#F09320</code></div>
+            </div>
+            <div style="height: 64px; width: 10px; background: #040810; border-radius: 9999px; position: relative; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="height: 28px; width: 6px; background: #1E293B; border-radius: 9999px; position: absolute; top: 12px; left: 1px; border: 1px solid #040810; box-shadow: 0 0 6px rgba(240,147,32,0.3);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature Card 2: Circular Cursor Follower -->
+        <div class="feature-card">
+          <h4 style="margin-bottom: 12px; color: #F8FAFC;">Dual-Layer Circular Cursor Follower</h4>
+          <p style="font-size: 0.875rem; color: #CBD5E1; margin-bottom: 16px;">6px Solar Amber precision dot paired with a 36px frosted ring trailing via 60–120fps LERP easing (0.18). Smoothly expands to 58px over interactive buttons and cards.</p>
+          <div style="background: #040810; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 16px; display: flex; align-items: center; justify-content: space-around;">
+            <div style="text-align: center;">
+              <div style="width: 6px; height: 6px; background: #F09320; border-radius: 50%; margin: 12px auto; box-shadow: 0 0 8px #F09320;"></div>
+              <span style="font-size: 0.75rem; color: #94A3B8;">Anchor Dot (0ms)</span>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 36px; height: 36px; border: 1.5px solid rgba(240,147,32,0.65); background: rgba(240,147,32,0.05); border-radius: 50%; margin: 0 auto;"></div>
+              <span style="font-size: 0.75rem; color: #94A3B8; margin-top: 4px; display: block;">Follower Ring (Rest)</span>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 48px; height: 48px; border: 1.5px solid #F09320; background: rgba(240,147,32,0.15); border-radius: 50%; margin: 0 auto; box-shadow: 0 0 16px rgba(240,147,32,0.4);"></div>
+              <span style="font-size: 0.75rem; color: #F8B24C; margin-top: 4px; display: block;">Hover State (1.6x)</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

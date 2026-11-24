@@ -247,6 +247,19 @@ To prevent z-fighting between fixed headers, slide drawers, dropdowns, and modal
 - **Standard Easing**: `cubic-bezier(0.16, 1, 0.3, 1)` (Snappy spring response).
 - **Reduced Motion Guarantee**: When `prefers-reduced-motion: reduce` is detected, all transition durations collapse to `0.01ms` and infinite marquee sliders pause.
 
+### 5.4 Brand Scrollbar Token Architecture (Invariant 12)
+- `--color-scrollbar-track`: `#040810` (Canvas match)
+- `--color-scrollbar-thumb`: `#1E293B` (Dark slate pill)
+- `--color-scrollbar-thumb-hover`: `#F09320` (Solar Amber glow)
+- WebKit & W3C standard declaration applied to `html`, `body`, and all scrolling containers.
+
+### 5.5 Dual-Layer Circular Mouse Follower Architecture (Invariant 12)
+- `--cursor-dot-size`: `6px` (`background: var(--color-action-primary, #F09320)`)
+- `--cursor-follower-size`: `36px` (`border: 1.5px solid rgba(240, 147, 32, 0.65)`)
+- `--cursor-follower-hover-scale`: `1.6` (58px with ambient amber bloom)
+- Physics: LERP factor `0.18` evaluated per frame via `requestAnimationFrame`.
+- Suppressed completely under `@media (hover: none) or (pointer: coarse)`.
+
 ---
 
 ## 6. Data Visualization & Telemetry Color Conventions

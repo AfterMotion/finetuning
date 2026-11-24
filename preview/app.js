@@ -898,11 +898,122 @@
     });
   }
 
+  // --------------------------------------------------------------------------
+  // 18. DUAL-LAYER CIRCULAR MOUSE FOLLOWER (Invariant 12)
+  // --------------------------------------------------------------------------
+  function initCustomCursor() {
+    // Touch/mobile device suppression (preserve native touch behavior)
+    if (window.matchMedia && window.matchMedia('(hover: none) or (pointer: coarse)').matches) {
+      return;
+    }
+
+    // Dynamic injection of cursor elements if not present in DOM
+    let cursorDot = document.querySelector('.ft-cursor-dot');
+    if (!cursorDot) {
+      cursorDot = document.createElement('div');
+      cursorDot.className = 'ft-cursor-dot is-hidden';
+      document.body.appendChild(cursorDot);
+    }
+
+    let cursorFollower = document.querySelector('.ft-cursor-follower');
+    if (!cursorFollower) {
+      cursorFollower = document.createElement('div');
+      cursorFollower.className = 'ft-cursor-follower is-hidden';
+      document.body.appendChild(cursorFollower);
+    }
+
+    let mouseX = -100;
+    let mouseY = -100;
+    let followerX = -100;
+    let followerY = -100;
+    let isHovered = false;
+    let isClicking = false;
+    let isCursorActive = false;
+
+    // Fast pointer tracking
+    window.addEventListener('pointermove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isCursorActive) {
+        isCursorActive = true;
+        followerX = mouseX;
+        followerY = mouseY;
+        cursorDot.classList.remove('is-hidden');
+        cursorFollower.classList.remove('is-hidden');
+      }
+
+      cursorDot.style.transform = 'translate3d(' + mouseX + 'px, ' + mouseY + 'px, 0) translate3d(-50%, -50%, 0)' + (isHovered ? ' scale(0.6)' : ' scale(1)');
+    }, { passive: true });
+
+    // 60-120fps LERP Follower Loop
+    function renderFollower() {
+      if (isCursorActive) {
+        followerX += (mouseX - followerX) * 0.18;
+        followerY += (mouseY - followerY) * 0.18;
+
+        const scale = isClicking ? ' scale(0.85)' : (isHovered ? ' scale(1.6)' : ' scale(1)');
+        cursorFollower.style.transform = 'translate3d(' + followerX + 'px, ' + followerY + 'px, 0) translate3d(-50%, -50%, 0)' + scale;
+      }
+      requestAnimationFrame(renderFollower);
+    }
+    requestAnimationFrame(renderFollower);
+
+    // Click contraction & release
+    window.addEventListener('mousedown', function () {
+      isClicking = true;
+      cursorFollower.classList.add('is-clicking');
+    });
+
+    window.addEventListener('mouseup', function () {
+      isClicking = false;
+      cursorFollower.classList.remove('is-clicking');
+    });
+
+    // Viewport enter/leave
+    document.addEventListener('mouseleave', function () {
+      cursorDot.classList.add('is-hidden');
+      cursorFollower.classList.add('is-hidden');
+    });
+
+    document.addEventListener('mouseenter', function () {
+      if (isCursorActive) {
+        cursorDot.classList.remove('is-hidden');
+        cursorFollower.classList.remove('is-hidden');
+      }
+    });
+
+    // Interactive element hover delegation
+    const interactiveSelector = 'a, button, [role="button"], input, select, textarea, .ft-btn, .partner-card, .work-card-interactive, .expertise-card, .value-card, .slider-nav-btn, .filter-btn, .btn-close-frosted, .tab-btn, .drawer-link';
+
+    document.addEventListener('mouseover', function (e) {
+      const target = e.target.closest ? e.target.closest(interactiveSelector) : null;
+      if (target) {
+        isHovered = true;
+        cursorFollower.classList.add('is-hovering');
+        cursorDot.classList.add('is-hovering');
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseout', function (e) {
+      const target = e.target.closest ? e.target.closest(interactiveSelector) : null;
+      if (target) {
+        const related = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest(interactiveSelector) : null;
+        if (!related) {
+          isHovered = false;
+          cursorFollower.classList.remove('is-hovering');
+          cursorDot.classList.remove('is-hovering');
+        }
+      }
+    }, { passive: true });
+  }
+
   // Initialize all interactive suites
   initTheme();
   initDensity();
   syncActiveNav();
   initAmbientSpotlight();
+  initCustomCursor();
   initHeroSlider();
   initExpertiseExplorer();
   initAchievementsCarousel();

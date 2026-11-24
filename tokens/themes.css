@@ -32,6 +32,11 @@
   --color-text-on-dark-secondary: #CBD5E1; /* 13.25:1 AAA on dark stage/cards */
   --color-text-on-dark-muted:     #94A3B8; /* 7.28:1 AAA on dark stage/cards */
 
+  /* Invariant 12: Custom Scrollbar Tokens */
+  --color-scrollbar-track:        #040810;
+  --color-scrollbar-thumb:        var(--color-slate-800); /* #1E293B */
+  --color-scrollbar-thumb-hover:  var(--color-amber-500); /* #F09320 */
+
   /* Borders */
   --color-border-subtle:       rgba(255, 255, 255, 0.08);
   --color-border-primary:      var(--color-slate-800); /* #1E293B */
@@ -123,6 +128,11 @@
   --color-text-on-dark-primary:   #F8FAFC; /* 18.10:1 AAA on dark cards/stage */
   --color-text-on-dark-secondary: #CBD5E1; /* 13.25:1 AAA on dark cards/stage */
   --color-text-on-dark-muted:     #94A3B8; /* 7.28:1 AAA on dark cards/stage */
+
+  /* Invariant 12: Custom Scrollbar Tokens */
+  --color-scrollbar-track:        var(--color-slate-100);
+  --color-scrollbar-thumb:        var(--color-slate-300);
+  --color-scrollbar-thumb-hover:  var(--color-amber-500);
 
   /* Borders */
   --color-border-subtle:       rgba(0, 0, 0, 0.06);
