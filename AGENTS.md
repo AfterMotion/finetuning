@@ -62,10 +62,14 @@ When designing, refactoring, or authoring code, agents must consult and respect 
 
 Every agent must enforce these six invariants without exception:
 
-### Invariant 1: Solar Amber Button Text Contrast
-- **Rule**: Primary buttons with Solar Amber background (`#F09320` / `--color-action-primary`) **MUST ALWAYS HAVE Midnight Obsidian (`#070D18` / `--color-slate-950`) text**.
-- **Contrast**: Achieves **8.24:1 WCAG AAA**.
-- **Prohibition**: White text on Solar Amber buttons is **strictly forbidden** (2.36:1 fails WCAG AA).
+### Invariant 1: Solar Amber Luxury Primary Button Standard
+- **Rule**: Primary action buttons across all public pages, modals, drawers, and forms must strictly deploy the sculpted **Luxury Solar Amber Capsule Architecture**:
+  - **Geometry**: Sculpted full capsule (`border-radius: 9999px !important;`). Flat, square, or boxy buttons are strictly prohibited for primary actions on both desktop and mobile viewports.
+  - **Color & Contrast**: Primary buttons with Solar Amber background (`#F09320` / `--color-action-primary` with subtle gradient `linear-gradient(135deg, #F09320 0%, #F5AB40 50%, #F09320 100%)`) **MUST ALWAYS HAVE Midnight Obsidian (`#070D18` / `--color-slate-950`) text**, achieving **8.24:1 WCAG AAA** contrast. White text on Solar Amber buttons is **strictly forbidden** (2.36:1 fails WCAG AA).
+  - **Live Dispatch Beacon**: Inset pulsating dark indicator beacon dot (`::before`) animated via `@keyframes btn-live-beacon` signaling 24/7 active staging operations.
+  - **Embedded Obsidian Vector Arrow Pod**: An inset circular obsidian pod (`width: 32px; height: 32px; border-radius: 50%; background: #070D18; color: #F09320;` on desktop; `28px` on mobile) housing the vector Lucide arrow SVG (`→`).
+  - **Luminous Aura**: Ambient Solar Amber drop shadow (`box-shadow: 0 4px 18px rgba(240, 147, 32, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);`).
+  - **Mobile Touch Preservation**: On viewports $\le 640\text{px}$, the capsule geometry is strictly preserved (`border-radius: 9999px !important;`) with a compact `height: 38px` and `28px` arrow pod.
 
 ### Invariant 2: Nordic Teal Text Contrast on Light Canvas
 - **Rule**: Raw logo teal (`#4694B1`) is restricted to non-text graphic shapes, icons, and dark mode.
@@ -168,27 +172,48 @@ Future coding agents should refer to these stack-specific implementations:
 
 ### 5.1 HTML / CSS Cascade Implementation
 ```html
-<button type="button" class="ft-btn ft-btn-primary ft-btn-md">
-  <span>Launch Production Brief</span>
-</button>
+<a href="#contact" class="btn-amber-primary">
+  <span>Book Technical Briefing</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+</a>
 
 <style>
-.ft-btn-primary {
-  background-color: var(--color-action-primary);
-  color: var(--color-slate-950) !important; /* Invariant 1: 8.24:1 AAA */
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-bold);
-  height: var(--btn-h-md);
-  padding: 0 var(--btn-px-md);
-  border-radius: var(--radius-md);
+.btn-amber-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 6px 0 18px;
+  border-radius: 9999px !important; /* Invariant 1 Capsule */
+  background: linear-gradient(135deg, #F09320 0%, #F5AB40 50%, #F09320 100%) !important;
+  color: #070D18 !important; /* Invariant 1: 8.24:1 AAA */
+  font-family: var(--font-primary, 'Outfit', sans-serif);
+  font-weight: 700;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 18px rgba(240, 147, 32, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
 }
-.ft-btn-primary:hover {
-  background-color: var(--color-action-primary-hover);
-  transform: translateY(-1px);
+.btn-amber-primary::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #070D18;
+  margin-right: 8px;
+  animation: btn-live-beacon 1.8s infinite ease-in-out;
 }
-.ft-btn-primary:focus-visible {
-  outline: 2px solid var(--color-focus-ring);
-  outline-offset: 2px;
+.btn-amber-primary svg {
+  width: 32px !important;
+  height: 32px !important;
+  background: #070D18 !important;
+  color: #F09320 !important;
+  border-radius: 50% !important;
+  padding: 7px !important;
+  margin-left: 10px !important;
 }
 </style>
 ```

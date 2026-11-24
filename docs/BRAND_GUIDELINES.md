@@ -462,6 +462,16 @@ On desktop screens ($\ge 1024\text{px}$):
 - **Enterprise Partner Monograms**: Logo containers maintain a rigid 44px $\times$ 44px square format with balanced `Outfit` typography, ensuring zero text clipping or overlapping.
 - **Unified Vector CTA**: Elimination of raw character arrows (`>`); all submit buttons deploy the embedded circular obsidian Lucide arrow pod.
 
+### 5.11 Authoritative Luxury Primary Button Standard (Invariant 1)
+All primary action buttons across the digital agency platform must conform to the luxury capsule design:
+- **Shape**: `border-radius: 9999px !important;` (sculpted capsule geometry across desktop and mobile).
+- **Background**: Solar Amber gradient `linear-gradient(135deg, #F09320 0%, #F5AB40 50%, #F09320 100%)`.
+- **Text Color**: Midnight Obsidian `#070D18` (mandatory **8.24:1 AAA** WCAG contrast).
+- **Live Dispatch Beacon**: Pulsating dark indicator dot (`7px` diameter, `#070D18`) animated at 1.8s.
+- **Obsidian Arrow Pod**: Circular dark container (`32px` desktop, `28px` mobile; `#070D18` fill, `#F09320` stroke) holding Lucide arrow `→`.
+- **Luminous Glow**: `box-shadow: 0 4px 18px rgba(240, 147, 32, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);`.
+- **Mobile Scale**: `height: 38px`, `padding: 0 5px 0 14px`, keeping 9999px capsule geometry with 28px arrow pod.
+
 ---
 
 ## 6. Public Website vs. Admin Panel Design Rules

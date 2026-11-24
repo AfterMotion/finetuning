@@ -189,3 +189,11 @@ All digital products, marketing pages, and client portals must strictly adhere t
 - **Glassmorphic System**: Buttons and surfaces utilize 16px blur with subtle white borders, catching background radial light.
 - **Partner Card Monograms**: 44px square monogram boxes in `Outfit` sans, preventing text collision.
 - **Vector Arrow Standard**: Raw text `>` is replaced by the embedded circular dark obsidian Lucide arrow pod.
+
+---
+
+## Universal Luxury Primary Button Standard (Invariant 1)
+- **Capsule Geometry**: `border-radius: 9999px !important;` on desktop and mobile viewports.
+- **Contrast**: Solar Amber (`#F09320`) background with Midnight Obsidian (`#070D18`) text (8.24:1 AAA).
+- **Interactive Details**: Live pulsating beacon dot (`btn-live-beacon`), embedded circular obsidian vector arrow pod (`32px`/`28px`), and luminous amber aura glow.
+- **Mobile Compact**: 38px height, retaining 9999px capsule proportions on smartphones.

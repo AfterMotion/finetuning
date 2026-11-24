@@ -463,12 +463,19 @@ a {
     height: 38px !important;
     padding: 0 5px 0 14px !important;
     font-size: 0.8125rem !important;
+    border-radius: 9999px !important;
+    gap: 0 !important;
   }
   .btn-amber-primary svg {
     width: 28px !important;
     height: 28px !important;
+    background: #070D18 !important;
+    color: #F09320 !important;
+    border-radius: 50% !important;
     padding: 6px !important;
     margin-left: 8px !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -4937,8 +4944,7 @@ textarea.form-input-dark {
     font-size: 0.8125rem !important;
   }
 
-  /* Compact Mobile Button Scale (Invariant 1 & 11) */
-  .btn-amber-primary,
+  /* Compact Mobile Secondary & Outline Buttons (Invariant 11) */
   .btn-outline-teal,
   .btn-secondary-outline {
     height: 38px !important;
@@ -4949,11 +4955,43 @@ textarea.form-input-dark {
     gap: 6px !important;
   }
 
-  .btn-amber-primary svg,
   .btn-outline-teal svg,
   .btn-secondary-outline svg {
     width: 14px !important;
     height: 14px !important;
+  }
+
+  /* Universal Luxury Primary Button Mobile Scale (Invariants 1 & 11) */
+  .btn-amber-primary {
+    height: 38px !important;
+    padding: 0 5px 0 14px !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
+    gap: 0 !important;
+    background: linear-gradient(135deg, #F09320 0%, #F5AB40 50%, #F09320 100%) !important;
+    color: #070D18 !important;
+  }
+
+  .btn-amber-primary svg {
+    width: 28px !important;
+    height: 28px !important;
+    background: #070D18 !important;
+    color: #F09320 !important;
+    border-radius: 50% !important;
+    padding: 6px !important;
+    margin-left: 8px !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Drawer Footer Luxury Primary Capsule (Mobile) */
+  .drawer-footer .btn-amber-primary {
+    width: 100% !important;
+    justify-content: space-between !important;
+    padding: 0 6px 0 16px !important;
+    box-sizing: border-box !important;
+    border-radius: 9999px !important;
   }
 
   /* Hero Action Row: Compact side-by-side or tidy flex wrap */

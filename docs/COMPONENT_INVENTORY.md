@@ -233,6 +233,7 @@ To prevent silent forking while addressing modern CSS and Tailwind v3/v4 ergonom
 | `gradient.stageGlow` | DTCG radial schema | Incorporates the dual ambient stage spotlight gradients into `tokens/design-tokens.json` schema. | `tokens/design-tokens.json` | **Approved Proposal** |
 | `--font-size-hero-fluid` | `clamp(2.5rem, 5vw, 4rem)` | Standardizes fluid headline clamp formula as a direct reusable CSS variable across responsive headers. | `tokens/tokens.css` | **Approved Proposal** |
 | `--scrollbar-thumb` | `var(--color-slate-700)` | Standardizes custom WebKit and Firefox scrollbar theming tokens across dark and light surfaces. | `tokens/themes.css` | **Approved Proposal** |
+| `.btn-amber-primary` (Capsule Variant) | `border-radius: 9999px;` | Authoritative Luxury Primary Button architecture with live pulsating obsidian beacon dot and circular obsidian vector arrow pod across desktop and mobile. | `preview/styles.css` | **Approved Proposal** |
 
 *Policy: These additions do not alter any base brand colors or contrast rules. All changes are backward-compatible.*
 

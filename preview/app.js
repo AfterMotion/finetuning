@@ -1045,6 +1045,31 @@
     updateScrollState();
   }
 
+  // --------------------------------------------------------------------------
+  // 20. LUXURY PRIMARY BUTTON AUTO-ENHANCEMENT ENGINE (Invariant 1)
+  // --------------------------------------------------------------------------
+  function ensureLuxuryPrimaryButtons() {
+    const primaryButtons = document.querySelectorAll('.btn-amber-primary');
+    primaryButtons.forEach(function (btn) {
+      // Guarantee capsule border radius
+      btn.style.borderRadius = '9999px';
+
+      // Ensure embedded circular action vector pod is present if omitted in markup
+      if (!btn.querySelector('svg')) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', '16');
+        svg.setAttribute('height', '16');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2.5');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.innerHTML = '<line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline>';
+        btn.appendChild(svg);
+      }
+    });
+  }
+
   // Initialize all interactive suites
   initTheme();
   initDensity();
@@ -1059,6 +1084,7 @@
   initWorkDetailRouter();
   initNewsDetailRouter();
   updateWizardCalculations();
+  ensureLuxuryPrimaryButtons();
 
 })();
 

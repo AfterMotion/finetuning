@@ -283,6 +283,15 @@ To prevent z-fighting between fixed headers, slide drawers, dropdowns, and modal
 - **Typography Standard**: `--font-display: 'Outfit', -apple-system, sans-serif;` with -0.025em tracking for executive polish.
 - **Partner Monogram Box**: `44px` square, `flex-shrink: 0`, `font-family: var(--font-primary)`.
 
+### 5.9 Universal Luxury Primary Button Tokens (Invariant 1)
+- `--btn-amber-h-desktop`: `44px`
+- `--btn-amber-h-mobile`: `38px`
+- `--btn-amber-radius`: `9999px`
+- `--btn-amber-bg`: `linear-gradient(135deg, #F09320 0%, #F5AB40 50%, #F09320 100%)`
+- `--btn-amber-fg`: `#070D18` (8.24:1 AAA)
+- `--btn-amber-pod-desktop`: `32px`
+- `--btn-amber-pod-mobile`: `28px`
+
 ---
 
 ## 6. Data Visualization & Telemetry Color Conventions
