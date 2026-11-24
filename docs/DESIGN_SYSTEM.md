@@ -175,9 +175,9 @@ All margins, paddings, gaps, and offsets are strict multiples of 4px:
 
 | Token Name | Desktop Size | Mobile Size | Line Height | Letter Spacing | Font Family | Default Weight |
 | :--- | :---: | :---: | :---: | :---: | :--- | :---: |
-| `--font-size-6xl` (Display) | `64px` | `36px` | `1.10` | `-0.02em` | `Syne` | `800` |
-| `--font-size-5xl` (H1) | `48px` | `30px` | `1.15` | `-0.015em` | `Outfit` | `700` |
-| `--font-size-4xl` (H2) | `36px` | `24px` | `1.20` | `-0.01em` | `Outfit` | `700` |
+| `--font-size-6xl` (Display) | `64px` | `28px` (Max 1.75rem) | `1.15` | `-0.01em` | `Syne` | `800` |
+| `--font-size-5xl` (H1) | `48px` | `24px` (Max 1.5rem) | `1.18` | `-0.01em` | `Outfit` | `700` |
+| `--font-size-4xl` (H2) | `36px` | `22px` (Max 1.375rem) | `1.20` | `-0.01em` | `Outfit` | `700` |
 | `--font-size-3xl` (H3) | `30px` | `20px` | `1.25` | `0em` | `Outfit` | `600` |
 | `--font-size-2xl` (H4) | `24px` | `18px` | `1.30` | `0em` | `Outfit` | `600` |
 | `--font-size-xl` (H5) | `20px` | `16px` | `1.35` | `0em` | `Outfit` | `600` |
@@ -187,11 +187,37 @@ All margins, paddings, gaps, and offsets are strict multiples of 4px:
 | `--font-size-xs` (Badge/Cap) | `12px` | `11px` | `1.40` | `+0.05em` | `Outfit` | `600` |
 | `--font-mono-data` | `13px` | `12px` | `1.40` | `0em` | `JetBrains Mono` | `500` |
 
+> [!IMPORTANT]
+> **Mobile Clamping Rule (Invariant 11)**: On viewports $\le 640\text{px}$ (iPhone 16 / 393px), `.section-title` must clamp to $\le 1.75\text{rem}$ (`clamp(1.35rem, 5.5vw, 1.75rem)`). Titles must declare `overflow-wrap: break-word; word-break: break-word;` to guarantee zero horizontal scroll.
+
 ---
 
 ## 5. Shape, Elevation, Overlays & Motion
 
 ### 5.1 Corner Radii Hierarchy
+- `--radius-xs`: `2px` (fine tags)
+- `--radius-sm`: `4px` (buttons sm, badges)
+- `--radius-md`: `8px` (inputs, buttons md, cards sm)
+- `--radius-lg`: `12px` (standard cards, modals)
+- `--radius-xl`: `16px` (panels, hero surfaces)
+- `--radius-2xl`: `24px` (feature sheets)
+- `--radius-full`: `9999px` (pills, circular icon buttons)
+
+### 5.2 Elevation & Atmospheric Stage Glow
+- Ambient Stage Spotlight:
+  ```css
+  --stage-glow-ambient: radial-gradient(600px circle at var(--mouse-x, 50vw) var(--mouse-y, 30vh), rgba(240, 147, 32, 0.06), rgba(70, 148, 177, 0.04) 40%, transparent 70%);
+  ```
+
+### 5.3 Dedicated Iconography Framework (Lucide Standard — Invariant 10)
+- **Standard**: **Lucide Icons** exclusively on a 24px grid (`viewBox="0 0 24 24"`, `stroke-width: 2`, `stroke-linecap: round`, `stroke-linejoin: round`, `fill: none`).
+- **Sizes**:
+  - Small / Inline: `16px` (`--icon-size-sm`)
+  - Medium / Control: `20px` (`--icon-size-md`)
+  - Large / Feature: `24px` (`--icon-size-lg`)
+- **Controls**:
+  - Modal Dismissals: Circular frosted glass button (`.btn-close-frosted`) housing Lucide `x`.
+  - Form Selects: Custom `.form-select-dark` with Lucide `chevron-down` and 44px right clearance.
 - `--radius-none`: `0px` (Square architectural grid tiles)
 - `--radius-sm`: `4px` (Checkboxes, micro-tags, tooltips)
 - `--radius-md`: `8px` (Buttons, text inputs, dropdown triggers)

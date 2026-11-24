@@ -428,10 +428,20 @@ a {
   font-weight: 600;
   color: var(--color-text-primary);
   display: block;
-  padding: 8px 0;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm, 6px);
+  transition: all 0.2s ease;
 }
 .drawer-link:hover {
   color: var(--color-action-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+.drawer-link.active {
+  color: var(--color-action-primary, #F09320) !important;
+  background: rgba(240, 147, 32, 0.1) !important;
+  border-left: 3px solid var(--color-action-primary, #F09320) !important;
+  padding-left: 14px !important;
+  font-weight: 700 !important;
 }
 
 .drawer-footer {
@@ -1616,7 +1626,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .corporate-footer {
   background: #040810 !important;
   color: #CBD5E1 !important;
-  padding: 64px 0 32px !important;
+  padding: 48px 0 24px !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   font-family: var(--font-primary, 'Outfit', sans-serif) !important;
 }
@@ -1625,15 +1635,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .corporate-footer .footer-grid {
   display: grid !important;
   grid-template-columns: 1.5fr 1fr 1.5fr !important;
-  gap: 48px !important;
-  margin-bottom: 40px !important;
+  gap: 36px !important;
+  margin-bottom: 32px !important;
 }
 
 @media (max-width: 992px) {
   .site-footer .footer-inner,
   .corporate-footer .footer-grid {
     grid-template-columns: 1fr !important;
-    gap: 36px !important;
+    gap: 28px !important;
   }
 }
 
@@ -3769,24 +3779,52 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.expertise-panel-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--color-text-primary, #F8FAFC);
-  font-size: 1rem;
-  font-family: var(--font-mono, monospace);
-  padding: 8px 14px;
-  border-radius: var(--radius-sm, 6px);
+/* Frosted Circular Close Button (Invariant 10 Standard) */
+.btn-close-frosted {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(7, 13, 24, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #F8FAFC !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   cursor: pointer;
   transition: all 0.2s ease;
+  z-index: 25;
+  padding: 0 !important;
+  flex-shrink: 0;
 }
 
-.expertise-panel-close:hover {
-  background: var(--color-action-primary, #F09320);
-  color: var(--color-slate-950, #070D18);
+.btn-close-frosted:hover {
+  background: var(--color-action-primary, #F09320) !important;
+  color: #070D18 !important;
+  border-color: var(--color-action-primary, #F09320) !important;
+  transform: scale(1.06);
+}
+
+.btn-close-frosted svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
+
+.expertise-panel-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 30;
+}
+
+@media (max-width: 860px) {
+  .expertise-panel-close {
+    top: 12px;
+    right: 12px;
+  }
 }
 
 .expertise-panel-grid {
@@ -4102,6 +4140,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--color-action-primary, #F09320) !important;
 }
 
+.channel-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm, 6px);
+  background: rgba(240, 147, 32, 0.12);
+  border: 1px solid rgba(240, 147, 32, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-action-primary, #F09320);
+}
+
+.channel-icon-wrap.teal {
+  background: rgba(70, 148, 177, 0.12);
+  border-color: rgba(70, 148, 177, 0.25);
+  color: #4694B1;
+}
+
+.channel-icon-wrap.emerald {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #34D399;
+}
+
 /* Glassmorphic Contact Form */
 .contact-form-glass {
   background: rgba(15, 23, 42, 0.85);
@@ -4168,7 +4231,32 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-color: var(--color-action-primary, #F09320) !important;
   box-shadow: 0 0 0 2px rgba(240, 147, 32, 0.25);
 }
-  box-shadow: 0 0 0 3px rgba(240, 147, 32, 0.15);
+
+/* Custom Select Dropdown with Clean Right Chevron (Invariant 10 Standard) */
+.form-select-dark,
+select.form-input-dark {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  width: 100% !important;
+  background-color: rgba(7, 13, 24, 0.9) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23F09320' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 18px 18px !important;
+  padding: 12px 44px 12px 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: var(--radius-md, 8px) !important;
+  color: #F8FAFC !important;
+  font-size: 0.9375rem !important;
+  cursor: pointer;
+}
+
+.form-select-dark:focus,
+select.form-input-dark:focus {
+  outline: none !important;
+  border-color: var(--color-action-primary, #F09320) !important;
+  box-shadow: 0 0 0 2px rgba(240, 147, 32, 0.25) !important;
 }
 
 textarea.form-input-dark {
@@ -4368,4 +4456,143 @@ textarea.form-input-dark {
 
 .work-gallery-img:hover img {
   transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   14. MOBILE RESPONSIVE GRIDS & VIEWPORT OVERFLOW ELIMINATION (Invariant 11)
+   -------------------------------------------------------------------------- */
+.story-split-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 861px) {
+  .story-split-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.dual-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 641px) {
+  .dual-hub-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+.work-detail-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+@media (min-width: 861px) {
+  .work-detail-split {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+  }
+}
+
+/* Global Mobile Viewport Clamping & Zero Horizontal Scroll (<= 640px) */
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  .container {
+    padding: 0 16px !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.75rem) !important;
+    line-height: 1.22 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .hero-slide-title {
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem) !important;
+    line-height: 1.18 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .section-lead,
+  .hero-slide-desc {
+    font-size: 0.9375rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .contact-visual-panel,
+  .contact-form-glass {
+    padding: 24px 18px !important;
+  }
+
+  .contact-desk-title {
+    font-size: 1.45rem !important;
+  }
+
+  .partner-logo-pill {
+    padding: 6px 12px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .works-filter-bar {
+    gap: 8px !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+
+  .filter-btn {
+    padding: 7px 14px !important;
+    font-size: 0.8125rem !important;
+    white-space: nowrap;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. AMBIENT STAGE GLOW SPOTLIGHT & CLICK PULSE BEACON
+   -------------------------------------------------------------------------- */
+.stage-glow-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 50vw) var(--mouse-y, 30vh),
+    rgba(240, 147, 32, 0.06),
+    rgba(70, 148, 177, 0.035) 45%,
+    transparent 72%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.click-pulse-beacon {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.2);
+  background: radial-gradient(circle, rgba(240, 147, 32, 0.35) 0%, rgba(70, 148, 177, 0.15) 50%, transparent 70%);
+  animation: pulse-beacon 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 9999;
+}
+
+@keyframes pulse-beacon {
+  to {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+  }
 }

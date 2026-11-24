@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="./preview/styles.css">
 </head>
 <body>
+  <!-- Interactive Ambient Stage Spotlight -->
+  <div class="stage-glow-ambient" aria-hidden="true"></div>
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Global Utility Strip -->
@@ -81,8 +84,8 @@
             <span class="brand-sub" style="font-size: 0.5625rem;">Experiential Advertising</span>
           </div>
         </a>
-        <button id="drawer-close-btn" class="control-btn" aria-label="Close Navigation Menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        <button id="drawer-close-btn" class="btn-close-frosted" aria-label="Close Navigation Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
       <ul class="drawer-nav">
@@ -103,7 +106,7 @@
     <section class="works-hero-banner" style="padding: 100px 0 50px;">
       <div class="container" style="max-width: 900px; text-align: center;">
         <span class="section-tagline">Executive Connection</span>
-        <h1 class="section-title" style="font-size: clamp(2.25rem, 4.5vw, 3.5rem); margin-bottom: 20px;">
+        <h1 class="section-title" style="font-size: clamp(1.5rem, 5vw, 2.75rem); margin-bottom: 20px;">
           CONTACT OUR <span style="color: var(--color-action-primary, #F09320);">STAGING DIRECTORS</span>
         </h1>
         <p style="font-size: 1.1875rem; color: var(--color-text-secondary, #94A3B8); line-height: 1.7;">
@@ -123,16 +126,28 @@
             <p class="contact-desk-desc">Call, email, or message our production desk directly for immediate venue feasibility checks, equipment fleet inquiries, and cost proposals.</p>
             <div class="contact-direct-channels">
               <a href="tel:+8801671863685" class="channel-pill">
+                <div class="channel-icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
                 <span><strong>Phone / WhatsApp:</strong> +880 1671-863685</span>
               </a>
               <a href="mailto:finetuningbd@gmail.com" class="channel-pill">
+                <div class="channel-icon-wrap teal">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
                 <span><strong>Official Email:</strong> finetuningbd@gmail.com</span>
               </a>
+              <div class="channel-pill">
+                <div class="channel-icon-wrap emerald">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <span><strong>Bases:</strong> Chattogram HQ &amp; Dhaka Hub</span>
+              </div>
             </div>
           </div>
 
           <!-- Dual Hub Details -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="dual-hub-grid">
             <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 24px;">
               <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #F09320; text-transform: uppercase;">Headquarters</span>
               <h3 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: #F8FAFC; margin: 6px 0 10px;">Chattogram</h3>
@@ -168,7 +183,7 @@
               </div>
               <div class="form-field">
                 <label>Event Category</label>
-                <select class="form-input-dark">
+                <select class="form-select-dark">
                   <option>Corporate Summit / ESG Conference</option>
                   <option>Exhibition Pavilion / Automotive Staging</option>
                   <option>Mega Celebration / Destination Retreat</option>

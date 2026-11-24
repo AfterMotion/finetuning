@@ -105,6 +105,20 @@ Every agent must enforce these six invariants without exception:
 - **Theme Immunity**: All dark cards, panels, and sections must explicitly declare their text colors to dark-surface tokens (`color: #F8FAFC !important;` for headings, `color: #CBD5E1 !important;` for copy) so they can NEVER be corrupted by light-theme CSS variables or legacy `localStorage` keys.
 - **Production Stage Locking**: Public production pages are permanently locked to `data-theme="dark"` (Midnight Stage). Light-theme toggling is strictly disabled on public consumer routes.
 
+### Invariant 10: Strict Professional Lucide Vector Iconography & Native UI Control Standard
+- **Rule**: All icons across all public pages, components, interactive modals, and design guides must strictly use vector **Lucide Icons** rendered on a 24px grid (`stroke-width: 2`, `stroke-linecap: round`, `stroke-linejoin: round`, `stroke: currentColor`).
+- **Prohibitions**: Raw emojis (🎯, ⚡, 🏛️), ASCII bracket labels (`(X) Close`), and raw unicode glyphs (`✕`) are **STRICTLY FORBIDDEN** in buttons, cards, pills, badges, and modals.
+- **Select Dropdown Standard**: Form select controls must enforce `appearance: none; -webkit-appearance: none;` and embed a Solar Amber Lucide chevron at `right: 16px` with a minimum of `padding-right: 44px;` so dropdown text never collides with or clips the chevron.
+- **Close Button Standard**: All modal, drawer, and expandable panel dismissals must use polished circular frosted-glass buttons (`.btn-close-frosted`) housing a 20px Lucide `x` vector SVG with collision-free spacing.
+
+### Invariant 11: Mobile Viewport Zero-Overflow & Compact Density Contract
+- **Rule**: On mobile viewports ($\le 640\text{px}$, including iPhone 16 / 393px width):
+  - Display titles and `.section-title` must strictly clamp between `1.35rem` and `1.75rem` (`clamp(1.35rem, 5.5vw, 1.75rem)`). Headlines must NEVER exceed `1.75rem` on mobile.
+  - All text containers and titles must declare `overflow-wrap: break-word; word-break: break-word; hyphens: auto;` and `max-width: 100%;` to ensure **ZERO horizontal page scroll**.
+  - All multi-column grids must responsively collapse to 1 column (`grid-template-columns: 1fr !important;`). Inline non-responsive grids (`grid-template-columns: 1fr 1fr;`) are strictly prohibited.
+  - Partner pills and badges must scale down to compact proportions (`padding: 6px 12px; font-size: 0.8125rem;`).
+  - Mobile drawer navigation must visually indicate the active page via `.drawer-link.active` with a Solar Amber left accent bar and amber glow.
+
 ---
 
 ## 5. Multi-Stack Code Implementation Examples

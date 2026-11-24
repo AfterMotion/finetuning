@@ -97,6 +97,24 @@
     link.addEventListener('click', closeDrawer);
   });
 
+  // Synchronize Active Nav State across Desktop and Mobile Drawer
+  function syncActiveNav() {
+    const rawPath = window.location.pathname.split('/').pop() || 'index.html';
+    const currentFile = rawPath.split('?')[0].split('#')[0] || 'index.html';
+
+    document.querySelectorAll('.drawer-link, .nav-link').forEach(function (link) {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      const linkFile = href.split('/').pop().split('?')[0].split('#')[0];
+      if (linkFile === currentFile || (currentFile === '' && (linkFile === 'index.html' || linkFile === './index.html'))) {
+        link.classList.add('active');
+        if (link.classList.contains('drawer-link')) {
+          link.setAttribute('aria-current', 'page');
+        }
+      }
+    });
+  }
+
   // --------------------------------------------------------------------------
   // 4. HERO FOH SOUNDCHECK EQUALIZER SIMULATION
   // --------------------------------------------------------------------------
@@ -844,9 +862,47 @@
     }
   }
 
+  // --------------------------------------------------------------------------
+  // 17. AMBIENT STAGE GLOW SPOTLIGHT & CLICK PULSE BEACON
+  // --------------------------------------------------------------------------
+  function initAmbientSpotlight() {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight * 0.3;
+    let rafPending = false;
+
+    window.addEventListener('pointermove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(function () {
+          document.documentElement.style.setProperty('--mouse-x', mouseX + 'px');
+          document.documentElement.style.setProperty('--mouse-y', mouseY + 'px');
+          rafPending = false;
+        });
+      }
+    }, { passive: true });
+
+    window.addEventListener('click', function (e) {
+      const targetTag = e.target.tagName ? e.target.tagName.toLowerCase() : '';
+      if (targetTag === 'input' || targetTag === 'select' || targetTag === 'textarea' || targetTag === 'option') return;
+
+      const pulse = document.createElement('div');
+      pulse.className = 'click-pulse-beacon';
+      pulse.style.left = e.clientX + 'px';
+      pulse.style.top = e.clientY + 'px';
+      document.body.appendChild(pulse);
+      setTimeout(function () {
+        pulse.remove();
+      }, 600);
+    });
+  }
+
   // Initialize all interactive suites
   initTheme();
   initDensity();
+  syncActiveNav();
+  initAmbientSpotlight();
   initHeroSlider();
   initExpertiseExplorer();
   initAchievementsCarousel();

@@ -355,10 +355,26 @@ While the original print logo features flared serifs, modern web viewports and c
 
 ## 5. Visual Language, Surfaces, Shapes & Motion
 
-### 5.1 Iconography Standards
-- **Grid & Stroke**: 24px grid with consistent 2px stroke width (`stroke-width: 2`, `stroke-linecap: round`, `stroke-linejoin: round`).
-- **Color Accent**: Monochromatic base with single Solar Amber (`#F09320`) active highlight or Nordic Teal (`#4694B1`) secondary indicator.
-- **Recommended Library**: Lucide Icons or Feather Icons.
+### 5.1 Iconography Architecture (Lucide Standard — Invariant 10)
+- **Authoritative Library**: **Lucide Vector Icons** exclusively.
+- **Grid & Geometry**: Consistent 24px bounding box (`viewBox="0 0 24 24"`) with uniform 2px stroke width (`stroke-width: 2`, `stroke-linecap: round`, `stroke-linejoin: round`, `fill: none`).
+- **Color Binding**: Dynamic `stroke: currentColor` inheriting from semantic text or action tokens:
+  - Neutral / Foreground: `var(--color-text-primary, #F8FAFC)`
+  - Active / Interactive: `var(--color-action-primary, #F09320)`
+  - Secondary Accent: `var(--color-teal-400, #6BAEC6)`
+- **Prohibitions**: Raw emojis (🎯, ⚡, 🏛️), bracket labels (`(X) Close`), and raw unicode glyphs (`✕`) are strictly forbidden.
+- **Standard UI Icons**:
+  - Dismiss / Close: `x` (`<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>`)
+  - Dropdown Chevron: `chevron-down` (`<polyline points="6 9 12 15 18 9"></polyline>`)
+  - Directional Arrow: `arrow-right` (`<line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline>`)
+  - Phone: `phone` (`<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>`)
+  - Email: `mail` (`<rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>`)
+  - Location: `map-pin` (`<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle>`)
+
+### 5.1.1 Mobile Viewport Density & Clamping (Invariant 11)
+- **Viewport Ceiling**: On screens $\le 640\text{px}$ (iPhone 16 / 393px), titles clamp to $\le 1.75\text{rem}$ with `overflow-wrap: break-word` and `max-width: 100%`.
+- **Zero Horizontal Overflow**: Every page must maintain `100vw` without horizontal scrollbars.
+- **Form Select Clearance**: All `<select>` controls must have $\ge 44\text{px}$ right padding with background SVG chevron to prevent text collision.
 
 ### 5.2 Imagery & Photography Principles
 1. **Dramatic Live Atmosphere**: Real photographs from high-impact corporate summits (e.g. BSRM CORE ESG), automotive exhibitions (BYD, Royal Enfield at Motor Fest), and large arena gatherings.

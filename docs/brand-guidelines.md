@@ -150,3 +150,20 @@ $$\text{Clear Space} = X \quad (\text{where } X = \text{width of the needle apex
 - Minimum Digital Size: **160px** full lockup, **24px** icon emblem.
 
 ---
+
+## Iconography Framework (Lucide Standard — Invariant 10)
+All digital products, marketing pages, and client portals must strictly adhere to **Lucide Vector Icons**:
+- Bounding Box: 24px grid (`viewBox="0 0 24 24"`)
+- Stroke Width: 2px (`stroke-width: 2`, `stroke-linecap: round`, `stroke-linejoin: round`)
+- Fill: `none`, `stroke: currentColor`
+- Emojis, raw unicode glyphs, and text approximations like `(X)` are strictly forbidden in UI controls.
+- Dropdown menus must maintain a custom SVG chevron with $\ge 44\text{px}$ clearance.
+- Modal & panel dismissals must use circular frosted glass buttons (`.btn-close-frosted`).
+
+---
+
+## Mobile Viewport Zero-Overflow Standard (Invariant 11)
+- On screens $\le 640\text{px}$ (e.g. iPhone 16 / 393px width), all display headlines clamp to $\le 1.75\text{rem}$ with `overflow-wrap: break-word`.
+- Horizontal overflow is strictly prohibited (`max-width: 100vw; overflow-x: hidden;`).
+- Multi-column grids collapse to a single column on mobile.
+- Mobile drawer navigation must highlight the current active route via `.drawer-link.active` with a Solar Amber indicator.
