@@ -157,23 +157,27 @@ a {
 }
 
 .brand-title {
-  font-family: var(--font-display, 'Syne', sans-serif);
-  font-size: 1.375rem;
+  font-family: var(--font-primary, 'Outfit', -apple-system, sans-serif);
+  font-size: 1.3125rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   color: var(--color-text-primary, #F8FAFC);
   line-height: 1.1;
   transition: color var(--duration-fast);
 }
 
 .brand-sub {
-  font-family: var(--font-primary, 'Outfit', sans-serif);
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
+  font-family: var(--font-primary, 'Outfit', -apple-system, sans-serif);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-teal-500, #4694B1);
+  color: var(--color-teal-400, #6BAEC6);
   font-weight: 600;
   line-height: 1.2;
+}
+
+.brand-lockup:hover .brand-title {
+  color: var(--color-action-primary, #F09320);
 }
 
 [data-theme="light"] .brand-title {
@@ -3173,7 +3177,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   flex-wrap: wrap;
 }
 
-/* Slider Controls */
+/* Slider Controls (Enhanced Interactive Glassmorphism) */
 .slider-nav-cluster {
   position: absolute;
   bottom: 32px;
@@ -3181,40 +3185,67 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: 14px;
-  background: rgba(7, 13, 24, 0.75);
-  backdrop-filter: blur(12px);
-  padding: 8px 16px;
+  gap: 12px;
+  background: rgba(7, 13, 24, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 6px 14px;
   border-radius: var(--radius-full, 9999px);
-  border: 1px solid var(--color-border-subtle, rgba(255, 255, 255, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .slider-nav-btn {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--color-text-primary, #F8FAFC);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #F8FAFC;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-nav-btn svg {
+  transition: transform 0.2s ease;
 }
 
 .slider-nav-btn:hover {
-  background: var(--color-action-primary, #F09320);
-  color: var(--color-slate-950, #070D18);
-  border-color: var(--color-action-primary, #F09320);
+  background: var(--color-action-primary, #F09320) !important;
+  color: #070D18 !important;
+  border-color: var(--color-action-primary, #F09320) !important;
+  transform: scale(1.10);
+  box-shadow: 0 0 18px rgba(240, 147, 32, 0.45);
+}
+
+#hero-slider-prev:hover svg,
+#achieve-prev:hover svg {
+  transform: translateX(-2px);
+}
+
+#hero-slider-next:hover svg,
+#achieve-next:hover svg {
+  transform: translateX(2px);
+}
+
+.slider-nav-btn:active {
+  transform: scale(0.94);
 }
 
 .slider-counter {
   font-family: var(--font-mono, monospace);
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 700;
   color: var(--color-action-primary, #F09320);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  padding: 0 6px;
+  text-shadow: 0 0 10px rgba(240, 147, 32, 0.35);
 }
 
 .slider-indicators {
@@ -3383,7 +3414,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* 4. CLIENT LOGO TICKER / GRID (Partners in Success) */
 .partners-marquee-section {
-  padding: 48px 0;
+  padding: 56px 0;
   border-top: 1px solid var(--color-border-subtle, rgba(255, 255, 255, 0.06));
   border-bottom: 1px solid var(--color-border-subtle, rgba(255, 255, 255, 0.06));
   background: rgba(7, 13, 24, 0.5);
@@ -3394,7 +3425,99 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 32px 48px;
+  gap: 20px 32px;
+}
+
+/* Enterprise Partner Card Grid (Screenshot 3 Standard) */
+.partner-card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .partner-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+.partner-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.partner-card:hover {
+  background: rgba(240, 147, 32, 0.08);
+  border-color: rgba(240, 147, 32, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(240, 147, 32, 0.1);
+}
+
+.partner-monogram-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--color-action-primary, #F09320);
+  flex-shrink: 0;
+}
+
+.partner-card-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.partner-card-name {
+  font-family: var(--font-primary, 'Outfit', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #F8FAFC;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+
+.partner-card-tag {
+  font-size: 0.6875rem;
+  color: #94A3B8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+.partner-card-logo-img {
+  max-height: 24px;
+  width: auto;
+  object-fit: contain;
+  display: none;
 }
 
 .partner-logo-pill {
@@ -4461,6 +4584,28 @@ textarea.form-input-dark {
 /* --------------------------------------------------------------------------
    14. MOBILE RESPONSIVE GRIDS & VIEWPORT OVERFLOW ELIMINATION (Invariant 11)
    -------------------------------------------------------------------------- */
+/* Standardized Vertical Section Spacing Rhythm */
+.site-section {
+  padding: 72px 0;
+  position: relative;
+}
+
+.site-section-sm {
+  padding: 48px 0;
+  position: relative;
+}
+
+.site-section-lg {
+  padding: 96px 0;
+  position: relative;
+}
+
+.section-cta-wrap {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
 .story-split-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -4545,6 +4690,62 @@ textarea.form-input-dark {
   .partner-logo-pill {
     padding: 6px 12px !important;
     font-size: 0.8125rem !important;
+  }
+
+  /* Compact Mobile Button Scale (Invariant 1 & 11) */
+  .btn-amber-primary,
+  .btn-outline-teal,
+  .btn-secondary-outline {
+    height: 38px !important;
+    padding: 0 16px !important;
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    border-radius: var(--radius-sm, 6px) !important;
+    gap: 6px !important;
+  }
+
+  .btn-amber-primary svg,
+  .btn-outline-teal svg,
+  .btn-secondary-outline svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Hero Action Row: Compact side-by-side or tidy flex wrap */
+  .hero-slide-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-slide-actions .btn-amber-primary,
+  .hero-slide-actions .btn-outline-teal {
+    flex: 1 1 auto;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  /* Responsive Section Rhythm on Mobile */
+  .site-section {
+    padding: 52px 0 !important;
+  }
+
+  .site-section-sm {
+    padding: 36px 0 !important;
+  }
+
+  .site-section-lg {
+    padding: 64px 0 !important;
+  }
+
+  .section-cta-wrap {
+    margin-top: 28px !important;
+  }
+
+  .hero-slide {
+    padding: 88px 0 100px !important;
   }
 
   .works-filter-bar {

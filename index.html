@@ -264,14 +264,14 @@
     </section>
 
     <!-- 4. AGENCY INTRODUCTION (Inspired by "Living Ideas" Section) -->
-    <section class="container" style="padding: 90px 24px 60px;">
+    <section class="site-section container">
       <div style="max-width: 880px; margin: 0 auto; text-align: center;">
         <span class="section-tagline">Agency Identity &amp; Staging Ethos</span>
         <h2 class="section-title" style="margin-bottom: 24px;">ENGINEERING EXPERIENTIAL EXCELLENCE FOR BANGLADESH'S LEADING ENTERPRISES</h2>
         <p style="font-size: 1.125rem; color: var(--color-text-secondary, #94A3B8); line-height: 1.75; margin-bottom: 32px;">
           Fine Tuning is an experiential advertising agency and full-service event production firm operating across Chattogram and Dhaka. From executive summits with curved P2.6 LED volumes to architectural exhibition stalls and 2,000+ guest arena celebrations, we deliver turnkey production with zero margin for error.
         </p>
-        <div>
+        <div class="section-cta-wrap">
           <!-- Invariant 1: Solar Amber Button with Midnight Obsidian text -->
           <a href="./about.html" class="btn-amber-primary">
             <span>Read More About Our Ethos</span>
@@ -282,7 +282,7 @@
     </section>
 
     <!-- 5. VALUE & CAPABILITIES GRID ("Bringing Value to Your Business") -->
-    <section class="container" style="padding: 20px 24px 90px;">
+    <section class="site-section container">
       <div class="section-headline-group">
         <span class="section-tagline">Capabilities &amp; Specializations</span>
         <h2 class="section-title">BRINGING VALUE TO YOUR BUSINESS</h2>
@@ -364,30 +364,119 @@
       </div>
     </section>
 
-    <!-- 6. PARTNERS IN SUCCESS (Verified Client Directory) -->
-    <section class="partners-marquee-section" aria-label="Verified Client Partnerships">
-      <div class="container" style="text-align: center; margin-bottom: 28px;">
+    <!-- 6. PARTNERS IN SUCCESS (Enterprise Client Partner Ecosystem) -->
+    <section class="partners-marquee-section site-section-sm" aria-label="Verified Client Partnerships">
+      <div class="container" style="text-align: center; margin-bottom: 32px;">
         <span class="section-tagline">Partners In Success</span>
-        <h2 style="font-family: var(--font-display, 'Syne'); font-size: 1.5rem; font-weight: 700; color: #F8FAFC;">TRUSTED BY BANGLADESH'S LEADING CONGLOMERATES &amp; BRANDS</h2>
+        <h2 style="font-family: var(--font-display, 'Syne'); font-size: clamp(1.25rem, 4vw, 1.625rem); font-weight: 700; color: #F8FAFC;">TRUSTED BY BANGLADESH'S LEADING CONGLOMERATES &amp; BRANDS</h2>
       </div>
       <div class="container">
-        <div class="partners-grid">
-          <span class="partner-logo-pill"><strong>BSRM Group</strong> (Building a safer nation)</span>
-          <span class="partner-logo-pill"><strong>UCB Bank</strong> (United Commercial Bank PLC)</span>
-          <span class="partner-logo-pill"><strong>BYD Auto</strong> (Build Your Dreams)</span>
-          <span class="partner-logo-pill"><strong>Royal Enfield</strong> (Pure Motorcycling)</span>
-          <span class="partner-logo-pill"><strong>CPDL</strong> (Building Happiness)</span>
-          <span class="partner-logo-pill"><strong>Akij Group</strong></span>
-          <span class="partner-logo-pill"><strong>KDS Group</strong></span>
-          <span class="partner-logo-pill"><strong>BUET Graduates Club</strong></span>
-          <span class="partner-logo-pill"><strong>Seven Rings Cement</strong></span>
-          <span class="partner-logo-pill"><strong>University of Chittagong</strong></span>
+        <div class="partner-card-grid">
+          <!-- 1. BSRM Group -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #F09320; background: rgba(240, 147, 32, 0.1);">BSRM</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">BSRM Group</span>
+              <span class="partner-card-tag">Building A Safer Nation</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="BSRM Group Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 2. UCB Bank -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #6BAEC6; background: rgba(70, 148, 177, 0.1);">UCB</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">UCB Bank</span>
+              <span class="partner-card-tag">United Commercial Bank PLC</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="UCB Bank Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 3. BYD Auto -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #34D399; background: rgba(16, 185, 129, 0.1);">BYD</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">BYD Auto</span>
+              <span class="partner-card-tag">Build Your Dreams</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="BYD Auto Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 4. Royal Enfield -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #F09320; background: rgba(240, 147, 32, 0.1);">RE</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">Royal Enfield</span>
+              <span class="partner-card-tag">Pure Motorcycling Since 1901</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="Royal Enfield Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 5. CPDL -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #93C6D8; background: rgba(70, 148, 177, 0.1);">CPDL</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">CPDL</span>
+              <span class="partner-card-tag">Building Happiness</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="CPDL Real Estate Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 6. Akij Group -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #F8B24C; background: rgba(240, 147, 32, 0.1);">AKIJ</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">Akij Group</span>
+              <span class="partner-card-tag">Industrial Conglomerate</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="Akij Group Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 7. KDS Group -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #6BAEC6; background: rgba(70, 148, 177, 0.1);">KDS</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">KDS Group</span>
+              <span class="partner-card-tag">Apparel &amp; Logistics</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="KDS Group Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 8. BUET Graduates Club -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #F87171; background: rgba(239, 68, 68, 0.1);">BUET</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">BUET Graduates Club</span>
+              <span class="partner-card-tag">National Alumni Association</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="BUET Graduates Club Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 9. Seven Rings Cement -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #F09320; background: rgba(240, 147, 32, 0.1);">7R</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">Seven Rings Cement</span>
+              <span class="partner-card-tag">Infrastructure Partner</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="Seven Rings Cement Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
+
+          <!-- 10. University of Chittagong -->
+          <div class="partner-card">
+            <div class="partner-monogram-box" style="color: #34D399; background: rgba(16, 185, 129, 0.1);">CU</div>
+            <div class="partner-card-info">
+              <span class="partner-card-name">Univ. of Chittagong</span>
+              <span class="partner-card-tag">Academic Partnership</span>
+            </div>
+            <img class="partner-card-logo-img" src="" alt="University of Chittagong Logo" loading="lazy" onerror="this.style.display='none'">
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 7. SUCCESS STORIES (Hover Event Cards Gallery) -->
-    <section class="container" style="padding: 90px 24px;">
+    <section class="site-section container">
       <div class="section-headline-group">
         <span class="section-tagline">Portfolio Highlights</span>
         <h2 class="section-title">SUCCESS STORIES &amp; STAGECRAFT</h2>
@@ -486,7 +575,7 @@
         </a>
       </div>
 
-      <div style="text-align: center; margin-top: 48px;">
+      <div class="section-cta-wrap">
         <!-- Invariant 1: Solar Amber Button with Midnight Obsidian text -->
         <a href="./works.html" class="btn-amber-primary">
           <span>View All Case Studies &amp; Works</span>
@@ -496,7 +585,7 @@
     </section>
 
     <!-- 8. "OUR ACHIEVEMENTS" CAROUSEL -->
-    <section class="achievements-section" aria-label="Agency Production Achievements">
+    <section class="achievements-section site-section" aria-label="Agency Production Achievements">
       <div class="container">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
           <div>
@@ -551,7 +640,7 @@
     </section>
 
     <!-- 9. "TOGETHER WE STAND" (Leadership Spotlight) -->
-    <section class="container" style="padding: 90px 24px;">
+    <section class="site-section container">
       <div class="section-headline-group">
         <span class="section-tagline">Leadership &amp; Staging Direction</span>
         <h2 class="section-title">TOGETHER WE STAND</h2>
@@ -598,7 +687,7 @@
     </section>
 
     <!-- 10. "EXPERTISE IN ACTION" (Interactive Expandable Card Panel - inspired by Screenshot 2) -->
-    <section class="expertise-section" aria-label="Interactive Expertise Explorer">
+    <section class="expertise-section site-section" aria-label="Interactive Expertise Explorer">
       <div class="container">
         <div class="section-headline-group">
           <span class="section-tagline">Interactive Technical Capability</span>
@@ -684,7 +773,7 @@
     </section>
 
     <!-- 11. ECOSYSTEM (Agency Verticals - Inspired by Screenshot 3) -->
-    <section class="container" style="padding: 90px 24px;">
+    <section class="site-section container">
       <div class="section-headline-group">
         <span class="section-tagline">Production Network</span>
         <h2 class="section-title">THE FINE TUNING ECOSYSTEM</h2>
@@ -723,7 +812,7 @@
     </section>
 
     <!-- 12. NEWS & UPDATES (Inspired by Screenshot 4 & 5) -->
-    <section class="container" style="padding: 20px 24px 90px;">
+    <section class="site-section container">
       <div class="section-headline-group">
         <span class="section-tagline">Dispatches &amp; Case Studies</span>
         <h2 class="section-title">NEWS &amp; UPDATES</h2>
@@ -782,7 +871,7 @@
     </section>
 
     <!-- 13. INTEGRATED GLASSMORPHIC CONTACT SECTION (Inspired by Screenshot 6) -->
-    <section id="contact" class="contact-cta-section" aria-label="Contact Production Desk">
+    <section id="contact" class="contact-cta-section site-section" aria-label="Contact Production Desk">
       <div class="container">
         <div class="contact-cta-grid">
           <!-- Left: Direct Channels & Visual -->
