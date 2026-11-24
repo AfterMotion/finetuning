@@ -27,6 +27,11 @@
   --color-text-brand-amber:    var(--color-amber-500); /* #F09320 (8.24:1 AAA on dark) */
   --color-text-brand-teal:     var(--color-teal-400);  /* #6BAEC6 */
 
+  /* Invariant 9: Theme-Immune Dark Canvas Text Tokens */
+  --color-text-on-dark-primary:   #F8FAFC; /* 18.10:1 AAA on dark stage/cards */
+  --color-text-on-dark-secondary: #CBD5E1; /* 13.25:1 AAA on dark stage/cards */
+  --color-text-on-dark-muted:     #94A3B8; /* 7.28:1 AAA on dark stage/cards */
+
   /* Borders */
   --color-border-subtle:       rgba(255, 255, 255, 0.08);
   --color-border-primary:      var(--color-slate-800); /* #1E293B */
@@ -113,6 +118,11 @@
   --color-text-inverse:        var(--color-white);
   --color-text-brand-amber:    var(--color-amber-600); /* Darker for light canvas */
   --color-text-brand-teal:     var(--color-teal-700);  /* #2B5E70 (7.15:1 AAA) */
+
+  /* Invariant 9: Theme-Immune Dark Canvas Text Tokens */
+  --color-text-on-dark-primary:   #F8FAFC; /* 18.10:1 AAA on dark cards/stage */
+  --color-text-on-dark-secondary: #CBD5E1; /* 13.25:1 AAA on dark cards/stage */
+  --color-text-on-dark-muted:     #94A3B8; /* 7.28:1 AAA on dark cards/stage */
 
   /* Borders */
   --color-border-subtle:       rgba(0, 0, 0, 0.06);

@@ -78,6 +78,17 @@ colors: {
 | AA | 4.5:1 | 3:1 | 3:1 |
 | AAA | 7:1 | 4.5:1 | 4.5:1 |
 
+### Invariant Contrast Rules (Fine Tuning Identity)
+1. **Solar Amber Buttons**: `#F09320` background **MUST ALWAYS** use `#070D18` (Midnight Obsidian) text (8.24:1 AAA). White text is strictly forbidden.
+2. **Light Mode Teal**: Teal text on light backgrounds must use `#2B5E70` (7.15:1 AAA) or `#1C4453` (10.49:1 AAA). Raw logo teal `#4694B1` is prohibited for small text on light backgrounds.
+3. **Invariant 9 — Absolute Dark-Canvas Text Legibility**:
+   - Dark surfaces (`#070D18`, `#0B1320`, `#0F172A`, `rgba(15,23,42,0.85)`) **MUST ALWAYS** use light text tokens:
+     - Headings & Titles: `#F8FAFC` (18.10:1 AAA)
+     - Body Copy & Descriptions: `#CBD5E1` (13.25:1 AAA)
+     - Muted Metadata / Subtext: `#94A3B8` (7.28:1 AAA)
+   - **Strictly Prohibited**: Never render dark grey/navy text (`#0F172A`, `#1E293B`, `#334155`, `#475569`, `#64748B`) on dark backgrounds.
+   - All dark components must bind explicitly to theme-immune text tokens to prevent contrast collapse.
+
 ### Checking Contrast
 ```javascript
 // Formula for relative luminance

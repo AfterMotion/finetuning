@@ -92,15 +92,29 @@ Text:    #F8FAFC (18.10:1 AAA)            Text:    #0F172A (17.85:1 AAA)
 
 | Foreground Element | Background Surface | Contrast Ratio | Rating | Required Architectural Rule |
 | :--- | :--- | :---: | :---: | :--- |
-| **Obsidian (`#070D18`)** | Solar Amber (`#F09320`) | **8.24 : 1** | **✓ AAA** | **MANDATORY**: Button text on Amber fills. Never use white text. |
+| **Obsidian (`#070D18`)** | Solar Amber (`#F09320`) | **8.24 : 1** | **✓ AAA** | **MANDATORY (Invariant 1)**: Button text on Amber fills. Never use white text. |
 | **White (`#FFFFFF`)** | Solar Amber (`#F09320`) | `2.36 : 1` | ❌ FAIL | **STRICTLY PROHIBITED**. Unreadable for standard text. |
 | **Solar Amber (`#F09320`)** | Obsidian (`#070D18`) | **8.24 : 1** | **✓ AAA** | Permitted for dark mode titles, badges, and glowing accents. |
-| **Text-Safe Teal (`#2B5E70`)** | White (`#FFFFFF`) | **7.15 : 1** | **✓ AAA** | **MANDATORY**: Teal text, badges, and links on light mode. |
+| **Text-Safe Teal (`#2B5E70`)** | White (`#FFFFFF`) | **7.15 : 1** | **✓ AAA** | **MANDATORY (Invariant 2)**: Teal text, badges, and links on light mode. |
 | **Raw Logo Teal (`#4694B1`)** | White (`#FFFFFF`) | `3.43 : 1` | ❌ Text Fail | Permitted for UI components and graphic shapes ONLY (>3:1). |
 | **Slate 900 (`#0F172A`)** | White (`#FFFFFF`) | **17.85 : 1** | **✓ AAA** | Primary body copy and headings in light mode. |
-| **Slate 50 (`#F8FAFC`)** | Obsidian (`#070D18`) | **18.10 : 1** | **✓ AAA** | Primary body copy and headings in dark mode. |
+| **Slate 50 (`#F8FAFC`)** | Obsidian (`#070D18`) | **18.10 : 1** | **✓ AAA** | **MANDATORY (Invariant 9)**: Primary headings and titles on dark canvas/cards. |
+| **Slate 300 (`#CBD5E1`)** | Obsidian (`#070D18`) | **13.25 : 1** | **✓ AAA** | **MANDATORY (Invariant 9)**: Body copy and descriptions on dark surfaces. |
+| **Slate 400 (`#94A3B8`)** | Obsidian (`#070D18`) | **7.28 : 1** | **✓ AAA** | **MANDATORY (Invariant 9)**: Secondary subtext and footer links on dark canvas. |
+| **Slate 900 / 800 (`#0F172A` / `#1E293B`)** | Obsidian (`#070D18`) | `1.15 : 1` | ❌ FATAL | **STRICTLY PROHIBITED (Invariant 9)**: Dark text on dark canvas is illegible. |
 | **Emerald (`#10B981`)** | Dark Bg (`rgba(16,185,129,0.12)`) | **6.40 : 1** | **✓ AA** | Live status indicators and confirmed delegate badges. |
 | **Crimson (`#EF4444`)** | Dark Bg (`rgba(239,68,68,0.12)`) | **4.91 : 1** | **✓ AA** | High decibel warnings, connection drop alerts. |
+
+### 3.2.1 Invariant 9: Absolute Dark-Canvas Text Legibility & Theme Immunity
+Every dark-themed card, hero section, and interactive stage component must explicitly enforce high-contrast text tokens:
+- **Headings & Bold Titles**: `color: #F8FAFC;` (or `var(--color-text-on-dark-primary, #F8FAFC)`)
+- **Body Text & Explanations**: `color: #CBD5E1;` (or `var(--color-text-on-dark-secondary, #CBD5E1)`)
+- **Metadata, Timestamps & Labels**: `color: #94A3B8;` (or `var(--color-text-on-dark-muted, #94A3B8)`)
+- **Prohibition**: Components rendered on dark cards or stage backgrounds must NEVER inherit light-mode text colors (`#0F172A`, `#1E293B`, `#475569`).
+
+### 3.2.2 Invariant 8: Fixed Desktop Navigation & Dark 3-Column Footer
+- **Fixed Desktop Header**: `.main-header` must use `position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;` on desktop viewports (min-width: 1024px) with a matching body padding-top (`72px`) so that the header never scrolls out of view.
+- **Authoritative 3-Column Footer**: The public footer must have a `#040810` canvas, high-contrast headings (`#F8FAFC`), crisp links (`#CBD5E1` / `#94A3B8`), and zero raw browser bullet points or unstyled lists. Internal developer links or newsletter forms must not appear on public footers.
 
 ### 3.3 High-Contrast & Assistive Technology Provisions
 1. **Windows High Contrast / Forced Colors**:

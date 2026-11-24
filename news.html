@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Staging Dispatches | Fine Tuning</title>
+  <meta name="description" content="Technical project dispatches, event engineering milestones, and behind-the-scenes staging breakdowns from Fine Tuning.">
+  <link rel="canonical" href="https://finetuning.com.bd/news.html">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/fine-tuning-icon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./preview/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Utility Strip -->
+  <aside class="utility-strip" aria-label="Operational Live Desk Status">
+    <div class="container utility-inner">
+      <div class="utility-status">
+        <span class="status-dot-pulse" aria-hidden="true"></span>
+        <span><strong>Live Production Desk:</strong> Chattogram &amp; Dhaka Hubs Active</span>
+      </div>
+      <div class="utility-links">
+        <a href="tel:+8801671863685" class="utility-link">+880 1671-863685</a>
+        <a href="mailto:finetuningbd@gmail.com" class="utility-link">finetuningbd@gmail.com</a>
+        <a href="#contact" class="utility-link">Direct Consultation</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Main Header -->
+  <header class="main-header" role="banner">
+    <div class="container nav-inner">
+      <a href="./index.html" class="brand-lockup" aria-label="Fine Tuning Home">
+        <svg class="brand-emblem-svg" viewBox="0 0 2400 1758" fill="none" aria-hidden="true">
+          <path fill="#4694B1" d="M 41 358 L 30 600 L 68 836 L 143 1038 L 272 1247 L 418 1404 L 608 1543 L 810 1637 L 1049 1694 L 1278 1701 L 1502 1664 L 1719 1582 L 1910 1463 L 2080 1304 L 2209 1126 L 2306 917 L 2357 713 L 2370 484 L 2347 296 L 2298 128 L 2191 342 L 2207 607 L 2153 866 L 2049 1078 L 1897 1262 L 1679 1421 L 1416 1519 L 1130 1540 L 861 1484 L 695 1407 L 544 1300 L 421 1175 L 318 1025 L 246 866 L 201 686 L 190 494 L 208 342 L 101 128 Z" fill-rule="evenodd"/>
+          <path fill="#F09320" d="M 1347 795 L 1848 794 L 1941 607 L 1375 608 Z M 458 607 L 551 794 L 1052 795 L 1023 607 Z M 1432 241 L 2124 241 L 2217 53 L 1461 53 Z M 978 53 L 1200 1495 L 1421 53 Z M 182 53 L 275 241 L 967 241 L 938 53 Z" fill-rule="evenodd"/>
+        </svg>
+        <div class="brand-names">
+          <span class="brand-title">Fine Tuning</span>
+          <span class="brand-sub">Experiential Advertising</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./about.html" class="nav-link">About Us</a>
+        <a href="./works.html" class="nav-link">Works</a>
+        <a href="./team.html" class="nav-link">Team</a>
+        <a href="./news.html" class="nav-link active">News</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Invariant 1: Solar Amber Button with Midnight Obsidian text -->
+        <a href="#contact" class="btn-amber-primary">
+          <span>Book Technical Briefing</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="drawer-overlay" class="mobile-drawer-overlay" aria-hidden="true">
+    <div id="mobile-drawer-panel" class="mobile-drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <div class="drawer-header">
+        <a href="./index.html" class="brand-lockup">
+          <div class="brand-names">
+            <span class="brand-title" style="font-size: 1.125rem;">Fine Tuning</span>
+            <span class="brand-sub" style="font-size: 0.5625rem;">Experiential Advertising</span>
+          </div>
+        </a>
+        <button id="drawer-close-btn" class="control-btn" aria-label="Close Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <ul class="drawer-nav">
+        <li><a href="./index.html" class="drawer-link">Home</a></li>
+        <li><a href="./about.html" class="drawer-link">About Us</a></li>
+        <li><a href="./works.html" class="drawer-link">Works / Portfolio</a></li>
+        <li><a href="./team.html" class="drawer-link">Team Leadership</a></li>
+        <li><a href="./news.html" class="drawer-link active">News &amp; Updates</a></li>
+        <li><a href="./contact.html" class="drawer-link">Contact Desk</a></li>
+      </ul>
+      <div class="drawer-footer">
+        <a href="#contact" class="btn-amber-primary" style="width: 100%;">Book Technical Briefing</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- Listing Mode Container -->
+    <div id="news-list-root">
+      <section class="works-hero-banner" style="padding: 100px 0 50px;">
+        <div class="container" style="max-width: 900px; text-align: center;">
+          <span class="section-tagline">Dispatches &amp; Technical Notes</span>
+          <h1 class="section-title" style="font-size: clamp(2.25rem, 4.5vw, 3.5rem); margin-bottom: 20px;">
+            NEWS &amp; <span style="color: var(--color-action-primary, #F09320);">PRODUCTION UPDATES</span>
+          </h1>
+          <p style="font-size: 1.1875rem; color: var(--color-text-secondary, #94A3B8); line-height: 1.7;">
+            Field reports, architectural engineering milestones, and behind-the-scenes case breakdowns from Fine Tuning's staging desks.
+          </p>
+        </div>
+      </section>
+
+      <section class="container" style="padding: 40px 24px 90px;">
+        <div class="news-cards-grid">
+          <!-- Article 1 -->
+          <article class="news-card">
+            <div class="news-thumbnail">
+              <img src="images/webp/program-01/motorfest-byd-royalenfield-master.webp" alt="8th Motor Fest Pavilion Fabrication" loading="lazy">
+            </div>
+            <div class="news-body">
+              <span class="news-date">October 2026 — Automotive Activation</span>
+              <h2 class="news-title">Fabricating Luxury Pavilions for BYD &amp; Royal Enfield at 8th Motor Fest</h2>
+              <p class="news-snippet">How Fine Tuning engineered vehicle reveal platforms, customized 3D neon typography, and ambient lighting for new energy electric cars and heritage motorcycles.</p>
+              <a href="./news.html?slug=motorfest-2026" class="news-link">
+                <span>Read Full Dispatch</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="news-card">
+            <div class="news-thumbnail">
+              <img src="images/webp/program-02/bsrm-esg-stage-led.webp" alt="BSRM CORE ESG Stage Engineering" loading="lazy">
+            </div>
+            <div class="news-body">
+              <span class="news-date">September 2026 — Corporate Summit</span>
+              <h2 class="news-title">Staging National Sustainability: The BSRM CORE ESG Summit</h2>
+              <p class="news-snippet">Deploying a 48-foot curved P2.6 LED volume, eco-friendly wayfinding totems, and VIP dais acoustics at Radisson Blu Chattogram Bay View.</p>
+              <a href="./news.html?slug=bsrm-esg" class="news-link">
+                <span>Read Full Dispatch</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="news-card">
+            <div class="news-thumbnail">
+              <img src="images/webp/program-04/ucb-lake-stage-backdrop.webp" alt="UCB Annual Get-Together in Rangamati" loading="lazy">
+            </div>
+            <div class="news-body">
+              <span class="news-date">August 2026 — Destination Retreat</span>
+              <h2 class="news-title">Off-Grid Lakeside Production: UCB Annual Get-Together in Rangamati</h2>
+              <p class="news-snippet">Overcoming remote logistical challenges with mobile silent generator fleets and lakeside stage structures at Bargee Lake Valley.</p>
+              <a href="./news.html?slug=ucb-summit" class="news-link">
+                <span>Read Full Dispatch</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- Single Article Detail Mode (Dynamic via ?slug=...) -->
+    <div id="news-single-root" style="display: none;">
+      <section class="works-hero-banner" style="padding: 100px 0 40px;">
+        <div class="container" style="max-width: 820px;">
+          <a href="./news.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--color-action-primary, #F09320); font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; margin-bottom: 20px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Back to All Dispatches
+          </a>
+          <span id="news-article-date" class="section-tagline">October 2026 — Production Engineering Dispatch</span>
+          <h1 id="news-article-title" class="section-title" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 24px;">
+            8th Motor Fest Chattogram: Engineering Luxury Staging for BYD and Royal Enfield
+          </h1>
+        </div>
+      </section>
+
+      <section class="container" style="padding: 20px 24px 90px; max-width: 868px;">
+        <div style="border-radius: var(--radius-xl, 16px); overflow: hidden; margin-bottom: 36px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <img id="news-article-img" src="images/webp/program-01/motorfest-byd-royalenfield-master.webp" alt="News article photo" style="width: 100%; height: auto;">
+        </div>
+
+        <div style="font-size: 1.125rem; color: var(--color-text-secondary, #94A3B8); line-height: 1.8;">
+          <p style="margin-bottom: 20px;">
+            When international automotive brands present their latest flagships to the Bangladeshi public, their staging architecture must reflect precision engineering. For the 8th Motor Fest held at the GEC Convention Center in Chattogram, Fine Tuning took complete turnkey charge of pavilion architecture, structural carpentry, and ambient lighting for BYD Auto and Royal Enfield Bangladesh.
+          </p>
+          <p style="margin-bottom: 20px;">
+            The BYD pavilion spotlighted the new energy electric Seal 5 and Sealion 6 SUV. To accentuate the vehicle lines, our lighting designers avoided direct harsh downlights, instead opting for high-CRI soft profiles suspended from overhead aluminum box trusses. Custom heavy-duty vehicle reveal platforms engineered with 3,500kg axle ratings ensured total stability throughout the three-day convention.
+          </p>
+          <p style="margin-bottom: 28px;">
+            Concurrently, the Royal Enfield Pure Motorcycling display required an authentic vintage texture. Our master carpenters crafted weathered timber accents, illuminated 3D channel lettering, and warm 3200K tungsten spotlighting to match the heritage of the century-old motorcycle brand.
+          </p>
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 28px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <a href="./news.html" class="btn-outline-teal">&larr; Back to News</a>
+            <a href="#contact" class="btn-amber-primary">Discuss a Similar Staging</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Integrated Contact Form -->
+    <section id="contact" class="contact-cta-section">
+      <div class="container">
+        <div class="contact-cta-grid">
+          <div class="contact-visual-panel">
+            <span class="contact-desk-badge">Live Production Desk Active</span>
+            <h2 class="contact-desk-title">LET'S TALK ABOUT YOUR NEXT PRODUCTION</h2>
+            <p class="contact-desk-desc">Direct executive channel to our Lead Staging Director in Chattogram and Dhaka.</p>
+            <div class="contact-direct-channels">
+              <a href="tel:+8801671863685" class="channel-pill"><span>+880 1671-863685</span></a>
+              <a href="mailto:finetuningbd@gmail.com" class="channel-pill"><span>finetuningbd@gmail.com</span></a>
+            </div>
+          </div>
+          <div class="contact-form-glass">
+            <h3 class="contact-form-title">CONTACT US</h3>
+            <form onsubmit="event.preventDefault(); showToast('Inquiry logged successfully!', 'success'); this.reset();">
+              <div class="form-group-row">
+                <div class="form-field">
+                  <label>Name *</label>
+                  <input type="text" class="form-input-dark" placeholder="Your name" required>
+                </div>
+                <div class="form-field">
+                  <label>Email Address *</label>
+                  <input type="email" class="form-input-dark" placeholder="your.email@company.com" required>
+                </div>
+              </div>
+              <div class="form-field">
+                <label>Message *</label>
+                <textarea class="form-input-dark" placeholder="Describe your event requirements..." required></textarea>
+              </div>
+              <button type="submit" class="btn-amber-primary" style="width: 100%; height: 48px;">
+                <span>LET'S TALK &gt;</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean 3-Column Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <a href="./index.html" class="brand-lockup">
+          <div class="brand-names">
+            <span class="brand-title" style="font-size: 1.25rem;">Fine Tuning</span>
+            <span class="brand-sub">Experiential Advertising</span>
+          </div>
+        </a>
+        <p class="footer-desc">Experiential advertising and turnkey event production firm delivering corporate summits, curved LED volumes, and acoustic engineering across Bangladesh.</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Capabilities</h4>
+        <ul class="footer-links">
+          <li><a href="./works.html" class="footer-link">Corporate Summits</a></li>
+          <li><a href="./works.html" class="footer-link">Exhibition Pavilions</a></li>
+          <li><a href="./works.html" class="footer-link">Curved LED Volumes</a></li>
+          <li><a href="./works.html" class="footer-link">Acoustic Line Arrays</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Operations Bases</h4>
+        <div class="footer-address-block">
+          <p class="address-title">Chattogram Headquarters</p>
+          <p class="address-text">Shop 01, CDA Market, Kajir Dewri, Chittagong 4203</p>
+        </div>
+        <div class="footer-address-block">
+          <p class="address-title">Dhaka Operational Hub</p>
+          <p class="address-text">Gulshan-2, Dhaka 1212</p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div class="footer-legal-copy">&copy; 2026 Fine Tuning Advertising Agency. All Rights Reserved.</div>
+      <div class="footer-legal-links">
+        <a href="./privacy.html" class="legal-link">Privacy Policy</a>
+        <a href="./terms.html" class="legal-link">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  <script src="./preview/app.js"></script>
+</body>
+</html>
+

@@ -52,10 +52,13 @@
 | Surface Light | #F8FAFC | rgb(248,250,252) | Subtle cards, table backgrounds |
 | Background Dark | #070D18 | rgb(7,13,24) | Midnight obsidian stage canvas |
 | Surface Dark | #0F172A | rgb(15,23,42) | Dark mode cards and modals |
-| Text Primary Light | #0F172A | rgb(15,23,42) | High-contrast body text on light (17.85:1) |
-| Text Primary Dark | #F8FAFC | rgb(248,250,252) | High-contrast body text on dark (18.10:1) |
-| Text Secondary | #475569 | rgb(71,85,105) | Captions, muted labels (7.58:1) |
-| Border | #E2E8F0 | rgb(226,232,240) | Dividers, card borders |
+| Text Primary Light | #0F172A | rgb(15,23,42) | High-contrast body text on light canvas only (17.85:1) |
+| Text Primary Dark | #F8FAFC | rgb(248,250,252) | Mandatory primary headings & titles on dark canvas (18.10:1 AAA) |
+| Text Secondary Dark | #CBD5E1 | rgb(203,213,225) | Mandatory body text & descriptions on dark canvas (9.50:1 AAA) |
+| Text Muted Dark | #94A3B8 | rgb(148,163,184) | Captions, meta labels, timestamps on dark canvas (7.25:1 AAA) |
+| Text Secondary Light | #475569 | rgb(71,85,105) | Captions, muted labels on white canvas only (7.58:1) |
+| Border Dark | #1E293B | rgb(30,41,59) | Dividers, card borders in dark mode |
+| Border | #E2E8F0 | rgb(226,232,240) | Dividers, card borders in light mode |
 
 ### Semantic Colors
 
@@ -66,13 +69,15 @@
 | Error | #EF4444 | Disconnected signal, 500 server error, form failure |
 | Info | #3B82F6 | System updates, stage schedule changes, specs |
 
-### Accessibility
+### Accessibility & Contrast Invariants
 
-- **Solar Amber (#F09320) on White**: 2.36:1 (Fails normal text; graphical objects only).
-- **Midnight Obsidian (#070D18) on Solar Amber (#F09320)**: **8.24:1 (WCAG AAA)** — mandatory button text.
-- **Nordic Dark Teal (#2B5E70) on White**: **7.15:1 (WCAG AAA)** — mandatory text teal on white.
-- **Deep Slate (#0F172A) on White**: **17.85:1 (WCAG AAA)**.
-- All interactive elements meet WCAG 2.1 AA and AAA standards.
+- **Invariant 1: Solar Amber (#F09320) Button Text**: Midnight Obsidian (`#070D18`) text is mandatory (**8.24:1 WCAG AAA**). White text on Amber is strictly prohibited.
+- **Invariant 2: Nordic Dark Teal (#2B5E70) on White**: Mandatory text teal on white canvas (**7.15:1 WCAG AAA**).
+- **Invariant 9: Absolute Dark-Canvas Text Legibility**:
+  - Headings & Titles on dark canvas (`#070D18`, `#0F172A`): **#F8FAFC or #FFFFFF (18.10:1 AAA)**.
+  - Body copy & descriptions on dark canvas: **#CBD5E1 or #E2E8F0 (9.50:1 AAA)**.
+  - Dark text (`#0F172A`, `#1E293B`, `#334155`, `#475569`) on dark canvas is **strictly prohibited**.
+  - Components on dark backgrounds must declare explicit dark-surface color tokens so they can never be polluted by light theme inheritance.
 
 ---
 

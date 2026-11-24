@@ -91,10 +91,19 @@ Every agent must enforce these six invariants without exception:
 - **Rule**: Fine Tuning is an Experiential Advertising & Turnkey Event Staging Agency (corporate summits, exhibition pavilions, brand launches, stage production). Never author acoustic audio fader/limiter decibel gauges or engineering sensor telemetry cards on commercial marketing pages.
 - **Logo Standard**: Always render the official brand logo asset `assets/brand/fine-tuning-logo.png` (or `images/fine-tuning-logo.png`). Never author generic sans-serif text lockups.
 
-### Invariant 8: Clean Public Navigation, Footer & Zero Emojis
-- **Navigation Rule**: Never expose theme or density toggle buttons in public customer-facing navigation headers.
-- **Footer Rule**: Public footers must use a clean 3-column layout (Brand Profile, Capabilities, Operations Bases) with high-contrast text (`#F8FAFC` headings, `#94A3B8` links). Never place newsletter forms, internal dev links (`Brand Guidelines`, `Console`), or stakeholder placeholders on public pages.
+### Invariant 8: Clean Public Navigation, Fixed Desktop Header, Footer & Zero Emojis
+- **Navigation Rule**: Never expose theme or density toggle buttons in public customer-facing navigation headers. On desktop viewports, the main navigation header **MUST REMAIN PERMANENTLY FIXED AT THE VERY TOP** (`position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;`) so users never lose navigational context while scrolling. Content must be offset with `padding-top: 72px;` to prevent layout jumps.
+- **Footer Rule**: Public footers must use a clean 3-column layout (Brand Profile, Capabilities, Operations Bases) set on deep midnight canvas (`background: #040810;` or `#070D18;`) with high-contrast text (`#F8FAFC` headings, `#CBD5E1` links). Lists must have `list-style: none; padding: 0; margin: 0;` (strictly no raw browser bullet points). Never place newsletter forms, internal dev links (`Brand Guidelines`, `Console`), or stakeholder placeholders on public pages.
 - **Emoji Prohibition**: Never use raw emojis in buttons, pills, or interactive controls. Always use professional inline SVGs.
+
+### Invariant 9: Absolute Dark-Canvas Text Legibility & Theme-Immune Surface Contracts
+- **Rule**: On any dark canvas, section, card, modal, or image overlay (`#070D18`, `#0F172A`, `#1E293B`, dark glass):
+  - Primary text, headings, and card titles **MUST ALWAYS BE `#F8FAFC` or `#FFFFFF` (15:1 to 18:1 WCAG AAA)**.
+  - Body copy, descriptions, and paragraphs **MUST ALWAYS BE `#E2E8F0` or `#CBD5E1` (9.5:1 to 10.5:1 WCAG AAA)**.
+  - Meta tags, badges, and micro-labels **MUST BE `--color-amber-400` (`#F8B24C`), `--color-teal-300` (`#93C6D8`), or `#94A3B8` (minimum 7:1 AAA)**.
+- **Strict Prohibition**: Dark navy (`#0F172A`, `#1E293B`), dark slate (`#334155`), and muted dark grey (`#475569`) are **STRICTLY FORBIDDEN** as text colors on any dark background.
+- **Theme Immunity**: All dark cards, panels, and sections must explicitly declare their text colors to dark-surface tokens (`color: #F8FAFC !important;` for headings, `color: #CBD5E1 !important;` for copy) so they can NEVER be corrupted by light-theme CSS variables or legacy `localStorage` keys.
+- **Production Stage Locking**: Public production pages are permanently locked to `data-theme="dark"` (Midnight Stage). Light-theme toggling is strictly disabled on public consumer routes.
 
 ---
 

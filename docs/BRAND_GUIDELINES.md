@@ -268,18 +268,27 @@ Variant C: Standalone Monogram          Variant D: Midnight Stage Glow Card
 --color-teal-900: #122B35; /* Darkest teal border */
 ```
 
-### 3.3 Neutral Palette for Dual Themes
+### 3.3 Neutral Palette for Dual Themes & Dark-Canvas Legibility
 
-| Role | Light Theme (Studio Editorial) | Dark Theme (Midnight Stage) | Notes |
+| Role | Light Theme (Studio Editorial) | Dark Theme (Midnight Stage) | Notes & Contrast |
 | :--- | :---: | :---: | :--- |
 | **Canvas / Background** | `#FFFFFF` | `#070D18` | Base page canvas |
 | **Subtle Surface** | `#F8FAFC` | `#0B1320` | Section backgrounds, table striping |
 | **Elevated Card** | `#FFFFFF` (Shadow) | `#0F172A` | Cards, popovers, flyout drawers |
 | **Border Primary** | `#E2E8F0` | `#1E293B` | Structural dividers, card borders |
 | **Border Highlight** | `#CBD5E1` | `#334155` | Focused inputs, hovered cards |
-| **Text Primary** | `#0F172A` (17.85:1 AAA) | `#F8FAFC` (18.10:1 AAA) | Main headlines, body copy |
-| **Text Secondary** | `#475569` (7.58:1 AAA) | `#94A3B8` (7.25:1 AAA) | Captions, labels, table headers |
-| **Text Muted** | `#64748B` (4.76:1 AA) | `#64748B` (4.52:1 AA) | Timestamps, placeholder text |
+| **Text Primary** | `#0F172A` (17.85:1 AAA) | `#F8FAFC` (18.10:1 AAA) | Mandatory headlines, card titles on dark |
+| **Text Secondary** | `#475569` (7.58:1 AAA) | `#CBD5E1` (9.50:1 AAA) | Mandatory body descriptions & copy on dark |
+| **Text Muted / Meta** | `#64748B` (4.76:1 AA) | `#94A3B8` (7.25:1 AAA) | Timestamps, tags, captions on dark |
+
+> [!CRITICAL]
+> **Invariant 9: Absolute Dark-Canvas Text Legibility & Theme-Immune Surface Contracts**:
+> On any dark canvas, section, card, modal, or image overlay (`#070D18`, `#0F172A`, `#1E293B`, dark glass):
+> - Primary text and titles **MUST ALWAYS BE `#F8FAFC` or `#FFFFFF` (15:1 to 18:1 WCAG AAA)**.
+> - Body copy and descriptions **MUST ALWAYS BE `#E2E8F0` or `#CBD5E1` (9.50:1 to 10.5:1 WCAG AAA)**.
+> - Micro-labels, meta badges, and captions **MUST BE `--color-amber-400` (`#F8B24C`), `--color-teal-300` (`#93C6D8`), or `#94A3B8` (minimum 7:1 AAA)**.
+> - **Strict Prohibition**: Dark navy (`#0F172A`, `#1E293B`), dark slate (`#334155`), and muted dark grey (`#475569`) are **strictly forbidden** as text colors on any dark background.
+> - **Theme Immunity**: All dark cards, panels, and sections must explicitly declare their text colors to dark-surface tokens (`color: #F8FAFC !important;` for headings, `color: #CBD5E1 !important;` for copy) so they can never be corrupted by light-theme CSS variables or legacy `localStorage` keys.
 
 ### 3.4 Semantic & Feedback Palette (Dashboards & Forms)
 
