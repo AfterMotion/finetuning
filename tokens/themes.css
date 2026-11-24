@@ -37,6 +37,19 @@
   --color-scrollbar-thumb:        var(--color-slate-800); /* #1E293B */
   --color-scrollbar-thumb-hover:  var(--color-amber-500); /* #F09320 */
 
+  /* Invariant 13: Infinity Ambient Canvas Tokens */
+  --stage-ambient-tl:            rgba(70, 148, 177, 0.16);  /* Nordic Teal Bloom */
+  --stage-ambient-tr:            rgba(240, 147, 32, 0.13);  /* Solar Amber Beacon */
+  --stage-ambient-bl:            rgba(240, 147, 32, 0.09);  /* Amber Horizon */
+  --stage-ambient-br:            rgba(43, 94, 112, 0.15);   /* Stagecraft Teal */
+
+  /* Invariant 13: Floating Glass Dock Tokens */
+  --nav-dock-bg:                 rgba(7, 13, 24, 0.82);
+  --nav-dock-border:             rgba(255, 255, 255, 0.12);
+  --nav-dock-shadow:             0 16px 40px -8px rgba(0, 0, 0, 0.65), 0 0 24px rgba(240, 147, 32, 0.06);
+  --nav-link-chip-bg:            rgba(255, 255, 255, 0.04);
+  --nav-link-chip-active:        rgba(240, 147, 32, 0.14);
+
   /* Borders */
   --color-border-subtle:       rgba(255, 255, 255, 0.08);
   --color-border-primary:      var(--color-slate-800); /* #1E293B */
@@ -133,6 +146,19 @@
   --color-scrollbar-track:        var(--color-slate-100);
   --color-scrollbar-thumb:        var(--color-slate-300);
   --color-scrollbar-thumb-hover:  var(--color-amber-500);
+
+  /* Invariant 13: Infinity Ambient Canvas Tokens */
+  --stage-ambient-tl:            rgba(70, 148, 177, 0.08);
+  --stage-ambient-tr:            rgba(240, 147, 32, 0.07);
+  --stage-ambient-bl:            rgba(240, 147, 32, 0.05);
+  --stage-ambient-br:            rgba(43, 94, 112, 0.07);
+
+  /* Invariant 13: Floating Glass Dock Tokens */
+  --nav-dock-bg:                 rgba(255, 255, 255, 0.88);
+  --nav-dock-border:             rgba(0, 0, 0, 0.08);
+  --nav-dock-shadow:             0 12px 32px -4px rgba(15, 23, 42, 0.08);
+  --nav-link-chip-bg:            rgba(0, 0, 0, 0.03);
+  --nav-link-chip-active:        rgba(240, 147, 32, 0.14);
 
   /* Borders */
   --color-border-subtle:       rgba(0, 0, 0, 0.06);

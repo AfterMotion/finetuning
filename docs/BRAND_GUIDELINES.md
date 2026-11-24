@@ -442,6 +442,20 @@ An interactive circular pointer system representing precision stagecraft:
 - **Click Compression**: Contracts to `0.8x` on mousedown with release ripple.
 - **Mobile Touch Safety**: Completely suppressed via `@media (hover: none) or (pointer: coarse)` to ensure native touch performance.
 
+### 5.8 Infinity Ambient Canvas Architecture (Invariant 13)
+The dark canvas must never feel like a static black void. All pages deploy a 4-corner multi-spectral infinity ambient glow:
+- **Top-Left (Nordic Teal)**: `radial-gradient(circle 600px at 0% 0%, rgba(70, 148, 177, 0.16), transparent 70%)`
+- **Top-Right (Solar Amber)**: `radial-gradient(circle 550px at 100% 0%, rgba(240, 147, 32, 0.13), transparent 70%)`
+- **Bottom-Left (Amber Horizon)**: `radial-gradient(circle 650px at 0% 100%, rgba(240, 147, 32, 0.09), transparent 70%)`
+- **Bottom-Right (Deep Stage Teal)**: `radial-gradient(circle 600px at 100% 100%, rgba(43, 94, 112, 0.15), transparent 70%)`
+- **Motion**: `animation: ft-infinity-drift 22s ease-in-out infinite alternate;`
+
+### 5.9 Floating Glassmorphic Dock & Elevated CTA Standard (Invariant 13)
+On desktop screens ($\ge 1024\text{px}$):
+- Navigation floats 12px below the top margin with `border-radius: 9999px;`, 24px frosted blur, and perimeter shadow.
+- Nav links sit in an illuminated chip track with Solar Amber active pills (`rgba(240, 147, 32, 0.14)`).
+- CTA button is a luxury amber capsule with live beacon dot and embedded circular dark arrow pod (Invariant 1: 8.24:1 AAA).
+
 ---
 
 ## 6. Public Website vs. Admin Panel Design Rules

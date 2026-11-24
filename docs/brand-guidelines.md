@@ -174,3 +174,10 @@ All digital products, marketing pages, and client portals must strictly adhere t
 - **Brand Scrollbar**: Desktop viewports replace standard OS grey scrollbars with a custom Midnight Obsidian (`#040810`) track and a dark slate (`#1E293B`) pill thumb that illuminates to Solar Amber (`#F09320`) on hover.
 - **Dual-Layer Circular Cursor**: Desktop mice feature a 6px Solar Amber precision anchor dot and a 36px frosted follower ring that dynamically tracks via 60–120fps LERP easing, expanding smoothly to 58px over interactive elements.
 - **Mobile Touch Preservation**: Cursor engines are strictly suppressed on touch devices (`@media (hover: none)`).
+
+---
+
+## Floating Glassmorphic Dock & Infinity Ambient Canvas Standard (Invariant 13)
+- **Infinity Canvas**: Desktop and mobile viewports feature a 4-corner multi-spectral ambient glow (Teal top-left/bottom-right, Solar Amber top-right/bottom-left) with a 22s gentle breathing drift (`ft-infinity-drift`).
+- **Floating Glass Dock**: Desktop navigation floats 12px below top with `border-radius: 9999px;`, 24px glass blur, and chip link track.
+- **Elevated CTA**: "Book Technical Briefing" is elevated into a luxury amber dispatch capsule with a live pulsating beacon dot and embedded circular obsidian arrow pod (8.24:1 AAA).

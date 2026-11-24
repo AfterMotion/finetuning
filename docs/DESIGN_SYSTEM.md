@@ -260,6 +260,20 @@ To prevent z-fighting between fixed headers, slide drawers, dropdowns, and modal
 - Physics: LERP factor `0.18` evaluated per frame via `requestAnimationFrame`.
 - Suppressed completely under `@media (hover: none) or (pointer: coarse)`.
 
+### 5.6 Infinity Atmospheric Canvas Architecture (Invariant 13)
+- `--stage-ambient-tl`: `rgba(70, 148, 177, 0.16)` (Top-Left Nordic Teal)
+- `--stage-ambient-tr`: `rgba(240, 147, 32, 0.13)` (Top-Right Solar Amber)
+- `--stage-ambient-bl`: `rgba(240, 147, 32, 0.09)` (Bottom-Left Horizon Amber)
+- `--stage-ambient-br`: `rgba(43, 94, 112, 0.15)` (Bottom-Right Stagecraft Teal)
+- Physics: 22s infinite breathing drift (`ft-infinity-drift`) hardware-accelerated on GPU.
+
+### 5.7 Floating Glassmorphic Dock Architecture (Invariant 13)
+- `--nav-dock-bg`: `rgba(7, 13, 24, 0.82)`
+- `--nav-dock-border`: `rgba(255, 255, 255, 0.12)`
+- `--nav-dock-shadow`: `0 16px 40px -8px rgba(0, 0, 0, 0.65), 0 0 24px rgba(240, 147, 32, 0.06)`
+- Form Factor: 9999px pill capsule, 24px blur, illuminated chip link track.
+- Button: Luxury Solar Amber capsule with pulsating beacon and embedded circular obsidian arrow pod.
+
 ---
 
 ## 6. Data Visualization & Telemetry Color Conventions

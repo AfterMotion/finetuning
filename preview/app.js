@@ -866,6 +866,15 @@
   // 17. AMBIENT STAGE GLOW SPOTLIGHT & CLICK PULSE BEACON
   // --------------------------------------------------------------------------
   function initAmbientSpotlight() {
+    // Invariant 13: Auto-inject Infinity Ambient Corner Glow Canvas if not present
+    let infinityGlow = document.querySelector('.stage-glow-infinity');
+    if (!infinityGlow) {
+      infinityGlow = document.createElement('div');
+      infinityGlow.className = 'stage-glow-infinity';
+      infinityGlow.setAttribute('aria-hidden', 'true');
+      document.body.prepend(infinityGlow);
+    }
+
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight * 0.3;
     let rafPending = false;
@@ -1008,11 +1017,40 @@
     }, { passive: true });
   }
 
+  // --------------------------------------------------------------------------
+  // 19. FLOATING GLASSDOCK SCROLL CONTROLLER (Invariant 13)
+  // --------------------------------------------------------------------------
+  function initFloatingDockScroll() {
+    const mainHeader = document.querySelector('.main-header');
+    if (!mainHeader) return;
+
+    let ticking = false;
+    function updateScrollState() {
+      if (window.scrollY > 20) {
+        mainHeader.classList.add('scrolled');
+      } else {
+        mainHeader.classList.remove('scrolled');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(updateScrollState);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Initial check on page load
+    updateScrollState();
+  }
+
   // Initialize all interactive suites
   initTheme();
   initDensity();
   syncActiveNav();
   initAmbientSpotlight();
+  initFloatingDockScroll();
   initCustomCursor();
   initHeroSlider();
   initExpertiseExplorer();

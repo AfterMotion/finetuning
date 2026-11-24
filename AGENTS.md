@@ -131,6 +131,20 @@ Every agent must enforce these six invariants without exception:
   - **Interactive States**: Follower ring expands smoothly to 58px (`scale(1.6)`) with Solar Amber halo (`box-shadow: 0 0 20px rgba(240, 147, 32, 0.35)`) when hovering interactive elements (`a`, `button`, `.ft-btn`, `.partner-card`, `.work-card-interactive`, `.expertise-card`, `.slider-nav-btn`, `input`, `select`, `textarea`), and contracts to `0.8x` on click.
   - **Mobile Touch Safety**: All custom cursor styles and engines **MUST BE STRICTLY SUPPRESSED** on touch devices via `@media (hover: none) or (pointer: coarse)` to prevent interference with native gesture interactions.
 
+### Invariant 13: Floating Glassmorphic Dock Navigation & Infinity Atmospheric Canvas Standard
+- **Infinity Corner Glow Canvas**:
+  - Viewports across desktop and mobile must declare a persistent atmospheric infinity ambient canvas (`.stage-glow-infinity`) fixed to the background (`position: fixed; inset: 0; pointer-events: none; z-index: -1;`).
+  - Multi-spectral corner glow anchors: Top-Left Nordic Teal (`rgba(70, 148, 177, 0.16)`), Top-Right Solar Amber (`rgba(240, 147, 32, 0.13)`), Bottom-Left Horizon Amber (`rgba(240, 147, 32, 0.09)`), and Bottom-Right Stagecraft Teal (`rgba(43, 94, 112, 0.15)`).
+  - Motion: Driven by a gentle 22-second infinite breathing drift (`@keyframes ft-infinity-drift`), providing authentic optical luminescence behind glassmorphic surfaces.
+- **Floating Glassmorphic Capsule Dock (Desktop $\ge 1024\text{px}$)**:
+  - Header floats 12px below the top viewport edge with sculpted `border-radius: 9999px;`, 24px frosted glass blur, and perimeter amber glow.
+  - Nav links are nested inside an illuminated frosted chip track with Solar Amber active pill indicators.
+  - On scroll, header transitions to `.scrolled` state with intensified blur and border glow.
+- **Luxury Production Dispatch CTA Button**:
+  - Replaces flat rectangular buttons with a sculpted luxury amber capsule (`border-radius: 9999px;`).
+  - Incorporates a live pulsating dark indicator beacon dot (`• BOOK TECHNICAL BRIEFING`) and an embedded circular obsidian Lucide arrow pod.
+  - Strictly preserves **Invariant 1** (Solar Amber `#F09320` background with Midnight Obsidian `#070D18` text, 8.24:1 AAA contrast).
+
 ---
 
 ## 5. Multi-Stack Code Implementation Examples
